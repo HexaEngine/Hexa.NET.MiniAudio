@@ -1,10 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFrameworks>net10.0;net9.0;net8.0;net7.0;net6.0;netstandard2.1;netstandard2.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<LangVersion>12</LangVersion>
+
+		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+		<EnableSingleFileAnalyzer>true</EnableSingleFileAnalyzer>
+		<EnableAotAnalyzer>true</EnableAotAnalyzer>
+		<IsAotCompatible>true</IsAotCompatible>
+
+		<PackageId>Hexa.NET.MiniAudio</PackageId>
+		<AssemblyVersion>0.11.25</AssemblyVersion>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Description>A .NET Wrapper for miniaudio (v0.11.25), generated with the HexaGen code generator. HexaGen allows users to access native libraries easily and with high performance.</Description>
+		<PackageTags>Audio miniaudio Hexa HexaGen Source Generator C# .NET DotNet Sharp Windows macOS Android Bindings Wrapper Native</PackageTags>
+		<Authors>Juna Meinhold</Authors>
+		<Copyright>Copyright (c) 2026 Juna Meinhold</Copyright>
+		<PackageProjectUrl>https://github.com/HexaEngine/Hexa.NET.MiniAudio</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/HexaEngine/Hexa.NET.MiniAudio</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>icon.png</PackageIcon>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -71,6 +97,7 @@
 	<ItemGroup>
 		<Content Include="../LICENSE.txt" Pack="true" PackagePath="\" />
 		<Content Include="../README.md" Pack="true" PackagePath="\" />
+		<Content Include="../icon.png" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 </Project>

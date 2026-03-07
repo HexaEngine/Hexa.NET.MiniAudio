@@ -1,5 +1,7 @@
 ﻿namespace Hexa.NET.MiniAudio
 {
+    using System.Runtime.InteropServices;
+
     public static unsafe partial class MiniAudio
     {
         static MiniAudio()
@@ -9,7 +11,7 @@
 
         public static string GetLibraryName()
         {
-            if (OperatingSystem.IsWindows())
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 return "miniaudio";
             }

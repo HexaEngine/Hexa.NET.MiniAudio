@@ -82,6 +82,7 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public unsafe void* EndCallback;
 		public unsafe void* PEndCallbackUserData;
+		public MaResamplerConfig PitchResampling;
 		public MaResourceManagerPipelineNotifications InitNotifications;
 		/// <summary>
 		/// Deprecated. Use initNotifications instead. Released when the resource manager has finished decoding the entire sound. Not used with streams. <br/>
@@ -94,7 +95,7 @@ namespace Hexa.NET.MiniAudio
 		public uint IsLooping;
 
 
-		public unsafe MaSoundConfig(byte* pFilePath = default, char* pFilePathW = default, void* pDataSource = default, void* pInitialAttachment = default, uint initialAttachmentInputBusIndex = default, uint channelsIn = default, uint channelsOut = default, MaMonoExpansionMode monoExpansionMode = default, uint flags = default, uint volumeSmoothTimeInPCMFrames = default, ulong initialSeekPointInPCMFrames = default, ulong rangeBegInPCMFrames = default, ulong rangeEndInPCMFrames = default, ulong loopPointBegInPCMFrames = default, ulong loopPointEndInPCMFrames = default, delegate*<void*, MaSound*, void> endCallback = default, void* pEndCallbackUserData = default, MaResourceManagerPipelineNotifications initNotifications = default, MaFencePtr pDoneFence = default, uint isLooping = default)
+		public unsafe MaSoundConfig(byte* pFilePath = default, char* pFilePathW = default, void* pDataSource = default, void* pInitialAttachment = default, uint initialAttachmentInputBusIndex = default, uint channelsIn = default, uint channelsOut = default, MaMonoExpansionMode monoExpansionMode = default, uint flags = default, uint volumeSmoothTimeInPCMFrames = default, ulong initialSeekPointInPCMFrames = default, ulong rangeBegInPCMFrames = default, ulong rangeEndInPCMFrames = default, ulong loopPointBegInPCMFrames = default, ulong loopPointEndInPCMFrames = default, delegate*<void*, MaSound*, void> endCallback = default, void* pEndCallbackUserData = default, MaResamplerConfig pitchResampling = default, MaResourceManagerPipelineNotifications initNotifications = default, MaFencePtr pDoneFence = default, uint isLooping = default)
 		{
 			PFilePath = pFilePath;
 			PFilePathW = pFilePathW;
@@ -113,6 +114,7 @@ namespace Hexa.NET.MiniAudio
 			LoopPointEndInPCMFrames = loopPointEndInPCMFrames;
 			EndCallback = (delegate*<void*, MaSound*, void>)endCallback;
 			PEndCallbackUserData = pEndCallbackUserData;
+			PitchResampling = pitchResampling;
 			InitNotifications = initNotifications;
 			PDoneFence = pDoneFence;
 			IsLooping = isLooping;
@@ -212,6 +214,7 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public void* EndCallback { get => Handle->EndCallback; set => Handle->EndCallback = value; }
 		public void* PEndCallbackUserData { get => Handle->PEndCallbackUserData; set => Handle->PEndCallbackUserData = value; }
+		public ref MaResamplerConfig PitchResampling => ref Unsafe.AsRef<MaResamplerConfig>(&Handle->PitchResampling);
 		public ref MaResourceManagerPipelineNotifications InitNotifications => ref Unsafe.AsRef<MaResourceManagerPipelineNotifications>(&Handle->InitNotifications);
 		/// <summary>
 		/// Deprecated. Use initNotifications instead. Released when the resource manager has finished decoding the entire sound. Not used with streams. <br/>

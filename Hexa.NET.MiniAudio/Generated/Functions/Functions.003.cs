@@ -18,227 +18,6 @@ namespace Hexa.NET.MiniAudio
 	{
 
 		/// <summary>
-		/// Deinterleaves an interleaved buffer.<br/>
-		/// </summary>
-		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void* pInterleavedPCMFrames, void** ppDeinterleavedPCMFrames)
-		{
-			MaDeinterleavePcmFramesNative(format, channels, frameCount, pInterleavedPCMFrames, ppDeinterleavedPCMFrames);
-		}
-
-		/// <summary>
-		/// Deinterleaves an interleaved buffer.<br/>
-		/// </summary>
-		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, nint pInterleavedPCMFrames, void** ppDeinterleavedPCMFrames)
-		{
-			MaDeinterleavePcmFramesNative(format, channels, frameCount, (void*)pInterleavedPCMFrames, ppDeinterleavedPCMFrames);
-		}
-
-		/// <summary>
-		/// Deinterleaves an interleaved buffer.<br/>
-		/// </summary>
-		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void* pInterleavedPCMFrames, ref nint ppDeinterleavedPCMFrames)
-		{
-			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
-			{
-				MaDeinterleavePcmFramesNative(format, channels, frameCount, pInterleavedPCMFrames, (void**)pppDeinterleavedPCMFrames);
-			}
-		}
-
-		/// <summary>
-		/// Deinterleaves an interleaved buffer.<br/>
-		/// </summary>
-		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, nint pInterleavedPCMFrames, ref nint ppDeinterleavedPCMFrames)
-		{
-			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
-			{
-				MaDeinterleavePcmFramesNative(format, channels, frameCount, (void*)pInterleavedPCMFrames, (void**)pppDeinterleavedPCMFrames);
-			}
-		}
-
-		/// <summary>
-		/// Interleaves a group of deinterleaved buffers.<br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaInterleavePcmFramesNative(MaFormat format, uint channels, ulong frameCount, void** ppDeinterleavedPCMFrames, void* pInterleavedPCMFrames)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaFormat, uint, ulong, void**, void*, void>)funcTable[282])(format, channels, frameCount, ppDeinterleavedPCMFrames, pInterleavedPCMFrames);
-			#else
-			((delegate* unmanaged[Cdecl]<MaFormat, uint, ulong, nint, nint, void>)funcTable[282])(format, channels, frameCount, (nint)ppDeinterleavedPCMFrames, (nint)pInterleavedPCMFrames);
-			#endif
-		}
-
-		/// <summary>
-		/// Interleaves a group of deinterleaved buffers.<br/>
-		/// </summary>
-		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void** ppDeinterleavedPCMFrames, void* pInterleavedPCMFrames)
-		{
-			MaInterleavePcmFramesNative(format, channels, frameCount, ppDeinterleavedPCMFrames, pInterleavedPCMFrames);
-		}
-
-		/// <summary>
-		/// Interleaves a group of deinterleaved buffers.<br/>
-		/// </summary>
-		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, ref nint ppDeinterleavedPCMFrames, void* pInterleavedPCMFrames)
-		{
-			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
-			{
-				MaInterleavePcmFramesNative(format, channels, frameCount, (void**)pppDeinterleavedPCMFrames, pInterleavedPCMFrames);
-			}
-		}
-
-		/// <summary>
-		/// Interleaves a group of deinterleaved buffers.<br/>
-		/// </summary>
-		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void** ppDeinterleavedPCMFrames, nint pInterleavedPCMFrames)
-		{
-			MaInterleavePcmFramesNative(format, channels, frameCount, ppDeinterleavedPCMFrames, (void*)pInterleavedPCMFrames);
-		}
-
-		/// <summary>
-		/// Interleaves a group of deinterleaved buffers.<br/>
-		/// </summary>
-		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, ref nint ppDeinterleavedPCMFrames, nint pInterleavedPCMFrames)
-		{
-			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
-			{
-				MaInterleavePcmFramesNative(format, channels, frameCount, (void**)pppDeinterleavedPCMFrames, (void*)pInterleavedPCMFrames);
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the channel position of the specified channel in the given channel map.<br/>
-		/// The pChannelMap parameter can be null, in which case miniaudio's default channel map will be assumed.<br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte MaChannelMapGetChannelNative(byte* pChannelMap, uint channelCount, uint channelIndex)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*, uint, uint, byte>)funcTable[283])(pChannelMap, channelCount, channelIndex);
-			#else
-			return (byte)((delegate* unmanaged[Cdecl]<nint, uint, uint, byte>)funcTable[283])((nint)pChannelMap, channelCount, channelIndex);
-			#endif
-		}
-
-		/// <summary>
-		/// Retrieves the channel position of the specified channel in the given channel map.<br/>
-		/// The pChannelMap parameter can be null, in which case miniaudio's default channel map will be assumed.<br/>
-		/// </summary>
-		public static byte MaChannelMapGetChannel(byte* pChannelMap, uint channelCount, uint channelIndex)
-		{
-			byte ret = MaChannelMapGetChannelNative(pChannelMap, channelCount, channelIndex);
-			return ret;
-		}
-
-		/// <summary>
-		/// Retrieves the channel position of the specified channel in the given channel map.<br/>
-		/// The pChannelMap parameter can be null, in which case miniaudio's default channel map will be assumed.<br/>
-		/// </summary>
-		public static byte MaChannelMapGetChannel(in byte pChannelMap, uint channelCount, uint channelIndex)
-		{
-			fixed (byte* ppChannelMap = &pChannelMap)
-			{
-				byte ret = MaChannelMapGetChannelNative((byte*)ppChannelMap, channelCount, channelIndex);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// Initializes a blank channel map.<br/>
-		/// When a blank channel map is specified anywhere it indicates that the native channel map should be used.<br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaChannelMapInitBlankNative(byte* pChannelMap, uint channels)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<byte*, uint, void>)funcTable[284])(pChannelMap, channels);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, void>)funcTable[284])((nint)pChannelMap, channels);
-			#endif
-		}
-
-		/// <summary>
-		/// Initializes a blank channel map.<br/>
-		/// When a blank channel map is specified anywhere it indicates that the native channel map should be used.<br/>
-		/// </summary>
-		public static void MaChannelMapInitBlank(byte* pChannelMap, uint channels)
-		{
-			MaChannelMapInitBlankNative(pChannelMap, channels);
-		}
-
-		/// <summary>
-		/// Initializes a blank channel map.<br/>
-		/// When a blank channel map is specified anywhere it indicates that the native channel map should be used.<br/>
-		/// </summary>
-		public static void MaChannelMapInitBlank(ref byte pChannelMap, uint channels)
-		{
-			fixed (byte* ppChannelMap = &pChannelMap)
-			{
-				MaChannelMapInitBlankNative((byte*)ppChannelMap, channels);
-			}
-		}
-
-		/// <summary>
-		/// Helper for retrieving a standard channel map.<br/>
-		/// The output channel map buffer must have a capacity of at least `channelMapCap`.<br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaChannelMapInitStandardNative(MaStandardChannelMap standardChannelMap, byte* pChannelMap, nuint channelMapCap, uint channels)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaStandardChannelMap, byte*, nuint, uint, void>)funcTable[285])(standardChannelMap, pChannelMap, channelMapCap, channels);
-			#else
-			((delegate* unmanaged[Cdecl]<MaStandardChannelMap, nint, nuint, uint, void>)funcTable[285])(standardChannelMap, (nint)pChannelMap, channelMapCap, channels);
-			#endif
-		}
-
-		/// <summary>
-		/// Helper for retrieving a standard channel map.<br/>
-		/// The output channel map buffer must have a capacity of at least `channelMapCap`.<br/>
-		/// </summary>
-		public static void MaChannelMapInitStandard(MaStandardChannelMap standardChannelMap, byte* pChannelMap, nuint channelMapCap, uint channels)
-		{
-			MaChannelMapInitStandardNative(standardChannelMap, pChannelMap, channelMapCap, channels);
-		}
-
-		/// <summary>
-		/// Helper for retrieving a standard channel map.<br/>
-		/// The output channel map buffer must have a capacity of at least `channelMapCap`.<br/>
-		/// </summary>
-		public static void MaChannelMapInitStandard(MaStandardChannelMap standardChannelMap, ref byte pChannelMap, nuint channelMapCap, uint channels)
-		{
-			fixed (byte* ppChannelMap = &pChannelMap)
-			{
-				MaChannelMapInitStandardNative(standardChannelMap, (byte*)ppChannelMap, channelMapCap, channels);
-			}
-		}
-
-		/// <summary>
-		/// Copies a channel map.<br/>
-		/// Both input and output channel map buffers must have a capacity of at least `channels`.<br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaChannelMapCopyNative(byte* pOut, byte* pIn, uint channels)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<byte*, byte*, uint, void>)funcTable[286])(pOut, pIn, channels);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, uint, void>)funcTable[286])((nint)pOut, (nint)pIn, channels);
-			#endif
-		}
-
-		/// <summary>
-		/// Copies a channel map.<br/>
-		/// Both input and output channel map buffers must have a capacity of at least `channels`.<br/>
-		/// </summary>
-		public static byte MaChannelMapCopy(byte* pIn, uint channels)
-		{
-			byte ret;
-			MaChannelMapCopyNative(&ret, pIn, channels);
-			return ret;
-		}
-
-		/// <summary>
 		/// Copies a channel map.<br/>
 		/// Both input and output channel map buffers must have a capacity of at least `channels`.<br/>
 		/// </summary>
@@ -5021,6 +4800,224 @@ namespace Hexa.NET.MiniAudio
 				MaResult ret = MaPcmRbAcquireReadNative((MaPcmRb*)prB, pSizeInFrames, (void**)pppBufferOut);
 				return ret;
 			}
+		}
+
+		public static MaResult MaPcmRbAcquireRead(ref MaPcmRb prB, uint* pSizeInFrames, ref nint ppBufferOut)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				fixed (nint* pppBufferOut = &ppBufferOut)
+				{
+					MaResult ret = MaPcmRbAcquireReadNative((MaPcmRb*)pprB, pSizeInFrames, (void**)pppBufferOut);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireRead(MaPcmRbPtr prB, ref uint pSizeInFrames, ref nint ppBufferOut)
+		{
+			fixed (uint* ppSizeInFrames = &pSizeInFrames)
+			{
+				fixed (nint* pppBufferOut = &ppBufferOut)
+				{
+					MaResult ret = MaPcmRbAcquireReadNative((MaPcmRb*)prB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireRead(ref MaPcmRb prB, ref uint pSizeInFrames, ref nint ppBufferOut)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				fixed (uint* ppSizeInFrames = &pSizeInFrames)
+				{
+					fixed (nint* pppBufferOut = &ppBufferOut)
+					{
+						MaResult ret = MaPcmRbAcquireReadNative((MaPcmRb*)pprB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
+						return ret;
+					}
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaPcmRbCommitReadNative(MaPcmRb* prB, uint sizeInFrames)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[385])(prB, sizeInFrames);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[385])((nint)prB, sizeInFrames);
+			#endif
+		}
+
+		public static MaResult MaPcmRbCommitRead(MaPcmRbPtr prB, uint sizeInFrames)
+		{
+			MaResult ret = MaPcmRbCommitReadNative((MaPcmRb*)prB, sizeInFrames);
+			return ret;
+		}
+
+		public static MaResult MaPcmRbCommitRead(ref MaPcmRb prB, uint sizeInFrames)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				MaResult ret = MaPcmRbCommitReadNative((MaPcmRb*)pprB, sizeInFrames);
+				return ret;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaPcmRbAcquireWriteNative(MaPcmRb* prB, uint* pSizeInFrames, void** ppBufferOut)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint*, void**, MaResult>)funcTable[386])(prB, pSizeInFrames, ppBufferOut);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[386])((nint)prB, (nint)pSizeInFrames, (nint)ppBufferOut);
+			#endif
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, uint* pSizeInFrames, void** ppBufferOut)
+		{
+			MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, pSizeInFrames, ppBufferOut);
+			return ret;
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, uint* pSizeInFrames, void** ppBufferOut)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, pSizeInFrames, ppBufferOut);
+				return ret;
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, ref uint pSizeInFrames, void** ppBufferOut)
+		{
+			fixed (uint* ppSizeInFrames = &pSizeInFrames)
+			{
+				MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, (uint*)ppSizeInFrames, ppBufferOut);
+				return ret;
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, ref uint pSizeInFrames, void** ppBufferOut)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				fixed (uint* ppSizeInFrames = &pSizeInFrames)
+				{
+					MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, (uint*)ppSizeInFrames, ppBufferOut);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, uint* pSizeInFrames, ref nint ppBufferOut)
+		{
+			fixed (nint* pppBufferOut = &ppBufferOut)
+			{
+				MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, pSizeInFrames, (void**)pppBufferOut);
+				return ret;
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, uint* pSizeInFrames, ref nint ppBufferOut)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				fixed (nint* pppBufferOut = &ppBufferOut)
+				{
+					MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, pSizeInFrames, (void**)pppBufferOut);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, ref uint pSizeInFrames, ref nint ppBufferOut)
+		{
+			fixed (uint* ppSizeInFrames = &pSizeInFrames)
+			{
+				fixed (nint* pppBufferOut = &ppBufferOut)
+				{
+					MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, ref uint pSizeInFrames, ref nint ppBufferOut)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				fixed (uint* ppSizeInFrames = &pSizeInFrames)
+				{
+					fixed (nint* pppBufferOut = &ppBufferOut)
+					{
+						MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
+						return ret;
+					}
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaPcmRbCommitWriteNative(MaPcmRb* prB, uint sizeInFrames)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[387])(prB, sizeInFrames);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[387])((nint)prB, sizeInFrames);
+			#endif
+		}
+
+		public static MaResult MaPcmRbCommitWrite(MaPcmRbPtr prB, uint sizeInFrames)
+		{
+			MaResult ret = MaPcmRbCommitWriteNative((MaPcmRb*)prB, sizeInFrames);
+			return ret;
+		}
+
+		public static MaResult MaPcmRbCommitWrite(ref MaPcmRb prB, uint sizeInFrames)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				MaResult ret = MaPcmRbCommitWriteNative((MaPcmRb*)pprB, sizeInFrames);
+				return ret;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaPcmRbSeekReadNative(MaPcmRb* prB, uint offsetInFrames)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[388])(prB, offsetInFrames);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[388])((nint)prB, offsetInFrames);
+			#endif
+		}
+
+		public static MaResult MaPcmRbSeekRead(MaPcmRbPtr prB, uint offsetInFrames)
+		{
+			MaResult ret = MaPcmRbSeekReadNative((MaPcmRb*)prB, offsetInFrames);
+			return ret;
+		}
+
+		public static MaResult MaPcmRbSeekRead(ref MaPcmRb prB, uint offsetInFrames)
+		{
+			fixed (MaPcmRb* pprB = &prB)
+			{
+				MaResult ret = MaPcmRbSeekReadNative((MaPcmRb*)pprB, offsetInFrames);
+				return ret;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaPcmRbSeekWriteNative(MaPcmRb* prB, uint offsetInFrames)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[389])(prB, offsetInFrames);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[389])((nint)prB, offsetInFrames);
+			#endif
 		}
 	}
 }

@@ -48,8 +48,9 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public byte PinnedListenerIndex;
 
+		public MaResamplerConfig Resampling;
 
-		public unsafe MaEngineNodeConfig(MaEnginePtr pEngine = default, MaEngineNodeType type = default, uint channelsIn = default, uint channelsOut = default, uint sampleRate = default, uint volumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, byte isPitchDisabled = default, byte isSpatializationDisabled = default, byte pinnedListenerIndex = default)
+		public unsafe MaEngineNodeConfig(MaEnginePtr pEngine = default, MaEngineNodeType type = default, uint channelsIn = default, uint channelsOut = default, uint sampleRate = default, uint volumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, byte isPitchDisabled = default, byte isSpatializationDisabled = default, byte pinnedListenerIndex = default, MaResamplerConfig resampling = default)
 		{
 			PEngine = pEngine;
 			Type = type;
@@ -61,6 +62,7 @@ namespace Hexa.NET.MiniAudio
 			IsPitchDisabled = isPitchDisabled;
 			IsSpatializationDisabled = isSpatializationDisabled;
 			PinnedListenerIndex = pinnedListenerIndex;
+			Resampling = resampling;
 		}
 
 
@@ -129,6 +131,7 @@ namespace Hexa.NET.MiniAudio
 		/// The index of the listener this node should always use for spatialization. If set to MA_LISTENER_INDEX_CLOSEST the engine will use the closest listener. <br/>
 		/// </summary>
 		public ref byte PinnedListenerIndex => ref Unsafe.AsRef<byte>(&Handle->PinnedListenerIndex);
+		public ref MaResamplerConfig Resampling => ref Unsafe.AsRef<MaResamplerConfig>(&Handle->Resampling);
 	}
 
 }

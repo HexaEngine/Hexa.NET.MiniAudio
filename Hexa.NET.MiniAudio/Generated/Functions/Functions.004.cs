@@ -17,224 +17,6 @@ namespace Hexa.NET.MiniAudio
 	public unsafe partial class MiniAudio
 	{
 
-		public static MaResult MaPcmRbAcquireRead(ref MaPcmRb prB, uint* pSizeInFrames, ref nint ppBufferOut)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				fixed (nint* pppBufferOut = &ppBufferOut)
-				{
-					MaResult ret = MaPcmRbAcquireReadNative((MaPcmRb*)pprB, pSizeInFrames, (void**)pppBufferOut);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireRead(MaPcmRbPtr prB, ref uint pSizeInFrames, ref nint ppBufferOut)
-		{
-			fixed (uint* ppSizeInFrames = &pSizeInFrames)
-			{
-				fixed (nint* pppBufferOut = &ppBufferOut)
-				{
-					MaResult ret = MaPcmRbAcquireReadNative((MaPcmRb*)prB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireRead(ref MaPcmRb prB, ref uint pSizeInFrames, ref nint ppBufferOut)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				fixed (uint* ppSizeInFrames = &pSizeInFrames)
-				{
-					fixed (nint* pppBufferOut = &ppBufferOut)
-					{
-						MaResult ret = MaPcmRbAcquireReadNative((MaPcmRb*)pprB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
-						return ret;
-					}
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaPcmRbCommitReadNative(MaPcmRb* prB, uint sizeInFrames)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[385])(prB, sizeInFrames);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[385])((nint)prB, sizeInFrames);
-			#endif
-		}
-
-		public static MaResult MaPcmRbCommitRead(MaPcmRbPtr prB, uint sizeInFrames)
-		{
-			MaResult ret = MaPcmRbCommitReadNative((MaPcmRb*)prB, sizeInFrames);
-			return ret;
-		}
-
-		public static MaResult MaPcmRbCommitRead(ref MaPcmRb prB, uint sizeInFrames)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				MaResult ret = MaPcmRbCommitReadNative((MaPcmRb*)pprB, sizeInFrames);
-				return ret;
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaPcmRbAcquireWriteNative(MaPcmRb* prB, uint* pSizeInFrames, void** ppBufferOut)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint*, void**, MaResult>)funcTable[386])(prB, pSizeInFrames, ppBufferOut);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[386])((nint)prB, (nint)pSizeInFrames, (nint)ppBufferOut);
-			#endif
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, uint* pSizeInFrames, void** ppBufferOut)
-		{
-			MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, pSizeInFrames, ppBufferOut);
-			return ret;
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, uint* pSizeInFrames, void** ppBufferOut)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, pSizeInFrames, ppBufferOut);
-				return ret;
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, ref uint pSizeInFrames, void** ppBufferOut)
-		{
-			fixed (uint* ppSizeInFrames = &pSizeInFrames)
-			{
-				MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, (uint*)ppSizeInFrames, ppBufferOut);
-				return ret;
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, ref uint pSizeInFrames, void** ppBufferOut)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				fixed (uint* ppSizeInFrames = &pSizeInFrames)
-				{
-					MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, (uint*)ppSizeInFrames, ppBufferOut);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, uint* pSizeInFrames, ref nint ppBufferOut)
-		{
-			fixed (nint* pppBufferOut = &ppBufferOut)
-			{
-				MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, pSizeInFrames, (void**)pppBufferOut);
-				return ret;
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, uint* pSizeInFrames, ref nint ppBufferOut)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				fixed (nint* pppBufferOut = &ppBufferOut)
-				{
-					MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, pSizeInFrames, (void**)pppBufferOut);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(MaPcmRbPtr prB, ref uint pSizeInFrames, ref nint ppBufferOut)
-		{
-			fixed (uint* ppSizeInFrames = &pSizeInFrames)
-			{
-				fixed (nint* pppBufferOut = &ppBufferOut)
-				{
-					MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)prB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaPcmRbAcquireWrite(ref MaPcmRb prB, ref uint pSizeInFrames, ref nint ppBufferOut)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				fixed (uint* ppSizeInFrames = &pSizeInFrames)
-				{
-					fixed (nint* pppBufferOut = &ppBufferOut)
-					{
-						MaResult ret = MaPcmRbAcquireWriteNative((MaPcmRb*)pprB, (uint*)ppSizeInFrames, (void**)pppBufferOut);
-						return ret;
-					}
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaPcmRbCommitWriteNative(MaPcmRb* prB, uint sizeInFrames)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[387])(prB, sizeInFrames);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[387])((nint)prB, sizeInFrames);
-			#endif
-		}
-
-		public static MaResult MaPcmRbCommitWrite(MaPcmRbPtr prB, uint sizeInFrames)
-		{
-			MaResult ret = MaPcmRbCommitWriteNative((MaPcmRb*)prB, sizeInFrames);
-			return ret;
-		}
-
-		public static MaResult MaPcmRbCommitWrite(ref MaPcmRb prB, uint sizeInFrames)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				MaResult ret = MaPcmRbCommitWriteNative((MaPcmRb*)pprB, sizeInFrames);
-				return ret;
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaPcmRbSeekReadNative(MaPcmRb* prB, uint offsetInFrames)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[388])(prB, offsetInFrames);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[388])((nint)prB, offsetInFrames);
-			#endif
-		}
-
-		public static MaResult MaPcmRbSeekRead(MaPcmRbPtr prB, uint offsetInFrames)
-		{
-			MaResult ret = MaPcmRbSeekReadNative((MaPcmRb*)prB, offsetInFrames);
-			return ret;
-		}
-
-		public static MaResult MaPcmRbSeekRead(ref MaPcmRb prB, uint offsetInFrames)
-		{
-			fixed (MaPcmRb* pprB = &prB)
-			{
-				MaResult ret = MaPcmRbSeekReadNative((MaPcmRb*)pprB, offsetInFrames);
-				return ret;
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaPcmRbSeekWriteNative(MaPcmRb* prB, uint offsetInFrames)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaPcmRb*, uint, MaResult>)funcTable[389])(prB, offsetInFrames);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[389])((nint)prB, offsetInFrames);
-			#endif
-		}
-
 		public static MaResult MaPcmRbSeekWrite(MaPcmRbPtr prB, uint offsetInFrames)
 		{
 			MaResult ret = MaPcmRbSeekWriteNative((MaPcmRb*)prB, offsetInFrames);
@@ -5038,6 +4820,220 @@ namespace Hexa.NET.MiniAudio
 		public static MaResult MaContextEnumerateDevices(MaContextPtr pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, void* pUserData)
 		{
 			MaResult ret = MaContextEnumerateDevicesNative((MaContext*)pContext, callback, pUserData);
+			return ret;
+		}
+
+		/// <summary>
+		/// Enumerates over every device (both playback and capture).<br/>
+		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
+		/// an internal heap allocation, or it simply suits your code better.<br/>
+		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
+		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
+		/// but don't call it from within the enumeration callback.<br/>
+		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// pContext (in)<br/>
+		/// A pointer to the context performing the enumeration.<br/>
+		/// callback (in)<br/>
+		/// The callback to fire for each enumerated device.<br/>
+		/// pUserData (in)<br/>
+		/// A pointer to application-defined data passed to the callback.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Safe. This is guarded using a simple mutex lock.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
+		/// Some backends and platforms may only support default playback and capture devices.<br/>
+		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
+		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
+		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
+		/// Example 1 - Simple Enumeration<br/>
+		/// ------------------------------<br/>
+		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
+		/// {<br/>
+		/// printf("Device Name: %s\n", pInfo->name);<br/>
+		/// return MA_TRUE;<br/>
+		/// }<br/>
+		/// ma_result result = ma_context_enumerate_devices(<br/>
+		/// &context<br/>
+		/// , my_device_enum_callback, pMyUserData);<br/>
+		/// if (result != MA_SUCCESS) {<br/>
+		/// // Error.<br/>
+		/// }<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_context_get_devices()<br/>
+		/// </summary>
+		public static MaResult MaContextEnumerateDevices(ref MaContext pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, void* pUserData)
+		{
+			fixed (MaContext* ppContext = &pContext)
+			{
+				MaResult ret = MaContextEnumerateDevicesNative((MaContext*)ppContext, callback, pUserData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// Enumerates over every device (both playback and capture).<br/>
+		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
+		/// an internal heap allocation, or it simply suits your code better.<br/>
+		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
+		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
+		/// but don't call it from within the enumeration callback.<br/>
+		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// pContext (in)<br/>
+		/// A pointer to the context performing the enumeration.<br/>
+		/// callback (in)<br/>
+		/// The callback to fire for each enumerated device.<br/>
+		/// pUserData (in)<br/>
+		/// A pointer to application-defined data passed to the callback.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Safe. This is guarded using a simple mutex lock.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
+		/// Some backends and platforms may only support default playback and capture devices.<br/>
+		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
+		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
+		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
+		/// Example 1 - Simple Enumeration<br/>
+		/// ------------------------------<br/>
+		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
+		/// {<br/>
+		/// printf("Device Name: %s\n", pInfo->name);<br/>
+		/// return MA_TRUE;<br/>
+		/// }<br/>
+		/// ma_result result = ma_context_enumerate_devices(<br/>
+		/// &context<br/>
+		/// , my_device_enum_callback, pMyUserData);<br/>
+		/// if (result != MA_SUCCESS) {<br/>
+		/// // Error.<br/>
+		/// }<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_context_get_devices()<br/>
+		/// </summary>
+		public static MaResult MaContextEnumerateDevices(MaContextPtr pContext, MaEnumDevicesCallbackProc callback, void* pUserData)
+		{
+			MaResult ret = MaContextEnumerateDevicesNative((MaContext*)pContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
+			return ret;
+		}
+
+		/// <summary>
+		/// Enumerates over every device (both playback and capture).<br/>
+		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
+		/// an internal heap allocation, or it simply suits your code better.<br/>
+		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
+		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
+		/// but don't call it from within the enumeration callback.<br/>
+		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// pContext (in)<br/>
+		/// A pointer to the context performing the enumeration.<br/>
+		/// callback (in)<br/>
+		/// The callback to fire for each enumerated device.<br/>
+		/// pUserData (in)<br/>
+		/// A pointer to application-defined data passed to the callback.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Safe. This is guarded using a simple mutex lock.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
+		/// Some backends and platforms may only support default playback and capture devices.<br/>
+		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
+		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
+		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
+		/// Example 1 - Simple Enumeration<br/>
+		/// ------------------------------<br/>
+		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
+		/// {<br/>
+		/// printf("Device Name: %s\n", pInfo->name);<br/>
+		/// return MA_TRUE;<br/>
+		/// }<br/>
+		/// ma_result result = ma_context_enumerate_devices(<br/>
+		/// &context<br/>
+		/// , my_device_enum_callback, pMyUserData);<br/>
+		/// if (result != MA_SUCCESS) {<br/>
+		/// // Error.<br/>
+		/// }<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_context_get_devices()<br/>
+		/// </summary>
+		public static MaResult MaContextEnumerateDevices(ref MaContext pContext, MaEnumDevicesCallbackProc callback, void* pUserData)
+		{
+			fixed (MaContext* ppContext = &pContext)
+			{
+				MaResult ret = MaContextEnumerateDevicesNative((MaContext*)ppContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// Enumerates over every device (both playback and capture).<br/>
+		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
+		/// an internal heap allocation, or it simply suits your code better.<br/>
+		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
+		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
+		/// but don't call it from within the enumeration callback.<br/>
+		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// pContext (in)<br/>
+		/// A pointer to the context performing the enumeration.<br/>
+		/// callback (in)<br/>
+		/// The callback to fire for each enumerated device.<br/>
+		/// pUserData (in)<br/>
+		/// A pointer to application-defined data passed to the callback.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Safe. This is guarded using a simple mutex lock.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
+		/// Some backends and platforms may only support default playback and capture devices.<br/>
+		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
+		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
+		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
+		/// Example 1 - Simple Enumeration<br/>
+		/// ------------------------------<br/>
+		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
+		/// {<br/>
+		/// printf("Device Name: %s\n", pInfo->name);<br/>
+		/// return MA_TRUE;<br/>
+		/// }<br/>
+		/// ma_result result = ma_context_enumerate_devices(<br/>
+		/// &context<br/>
+		/// , my_device_enum_callback, pMyUserData);<br/>
+		/// if (result != MA_SUCCESS) {<br/>
+		/// // Error.<br/>
+		/// }<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_context_get_devices()<br/>
+		/// </summary>
+		public static MaResult MaContextEnumerateDevices(MaContextPtr pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, nint pUserData)
+		{
+			MaResult ret = MaContextEnumerateDevicesNative((MaContext*)pContext, callback, (void*)pUserData);
 			return ret;
 		}
 	}

@@ -17,166 +17,6 @@ namespace Hexa.NET.MiniAudio
 	public unsafe partial class MiniAudio
 	{
 
-		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadNodePtr pNode)
-		{
-			fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
-			{
-				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-				{
-					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)pNode);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadNodePtr pNode)
-		{
-			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
-			{
-				fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
-				{
-					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-					{
-						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)pNode);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, MaBiquadNodeConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaBiquadNode* ppNode = &pNode)
-			{
-				MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
-				return ret;
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, MaBiquadNodeConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
-			{
-				fixed (MaBiquadNode* ppNode = &pNode)
-				{
-					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, in MaBiquadNodeConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
-			{
-				fixed (MaBiquadNode* ppNode = &pNode)
-				{
-					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, in MaBiquadNodeConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
-			{
-				fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
-				{
-					fixed (MaBiquadNode* ppNode = &pNode)
-					{
-						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, MaBiquadNodeConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-			{
-				fixed (MaBiquadNode* ppNode = &pNode)
-				{
-					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, MaBiquadNodeConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
-			{
-				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-				{
-					fixed (MaBiquadNode* ppNode = &pNode)
-					{
-						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
-			{
-				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-				{
-					fixed (MaBiquadNode* ppNode = &pNode)
-					{
-						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
-		{
-			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
-			{
-				fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
-				{
-					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-					{
-						fixed (MaBiquadNode* ppNode = &pNode)
-						{
-							MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBiquadNodeReinitNative(MaBiquadConfig* pConfig, MaBiquadNode* pNode)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaBiquadConfig*, MaBiquadNode*, MaResult>)funcTable[707])(pConfig, pNode);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[707])((nint)pConfig, (nint)pNode);
-			#endif
-		}
-
-		public static MaResult MaBiquadNodeReinit(MaBiquadConfigPtr pConfig, MaBiquadNodePtr pNode)
-		{
-			MaResult ret = MaBiquadNodeReinitNative((MaBiquadConfig*)pConfig, (MaBiquadNode*)pNode);
-			return ret;
-		}
-
-		public static MaResult MaBiquadNodeReinit(in MaBiquadConfig pConfig, MaBiquadNodePtr pNode)
-		{
-			fixed (MaBiquadConfig* ppConfig = &pConfig)
-			{
-				MaResult ret = MaBiquadNodeReinitNative((MaBiquadConfig*)ppConfig, (MaBiquadNode*)pNode);
-				return ret;
-			}
-		}
-
 		public static MaResult MaBiquadNodeReinit(MaBiquadConfigPtr pConfig, ref MaBiquadNode pNode)
 		{
 			fixed (MaBiquadNode* ppNode = &pNode)
@@ -202,9 +42,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaBiquadNodeUninitNative(MaBiquadNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaBiquadNode*, MaAllocationCallbacks*, void>)funcTable[708])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaBiquadNode*, MaAllocationCallbacks*, void>)funcTable[709])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[708])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[709])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -244,9 +84,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaLpfNodeConfig MaLpfNodeConfigInitNative(uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaLpfNodeConfig>)funcTable[709])(channels, sampleRate, cutoffFrequency, order);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaLpfNodeConfig>)funcTable[710])(channels, sampleRate, cutoffFrequency, order);
 			#else
-			return (MaLpfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaLpfNodeConfig>)funcTable[709])(channels, sampleRate, cutoffFrequency, order);
+			return (MaLpfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaLpfNodeConfig>)funcTable[710])(channels, sampleRate, cutoffFrequency, order);
 			#endif
 		}
 
@@ -260,9 +100,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaLpfNodeInitNative(MaNodeGraph* pNodeGraph, MaLpfNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLpfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaLpfNodeConfig*, MaAllocationCallbacks*, MaLpfNode*, MaResult>)funcTable[710])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaLpfNodeConfig*, MaAllocationCallbacks*, MaLpfNode*, MaResult>)funcTable[711])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[710])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[711])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -462,9 +302,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaLpfNodeReinitNative(MaLpfConfig* pConfig, MaLpfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaLpfConfig*, MaLpfNode*, MaResult>)funcTable[711])(pConfig, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaLpfConfig*, MaLpfNode*, MaResult>)funcTable[712])(pConfig, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[711])((nint)pConfig, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[712])((nint)pConfig, (nint)pNode);
 			#endif
 		}
 
@@ -508,9 +348,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaLpfNodeUninitNative(MaLpfNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaLpfNode*, MaAllocationCallbacks*, void>)funcTable[712])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaLpfNode*, MaAllocationCallbacks*, void>)funcTable[713])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[712])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[713])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -550,9 +390,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaHpfNodeConfig MaHpfNodeConfigInitNative(uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaHpfNodeConfig>)funcTable[713])(channels, sampleRate, cutoffFrequency, order);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaHpfNodeConfig>)funcTable[714])(channels, sampleRate, cutoffFrequency, order);
 			#else
-			return (MaHpfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaHpfNodeConfig>)funcTable[713])(channels, sampleRate, cutoffFrequency, order);
+			return (MaHpfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaHpfNodeConfig>)funcTable[714])(channels, sampleRate, cutoffFrequency, order);
 			#endif
 		}
 
@@ -566,9 +406,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaHpfNodeInitNative(MaNodeGraph* pNodeGraph, MaHpfNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHpfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaHpfNodeConfig*, MaAllocationCallbacks*, MaHpfNode*, MaResult>)funcTable[714])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaHpfNodeConfig*, MaAllocationCallbacks*, MaHpfNode*, MaResult>)funcTable[715])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[714])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[715])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -768,9 +608,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaHpfNodeReinitNative(MaHpfConfig* pConfig, MaHpfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaHpfConfig*, MaHpfNode*, MaResult>)funcTable[715])(pConfig, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaHpfConfig*, MaHpfNode*, MaResult>)funcTable[716])(pConfig, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[715])((nint)pConfig, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[716])((nint)pConfig, (nint)pNode);
 			#endif
 		}
 
@@ -814,9 +654,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaHpfNodeUninitNative(MaHpfNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaHpfNode*, MaAllocationCallbacks*, void>)funcTable[716])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaHpfNode*, MaAllocationCallbacks*, void>)funcTable[717])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[716])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[717])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -856,9 +696,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaBpfNodeConfig MaBpfNodeConfigInitNative(uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaBpfNodeConfig>)funcTable[717])(channels, sampleRate, cutoffFrequency, order);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaBpfNodeConfig>)funcTable[718])(channels, sampleRate, cutoffFrequency, order);
 			#else
-			return (MaBpfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaBpfNodeConfig>)funcTable[717])(channels, sampleRate, cutoffFrequency, order);
+			return (MaBpfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, uint, MaBpfNodeConfig>)funcTable[718])(channels, sampleRate, cutoffFrequency, order);
 			#endif
 		}
 
@@ -872,9 +712,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaBpfNodeInitNative(MaNodeGraph* pNodeGraph, MaBpfNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBpfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaBpfNodeConfig*, MaAllocationCallbacks*, MaBpfNode*, MaResult>)funcTable[718])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaBpfNodeConfig*, MaAllocationCallbacks*, MaBpfNode*, MaResult>)funcTable[719])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[718])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[719])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -1074,9 +914,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaBpfNodeReinitNative(MaBpfConfig* pConfig, MaBpfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaBpfConfig*, MaBpfNode*, MaResult>)funcTable[719])(pConfig, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaBpfConfig*, MaBpfNode*, MaResult>)funcTable[720])(pConfig, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[719])((nint)pConfig, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[720])((nint)pConfig, (nint)pNode);
 			#endif
 		}
 
@@ -1120,9 +960,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaBpfNodeUninitNative(MaBpfNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaBpfNode*, MaAllocationCallbacks*, void>)funcTable[720])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaBpfNode*, MaAllocationCallbacks*, void>)funcTable[721])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[720])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[721])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -1162,9 +1002,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaNotchNodeConfig MaNotchNodeConfigInitNative(uint channels, uint sampleRate, double q, double frequency)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, MaNotchNodeConfig>)funcTable[721])(channels, sampleRate, q, frequency);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, MaNotchNodeConfig>)funcTable[722])(channels, sampleRate, q, frequency);
 			#else
-			return (MaNotchNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, MaNotchNodeConfig>)funcTable[721])(channels, sampleRate, q, frequency);
+			return (MaNotchNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, MaNotchNodeConfig>)funcTable[722])(channels, sampleRate, q, frequency);
 			#endif
 		}
 
@@ -1178,9 +1018,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaNotchNodeInitNative(MaNodeGraph* pNodeGraph, MaNotchNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaNotchNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaNotchNodeConfig*, MaAllocationCallbacks*, MaNotchNode*, MaResult>)funcTable[722])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaNotchNodeConfig*, MaAllocationCallbacks*, MaNotchNode*, MaResult>)funcTable[723])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[722])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[723])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -1380,9 +1220,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaNotchNodeReinitNative(MaNotch2Config* pConfig, MaNotchNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNotch2Config*, MaNotchNode*, MaResult>)funcTable[723])(pConfig, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNotch2Config*, MaNotchNode*, MaResult>)funcTable[724])(pConfig, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[723])((nint)pConfig, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[724])((nint)pConfig, (nint)pNode);
 			#endif
 		}
 
@@ -1426,9 +1266,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaNotchNodeUninitNative(MaNotchNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaNotchNode*, MaAllocationCallbacks*, void>)funcTable[724])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaNotchNode*, MaAllocationCallbacks*, void>)funcTable[725])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[724])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[725])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -1468,9 +1308,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaPeakNodeConfig MaPeakNodeConfigInitNative(uint channels, uint sampleRate, double gainDB, double q, double frequency)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaPeakNodeConfig>)funcTable[725])(channels, sampleRate, gainDB, q, frequency);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaPeakNodeConfig>)funcTable[726])(channels, sampleRate, gainDB, q, frequency);
 			#else
-			return (MaPeakNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaPeakNodeConfig>)funcTable[725])(channels, sampleRate, gainDB, q, frequency);
+			return (MaPeakNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaPeakNodeConfig>)funcTable[726])(channels, sampleRate, gainDB, q, frequency);
 			#endif
 		}
 
@@ -1484,9 +1324,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaPeakNodeInitNative(MaNodeGraph* pNodeGraph, MaPeakNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaPeakNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaPeakNodeConfig*, MaAllocationCallbacks*, MaPeakNode*, MaResult>)funcTable[726])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaPeakNodeConfig*, MaAllocationCallbacks*, MaPeakNode*, MaResult>)funcTable[727])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[726])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[727])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -1686,9 +1526,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaPeakNodeReinitNative(MaPeak2Config* pConfig, MaPeakNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaPeak2Config*, MaPeakNode*, MaResult>)funcTable[727])(pConfig, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaPeak2Config*, MaPeakNode*, MaResult>)funcTable[728])(pConfig, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[727])((nint)pConfig, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[728])((nint)pConfig, (nint)pNode);
 			#endif
 		}
 
@@ -1732,9 +1572,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaPeakNodeUninitNative(MaPeakNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaPeakNode*, MaAllocationCallbacks*, void>)funcTable[728])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaPeakNode*, MaAllocationCallbacks*, void>)funcTable[729])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[728])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[729])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -1774,9 +1614,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaLoshelfNodeConfig MaLoshelfNodeConfigInitNative(uint channels, uint sampleRate, double gainDB, double q, double frequency)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaLoshelfNodeConfig>)funcTable[729])(channels, sampleRate, gainDB, q, frequency);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaLoshelfNodeConfig>)funcTable[730])(channels, sampleRate, gainDB, q, frequency);
 			#else
-			return (MaLoshelfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaLoshelfNodeConfig>)funcTable[729])(channels, sampleRate, gainDB, q, frequency);
+			return (MaLoshelfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaLoshelfNodeConfig>)funcTable[730])(channels, sampleRate, gainDB, q, frequency);
 			#endif
 		}
 
@@ -1790,9 +1630,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaLoshelfNodeInitNative(MaNodeGraph* pNodeGraph, MaLoshelfNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLoshelfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaLoshelfNodeConfig*, MaAllocationCallbacks*, MaLoshelfNode*, MaResult>)funcTable[730])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaLoshelfNodeConfig*, MaAllocationCallbacks*, MaLoshelfNode*, MaResult>)funcTable[731])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[730])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[731])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -1992,9 +1832,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaLoshelfNodeReinitNative(MaLoshelf2Config* pConfig, MaLoshelfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaLoshelf2Config*, MaLoshelfNode*, MaResult>)funcTable[731])(pConfig, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaLoshelf2Config*, MaLoshelfNode*, MaResult>)funcTable[732])(pConfig, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[731])((nint)pConfig, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[732])((nint)pConfig, (nint)pNode);
 			#endif
 		}
 
@@ -2038,9 +1878,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaLoshelfNodeUninitNative(MaLoshelfNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaLoshelfNode*, MaAllocationCallbacks*, void>)funcTable[732])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaLoshelfNode*, MaAllocationCallbacks*, void>)funcTable[733])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[732])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[733])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -2080,9 +1920,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaHishelfNodeConfig MaHishelfNodeConfigInitNative(uint channels, uint sampleRate, double gainDB, double q, double frequency)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaHishelfNodeConfig>)funcTable[733])(channels, sampleRate, gainDB, q, frequency);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaHishelfNodeConfig>)funcTable[734])(channels, sampleRate, gainDB, q, frequency);
 			#else
-			return (MaHishelfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaHishelfNodeConfig>)funcTable[733])(channels, sampleRate, gainDB, q, frequency);
+			return (MaHishelfNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, double, double, double, MaHishelfNodeConfig>)funcTable[734])(channels, sampleRate, gainDB, q, frequency);
 			#endif
 		}
 
@@ -2096,9 +1936,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaHishelfNodeInitNative(MaNodeGraph* pNodeGraph, MaHishelfNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHishelfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaHishelfNodeConfig*, MaAllocationCallbacks*, MaHishelfNode*, MaResult>)funcTable[734])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaHishelfNodeConfig*, MaAllocationCallbacks*, MaHishelfNode*, MaResult>)funcTable[735])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[734])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[735])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -2298,9 +2138,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaHishelfNodeReinitNative(MaHishelf2Config* pConfig, MaHishelfNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaHishelf2Config*, MaHishelfNode*, MaResult>)funcTable[735])(pConfig, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaHishelf2Config*, MaHishelfNode*, MaResult>)funcTable[736])(pConfig, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[735])((nint)pConfig, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[736])((nint)pConfig, (nint)pNode);
 			#endif
 		}
 
@@ -2344,9 +2184,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaHishelfNodeUninitNative(MaHishelfNode* pNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaHishelfNode*, MaAllocationCallbacks*, void>)funcTable[736])(pNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaHishelfNode*, MaAllocationCallbacks*, void>)funcTable[737])(pNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[736])((nint)pNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[737])((nint)pNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -2386,9 +2226,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaDelayNodeConfig MaDelayNodeConfigInitNative(uint channels, uint sampleRate, uint delayInFrames, float decay)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, uint, uint, float, MaDelayNodeConfig>)funcTable[737])(channels, sampleRate, delayInFrames, decay);
+			return ((delegate* unmanaged[Cdecl]<uint, uint, uint, float, MaDelayNodeConfig>)funcTable[738])(channels, sampleRate, delayInFrames, decay);
 			#else
-			return (MaDelayNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, uint, float, MaDelayNodeConfig>)funcTable[737])(channels, sampleRate, delayInFrames, decay);
+			return (MaDelayNodeConfig)((delegate* unmanaged[Cdecl]<uint, uint, uint, float, MaDelayNodeConfig>)funcTable[738])(channels, sampleRate, delayInFrames, decay);
 			#endif
 		}
 
@@ -2402,9 +2242,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaDelayNodeInitNative(MaNodeGraph* pNodeGraph, MaDelayNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaDelayNode* pDelayNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaDelayNodeConfig*, MaAllocationCallbacks*, MaDelayNode*, MaResult>)funcTable[738])(pNodeGraph, pConfig, pAllocationCallbacks, pDelayNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaDelayNodeConfig*, MaAllocationCallbacks*, MaDelayNode*, MaResult>)funcTable[739])(pNodeGraph, pConfig, pAllocationCallbacks, pDelayNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[738])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pDelayNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[739])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pDelayNode);
 			#endif
 		}
 
@@ -2604,9 +2444,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaDelayNodeUninitNative(MaDelayNode* pDelayNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaDelayNode*, MaAllocationCallbacks*, void>)funcTable[739])(pDelayNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaDelayNode*, MaAllocationCallbacks*, void>)funcTable[740])(pDelayNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[739])((nint)pDelayNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[740])((nint)pDelayNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -2646,9 +2486,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaDelayNodeSetWetNative(MaDelayNode* pDelayNode, float value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaDelayNode*, float, void>)funcTable[740])(pDelayNode, value);
+			((delegate* unmanaged[Cdecl]<MaDelayNode*, float, void>)funcTable[741])(pDelayNode, value);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[740])((nint)pDelayNode, value);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[741])((nint)pDelayNode, value);
 			#endif
 		}
 
@@ -2669,9 +2509,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaDelayNodeGetWetNative(MaDelayNode* pDelayNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaDelayNode*, float>)funcTable[741])(pDelayNode);
+			return ((delegate* unmanaged[Cdecl]<MaDelayNode*, float>)funcTable[742])(pDelayNode);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[741])((nint)pDelayNode);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[742])((nint)pDelayNode);
 			#endif
 		}
 
@@ -2694,9 +2534,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaDelayNodeSetDryNative(MaDelayNode* pDelayNode, float value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaDelayNode*, float, void>)funcTable[742])(pDelayNode, value);
+			((delegate* unmanaged[Cdecl]<MaDelayNode*, float, void>)funcTable[743])(pDelayNode, value);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[742])((nint)pDelayNode, value);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[743])((nint)pDelayNode, value);
 			#endif
 		}
 
@@ -2717,9 +2557,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaDelayNodeGetDryNative(MaDelayNode* pDelayNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaDelayNode*, float>)funcTable[743])(pDelayNode);
+			return ((delegate* unmanaged[Cdecl]<MaDelayNode*, float>)funcTable[744])(pDelayNode);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[743])((nint)pDelayNode);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[744])((nint)pDelayNode);
 			#endif
 		}
 
@@ -2742,9 +2582,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaDelayNodeSetDecayNative(MaDelayNode* pDelayNode, float value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaDelayNode*, float, void>)funcTable[744])(pDelayNode, value);
+			((delegate* unmanaged[Cdecl]<MaDelayNode*, float, void>)funcTable[745])(pDelayNode, value);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[744])((nint)pDelayNode, value);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[745])((nint)pDelayNode, value);
 			#endif
 		}
 
@@ -2765,9 +2605,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaDelayNodeGetDecayNative(MaDelayNode* pDelayNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaDelayNode*, float>)funcTable[745])(pDelayNode);
+			return ((delegate* unmanaged[Cdecl]<MaDelayNode*, float>)funcTable[746])(pDelayNode);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[745])((nint)pDelayNode);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[746])((nint)pDelayNode);
 			#endif
 		}
 
@@ -2790,9 +2630,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaEngineNodeConfig MaEngineNodeConfigInitNative(MaEngine* pEngine, MaEngineNodeType type, uint flags)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaEngineNodeType, uint, MaEngineNodeConfig>)funcTable[746])(pEngine, type, flags);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaEngineNodeType, uint, MaEngineNodeConfig>)funcTable[747])(pEngine, type, flags);
 			#else
-			return (MaEngineNodeConfig)((delegate* unmanaged[Cdecl]<nint, MaEngineNodeType, uint, MaEngineNodeConfig>)funcTable[746])((nint)pEngine, type, flags);
+			return (MaEngineNodeConfig)((delegate* unmanaged[Cdecl]<nint, MaEngineNodeType, uint, MaEngineNodeConfig>)funcTable[747])((nint)pEngine, type, flags);
 			#endif
 		}
 
@@ -2815,9 +2655,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineNodeGetHeapSizeNative(MaEngineNodeConfig* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngineNodeConfig*, nuint*, MaResult>)funcTable[747])(pConfig, pHeapSizeInBytes);
+			return ((delegate* unmanaged[Cdecl]<MaEngineNodeConfig*, nuint*, MaResult>)funcTable[748])(pConfig, pHeapSizeInBytes);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[747])((nint)pConfig, (nint)pHeapSizeInBytes);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[748])((nint)pConfig, (nint)pHeapSizeInBytes);
 			#endif
 		}
 
@@ -2861,9 +2701,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineNodeInitPreallocatedNative(MaEngineNodeConfig* pConfig, void* pHeap, MaEngineNode* pEngineNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngineNodeConfig*, void*, MaEngineNode*, MaResult>)funcTable[748])(pConfig, pHeap, pEngineNode);
+			return ((delegate* unmanaged[Cdecl]<MaEngineNodeConfig*, void*, MaEngineNode*, MaResult>)funcTable[749])(pConfig, pHeap, pEngineNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[748])((nint)pConfig, (nint)pHeap, (nint)pEngineNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[749])((nint)pConfig, (nint)pHeap, (nint)pEngineNode);
 			#endif
 		}
 
@@ -2943,9 +2783,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineNodeInitNative(MaEngineNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaEngineNode* pEngineNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngineNodeConfig*, MaAllocationCallbacks*, MaEngineNode*, MaResult>)funcTable[749])(pConfig, pAllocationCallbacks, pEngineNode);
+			return ((delegate* unmanaged[Cdecl]<MaEngineNodeConfig*, MaAllocationCallbacks*, MaEngineNode*, MaResult>)funcTable[750])(pConfig, pAllocationCallbacks, pEngineNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[749])((nint)pConfig, (nint)pAllocationCallbacks, (nint)pEngineNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[750])((nint)pConfig, (nint)pAllocationCallbacks, (nint)pEngineNode);
 			#endif
 		}
 
@@ -3037,9 +2877,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineNodeUninitNative(MaEngineNode* pEngineNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngineNode*, MaAllocationCallbacks*, void>)funcTable[750])(pEngineNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaEngineNode*, MaAllocationCallbacks*, void>)funcTable[751])(pEngineNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[750])((nint)pEngineNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[751])((nint)pEngineNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -3079,9 +2919,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaSoundConfig MaSoundConfigInitNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[751])();
+			return ((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[752])();
 			#else
-			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[751])();
+			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[752])();
 			#endif
 		}
 
@@ -3095,9 +2935,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaSoundConfig MaSoundConfigInit2Native(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaSoundConfig>)funcTable[752])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaSoundConfig>)funcTable[753])(pEngine);
 			#else
-			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<nint, MaSoundConfig>)funcTable[752])((nint)pEngine);
+			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<nint, MaSoundConfig>)funcTable[753])((nint)pEngine);
 			#endif
 		}
 
@@ -3120,9 +2960,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaSoundConfig MaSoundGroupConfigInitNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[753])();
+			return ((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[754])();
 			#else
-			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[753])();
+			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<MaSoundConfig>)funcTable[754])();
 			#endif
 		}
 
@@ -3136,9 +2976,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaSoundConfig MaSoundGroupConfigInit2Native(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaSoundConfig>)funcTable[754])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaSoundConfig>)funcTable[755])(pEngine);
 			#else
-			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<nint, MaSoundConfig>)funcTable[754])((nint)pEngine);
+			return (MaSoundConfig)((delegate* unmanaged[Cdecl]<nint, MaSoundConfig>)funcTable[755])((nint)pEngine);
 			#endif
 		}
 
@@ -3161,9 +3001,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaEngineConfig MaEngineConfigInitNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngineConfig>)funcTable[755])();
+			return ((delegate* unmanaged[Cdecl]<MaEngineConfig>)funcTable[756])();
 			#else
-			return (MaEngineConfig)((delegate* unmanaged[Cdecl]<MaEngineConfig>)funcTable[755])();
+			return (MaEngineConfig)((delegate* unmanaged[Cdecl]<MaEngineConfig>)funcTable[756])();
 			#endif
 		}
 
@@ -3177,9 +3017,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineInitNative(MaEngineConfig* pConfig, MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngineConfig*, MaEngine*, MaResult>)funcTable[756])(pConfig, pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngineConfig*, MaEngine*, MaResult>)funcTable[757])(pConfig, pEngine);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[756])((nint)pConfig, (nint)pEngine);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[757])((nint)pConfig, (nint)pEngine);
 			#endif
 		}
 
@@ -3223,9 +3063,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineUninitNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, void>)funcTable[757])(pEngine);
+			((delegate* unmanaged[Cdecl]<MaEngine*, void>)funcTable[758])(pEngine);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[757])((nint)pEngine);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[758])((nint)pEngine);
 			#endif
 		}
 
@@ -3246,9 +3086,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineReadPcmFramesNative(MaEngine* pEngine, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, void*, ulong, ulong*, MaResult>)funcTable[758])(pEngine, pFramesOut, frameCount, pFramesRead);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, void*, ulong, ulong*, MaResult>)funcTable[759])(pEngine, pFramesOut, frameCount, pFramesRead);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, ulong, nint, MaResult>)funcTable[758])((nint)pEngine, (nint)pFramesOut, frameCount, (nint)pFramesRead);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, ulong, nint, MaResult>)funcTable[759])((nint)pEngine, (nint)pFramesOut, frameCount, (nint)pFramesRead);
 			#endif
 		}
 
@@ -3328,9 +3168,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaNodeGraph* MaEngineGetNodeGraphNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaNodeGraph*>)funcTable[759])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaNodeGraph*>)funcTable[760])(pEngine);
 			#else
-			return (MaNodeGraph*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[759])((nint)pEngine);
+			return (MaNodeGraph*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[760])((nint)pEngine);
 			#endif
 		}
 
@@ -3353,9 +3193,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResourceManager* MaEngineGetResourceManagerNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaResourceManager*>)funcTable[760])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaResourceManager*>)funcTable[761])(pEngine);
 			#else
-			return (MaResourceManager*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[760])((nint)pEngine);
+			return (MaResourceManager*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[761])((nint)pEngine);
 			#endif
 		}
 
@@ -3378,9 +3218,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaDevice* MaEngineGetDeviceNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaDevice*>)funcTable[761])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaDevice*>)funcTable[762])(pEngine);
 			#else
-			return (MaDevice*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[761])((nint)pEngine);
+			return (MaDevice*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[762])((nint)pEngine);
 			#endif
 		}
 
@@ -3403,9 +3243,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaLog* MaEngineGetLogNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaLog*>)funcTable[762])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaLog*>)funcTable[763])(pEngine);
 			#else
-			return (MaLog*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[762])((nint)pEngine);
+			return (MaLog*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[763])((nint)pEngine);
 			#endif
 		}
 
@@ -3428,9 +3268,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void* MaEngineGetEndpointNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, void*>)funcTable[763])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, void*>)funcTable[764])(pEngine);
 			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[763])((nint)pEngine);
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[764])((nint)pEngine);
 			#endif
 		}
 
@@ -3453,9 +3293,9 @@ namespace Hexa.NET.MiniAudio
 		internal static ulong MaEngineGetTimeInPcmFramesNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong>)funcTable[764])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong>)funcTable[765])(pEngine);
 			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[764])((nint)pEngine);
+			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[765])((nint)pEngine);
 			#endif
 		}
 
@@ -3478,9 +3318,9 @@ namespace Hexa.NET.MiniAudio
 		internal static ulong MaEngineGetTimeInMillisecondsNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong>)funcTable[765])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong>)funcTable[766])(pEngine);
 			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[765])((nint)pEngine);
+			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[766])((nint)pEngine);
 			#endif
 		}
 
@@ -3503,9 +3343,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineSetTimeInPcmFramesNative(MaEngine* pEngine, ulong globalTime)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong, MaResult>)funcTable[766])(pEngine, globalTime);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong, MaResult>)funcTable[767])(pEngine, globalTime);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, ulong, MaResult>)funcTable[766])((nint)pEngine, globalTime);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, ulong, MaResult>)funcTable[767])((nint)pEngine, globalTime);
 			#endif
 		}
 
@@ -3528,9 +3368,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineSetTimeInMillisecondsNative(MaEngine* pEngine, ulong globalTime)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong, MaResult>)funcTable[767])(pEngine, globalTime);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong, MaResult>)funcTable[768])(pEngine, globalTime);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, ulong, MaResult>)funcTable[767])((nint)pEngine, globalTime);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, ulong, MaResult>)funcTable[768])((nint)pEngine, globalTime);
 			#endif
 		}
 
@@ -3553,9 +3393,9 @@ namespace Hexa.NET.MiniAudio
 		internal static ulong MaEngineGetTimeNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong>)funcTable[768])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong>)funcTable[769])(pEngine);
 			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[768])((nint)pEngine);
+			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[769])((nint)pEngine);
 			#endif
 		}
 
@@ -3578,9 +3418,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineSetTimeNative(MaEngine* pEngine, ulong globalTime)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong, MaResult>)funcTable[769])(pEngine, globalTime);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, ulong, MaResult>)funcTable[770])(pEngine, globalTime);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, ulong, MaResult>)funcTable[769])((nint)pEngine, globalTime);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, ulong, MaResult>)funcTable[770])((nint)pEngine, globalTime);
 			#endif
 		}
 
@@ -3603,9 +3443,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaEngineGetChannelsNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint>)funcTable[770])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint>)funcTable[771])(pEngine);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[770])((nint)pEngine);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[771])((nint)pEngine);
 			#endif
 		}
 
@@ -3628,9 +3468,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaEngineGetSampleRateNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint>)funcTable[771])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint>)funcTable[772])(pEngine);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[771])((nint)pEngine);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[772])((nint)pEngine);
 			#endif
 		}
 
@@ -3653,9 +3493,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineStartNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaResult>)funcTable[772])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaResult>)funcTable[773])(pEngine);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[772])((nint)pEngine);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[773])((nint)pEngine);
 			#endif
 		}
 
@@ -3678,9 +3518,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineStopNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaResult>)funcTable[773])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaResult>)funcTable[774])(pEngine);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[773])((nint)pEngine);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[774])((nint)pEngine);
 			#endif
 		}
 
@@ -3703,9 +3543,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineSetVolumeNative(MaEngine* pEngine, float volume)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, float, MaResult>)funcTable[774])(pEngine, volume);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, float, MaResult>)funcTable[775])(pEngine, volume);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, float, MaResult>)funcTable[774])((nint)pEngine, volume);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, float, MaResult>)funcTable[775])((nint)pEngine, volume);
 			#endif
 		}
 
@@ -3728,9 +3568,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaEngineGetVolumeNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, float>)funcTable[775])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, float>)funcTable[776])(pEngine);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[775])((nint)pEngine);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[776])((nint)pEngine);
 			#endif
 		}
 
@@ -3753,9 +3593,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEngineSetGainDbNative(MaEngine* pEngine, float gainDB)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, float, MaResult>)funcTable[776])(pEngine, gainDB);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, float, MaResult>)funcTable[777])(pEngine, gainDB);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, float, MaResult>)funcTable[776])((nint)pEngine, gainDB);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, float, MaResult>)funcTable[777])((nint)pEngine, gainDB);
 			#endif
 		}
 
@@ -3778,9 +3618,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaEngineGetGainDbNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, float>)funcTable[777])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, float>)funcTable[778])(pEngine);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[777])((nint)pEngine);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[778])((nint)pEngine);
 			#endif
 		}
 
@@ -3803,9 +3643,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaEngineGetListenerCountNative(MaEngine* pEngine)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint>)funcTable[778])(pEngine);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint>)funcTable[779])(pEngine);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[778])((nint)pEngine);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[779])((nint)pEngine);
 			#endif
 		}
 
@@ -3828,9 +3668,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaEngineFindClosestListenerNative(MaEngine* pEngine, float absolutePosX, float absolutePosY, float absolutePosZ)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, float, float, float, uint>)funcTable[779])(pEngine, absolutePosX, absolutePosY, absolutePosZ);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, float, float, float, uint>)funcTable[780])(pEngine, absolutePosX, absolutePosY, absolutePosZ);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, float, float, float, uint>)funcTable[779])((nint)pEngine, absolutePosX, absolutePosY, absolutePosZ);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, float, float, float, uint>)funcTable[780])((nint)pEngine, absolutePosX, absolutePosY, absolutePosZ);
 			#endif
 		}
 
@@ -3853,9 +3693,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineListenerSetPositionNative(MaEngine* pEngine, uint listenerIndex, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[780])(pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[781])(pEngine, listenerIndex, x, y, z);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[780])((nint)pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[781])((nint)pEngine, listenerIndex, x, y, z);
 			#endif
 		}
 
@@ -3876,9 +3716,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaEngineListenerGetPositionNative(MaEngine* pEngine, uint listenerIndex)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[781])(pEngine, listenerIndex);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[782])(pEngine, listenerIndex);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[781])((nint)pEngine, listenerIndex);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[782])((nint)pEngine, listenerIndex);
 			#endif
 		}
 
@@ -3901,9 +3741,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineListenerSetDirectionNative(MaEngine* pEngine, uint listenerIndex, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[782])(pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[783])(pEngine, listenerIndex, x, y, z);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[782])((nint)pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[783])((nint)pEngine, listenerIndex, x, y, z);
 			#endif
 		}
 
@@ -3924,9 +3764,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaEngineListenerGetDirectionNative(MaEngine* pEngine, uint listenerIndex)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[783])(pEngine, listenerIndex);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[784])(pEngine, listenerIndex);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[783])((nint)pEngine, listenerIndex);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[784])((nint)pEngine, listenerIndex);
 			#endif
 		}
 
@@ -3949,9 +3789,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineListenerSetVelocityNative(MaEngine* pEngine, uint listenerIndex, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[784])(pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[785])(pEngine, listenerIndex, x, y, z);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[784])((nint)pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[785])((nint)pEngine, listenerIndex, x, y, z);
 			#endif
 		}
 
@@ -3972,9 +3812,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaEngineListenerGetVelocityNative(MaEngine* pEngine, uint listenerIndex)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[785])(pEngine, listenerIndex);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[786])(pEngine, listenerIndex);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[785])((nint)pEngine, listenerIndex);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[786])((nint)pEngine, listenerIndex);
 			#endif
 		}
 
@@ -3997,9 +3837,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineListenerSetConeNative(MaEngine* pEngine, uint listenerIndex, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[786])(pEngine, listenerIndex, innerAngleInRadians, outerAngleInRadians, outerGain);
+			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[787])(pEngine, listenerIndex, innerAngleInRadians, outerAngleInRadians, outerGain);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[786])((nint)pEngine, listenerIndex, innerAngleInRadians, outerAngleInRadians, outerGain);
+			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[787])((nint)pEngine, listenerIndex, innerAngleInRadians, outerAngleInRadians, outerGain);
 			#endif
 		}
 
@@ -4020,9 +3860,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineListenerGetConeNative(MaEngine* pEngine, uint listenerIndex, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float*, float*, float*, void>)funcTable[787])(pEngine, listenerIndex, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
+			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float*, float*, float*, void>)funcTable[788])(pEngine, listenerIndex, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, nint, nint, nint, void>)funcTable[787])((nint)pEngine, listenerIndex, (nint)pInnerAngleInRadians, (nint)pOuterAngleInRadians, (nint)pOuterGain);
+			((delegate* unmanaged[Cdecl]<nint, uint, nint, nint, nint, void>)funcTable[788])((nint)pEngine, listenerIndex, (nint)pInnerAngleInRadians, (nint)pOuterAngleInRadians, (nint)pOuterGain);
 			#endif
 		}
 
@@ -4206,9 +4046,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineListenerSetWorldUpNative(MaEngine* pEngine, uint listenerIndex, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[788])(pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<MaEngine*, uint, float, float, float, void>)funcTable[789])(pEngine, listenerIndex, x, y, z);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[788])((nint)pEngine, listenerIndex, x, y, z);
+			((delegate* unmanaged[Cdecl]<nint, uint, float, float, float, void>)funcTable[789])((nint)pEngine, listenerIndex, x, y, z);
 			#endif
 		}
 
@@ -4229,9 +4069,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaEngineListenerGetWorldUpNative(MaEngine* pEngine, uint listenerIndex)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[789])(pEngine, listenerIndex);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaVec3F>)funcTable[790])(pEngine, listenerIndex);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[789])((nint)pEngine, listenerIndex);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, uint, MaVec3F>)funcTable[790])((nint)pEngine, listenerIndex);
 			#endif
 		}
 
@@ -4254,9 +4094,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaEngineListenerSetEnabledNative(MaEngine* pEngine, uint listenerIndex, uint isEnabled)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaEngine*, uint, uint, void>)funcTable[790])(pEngine, listenerIndex, isEnabled);
+			((delegate* unmanaged[Cdecl]<MaEngine*, uint, uint, void>)funcTable[791])(pEngine, listenerIndex, isEnabled);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, uint, void>)funcTable[790])((nint)pEngine, listenerIndex, isEnabled);
+			((delegate* unmanaged[Cdecl]<nint, uint, uint, void>)funcTable[791])((nint)pEngine, listenerIndex, isEnabled);
 			#endif
 		}
 
@@ -4277,9 +4117,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaEngineListenerIsEnabledNative(MaEngine* pEngine, uint listenerIndex)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, uint>)funcTable[791])(pEngine, listenerIndex);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, uint>)funcTable[792])(pEngine, listenerIndex);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint, uint>)funcTable[791])((nint)pEngine, listenerIndex);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint, uint>)funcTable[792])((nint)pEngine, listenerIndex);
 			#endif
 		}
 
@@ -4302,9 +4142,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEnginePlaySoundExNative(MaEngine* pEngine, byte* pFilePath, void* pNode, uint nodeInputBusIndex)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, byte*, void*, uint, MaResult>)funcTable[792])(pEngine, pFilePath, pNode, nodeInputBusIndex);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, byte*, void*, uint, MaResult>)funcTable[793])(pEngine, pFilePath, pNode, nodeInputBusIndex);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, uint, MaResult>)funcTable[792])((nint)pEngine, (nint)pFilePath, (nint)pNode, nodeInputBusIndex);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, uint, MaResult>)funcTable[793])((nint)pEngine, (nint)pFilePath, (nint)pNode, nodeInputBusIndex);
 			#endif
 		}
 
@@ -4540,9 +4380,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaEnginePlaySoundNative(MaEngine* pEngine, byte* pFilePath, MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, byte*, MaSound*, MaResult>)funcTable[793])(pEngine, pFilePath, pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, byte*, MaSound*, MaResult>)funcTable[794])(pEngine, pFilePath, pGroup);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[793])((nint)pEngine, (nint)pFilePath, (nint)pGroup);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[794])((nint)pEngine, (nint)pFilePath, (nint)pGroup);
 			#endif
 		}
 
@@ -4802,9 +4642,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaSoundInitFromFileNative(MaEngine* pEngine, byte* pFilePath, uint flags, MaSound* pGroup, MaFence* pDoneFence, MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaEngine*, byte*, uint, MaSound*, MaFence*, MaSound*, MaResult>)funcTable[794])(pEngine, pFilePath, flags, pGroup, pDoneFence, pSound);
+			return ((delegate* unmanaged[Cdecl]<MaEngine*, byte*, uint, MaSound*, MaFence*, MaSound*, MaResult>)funcTable[795])(pEngine, pFilePath, flags, pGroup, pDoneFence, pSound);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, uint, nint, nint, nint, MaResult>)funcTable[794])((nint)pEngine, (nint)pFilePath, flags, (nint)pGroup, (nint)pDoneFence, (nint)pSound);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, uint, nint, nint, nint, MaResult>)funcTable[795])((nint)pEngine, (nint)pFilePath, flags, (nint)pGroup, (nint)pDoneFence, (nint)pSound);
 			#endif
 		}
 
@@ -5023,6 +4863,177 @@ namespace Hexa.NET.MiniAudio
 						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 						return ret;
 					}
+				}
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (MaEngine* ppEngine = &pEngine)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pFilePath != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(pFilePath);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (MaSound* ppGroup = &pGroup)
+				{
+					MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (MaFence* ppDoneFence = &pDoneFence)
+			{
+				MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+				return ret;
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (MaEngine* ppEngine = &pEngine)
+			{
+				fixed (MaFence* ppDoneFence = &pDoneFence)
+				{
+					MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (byte* ppFilePath = &pFilePath)
+			{
+				fixed (MaFence* ppDoneFence = &pDoneFence)
+				{
+					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (byte* ppFilePath = pFilePath)
+			{
+				fixed (MaFence* ppDoneFence = &pDoneFence)
+				{
+					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pFilePath != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(pFilePath);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (MaFence* ppDoneFence = &pDoneFence)
+			{
+				MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (MaEngine* ppEngine = &pEngine)
+			{
+				fixed (byte* ppFilePath = &pFilePath)
+				{
+					fixed (MaFence* ppDoneFence = &pDoneFence)
+					{
+						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (MaEngine* ppEngine = &pEngine)
+			{
+				fixed (byte* ppFilePath = pFilePath)
+				{
+					fixed (MaFence* ppDoneFence = &pDoneFence)
+					{
+						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		{
+			fixed (MaEngine* ppEngine = &pEngine)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pFilePath != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(pFilePath);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (MaFence* ppDoneFence = &pDoneFence)
+				{
+					MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
 				}
 			}
 		}

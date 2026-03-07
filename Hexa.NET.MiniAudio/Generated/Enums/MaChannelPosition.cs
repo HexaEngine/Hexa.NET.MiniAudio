@@ -66,8 +66,19 @@ namespace Hexa.NET.MiniAudio
 		Aux29 = unchecked(49),
 		Aux30 = unchecked(50),
 		Aux31 = unchecked(51),
-		Left = FrontLeft,
-		Right = FrontRight,
+		/// <summary>
+		/// Count. <br/>
+		/// </summary>
 		Count = unchecked(52),
+
+		/// <summary>
+		/// Aliases. <br/>
+		/// </summary>
+		Left = FrontLeft,
+
+		/// <summary>
+		/// Aliases. <br/>
+		/// </summary>
+		Right = FrontRight,
 	}
 }

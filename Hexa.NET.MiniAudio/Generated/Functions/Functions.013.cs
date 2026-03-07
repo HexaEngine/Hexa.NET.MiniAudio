@@ -18,85 +18,12 @@ namespace Hexa.NET.MiniAudio
 	{
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundGroupUninitNative(MaSound* pGroup)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, void>)funcTable[873])(pGroup);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[873])((nint)pGroup);
-			#endif
-		}
-
-		public static void MaSoundGroupUninit(MaSoundPtr pGroup)
-		{
-			MaSoundGroupUninitNative((MaSound*)pGroup);
-		}
-
-		public static void MaSoundGroupUninit(ref MaSound pGroup)
-		{
-			fixed (MaSound* ppGroup = &pGroup)
-			{
-				MaSoundGroupUninitNative((MaSound*)ppGroup);
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaEngine* MaSoundGroupGetEngineNative(MaSound* pGroup)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaEngine*>)funcTable[874])(pGroup);
-			#else
-			return (MaEngine*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[874])((nint)pGroup);
-			#endif
-		}
-
-		public static MaEnginePtr MaSoundGroupGetEngine(MaSoundPtr pGroup)
-		{
-			MaEnginePtr ret = MaSoundGroupGetEngineNative((MaSound*)pGroup);
-			return ret;
-		}
-
-		public static MaEnginePtr MaSoundGroupGetEngine(in MaSound pGroup)
-		{
-			fixed (MaSound* ppGroup = &pGroup)
-			{
-				MaEnginePtr ret = MaSoundGroupGetEngineNative((MaSound*)ppGroup);
-				return ret;
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGroupStartNative(MaSound* pGroup)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaResult>)funcTable[875])(pGroup);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[875])((nint)pGroup);
-			#endif
-		}
-
-		public static MaResult MaSoundGroupStart(MaSoundPtr pGroup)
-		{
-			MaResult ret = MaSoundGroupStartNative((MaSound*)pGroup);
-			return ret;
-		}
-
-		public static MaResult MaSoundGroupStart(ref MaSound pGroup)
-		{
-			fixed (MaSound* ppGroup = &pGroup)
-			{
-				MaResult ret = MaSoundGroupStartNative((MaSound*)ppGroup);
-				return ret;
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static MaResult MaSoundGroupStopNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaResult>)funcTable[876])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaResult>)funcTable[881])(pGroup);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[876])((nint)pGroup);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[881])((nint)pGroup);
 			#endif
 		}
 
@@ -119,9 +46,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetVolumeNative(MaSound* pGroup, float volume)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[877])(pGroup, volume);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[882])(pGroup, volume);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[877])((nint)pGroup, volume);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[882])((nint)pGroup, volume);
 			#endif
 		}
 
@@ -142,9 +69,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetVolumeNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[878])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[883])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[878])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[883])((nint)pGroup);
 			#endif
 		}
 
@@ -167,9 +94,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetPanNative(MaSound* pGroup, float pan)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[879])(pGroup, pan);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[884])(pGroup, pan);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[879])((nint)pGroup, pan);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[884])((nint)pGroup, pan);
 			#endif
 		}
 
@@ -190,9 +117,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetPanNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[880])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[885])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[880])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[885])((nint)pGroup);
 			#endif
 		}
 
@@ -215,9 +142,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetPanModeNative(MaSound* pGroup, MaPanMode panMode)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, MaPanMode, void>)funcTable[881])(pGroup, panMode);
+			((delegate* unmanaged[Cdecl]<MaSound*, MaPanMode, void>)funcTable[886])(pGroup, panMode);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, MaPanMode, void>)funcTable[881])((nint)pGroup, panMode);
+			((delegate* unmanaged[Cdecl]<nint, MaPanMode, void>)funcTable[886])((nint)pGroup, panMode);
 			#endif
 		}
 
@@ -238,9 +165,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaPanMode MaSoundGroupGetPanModeNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaPanMode>)funcTable[882])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaPanMode>)funcTable[887])(pGroup);
 			#else
-			return (MaPanMode)((delegate* unmanaged[Cdecl]<nint, MaPanMode>)funcTable[882])((nint)pGroup);
+			return (MaPanMode)((delegate* unmanaged[Cdecl]<nint, MaPanMode>)funcTable[887])((nint)pGroup);
 			#endif
 		}
 
@@ -263,9 +190,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetPitchNative(MaSound* pGroup, float pitch)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[883])(pGroup, pitch);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[888])(pGroup, pitch);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[883])((nint)pGroup, pitch);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[888])((nint)pGroup, pitch);
 			#endif
 		}
 
@@ -286,9 +213,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetPitchNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[884])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[889])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[884])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[889])((nint)pGroup);
 			#endif
 		}
 
@@ -311,9 +238,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetSpatializationEnabledNative(MaSound* pGroup, uint enabled)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, uint, void>)funcTable[885])(pGroup, enabled);
+			((delegate* unmanaged[Cdecl]<MaSound*, uint, void>)funcTable[890])(pGroup, enabled);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, void>)funcTable[885])((nint)pGroup, enabled);
+			((delegate* unmanaged[Cdecl]<nint, uint, void>)funcTable[890])((nint)pGroup, enabled);
 			#endif
 		}
 
@@ -334,9 +261,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaSoundGroupIsSpatializationEnabledNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[886])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[891])(pGroup);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[886])((nint)pGroup);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[891])((nint)pGroup);
 			#endif
 		}
 
@@ -359,9 +286,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetPinnedListenerIndexNative(MaSound* pGroup, uint listenerIndex)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, uint, void>)funcTable[887])(pGroup, listenerIndex);
+			((delegate* unmanaged[Cdecl]<MaSound*, uint, void>)funcTable[892])(pGroup, listenerIndex);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, uint, void>)funcTable[887])((nint)pGroup, listenerIndex);
+			((delegate* unmanaged[Cdecl]<nint, uint, void>)funcTable[892])((nint)pGroup, listenerIndex);
 			#endif
 		}
 
@@ -382,9 +309,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaSoundGroupGetPinnedListenerIndexNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[888])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[893])(pGroup);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[888])((nint)pGroup);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[893])((nint)pGroup);
 			#endif
 		}
 
@@ -407,9 +334,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaSoundGroupGetListenerIndexNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[889])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[894])(pGroup);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[889])((nint)pGroup);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[894])((nint)pGroup);
 			#endif
 		}
 
@@ -432,9 +359,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaSoundGroupGetDirectionToListenerNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[890])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[895])(pGroup);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[890])((nint)pGroup);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[895])((nint)pGroup);
 			#endif
 		}
 
@@ -457,9 +384,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetPositionNative(MaSound* pGroup, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[891])(pGroup, x, y, z);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[896])(pGroup, x, y, z);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[891])((nint)pGroup, x, y, z);
+			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[896])((nint)pGroup, x, y, z);
 			#endif
 		}
 
@@ -480,9 +407,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaSoundGroupGetPositionNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[892])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[897])(pGroup);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[892])((nint)pGroup);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[897])((nint)pGroup);
 			#endif
 		}
 
@@ -505,9 +432,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetDirectionNative(MaSound* pGroup, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[893])(pGroup, x, y, z);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[898])(pGroup, x, y, z);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[893])((nint)pGroup, x, y, z);
+			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[898])((nint)pGroup, x, y, z);
 			#endif
 		}
 
@@ -528,9 +455,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaSoundGroupGetDirectionNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[894])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[899])(pGroup);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[894])((nint)pGroup);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[899])((nint)pGroup);
 			#endif
 		}
 
@@ -553,9 +480,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetVelocityNative(MaSound* pGroup, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[895])(pGroup, x, y, z);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[900])(pGroup, x, y, z);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[895])((nint)pGroup, x, y, z);
+			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[900])((nint)pGroup, x, y, z);
 			#endif
 		}
 
@@ -576,9 +503,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaVec3F MaSoundGroupGetVelocityNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[896])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[901])(pGroup);
 			#else
-			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[896])((nint)pGroup);
+			return (MaVec3F)((delegate* unmanaged[Cdecl]<nint, MaVec3F>)funcTable[901])((nint)pGroup);
 			#endif
 		}
 
@@ -601,9 +528,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetAttenuationModelNative(MaSound* pGroup, MaAttenuationModel attenuationModel)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, MaAttenuationModel, void>)funcTable[897])(pGroup, attenuationModel);
+			((delegate* unmanaged[Cdecl]<MaSound*, MaAttenuationModel, void>)funcTable[902])(pGroup, attenuationModel);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, MaAttenuationModel, void>)funcTable[897])((nint)pGroup, attenuationModel);
+			((delegate* unmanaged[Cdecl]<nint, MaAttenuationModel, void>)funcTable[902])((nint)pGroup, attenuationModel);
 			#endif
 		}
 
@@ -624,9 +551,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaAttenuationModel MaSoundGroupGetAttenuationModelNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaAttenuationModel>)funcTable[898])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaAttenuationModel>)funcTable[903])(pGroup);
 			#else
-			return (MaAttenuationModel)((delegate* unmanaged[Cdecl]<nint, MaAttenuationModel>)funcTable[898])((nint)pGroup);
+			return (MaAttenuationModel)((delegate* unmanaged[Cdecl]<nint, MaAttenuationModel>)funcTable[903])((nint)pGroup);
 			#endif
 		}
 
@@ -649,9 +576,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetPositioningNative(MaSound* pGroup, MaPositioning positioning)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, MaPositioning, void>)funcTable[899])(pGroup, positioning);
+			((delegate* unmanaged[Cdecl]<MaSound*, MaPositioning, void>)funcTable[904])(pGroup, positioning);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, MaPositioning, void>)funcTable[899])((nint)pGroup, positioning);
+			((delegate* unmanaged[Cdecl]<nint, MaPositioning, void>)funcTable[904])((nint)pGroup, positioning);
 			#endif
 		}
 
@@ -672,9 +599,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaPositioning MaSoundGroupGetPositioningNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, MaPositioning>)funcTable[900])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, MaPositioning>)funcTable[905])(pGroup);
 			#else
-			return (MaPositioning)((delegate* unmanaged[Cdecl]<nint, MaPositioning>)funcTable[900])((nint)pGroup);
+			return (MaPositioning)((delegate* unmanaged[Cdecl]<nint, MaPositioning>)funcTable[905])((nint)pGroup);
 			#endif
 		}
 
@@ -697,9 +624,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetRolloffNative(MaSound* pGroup, float rolloff)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[901])(pGroup, rolloff);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[906])(pGroup, rolloff);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[901])((nint)pGroup, rolloff);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[906])((nint)pGroup, rolloff);
 			#endif
 		}
 
@@ -720,9 +647,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetRolloffNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[902])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[907])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[902])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[907])((nint)pGroup);
 			#endif
 		}
 
@@ -745,9 +672,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetMinGainNative(MaSound* pGroup, float minGain)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[903])(pGroup, minGain);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[908])(pGroup, minGain);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[903])((nint)pGroup, minGain);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[908])((nint)pGroup, minGain);
 			#endif
 		}
 
@@ -768,9 +695,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetMinGainNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[904])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[909])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[904])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[909])((nint)pGroup);
 			#endif
 		}
 
@@ -793,9 +720,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetMaxGainNative(MaSound* pGroup, float maxGain)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[905])(pGroup, maxGain);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[910])(pGroup, maxGain);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[905])((nint)pGroup, maxGain);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[910])((nint)pGroup, maxGain);
 			#endif
 		}
 
@@ -816,9 +743,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetMaxGainNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[906])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[911])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[906])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[911])((nint)pGroup);
 			#endif
 		}
 
@@ -841,9 +768,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetMinDistanceNative(MaSound* pGroup, float minDistance)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[907])(pGroup, minDistance);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[912])(pGroup, minDistance);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[907])((nint)pGroup, minDistance);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[912])((nint)pGroup, minDistance);
 			#endif
 		}
 
@@ -864,9 +791,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetMinDistanceNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[908])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[913])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[908])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[913])((nint)pGroup);
 			#endif
 		}
 
@@ -889,9 +816,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetMaxDistanceNative(MaSound* pGroup, float maxDistance)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[909])(pGroup, maxDistance);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[914])(pGroup, maxDistance);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[909])((nint)pGroup, maxDistance);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[914])((nint)pGroup, maxDistance);
 			#endif
 		}
 
@@ -912,9 +839,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetMaxDistanceNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[910])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[915])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[910])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[915])((nint)pGroup);
 			#endif
 		}
 
@@ -937,9 +864,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetConeNative(MaSound* pGroup, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[911])(pGroup, innerAngleInRadians, outerAngleInRadians, outerGain);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[916])(pGroup, innerAngleInRadians, outerAngleInRadians, outerGain);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[911])((nint)pGroup, innerAngleInRadians, outerAngleInRadians, outerGain);
+			((delegate* unmanaged[Cdecl]<nint, float, float, float, void>)funcTable[916])((nint)pGroup, innerAngleInRadians, outerAngleInRadians, outerGain);
 			#endif
 		}
 
@@ -960,9 +887,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupGetConeNative(MaSound* pGroup, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float*, float*, float*, void>)funcTable[912])(pGroup, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
+			((delegate* unmanaged[Cdecl]<MaSound*, float*, float*, float*, void>)funcTable[917])(pGroup, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, void>)funcTable[912])((nint)pGroup, (nint)pInnerAngleInRadians, (nint)pOuterAngleInRadians, (nint)pOuterGain);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, void>)funcTable[917])((nint)pGroup, (nint)pInnerAngleInRadians, (nint)pOuterAngleInRadians, (nint)pOuterGain);
 			#endif
 		}
 
@@ -1146,9 +1073,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetDopplerFactorNative(MaSound* pGroup, float dopplerFactor)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[913])(pGroup, dopplerFactor);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[918])(pGroup, dopplerFactor);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[913])((nint)pGroup, dopplerFactor);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[918])((nint)pGroup, dopplerFactor);
 			#endif
 		}
 
@@ -1169,9 +1096,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetDopplerFactorNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[914])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[919])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[914])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[919])((nint)pGroup);
 			#endif
 		}
 
@@ -1194,9 +1121,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetDirectionalAttenuationFactorNative(MaSound* pGroup, float directionalAttenuationFactor)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[915])(pGroup, directionalAttenuationFactor);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[920])(pGroup, directionalAttenuationFactor);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[915])((nint)pGroup, directionalAttenuationFactor);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[920])((nint)pGroup, directionalAttenuationFactor);
 			#endif
 		}
 
@@ -1217,9 +1144,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetDirectionalAttenuationFactorNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[916])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[921])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[916])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[921])((nint)pGroup);
 			#endif
 		}
 
@@ -1242,9 +1169,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetFadeInPcmFramesNative(MaSound* pGroup, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, void>)funcTable[917])(pGroup, volumeBeg, volumeEnd, fadeLengthInFrames);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, void>)funcTable[922])(pGroup, volumeBeg, volumeEnd, fadeLengthInFrames);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, float, ulong, void>)funcTable[917])((nint)pGroup, volumeBeg, volumeEnd, fadeLengthInFrames);
+			((delegate* unmanaged[Cdecl]<nint, float, float, ulong, void>)funcTable[922])((nint)pGroup, volumeBeg, volumeEnd, fadeLengthInFrames);
 			#endif
 		}
 
@@ -1265,9 +1192,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetFadeInMillisecondsNative(MaSound* pGroup, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, void>)funcTable[918])(pGroup, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
+			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, void>)funcTable[923])(pGroup, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, float, ulong, void>)funcTable[918])((nint)pGroup, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
+			((delegate* unmanaged[Cdecl]<nint, float, float, ulong, void>)funcTable[923])((nint)pGroup, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
 			#endif
 		}
 
@@ -1288,9 +1215,9 @@ namespace Hexa.NET.MiniAudio
 		internal static float MaSoundGroupGetCurrentFadeVolumeNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[919])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[924])(pGroup);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[919])((nint)pGroup);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[924])((nint)pGroup);
 			#endif
 		}
 
@@ -1313,9 +1240,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetStartTimeInPcmFramesNative(MaSound* pGroup, ulong absoluteGlobalTimeInFrames)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[920])(pGroup, absoluteGlobalTimeInFrames);
+			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[925])(pGroup, absoluteGlobalTimeInFrames);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[920])((nint)pGroup, absoluteGlobalTimeInFrames);
+			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[925])((nint)pGroup, absoluteGlobalTimeInFrames);
 			#endif
 		}
 
@@ -1336,9 +1263,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetStartTimeInMillisecondsNative(MaSound* pGroup, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[921])(pGroup, absoluteGlobalTimeInMilliseconds);
+			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[926])(pGroup, absoluteGlobalTimeInMilliseconds);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[921])((nint)pGroup, absoluteGlobalTimeInMilliseconds);
+			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[926])((nint)pGroup, absoluteGlobalTimeInMilliseconds);
 			#endif
 		}
 
@@ -1359,9 +1286,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetStopTimeInPcmFramesNative(MaSound* pGroup, ulong absoluteGlobalTimeInFrames)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[922])(pGroup, absoluteGlobalTimeInFrames);
+			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[927])(pGroup, absoluteGlobalTimeInFrames);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[922])((nint)pGroup, absoluteGlobalTimeInFrames);
+			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[927])((nint)pGroup, absoluteGlobalTimeInFrames);
 			#endif
 		}
 
@@ -1382,9 +1309,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSoundGroupSetStopTimeInMillisecondsNative(MaSound* pGroup, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[923])(pGroup, absoluteGlobalTimeInMilliseconds);
+			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[928])(pGroup, absoluteGlobalTimeInMilliseconds);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[923])((nint)pGroup, absoluteGlobalTimeInMilliseconds);
+			((delegate* unmanaged[Cdecl]<nint, ulong, void>)funcTable[928])((nint)pGroup, absoluteGlobalTimeInMilliseconds);
 			#endif
 		}
 
@@ -1405,9 +1332,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaSoundGroupIsPlayingNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[924])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[929])(pGroup);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[924])((nint)pGroup);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[929])((nint)pGroup);
 			#endif
 		}
 
@@ -1430,9 +1357,9 @@ namespace Hexa.NET.MiniAudio
 		internal static ulong MaSoundGroupGetTimeInPcmFramesNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong>)funcTable[925])(pGroup);
+			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong>)funcTable[930])(pGroup);
 			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[925])((nint)pGroup);
+			return (ulong)((delegate* unmanaged[Cdecl]<nint, ulong>)funcTable[930])((nint)pGroup);
 			#endif
 		}
 

@@ -119,8 +119,18 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public unsafe void* PProcessUserData;
 
+		/// <summary>
+		/// The resampling config to use with the resource manager. <br/>
+		/// </summary>
+		public MaResamplerConfig ResourceManagerResampling;
 
-		public unsafe MaEngineConfig(MaResourceManagerPtr pResourceManager = default, MaContextPtr pContext = default, MaDevicePtr pDevice = default, MaDeviceIdPtr pPlaybackDeviceID = default, delegate*<MaDevice*, void*, void*, uint, void> dataCallback = default, delegate*<MaDeviceNotification*, void> notificationCallback = default, MaLogPtr pLog = default, uint listenerCount = default, uint channels = default, uint sampleRate = default, uint periodSizeInFrames = default, uint periodSizeInMilliseconds = default, uint gainSmoothTimeInFrames = default, uint gainSmoothTimeInMilliseconds = default, uint defaultVolumeSmoothTimeInPCMFrames = default, uint preMixStackSizeInBytes = default, MaAllocationCallbacks allocationCallbacks = default, uint noAutoStart = default, uint noDevice = default, MaMonoExpansionMode monoExpansionMode = default, void* pResourceManagerVFS = default, delegate*<void*, float*, ulong, void> onProcess = default, void* pProcessUserData = default)
+		/// <summary>
+		/// The resampling config for the pitch and Doppler effects. You will typically want this to be a fast resampler. For high quality stuff, it's recommended that you pre-resample. <br/>
+		/// </summary>
+		public MaResamplerConfig PitchResampling;
+
+
+		public unsafe MaEngineConfig(MaResourceManagerPtr pResourceManager = default, MaContextPtr pContext = default, MaDevicePtr pDevice = default, MaDeviceIdPtr pPlaybackDeviceID = default, delegate*<MaDevice*, void*, void*, uint, void> dataCallback = default, delegate*<MaDeviceNotification*, void> notificationCallback = default, MaLogPtr pLog = default, uint listenerCount = default, uint channels = default, uint sampleRate = default, uint periodSizeInFrames = default, uint periodSizeInMilliseconds = default, uint gainSmoothTimeInFrames = default, uint gainSmoothTimeInMilliseconds = default, uint defaultVolumeSmoothTimeInPCMFrames = default, uint preMixStackSizeInBytes = default, MaAllocationCallbacks allocationCallbacks = default, uint noAutoStart = default, uint noDevice = default, MaMonoExpansionMode monoExpansionMode = default, void* pResourceManagerVFS = default, delegate*<void*, float*, ulong, void> onProcess = default, void* pProcessUserData = default, MaResamplerConfig resourceManagerResampling = default, MaResamplerConfig pitchResampling = default)
 		{
 			PResourceManager = pResourceManager;
 			PContext = pContext;
@@ -145,6 +155,8 @@ namespace Hexa.NET.MiniAudio
 			PResourceManagerVFS = pResourceManagerVFS;
 			OnProcess = (delegate*<void*, float*, ulong, void>)onProcess;
 			PProcessUserData = pProcessUserData;
+			ResourceManagerResampling = resourceManagerResampling;
+			PitchResampling = pitchResampling;
 		}
 
 
@@ -271,6 +283,14 @@ namespace Hexa.NET.MiniAudio
 		/// User data that's passed into onProcess. <br/>
 		/// </summary>
 		public void* PProcessUserData { get => Handle->PProcessUserData; set => Handle->PProcessUserData = value; }
+		/// <summary>
+		/// The resampling config to use with the resource manager. <br/>
+		/// </summary>
+		public ref MaResamplerConfig ResourceManagerResampling => ref Unsafe.AsRef<MaResamplerConfig>(&Handle->ResourceManagerResampling);
+		/// <summary>
+		/// The resampling config for the pitch and Doppler effects. You will typically want this to be a fast resampler. For high quality stuff, it's recommended that you pre-resample. <br/>
+		/// </summary>
+		public ref MaResamplerConfig PitchResampling => ref Unsafe.AsRef<MaResamplerConfig>(&Handle->PitchResampling);
 	}
 
 }

@@ -375,14 +375,14 @@ namespace Hexa.NET.MiniAudio
 		public void* StopCallback { get => Handle->StopCallback; set => Handle->StopCallback = value; }
 		public void* PUserData { get => Handle->PUserData; set => Handle->PUserData = value; }
 		public ref MaResamplerConfig Resampling => ref Unsafe.AsRef<MaResamplerConfig>(&Handle->Resampling);
-		public ref MaDeviceConfig.PlaybackUnion Union0 => ref Unsafe.AsRef<MaDeviceConfig.PlaybackUnion>(&Handle->Playback);
-		public ref MaDeviceConfig.CaptureUnion Union1 => ref Unsafe.AsRef<MaDeviceConfig.CaptureUnion>(&Handle->Capture);
-		public ref MaDeviceConfig.WasapiUnion Union2 => ref Unsafe.AsRef<MaDeviceConfig.WasapiUnion>(&Handle->Wasapi);
-		public ref MaDeviceConfig.AlsaUnion Union3 => ref Unsafe.AsRef<MaDeviceConfig.AlsaUnion>(&Handle->Alsa);
-		public ref MaDeviceConfig.PulseUnion Union4 => ref Unsafe.AsRef<MaDeviceConfig.PulseUnion>(&Handle->Pulse);
-		public ref MaDeviceConfig.CoreaudioUnion Union5 => ref Unsafe.AsRef<MaDeviceConfig.CoreaudioUnion>(&Handle->Coreaudio);
-		public ref MaDeviceConfig.OpenslUnion Union6 => ref Unsafe.AsRef<MaDeviceConfig.OpenslUnion>(&Handle->Opensl);
-		public ref MaDeviceConfig.AaudioUnion Union7 => ref Unsafe.AsRef<MaDeviceConfig.AaudioUnion>(&Handle->Aaudio);
+		public ref MaDeviceConfig.PlaybackUnion Playback => ref Unsafe.AsRef<MaDeviceConfig.PlaybackUnion>(&Handle->Playback);
+		public ref MaDeviceConfig.CaptureUnion Capture => ref Unsafe.AsRef<MaDeviceConfig.CaptureUnion>(&Handle->Capture);
+		public ref MaDeviceConfig.WasapiUnion Wasapi => ref Unsafe.AsRef<MaDeviceConfig.WasapiUnion>(&Handle->Wasapi);
+		public ref MaDeviceConfig.AlsaUnion Alsa => ref Unsafe.AsRef<MaDeviceConfig.AlsaUnion>(&Handle->Alsa);
+		public ref MaDeviceConfig.PulseUnion Pulse => ref Unsafe.AsRef<MaDeviceConfig.PulseUnion>(&Handle->Pulse);
+		public ref MaDeviceConfig.CoreaudioUnion Coreaudio => ref Unsafe.AsRef<MaDeviceConfig.CoreaudioUnion>(&Handle->Coreaudio);
+		public ref MaDeviceConfig.OpenslUnion Opensl => ref Unsafe.AsRef<MaDeviceConfig.OpenslUnion>(&Handle->Opensl);
+		public ref MaDeviceConfig.AaudioUnion Aaudio => ref Unsafe.AsRef<MaDeviceConfig.AaudioUnion>(&Handle->Aaudio);
 	}
 
 }

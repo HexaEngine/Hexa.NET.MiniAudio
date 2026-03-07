@@ -55,194 +55,6 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
-		{
-			MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
-			return ret;
-		}
-
-		/// <summary>
-		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
-		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
-		/// allows you to configure the internally created context.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// backends (in, optional)<br/>
-		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
-		/// backendCount (in, optional)<br/>
-		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
-		/// pContextConfig (in, optional)<br/>
-		/// The context configuration.<br/>
-		/// pConfig (in)<br/>
-		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
-		/// pDevice (out)<br/>
-		/// A pointer to the device object being initialized.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
-		/// calling this at the same time as `ma_device_uninit()`.<br/>
-		/// Callback Safety<br/>
-		/// ---------------<br/>
-		/// Unsafe. It is not safe to call this inside any callback.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
-		/// your own context.<br/>
-		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_device_init()<br/>
-		/// ma_device_uninit()<br/>
-		/// ma_device_config_init()<br/>
-		/// ma_context_init()<br/>
-		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
-		{
-			fixed (MaBackend* pbackends = &backends)
-			{
-				MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
-		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
-		/// allows you to configure the internally created context.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// backends (in, optional)<br/>
-		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
-		/// backendCount (in, optional)<br/>
-		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
-		/// pContextConfig (in, optional)<br/>
-		/// The context configuration.<br/>
-		/// pConfig (in)<br/>
-		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
-		/// pDevice (out)<br/>
-		/// A pointer to the device object being initialized.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
-		/// calling this at the same time as `ma_device_uninit()`.<br/>
-		/// Callback Safety<br/>
-		/// ---------------<br/>
-		/// Unsafe. It is not safe to call this inside any callback.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
-		/// your own context.<br/>
-		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_device_init()<br/>
-		/// ma_device_uninit()<br/>
-		/// ma_device_config_init()<br/>
-		/// ma_context_init()<br/>
-		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
-		{
-			fixed (MaContextConfig* ppContextConfig = &pContextConfig)
-			{
-				MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
-		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
-		/// allows you to configure the internally created context.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// backends (in, optional)<br/>
-		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
-		/// backendCount (in, optional)<br/>
-		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
-		/// pContextConfig (in, optional)<br/>
-		/// The context configuration.<br/>
-		/// pConfig (in)<br/>
-		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
-		/// pDevice (out)<br/>
-		/// A pointer to the device object being initialized.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
-		/// calling this at the same time as `ma_device_uninit()`.<br/>
-		/// Callback Safety<br/>
-		/// ---------------<br/>
-		/// Unsafe. It is not safe to call this inside any callback.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
-		/// your own context.<br/>
-		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_device_init()<br/>
-		/// ma_device_uninit()<br/>
-		/// ma_device_config_init()<br/>
-		/// ma_context_init()<br/>
-		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
-		{
-			fixed (MaBackend* pbackends = &backends)
-			{
-				fixed (MaContextConfig* ppContextConfig = &pContextConfig)
-				{
-					MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
-		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
-		/// allows you to configure the internally created context.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// backends (in, optional)<br/>
-		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
-		/// backendCount (in, optional)<br/>
-		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
-		/// pContextConfig (in, optional)<br/>
-		/// The context configuration.<br/>
-		/// pConfig (in)<br/>
-		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
-		/// pDevice (out)<br/>
-		/// A pointer to the device object being initialized.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
-		/// calling this at the same time as `ma_device_uninit()`.<br/>
-		/// Callback Safety<br/>
-		/// ---------------<br/>
-		/// Unsafe. It is not safe to call this inside any callback.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
-		/// your own context.<br/>
-		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_device_init()<br/>
-		/// ma_device_uninit()<br/>
-		/// ma_device_config_init()<br/>
-		/// ma_context_init()<br/>
-		/// </summary>
 		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaDeviceConfig* ppConfig = &pConfig)
@@ -3939,7 +3751,7 @@ namespace Hexa.NET.MiniAudio
 		/// ----------<br/>
 		/// pBackends (out, optional)<br/>
 		/// A pointer to the buffer that will receive the enabled backends. Set to NULL to retrieve the backend count. Setting<br/>
-		/// the capacity of the buffer to `MA_BUFFER_COUNT` will guarantee it's large enough for all backends.<br/>
+		/// the capacity of the buffer to `MA_BACKEND_COUNT` will guarantee it's large enough for all backends.<br/>
 		/// backendCap (in)<br/>
 		/// The capacity of the `pBackends` buffer.<br/>
 		/// pBackendCount (out)<br/>
@@ -4001,7 +3813,7 @@ namespace Hexa.NET.MiniAudio
 		/// ----------<br/>
 		/// pBackends (out, optional)<br/>
 		/// A pointer to the buffer that will receive the enabled backends. Set to NULL to retrieve the backend count. Setting<br/>
-		/// the capacity of the buffer to `MA_BUFFER_COUNT` will guarantee it's large enough for all backends.<br/>
+		/// the capacity of the buffer to `MA_BACKEND_COUNT` will guarantee it's large enough for all backends.<br/>
 		/// backendCap (in)<br/>
 		/// The capacity of the `pBackends` buffer.<br/>
 		/// pBackendCount (out)<br/>
@@ -4059,7 +3871,7 @@ namespace Hexa.NET.MiniAudio
 		/// ----------<br/>
 		/// pBackends (out, optional)<br/>
 		/// A pointer to the buffer that will receive the enabled backends. Set to NULL to retrieve the backend count. Setting<br/>
-		/// the capacity of the buffer to `MA_BUFFER_COUNT` will guarantee it's large enough for all backends.<br/>
+		/// the capacity of the buffer to `MA_BACKEND_COUNT` will guarantee it's large enough for all backends.<br/>
 		/// backendCap (in)<br/>
 		/// The capacity of the `pBackends` buffer.<br/>
 		/// pBackendCount (out)<br/>
@@ -4120,7 +3932,7 @@ namespace Hexa.NET.MiniAudio
 		/// ----------<br/>
 		/// pBackends (out, optional)<br/>
 		/// A pointer to the buffer that will receive the enabled backends. Set to NULL to retrieve the backend count. Setting<br/>
-		/// the capacity of the buffer to `MA_BUFFER_COUNT` will guarantee it's large enough for all backends.<br/>
+		/// the capacity of the buffer to `MA_BACKEND_COUNT` will guarantee it's large enough for all backends.<br/>
 		/// backendCap (in)<br/>
 		/// The capacity of the `pBackends` buffer.<br/>
 		/// pBackendCount (out)<br/>
@@ -4181,7 +3993,7 @@ namespace Hexa.NET.MiniAudio
 		/// ----------<br/>
 		/// pBackends (out, optional)<br/>
 		/// A pointer to the buffer that will receive the enabled backends. Set to NULL to retrieve the backend count. Setting<br/>
-		/// the capacity of the buffer to `MA_BUFFER_COUNT` will guarantee it's large enough for all backends.<br/>
+		/// the capacity of the buffer to `MA_BACKEND_COUNT` will guarantee it's large enough for all backends.<br/>
 		/// backendCap (in)<br/>
 		/// The capacity of the `pBackends` buffer.<br/>
 		/// pBackendCount (out)<br/>
@@ -5019,6 +4831,193 @@ namespace Hexa.NET.MiniAudio
 		public static void MaApplyVolumeFactorF32(float* pSamples, ulong sampleCount, float factor)
 		{
 			MaApplyVolumeFactorF32Native(pSamples, sampleCount, factor);
+		}
+
+		public static void MaApplyVolumeFactorF32(ref float pSamples, ulong sampleCount, float factor)
+		{
+			fixed (float* ppSamples = &pSamples)
+			{
+				MaApplyVolumeFactorF32Native((float*)ppSamples, sampleCount, factor);
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaCopyAndApplyVolumeFactorPcmFramesU8Native(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<byte*, byte*, ulong, uint, float, void>)funcTable[518])(pFramesOut, pFramesIn, frameCount, channels, factor);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[518])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
+			#endif
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (byte* ppFramesOut = &pFramesOut)
+			{
+				MaCopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+			}
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (byte* ppFramesIn = &pFramesIn)
+			{
+				MaCopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
+			}
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (byte* ppFramesOut = &pFramesOut)
+			{
+				fixed (byte* ppFramesIn = &pFramesIn)
+				{
+					MaCopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaCopyAndApplyVolumeFactorPcmFramesS16Native(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<short*, short*, ulong, uint, float, void>)funcTable[519])(pFramesOut, pFramesIn, frameCount, channels, factor);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[519])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
+			#endif
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (short* ppFramesOut = &pFramesOut)
+			{
+				MaCopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+			}
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (short* ppFramesIn = &pFramesIn)
+			{
+				MaCopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
+			}
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (short* ppFramesOut = &pFramesOut)
+			{
+				fixed (short* ppFramesIn = &pFramesIn)
+				{
+					MaCopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaCopyAndApplyVolumeFactorPcmFramesS24Native(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<void*, void*, ulong, uint, float, void>)funcTable[520])(pFramesOut, pFramesIn, frameCount, channels, factor);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[520])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
+			#endif
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, pFramesIn, frameCount, channels, factor);
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaCopyAndApplyVolumeFactorPcmFramesS32Native(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<int*, int*, ulong, uint, float, void>)funcTable[521])(pFramesOut, pFramesIn, frameCount, channels, factor);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[521])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
+			#endif
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (int* ppFramesOut = &pFramesOut)
+			{
+				MaCopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+			}
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (int* ppFramesIn = &pFramesIn)
+			{
+				MaCopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
+			}
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (int* ppFramesOut = &pFramesOut)
+			{
+				fixed (int* ppFramesIn = &pFramesIn)
+				{
+					MaCopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaCopyAndApplyVolumeFactorPcmFramesF32Native(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<float*, float*, ulong, uint, float, void>)funcTable[522])(pFramesOut, pFramesIn, frameCount, channels, factor);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[522])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
+			#endif
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			MaCopyAndApplyVolumeFactorPcmFramesF32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+		}
+
+		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
+		{
+			fixed (float* ppFramesOut = &pFramesOut)
+			{
+				MaCopyAndApplyVolumeFactorPcmFramesF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+			}
 		}
 	}
 }

@@ -73,7 +73,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// For pitch shift. <br/>
 		/// </summary>
-		public MaLinearResampler Resampler;
+		public MaResampler Resampler;
 
 		public MaSpatializer Spatializer;
 		public MaPanner Panner;
@@ -121,7 +121,7 @@ namespace Hexa.NET.MiniAudio
 
 		public unsafe void* PHeap;
 
-		public unsafe MaEngineNode(MaNodeBase baseNode = default, MaEnginePtr pEngine = default, uint sampleRate = default, uint volumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, MaFader fader = default, MaLinearResampler resampler = default, MaSpatializer spatializer = default, MaPanner panner = default, MaGainer volumeGainer = default, MaAtomicFloat volume = default, float pitch = default, float oldPitch = default, float oldDopplerPitch = default, uint isPitchDisabled = default, uint isSpatializationDisabled = default, uint pinnedListenerIndex = default, FadeSettingsUnion fadeSettings = default, byte ownsHeap = default, void* pHeap = default)
+		public unsafe MaEngineNode(MaNodeBase baseNode = default, MaEnginePtr pEngine = default, uint sampleRate = default, uint volumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, MaFader fader = default, MaResampler resampler = default, MaSpatializer spatializer = default, MaPanner panner = default, MaGainer volumeGainer = default, MaAtomicFloat volume = default, float pitch = default, float oldPitch = default, float oldDopplerPitch = default, uint isPitchDisabled = default, uint isSpatializationDisabled = default, uint pinnedListenerIndex = default, FadeSettingsUnion fadeSettings = default, byte ownsHeap = default, void* pHeap = default)
 		{
 			BaseNode = baseNode;
 			PEngine = pEngine;
@@ -207,7 +207,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// For pitch shift. <br/>
 		/// </summary>
-		public ref MaLinearResampler Resampler => ref Unsafe.AsRef<MaLinearResampler>(&Handle->Resampler);
+		public ref MaResampler Resampler => ref Unsafe.AsRef<MaResampler>(&Handle->Resampler);
 		public ref MaSpatializer Spatializer => ref Unsafe.AsRef<MaSpatializer>(&Handle->Spatializer);
 		public ref MaPanner Panner => ref Unsafe.AsRef<MaPanner>(&Handle->Panner);
 		/// <summary>
@@ -239,7 +239,7 @@ namespace Hexa.NET.MiniAudio
 		/// The index of the listener this node should always use for spatialization. If set to MA_LISTENER_INDEX_CLOSEST the engine will use the closest listener. <br/>
 		/// </summary>
 		public ref uint PinnedListenerIndex => ref Unsafe.AsRef<uint>(&Handle->PinnedListenerIndex);
-		public ref MaEngineNode.FadeSettingsUnion Union => ref Unsafe.AsRef<MaEngineNode.FadeSettingsUnion>(&Handle->FadeSettings);
+		public ref MaEngineNode.FadeSettingsUnion FadeSettings => ref Unsafe.AsRef<MaEngineNode.FadeSettingsUnion>(&Handle->FadeSettings);
 		/// <summary>
 		/// Memory management. <br/>
 		/// </summary>

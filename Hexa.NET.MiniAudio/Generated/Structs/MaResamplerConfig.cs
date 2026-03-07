@@ -114,7 +114,7 @@ namespace Hexa.NET.MiniAudio
 		public ref MaResampleAlgorithm Algorithm => ref Unsafe.AsRef<MaResampleAlgorithm>(&Handle->Algorithm);
 		public ref MaResamplingBackendVtablePtr PBackendVTable => ref Unsafe.AsRef<MaResamplingBackendVtablePtr>(&Handle->PBackendVTable);
 		public void* PBackendUserData { get => Handle->PBackendUserData; set => Handle->PBackendUserData = value; }
-		public ref MaResamplerConfig.LinearUnion Union => ref Unsafe.AsRef<MaResamplerConfig.LinearUnion>(&Handle->Linear);
+		public ref MaResamplerConfig.LinearUnion Linear => ref Unsafe.AsRef<MaResamplerConfig.LinearUnion>(&Handle->Linear);
 	}
 
 }

@@ -184,11 +184,11 @@ namespace Hexa.NET.MiniAudio
 		public ref nuint ThreadStackSize => ref Unsafe.AsRef<nuint>(&Handle->ThreadStackSize);
 		public void* PUserData { get => Handle->PUserData; set => Handle->PUserData = value; }
 		public ref MaAllocationCallbacks AllocationCallbacks => ref Unsafe.AsRef<MaAllocationCallbacks>(&Handle->AllocationCallbacks);
-		public ref MaContextConfig.DsoundUnion Union0 => ref Unsafe.AsRef<MaContextConfig.DsoundUnion>(&Handle->Dsound);
-		public ref MaContextConfig.AlsaUnion Union1 => ref Unsafe.AsRef<MaContextConfig.AlsaUnion>(&Handle->Alsa);
-		public ref MaContextConfig.PulseUnion Union2 => ref Unsafe.AsRef<MaContextConfig.PulseUnion>(&Handle->Pulse);
-		public ref MaContextConfig.CoreaudioUnion Union3 => ref Unsafe.AsRef<MaContextConfig.CoreaudioUnion>(&Handle->Coreaudio);
-		public ref MaContextConfig.JackUnion Union4 => ref Unsafe.AsRef<MaContextConfig.JackUnion>(&Handle->Jack);
+		public ref MaContextConfig.DsoundUnion Dsound => ref Unsafe.AsRef<MaContextConfig.DsoundUnion>(&Handle->Dsound);
+		public ref MaContextConfig.AlsaUnion Alsa => ref Unsafe.AsRef<MaContextConfig.AlsaUnion>(&Handle->Alsa);
+		public ref MaContextConfig.PulseUnion Pulse => ref Unsafe.AsRef<MaContextConfig.PulseUnion>(&Handle->Pulse);
+		public ref MaContextConfig.CoreaudioUnion Coreaudio => ref Unsafe.AsRef<MaContextConfig.CoreaudioUnion>(&Handle->Coreaudio);
+		public ref MaContextConfig.JackUnion Jack => ref Unsafe.AsRef<MaContextConfig.JackUnion>(&Handle->Jack);
 		public ref MaBackendCallbacks Custom => ref Unsafe.AsRef<MaBackendCallbacks>(&Handle->Custom);
 	}
 

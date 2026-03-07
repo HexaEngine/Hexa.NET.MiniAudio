@@ -17,193 +17,6 @@ namespace Hexa.NET.MiniAudio
 	public unsafe partial class MiniAudio
 	{
 
-		public static void MaApplyVolumeFactorF32(ref float pSamples, ulong sampleCount, float factor)
-		{
-			fixed (float* ppSamples = &pSamples)
-			{
-				MaApplyVolumeFactorF32Native((float*)ppSamples, sampleCount, factor);
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesU8Native(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<byte*, byte*, ulong, uint, float, void>)funcTable[518])(pFramesOut, pFramesIn, frameCount, channels, factor);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[518])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
-			#endif
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, pFramesIn, frameCount, channels, factor);
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (byte* ppFramesOut = &pFramesOut)
-			{
-				MaCopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, pFramesIn, frameCount, channels, factor);
-			}
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (byte* ppFramesIn = &pFramesIn)
-			{
-				MaCopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
-			}
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (byte* ppFramesOut = &pFramesOut)
-			{
-				fixed (byte* ppFramesIn = &pFramesIn)
-				{
-					MaCopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesS16Native(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<short*, short*, ulong, uint, float, void>)funcTable[519])(pFramesOut, pFramesIn, frameCount, channels, factor);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[519])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
-			#endif
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, pFramesIn, frameCount, channels, factor);
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (short* ppFramesOut = &pFramesOut)
-			{
-				MaCopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, pFramesIn, frameCount, channels, factor);
-			}
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (short* ppFramesIn = &pFramesIn)
-			{
-				MaCopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
-			}
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (short* ppFramesOut = &pFramesOut)
-			{
-				fixed (short* ppFramesIn = &pFramesIn)
-				{
-					MaCopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesS24Native(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void*, void*, ulong, uint, float, void>)funcTable[520])(pFramesOut, pFramesIn, frameCount, channels, factor);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[520])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
-			#endif
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, pFramesIn, frameCount, channels, factor);
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, pFramesIn, frameCount, channels, factor);
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesS32Native(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int*, int*, ulong, uint, float, void>)funcTable[521])(pFramesOut, pFramesIn, frameCount, channels, factor);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[521])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
-			#endif
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (int* ppFramesOut = &pFramesOut)
-			{
-				MaCopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, pFramesIn, frameCount, channels, factor);
-			}
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (int* ppFramesIn = &pFramesIn)
-			{
-				MaCopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
-			}
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (int* ppFramesOut = &pFramesOut)
-			{
-				fixed (int* ppFramesIn = &pFramesIn)
-				{
-					MaCopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesF32Native(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<float*, float*, ulong, uint, float, void>)funcTable[522])(pFramesOut, pFramesIn, frameCount, channels, factor);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, ulong, uint, float, void>)funcTable[522])((nint)pFramesOut, (nint)pFramesIn, frameCount, channels, factor);
-			#endif
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			MaCopyAndApplyVolumeFactorPcmFramesF32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
-		}
-
-		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
-		{
-			fixed (float* ppFramesOut = &pFramesOut)
-			{
-				MaCopyAndApplyVolumeFactorPcmFramesF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, factor);
-			}
-		}
-
 		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(float* pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (float* ppFramesIn = &pFramesIn)
@@ -5016,6 +4829,192 @@ namespace Hexa.NET.MiniAudio
 						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaFormat* ppFormat = &pFormat)
+			{
+				fixed (uint* ppChannels = &pChannels)
+				{
+					fixed (uint* ppSampleRate = &pSampleRate)
+					{
+						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaDecoder* ppDecoder = &pDecoder)
+			{
+				fixed (MaFormat* ppFormat = &pFormat)
+				{
+					fixed (uint* ppChannels = &pChannels)
+					{
+						fixed (uint* ppSampleRate = &pSampleRate)
+						{
+							MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (byte* ppChannelMap = &pChannelMap)
+			{
+				MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaDecoder* ppDecoder = &pDecoder)
+			{
+				fixed (byte* ppChannelMap = &pChannelMap)
+				{
+					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaFormat* ppFormat = &pFormat)
+			{
+				fixed (byte* ppChannelMap = &pChannelMap)
+				{
+					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaDecoder* ppDecoder = &pDecoder)
+			{
+				fixed (MaFormat* ppFormat = &pFormat)
+				{
+					fixed (byte* ppChannelMap = &pChannelMap)
+					{
+						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (uint* ppChannels = &pChannels)
+			{
+				fixed (byte* ppChannelMap = &pChannelMap)
+				{
+					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaDecoder* ppDecoder = &pDecoder)
+			{
+				fixed (uint* ppChannels = &pChannels)
+				{
+					fixed (byte* ppChannelMap = &pChannelMap)
+					{
+						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaFormat* ppFormat = &pFormat)
+			{
+				fixed (uint* ppChannels = &pChannels)
+				{
+					fixed (byte* ppChannelMap = &pChannelMap)
+					{
+						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (MaDecoder* ppDecoder = &pDecoder)
+			{
+				fixed (MaFormat* ppFormat = &pFormat)
+				{
+					fixed (uint* ppChannels = &pChannels)
+					{
+						fixed (byte* ppChannelMap = &pChannelMap)
+						{
+							MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the decoder's output data format.<br/>
+		/// </summary>
+		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		{
+			fixed (uint* ppSampleRate = &pSampleRate)
+			{
+				fixed (byte* ppChannelMap = &pChannelMap)
+				{
+					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+					return ret;
 				}
 			}
 		}

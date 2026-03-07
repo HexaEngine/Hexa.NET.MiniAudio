@@ -63,220 +63,6 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_get_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextEnumerateDevices(ref MaContext pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, void* pUserData)
-		{
-			fixed (MaContext* ppContext = &pContext)
-			{
-				MaResult ret = MaContextEnumerateDevicesNative((MaContext*)ppContext, callback, pUserData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// Enumerates over every device (both playback and capture).<br/>
-		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
-		/// an internal heap allocation, or it simply suits your code better.<br/>
-		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
-		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
-		/// but don't call it from within the enumeration callback.<br/>
-		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// pContext (in)<br/>
-		/// A pointer to the context performing the enumeration.<br/>
-		/// callback (in)<br/>
-		/// The callback to fire for each enumerated device.<br/>
-		/// pUserData (in)<br/>
-		/// A pointer to application-defined data passed to the callback.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Safe. This is guarded using a simple mutex lock.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
-		/// Some backends and platforms may only support default playback and capture devices.<br/>
-		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
-		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
-		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
-		/// Example 1 - Simple Enumeration<br/>
-		/// ------------------------------<br/>
-		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
-		/// {<br/>
-		/// printf("Device Name: %s\n", pInfo->name);<br/>
-		/// return MA_TRUE;<br/>
-		/// }<br/>
-		/// ma_result result = ma_context_enumerate_devices(<br/>
-		/// &context<br/>
-		/// , my_device_enum_callback, pMyUserData);<br/>
-		/// if (result != MA_SUCCESS) {<br/>
-		/// // Error.<br/>
-		/// }<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_context_get_devices()<br/>
-		/// </summary>
-		public static MaResult MaContextEnumerateDevices(MaContextPtr pContext, MaEnumDevicesCallbackProc callback, void* pUserData)
-		{
-			MaResult ret = MaContextEnumerateDevicesNative((MaContext*)pContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
-			return ret;
-		}
-
-		/// <summary>
-		/// Enumerates over every device (both playback and capture).<br/>
-		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
-		/// an internal heap allocation, or it simply suits your code better.<br/>
-		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
-		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
-		/// but don't call it from within the enumeration callback.<br/>
-		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// pContext (in)<br/>
-		/// A pointer to the context performing the enumeration.<br/>
-		/// callback (in)<br/>
-		/// The callback to fire for each enumerated device.<br/>
-		/// pUserData (in)<br/>
-		/// A pointer to application-defined data passed to the callback.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Safe. This is guarded using a simple mutex lock.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
-		/// Some backends and platforms may only support default playback and capture devices.<br/>
-		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
-		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
-		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
-		/// Example 1 - Simple Enumeration<br/>
-		/// ------------------------------<br/>
-		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
-		/// {<br/>
-		/// printf("Device Name: %s\n", pInfo->name);<br/>
-		/// return MA_TRUE;<br/>
-		/// }<br/>
-		/// ma_result result = ma_context_enumerate_devices(<br/>
-		/// &context<br/>
-		/// , my_device_enum_callback, pMyUserData);<br/>
-		/// if (result != MA_SUCCESS) {<br/>
-		/// // Error.<br/>
-		/// }<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_context_get_devices()<br/>
-		/// </summary>
-		public static MaResult MaContextEnumerateDevices(ref MaContext pContext, MaEnumDevicesCallbackProc callback, void* pUserData)
-		{
-			fixed (MaContext* ppContext = &pContext)
-			{
-				MaResult ret = MaContextEnumerateDevicesNative((MaContext*)ppContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// Enumerates over every device (both playback and capture).<br/>
-		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
-		/// an internal heap allocation, or it simply suits your code better.<br/>
-		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
-		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
-		/// but don't call it from within the enumeration callback.<br/>
-		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// pContext (in)<br/>
-		/// A pointer to the context performing the enumeration.<br/>
-		/// callback (in)<br/>
-		/// The callback to fire for each enumerated device.<br/>
-		/// pUserData (in)<br/>
-		/// A pointer to application-defined data passed to the callback.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Safe. This is guarded using a simple mutex lock.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
-		/// Some backends and platforms may only support default playback and capture devices.<br/>
-		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
-		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
-		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
-		/// Example 1 - Simple Enumeration<br/>
-		/// ------------------------------<br/>
-		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
-		/// {<br/>
-		/// printf("Device Name: %s\n", pInfo->name);<br/>
-		/// return MA_TRUE;<br/>
-		/// }<br/>
-		/// ma_result result = ma_context_enumerate_devices(<br/>
-		/// &context<br/>
-		/// , my_device_enum_callback, pMyUserData);<br/>
-		/// if (result != MA_SUCCESS) {<br/>
-		/// // Error.<br/>
-		/// }<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_context_get_devices()<br/>
-		/// </summary>
-		public static MaResult MaContextEnumerateDevices(MaContextPtr pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, nint pUserData)
-		{
-			MaResult ret = MaContextEnumerateDevicesNative((MaContext*)pContext, callback, (void*)pUserData);
-			return ret;
-		}
-
-		/// <summary>
-		/// Enumerates over every device (both playback and capture).<br/>
-		/// This is a lower-level enumeration function to the easier to use `ma_context_get_devices()`. Use `ma_context_enumerate_devices()` if you would rather not incur<br/>
-		/// an internal heap allocation, or it simply suits your code better.<br/>
-		/// Note that this only retrieves the ID and name/description of the device. The reason for only retrieving basic information is that it would otherwise require<br/>
-		/// opening the backend device in order to probe it for more detailed information which can be inefficient. Consider using `ma_context_get_device_info()` for this,<br/>
-		/// but don't call it from within the enumeration callback.<br/>
-		/// Returning false from the callback will stop enumeration. Returning true will continue enumeration.<br/>
-		/// Parameters<br/>
-		/// ----------<br/>
-		/// pContext (in)<br/>
-		/// A pointer to the context performing the enumeration.<br/>
-		/// callback (in)<br/>
-		/// The callback to fire for each enumerated device.<br/>
-		/// pUserData (in)<br/>
-		/// A pointer to application-defined data passed to the callback.<br/>
-		/// Return Value<br/>
-		/// ------------<br/>
-		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
-		/// Thread Safety<br/>
-		/// -------------<br/>
-		/// Safe. This is guarded using a simple mutex lock.<br/>
-		/// Remarks<br/>
-		/// -------<br/>
-		/// Do _not_ assume the first enumerated device of a given type is the default device.<br/>
-		/// Some backends and platforms may only support default playback and capture devices.<br/>
-		/// In general, you should not do anything complicated from within the callback. In particular, do not try initializing a device from within the callback. Also,<br/>
-		/// do not try to call `ma_context_get_device_info()` from within the callback.<br/>
-		/// Consider using `ma_context_get_devices()` for a simpler and safer API, albeit at the expense of an internal heap allocation.<br/>
-		/// Example 1 - Simple Enumeration<br/>
-		/// ------------------------------<br/>
-		/// ma_bool32 ma_device_enum_callback(ma_context* pContext, ma_device_type deviceType, const ma_device_info* pInfo, void* pUserData)<br/>
-		/// {<br/>
-		/// printf("Device Name: %s\n", pInfo->name);<br/>
-		/// return MA_TRUE;<br/>
-		/// }<br/>
-		/// ma_result result = ma_context_enumerate_devices(<br/>
-		/// &context<br/>
-		/// , my_device_enum_callback, pMyUserData);<br/>
-		/// if (result != MA_SUCCESS) {<br/>
-		/// // Error.<br/>
-		/// }<br/>
-		/// See Also<br/>
-		/// --------<br/>
-		/// ma_context_get_devices()<br/>
-		/// </summary>
 		public static MaResult MaContextEnumerateDevices(ref MaContext pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, nint pUserData)
 		{
 			fixed (MaContext* ppContext = &pContext)
@@ -5044,6 +4830,194 @@ namespace Hexa.NET.MiniAudio
 			#else
 			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, nint, nint, nint, MaResult>)funcTable[474])((nint)backends, backendCount, (nint)pContextConfig, (nint)pConfig, (nint)pDevice);
 			#endif
+		}
+
+		/// <summary>
+		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
+		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
+		/// allows you to configure the internally created context.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// backends (in, optional)<br/>
+		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
+		/// backendCount (in, optional)<br/>
+		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
+		/// pContextConfig (in, optional)<br/>
+		/// The context configuration.<br/>
+		/// pConfig (in)<br/>
+		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
+		/// pDevice (out)<br/>
+		/// A pointer to the device object being initialized.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
+		/// calling this at the same time as `ma_device_uninit()`.<br/>
+		/// Callback Safety<br/>
+		/// ---------------<br/>
+		/// Unsafe. It is not safe to call this inside any callback.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
+		/// your own context.<br/>
+		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_device_init()<br/>
+		/// ma_device_uninit()<br/>
+		/// ma_device_config_init()<br/>
+		/// ma_context_init()<br/>
+		/// </summary>
+		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		{
+			MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+			return ret;
+		}
+
+		/// <summary>
+		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
+		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
+		/// allows you to configure the internally created context.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// backends (in, optional)<br/>
+		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
+		/// backendCount (in, optional)<br/>
+		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
+		/// pContextConfig (in, optional)<br/>
+		/// The context configuration.<br/>
+		/// pConfig (in)<br/>
+		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
+		/// pDevice (out)<br/>
+		/// A pointer to the device object being initialized.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
+		/// calling this at the same time as `ma_device_uninit()`.<br/>
+		/// Callback Safety<br/>
+		/// ---------------<br/>
+		/// Unsafe. It is not safe to call this inside any callback.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
+		/// your own context.<br/>
+		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_device_init()<br/>
+		/// ma_device_uninit()<br/>
+		/// ma_device_config_init()<br/>
+		/// ma_context_init()<br/>
+		/// </summary>
+		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		{
+			fixed (MaBackend* pbackends = &backends)
+			{
+				MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
+		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
+		/// allows you to configure the internally created context.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// backends (in, optional)<br/>
+		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
+		/// backendCount (in, optional)<br/>
+		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
+		/// pContextConfig (in, optional)<br/>
+		/// The context configuration.<br/>
+		/// pConfig (in)<br/>
+		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
+		/// pDevice (out)<br/>
+		/// A pointer to the device object being initialized.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
+		/// calling this at the same time as `ma_device_uninit()`.<br/>
+		/// Callback Safety<br/>
+		/// ---------------<br/>
+		/// Unsafe. It is not safe to call this inside any callback.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
+		/// your own context.<br/>
+		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_device_init()<br/>
+		/// ma_device_uninit()<br/>
+		/// ma_device_config_init()<br/>
+		/// ma_context_init()<br/>
+		/// </summary>
+		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		{
+			fixed (MaContextConfig* ppContextConfig = &pContextConfig)
+			{
+				MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// Initializes a device without a context, with extra parameters for controlling the configuration of the internal self-managed context.<br/>
+		/// This is the same as `ma_device_init()`, only instead of a context being passed in, the parameters from `ma_context_init()` are passed in instead. This function<br/>
+		/// allows you to configure the internally created context.<br/>
+		/// Parameters<br/>
+		/// ----------<br/>
+		/// backends (in, optional)<br/>
+		/// A list of backends to try initializing, in priority order. Can be NULL, in which case it uses default priority order.<br/>
+		/// backendCount (in, optional)<br/>
+		/// The number of items in `backend`. Ignored if `backend` is NULL.<br/>
+		/// pContextConfig (in, optional)<br/>
+		/// The context configuration.<br/>
+		/// pConfig (in)<br/>
+		/// A pointer to the device configuration. Cannot be null. See remarks for details.<br/>
+		/// pDevice (out)<br/>
+		/// A pointer to the device object being initialized.<br/>
+		/// Return Value<br/>
+		/// ------------<br/>
+		/// MA_SUCCESS if successful; any other error code otherwise.<br/>
+		/// Thread Safety<br/>
+		/// -------------<br/>
+		/// Unsafe. It is not safe to call this function simultaneously for different devices because some backends depend on and mutate global state. The same applies to<br/>
+		/// calling this at the same time as `ma_device_uninit()`.<br/>
+		/// Callback Safety<br/>
+		/// ---------------<br/>
+		/// Unsafe. It is not safe to call this inside any callback.<br/>
+		/// Remarks<br/>
+		/// -------<br/>
+		/// You only need to use this function if you want to configure the context differently to its defaults. You should never use this function if you want to manage<br/>
+		/// your own context.<br/>
+		/// See the documentation for `ma_context_init()` for information on the different context configuration options.<br/>
+		/// See Also<br/>
+		/// --------<br/>
+		/// ma_device_init()<br/>
+		/// ma_device_uninit()<br/>
+		/// ma_device_config_init()<br/>
+		/// ma_context_init()<br/>
+		/// </summary>
+		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		{
+			fixed (MaBackend* pbackends = &backends)
+			{
+				fixed (MaContextConfig* ppContextConfig = &pContextConfig)
+				{
+					MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+					return ret;
+				}
+			}
 		}
 	}
 }

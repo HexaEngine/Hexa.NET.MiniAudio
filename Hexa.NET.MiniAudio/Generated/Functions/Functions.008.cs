@@ -20,192 +20,6 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaFormat* ppFormat = &pFormat)
-			{
-				fixed (uint* ppChannels = &pChannels)
-				{
-					fixed (uint* ppSampleRate = &pSampleRate)
-					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (MaFormat* ppFormat = &pFormat)
-				{
-					fixed (uint* ppChannels = &pChannels)
-					{
-						fixed (uint* ppSampleRate = &pSampleRate)
-						{
-							MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (byte* ppChannelMap = &pChannelMap)
-			{
-				MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (byte* ppChannelMap = &pChannelMap)
-				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaFormat* ppFormat = &pFormat)
-			{
-				fixed (byte* ppChannelMap = &pChannelMap)
-				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (MaFormat* ppFormat = &pFormat)
-				{
-					fixed (byte* ppChannelMap = &pChannelMap)
-					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (uint* ppChannels = &pChannels)
-			{
-				fixed (byte* ppChannelMap = &pChannelMap)
-				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (uint* ppChannels = &pChannels)
-				{
-					fixed (byte* ppChannelMap = &pChannelMap)
-					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaFormat* ppFormat = &pFormat)
-			{
-				fixed (uint* ppChannels = &pChannels)
-				{
-					fixed (byte* ppChannelMap = &pChannelMap)
-					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (MaDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (MaFormat* ppFormat = &pFormat)
-				{
-					fixed (uint* ppChannels = &pChannels)
-					{
-						fixed (byte* ppChannelMap = &pChannelMap)
-						{
-							MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
-		{
-			fixed (uint* ppSampleRate = &pSampleRate)
-			{
-				fixed (byte* ppChannelMap = &pChannelMap)
-				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the decoder's output data format.<br/>
-		/// </summary>
 		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
@@ -5019,6 +4833,193 @@ namespace Hexa.NET.MiniAudio
 		{
 			MaResult ret = MaPulsewaveSetDutyCycleNative((MaPulsewave*)pWaveform, dutyCycle);
 			return ret;
+		}
+
+		public static MaResult MaPulsewaveSetDutyCycle(ref MaPulsewave pWaveform, double dutyCycle)
+		{
+			fixed (MaPulsewave* ppWaveform = &pWaveform)
+			{
+				MaResult ret = MaPulsewaveSetDutyCycleNative((MaPulsewave*)ppWaveform, dutyCycle);
+				return ret;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaNoiseConfig MaNoiseConfigInitNative(MaFormat format, uint channels, MaNoiseType type, int seed, double amplitude)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, MaNoiseType, int, double, MaNoiseConfig>)funcTable[595])(format, channels, type, seed, amplitude);
+			#else
+			return (MaNoiseConfig)((delegate* unmanaged[Cdecl]<MaFormat, uint, MaNoiseType, int, double, MaNoiseConfig>)funcTable[595])(format, channels, type, seed, amplitude);
+			#endif
+		}
+
+		public static MaNoiseConfig MaNoiseConfigInit(MaFormat format, uint channels, MaNoiseType type, int seed, double amplitude)
+		{
+			MaNoiseConfig ret = MaNoiseConfigInitNative(format, channels, type, seed, amplitude);
+			return ret;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaNoiseGetHeapSizeNative(MaNoiseConfig* pConfig, nuint* pHeapSizeInBytes)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaNoiseConfig*, nuint*, MaResult>)funcTable[596])(pConfig, pHeapSizeInBytes);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[596])((nint)pConfig, (nint)pHeapSizeInBytes);
+			#endif
+		}
+
+		public static MaResult MaNoiseGetHeapSize(MaNoiseConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		{
+			MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)pConfig, pHeapSizeInBytes);
+			return ret;
+		}
+
+		public static MaResult MaNoiseGetHeapSize(in MaNoiseConfig pConfig, nuint* pHeapSizeInBytes)
+		{
+			fixed (MaNoiseConfig* ppConfig = &pConfig)
+			{
+				MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)ppConfig, pHeapSizeInBytes);
+				return ret;
+			}
+		}
+
+		public static MaResult MaNoiseGetHeapSize(MaNoiseConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		{
+			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
+			{
+				MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
+				return ret;
+			}
+		}
+
+		public static MaResult MaNoiseGetHeapSize(in MaNoiseConfig pConfig, ref nuint pHeapSizeInBytes)
+		{
+			fixed (MaNoiseConfig* ppConfig = &pConfig)
+			{
+				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
+				{
+					MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					return ret;
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaNoiseInitPreallocatedNative(MaNoiseConfig* pConfig, void* pHeap, MaNoise* pNoise)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaNoiseConfig*, void*, MaNoise*, MaResult>)funcTable[597])(pConfig, pHeap, pNoise);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[597])((nint)pConfig, (nint)pHeap, (nint)pNoise);
+			#endif
+		}
+
+		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, void* pHeap, MaNoisePtr pNoise)
+		{
+			MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, pHeap, (MaNoise*)pNoise);
+			return ret;
+		}
+
+		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, void* pHeap, MaNoisePtr pNoise)
+		{
+			fixed (MaNoiseConfig* ppConfig = &pConfig)
+			{
+				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, pHeap, (MaNoise*)pNoise);
+				return ret;
+			}
+		}
+
+		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, nint pHeap, MaNoisePtr pNoise)
+		{
+			MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, (void*)pHeap, (MaNoise*)pNoise);
+			return ret;
+		}
+
+		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, nint pHeap, MaNoisePtr pNoise)
+		{
+			fixed (MaNoiseConfig* ppConfig = &pConfig)
+			{
+				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, (void*)pHeap, (MaNoise*)pNoise);
+				return ret;
+			}
+		}
+
+		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, void* pHeap, ref MaNoise pNoise)
+		{
+			fixed (MaNoise* ppNoise = &pNoise)
+			{
+				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, pHeap, (MaNoise*)ppNoise);
+				return ret;
+			}
+		}
+
+		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, void* pHeap, ref MaNoise pNoise)
+		{
+			fixed (MaNoiseConfig* ppConfig = &pConfig)
+			{
+				fixed (MaNoise* ppNoise = &pNoise)
+				{
+					MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, pHeap, (MaNoise*)ppNoise);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, nint pHeap, ref MaNoise pNoise)
+		{
+			fixed (MaNoise* ppNoise = &pNoise)
+			{
+				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, (void*)pHeap, (MaNoise*)ppNoise);
+				return ret;
+			}
+		}
+
+		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, nint pHeap, ref MaNoise pNoise)
+		{
+			fixed (MaNoiseConfig* ppConfig = &pConfig)
+			{
+				fixed (MaNoise* ppNoise = &pNoise)
+				{
+					MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, (void*)pHeap, (MaNoise*)ppNoise);
+					return ret;
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaNoiseInitNative(MaNoiseConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaNoise* pNoise)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaNoiseConfig*, MaAllocationCallbacks*, MaNoise*, MaResult>)funcTable[598])(pConfig, pAllocationCallbacks, pNoise);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[598])((nint)pConfig, (nint)pAllocationCallbacks, (nint)pNoise);
+			#endif
+		}
+
+		public static MaResult MaNoiseInit(MaNoiseConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNoisePtr pNoise)
+		{
+			MaResult ret = MaNoiseInitNative((MaNoiseConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNoise*)pNoise);
+			return ret;
+		}
+
+		public static MaResult MaNoiseInit(in MaNoiseConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNoisePtr pNoise)
+		{
+			fixed (MaNoiseConfig* ppConfig = &pConfig)
+			{
+				MaResult ret = MaNoiseInitNative((MaNoiseConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNoise*)pNoise);
+				return ret;
+			}
+		}
+
+		public static MaResult MaNoiseInit(MaNoiseConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaNoisePtr pNoise)
+		{
+			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+			{
+				MaResult ret = MaNoiseInitNative((MaNoiseConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaNoise*)pNoise);
+				return ret;
+			}
 		}
 	}
 }

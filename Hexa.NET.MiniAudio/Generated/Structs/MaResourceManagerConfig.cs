@@ -55,8 +55,9 @@ namespace Hexa.NET.MiniAudio
 		public unsafe MaDecodingBackendVtable** PpCustomDecodingBackendVTables;
 		public uint CustomDecodingBackendCount;
 		public unsafe void* PCustomDecodingBackendUserData;
+		public MaResamplerConfig Resampling;
 
-		public unsafe MaResourceManagerConfig(MaAllocationCallbacks allocationCallbacks = default, MaLogPtr pLog = default, MaFormat decodedFormat = default, uint decodedChannels = default, uint decodedSampleRate = default, uint jobThreadCount = default, nuint jobThreadStackSize = default, uint jobQueueCapacity = default, uint flags = default, void* pVFs = default, MaDecodingBackendVtablePtrPtr ppCustomDecodingBackendVTables = default, uint customDecodingBackendCount = default, void* pCustomDecodingBackendUserData = default)
+		public unsafe MaResourceManagerConfig(MaAllocationCallbacks allocationCallbacks = default, MaLogPtr pLog = default, MaFormat decodedFormat = default, uint decodedChannels = default, uint decodedSampleRate = default, uint jobThreadCount = default, nuint jobThreadStackSize = default, uint jobQueueCapacity = default, uint flags = default, void* pVFs = default, MaDecodingBackendVtablePtrPtr ppCustomDecodingBackendVTables = default, uint customDecodingBackendCount = default, void* pCustomDecodingBackendUserData = default, MaResamplerConfig resampling = default)
 		{
 			AllocationCallbacks = allocationCallbacks;
 			PLog = pLog;
@@ -71,6 +72,7 @@ namespace Hexa.NET.MiniAudio
 			PpCustomDecodingBackendVTables = ppCustomDecodingBackendVTables;
 			CustomDecodingBackendCount = customDecodingBackendCount;
 			PCustomDecodingBackendUserData = pCustomDecodingBackendUserData;
+			Resampling = resampling;
 		}
 
 
@@ -145,6 +147,7 @@ namespace Hexa.NET.MiniAudio
 		public ref MaDecodingBackendVtablePtrPtr PpCustomDecodingBackendVTables => ref Unsafe.AsRef<MaDecodingBackendVtablePtrPtr>(&Handle->PpCustomDecodingBackendVTables);
 		public ref uint CustomDecodingBackendCount => ref Unsafe.AsRef<uint>(&Handle->CustomDecodingBackendCount);
 		public void* PCustomDecodingBackendUserData { get => Handle->PCustomDecodingBackendUserData; set => Handle->PCustomDecodingBackendUserData = value; }
+		public ref MaResamplerConfig Resampling => ref Unsafe.AsRef<MaResamplerConfig>(&Handle->Resampling);
 	}
 
 }

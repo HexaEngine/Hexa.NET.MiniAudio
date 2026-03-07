@@ -18,7 +18,7 @@ namespace Hexa.NET.MiniAudio
 
 		public const int MA_VERSION_MINOR = 11;
 
-		public const int MA_VERSION_REVISION = 23;
+		public const int MA_VERSION_REVISION = 25;
 
 		public const int MA_SIZEOF_PTR = 8;
 

@@ -17,197 +17,6 @@ namespace Hexa.NET.MiniAudio
 	public unsafe partial class MiniAudio
 	{
 
-		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, ReadOnlySpan<char> pFilePath, uint flags, MaResourceManagerPipelineNotificationsPtr pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
-			{
-				fixed (char* ppFilePath = pFilePath)
-				{
-					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-					{
-						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)pNotifications, (MaResourceManagerDataStream*)ppDataStream);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, string pFilePath, uint flags, MaResourceManagerPipelineNotificationsPtr pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
-			{
-				fixed (char* ppFilePath = pFilePath)
-				{
-					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-					{
-						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, ppFilePath, flags, (MaResourceManagerPipelineNotifications*)pNotifications, (MaResourceManagerDataStream*)ppDataStream);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, char* pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-			{
-				fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-				{
-					MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, pFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, char* pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
-			{
-				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-				{
-					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-					{
-						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, pFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, in char pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (char* ppFilePath = &pFilePath)
-			{
-				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-				{
-					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-					{
-						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, ReadOnlySpan<char> pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (char* ppFilePath = pFilePath)
-			{
-				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-				{
-					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-					{
-						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, string pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (char* ppFilePath = pFilePath)
-			{
-				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-				{
-					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-					{
-						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-						return ret;
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, in char pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
-			{
-				fixed (char* ppFilePath = &pFilePath)
-				{
-					fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-					{
-						fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-						{
-							MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, ReadOnlySpan<char> pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
-			{
-				fixed (char* ppFilePath = pFilePath)
-				{
-					fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-					{
-						fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-						{
-							MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, string pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
-			{
-				fixed (char* ppFilePath = pFilePath)
-				{
-					fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
-					{
-						fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-						{
-							MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaResourceManagerDataStreamUninitNative(MaResourceManagerDataStream* pDataStream)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaResourceManagerDataStream*, MaResult>)funcTable[637])(pDataStream);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[637])((nint)pDataStream);
-			#endif
-		}
-
-		public static MaResult MaResourceManagerDataStreamUninit(MaResourceManagerDataStreamPtr pDataStream)
-		{
-			MaResult ret = MaResourceManagerDataStreamUninitNative((MaResourceManagerDataStream*)pDataStream);
-			return ret;
-		}
-
-		public static MaResult MaResourceManagerDataStreamUninit(ref MaResourceManagerDataStream pDataStream)
-		{
-			fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
-			{
-				MaResult ret = MaResourceManagerDataStreamUninitNative((MaResourceManagerDataStream*)ppDataStream);
-				return ret;
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaResourceManagerDataStreamReadPcmFramesNative(MaResourceManagerDataStream* pDataStream, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaResourceManagerDataStream*, void*, ulong, ulong*, MaResult>)funcTable[638])(pDataStream, pFramesOut, frameCount, pFramesRead);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, ulong, nint, MaResult>)funcTable[638])((nint)pDataStream, (nint)pFramesOut, frameCount, (nint)pFramesRead);
-			#endif
-		}
-
 		public static MaResult MaResourceManagerDataStreamReadPcmFrames(MaResourceManagerDataStreamPtr pDataStream, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
 		{
 			MaResult ret = MaResourceManagerDataStreamReadPcmFramesNative((MaResourceManagerDataStream*)pDataStream, pFramesOut, frameCount, pFramesRead);
@@ -4366,12 +4175,37 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static uint MaNodeGraphGetProcessingSizeInFramesNative(MaNodeGraph* pNodeGraph)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, uint>)funcTable[697])(pNodeGraph);
+			#else
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[697])((nint)pNodeGraph);
+			#endif
+		}
+
+		public static uint MaNodeGraphGetProcessingSizeInFrames(MaNodeGraphPtr pNodeGraph)
+		{
+			uint ret = MaNodeGraphGetProcessingSizeInFramesNative((MaNodeGraph*)pNodeGraph);
+			return ret;
+		}
+
+		public static uint MaNodeGraphGetProcessingSizeInFrames(in MaNodeGraph pNodeGraph)
+		{
+			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
+			{
+				uint ret = MaNodeGraphGetProcessingSizeInFramesNative((MaNodeGraph*)ppNodeGraph);
+				return ret;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static MaDataSourceNodeConfig MaDataSourceNodeConfigInitNative(void* pDataSource)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, MaDataSourceNodeConfig>)funcTable[697])(pDataSource);
+			return ((delegate* unmanaged[Cdecl]<void*, MaDataSourceNodeConfig>)funcTable[698])(pDataSource);
 			#else
-			return (MaDataSourceNodeConfig)((delegate* unmanaged[Cdecl]<nint, MaDataSourceNodeConfig>)funcTable[697])((nint)pDataSource);
+			return (MaDataSourceNodeConfig)((delegate* unmanaged[Cdecl]<nint, MaDataSourceNodeConfig>)funcTable[698])((nint)pDataSource);
 			#endif
 		}
 
@@ -4391,9 +4225,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaDataSourceNodeInitNative(MaNodeGraph* pNodeGraph, MaDataSourceNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaDataSourceNode* pDataSourceNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaDataSourceNodeConfig*, MaAllocationCallbacks*, MaDataSourceNode*, MaResult>)funcTable[698])(pNodeGraph, pConfig, pAllocationCallbacks, pDataSourceNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaDataSourceNodeConfig*, MaAllocationCallbacks*, MaDataSourceNode*, MaResult>)funcTable[699])(pNodeGraph, pConfig, pAllocationCallbacks, pDataSourceNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[698])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pDataSourceNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[699])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pDataSourceNode);
 			#endif
 		}
 
@@ -4593,9 +4427,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaDataSourceNodeUninitNative(MaDataSourceNode* pDataSourceNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaDataSourceNode*, MaAllocationCallbacks*, void>)funcTable[699])(pDataSourceNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaDataSourceNode*, MaAllocationCallbacks*, void>)funcTable[700])(pDataSourceNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[699])((nint)pDataSourceNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[700])((nint)pDataSourceNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -4635,9 +4469,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaDataSourceNodeSetLoopingNative(MaDataSourceNode* pDataSourceNode, uint isLooping)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaDataSourceNode*, uint, MaResult>)funcTable[700])(pDataSourceNode, isLooping);
+			return ((delegate* unmanaged[Cdecl]<MaDataSourceNode*, uint, MaResult>)funcTable[701])(pDataSourceNode, isLooping);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[700])((nint)pDataSourceNode, isLooping);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, uint, MaResult>)funcTable[701])((nint)pDataSourceNode, isLooping);
 			#endif
 		}
 
@@ -4660,9 +4494,9 @@ namespace Hexa.NET.MiniAudio
 		internal static uint MaDataSourceNodeIsLoopingNative(MaDataSourceNode* pDataSourceNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaDataSourceNode*, uint>)funcTable[701])(pDataSourceNode);
+			return ((delegate* unmanaged[Cdecl]<MaDataSourceNode*, uint>)funcTable[702])(pDataSourceNode);
 			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[701])((nint)pDataSourceNode);
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[702])((nint)pDataSourceNode);
 			#endif
 		}
 
@@ -4685,9 +4519,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaSplitterNodeConfig MaSplitterNodeConfigInitNative(uint channels)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, MaSplitterNodeConfig>)funcTable[702])(channels);
+			return ((delegate* unmanaged[Cdecl]<uint, MaSplitterNodeConfig>)funcTable[703])(channels);
 			#else
-			return (MaSplitterNodeConfig)((delegate* unmanaged[Cdecl]<uint, MaSplitterNodeConfig>)funcTable[702])(channels);
+			return (MaSplitterNodeConfig)((delegate* unmanaged[Cdecl]<uint, MaSplitterNodeConfig>)funcTable[703])(channels);
 			#endif
 		}
 
@@ -4701,9 +4535,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaSplitterNodeInitNative(MaNodeGraph* pNodeGraph, MaSplitterNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaSplitterNode* pSplitterNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaSplitterNodeConfig*, MaAllocationCallbacks*, MaSplitterNode*, MaResult>)funcTable[703])(pNodeGraph, pConfig, pAllocationCallbacks, pSplitterNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaSplitterNodeConfig*, MaAllocationCallbacks*, MaSplitterNode*, MaResult>)funcTable[704])(pNodeGraph, pConfig, pAllocationCallbacks, pSplitterNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[703])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pSplitterNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[704])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pSplitterNode);
 			#endif
 		}
 
@@ -4903,9 +4737,9 @@ namespace Hexa.NET.MiniAudio
 		internal static void MaSplitterNodeUninitNative(MaSplitterNode* pSplitterNode, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<MaSplitterNode*, MaAllocationCallbacks*, void>)funcTable[704])(pSplitterNode, pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<MaSplitterNode*, MaAllocationCallbacks*, void>)funcTable[705])(pSplitterNode, pAllocationCallbacks);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[704])((nint)pSplitterNode, (nint)pAllocationCallbacks);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[705])((nint)pSplitterNode, (nint)pAllocationCallbacks);
 			#endif
 		}
 
@@ -4945,9 +4779,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaBiquadNodeConfig MaBiquadNodeConfigInitNative(uint channels, float b0, float b1, float b2, float a0, float a1, float a2)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, float, float, float, float, float, float, MaBiquadNodeConfig>)funcTable[705])(channels, b0, b1, b2, a0, a1, a2);
+			return ((delegate* unmanaged[Cdecl]<uint, float, float, float, float, float, float, MaBiquadNodeConfig>)funcTable[706])(channels, b0, b1, b2, a0, a1, a2);
 			#else
-			return (MaBiquadNodeConfig)((delegate* unmanaged[Cdecl]<uint, float, float, float, float, float, float, MaBiquadNodeConfig>)funcTable[705])(channels, b0, b1, b2, a0, a1, a2);
+			return (MaBiquadNodeConfig)((delegate* unmanaged[Cdecl]<uint, float, float, float, float, float, float, MaBiquadNodeConfig>)funcTable[706])(channels, b0, b1, b2, a0, a1, a2);
 			#endif
 		}
 
@@ -4961,9 +4795,9 @@ namespace Hexa.NET.MiniAudio
 		internal static MaResult MaBiquadNodeInitNative(MaNodeGraph* pNodeGraph, MaBiquadNodeConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBiquadNode* pNode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaBiquadNodeConfig*, MaAllocationCallbacks*, MaBiquadNode*, MaResult>)funcTable[706])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
+			return ((delegate* unmanaged[Cdecl]<MaNodeGraph*, MaBiquadNodeConfig*, MaAllocationCallbacks*, MaBiquadNode*, MaResult>)funcTable[707])(pNodeGraph, pConfig, pAllocationCallbacks, pNode);
 			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[706])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, MaResult>)funcTable[707])((nint)pNodeGraph, (nint)pConfig, (nint)pAllocationCallbacks, (nint)pNode);
 			#endif
 		}
 
@@ -5021,6 +4855,166 @@ namespace Hexa.NET.MiniAudio
 					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)pNode);
 					return ret;
 				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadNodePtr pNode)
+		{
+			fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
+			{
+				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+				{
+					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)pNode);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadNodePtr pNode)
+		{
+			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
+			{
+				fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
+				{
+					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+					{
+						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)pNode);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, MaBiquadNodeConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaBiquadNode* ppNode = &pNode)
+			{
+				MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
+				return ret;
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, MaBiquadNodeConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
+			{
+				fixed (MaBiquadNode* ppNode = &pNode)
+				{
+					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, in MaBiquadNodeConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
+			{
+				fixed (MaBiquadNode* ppNode = &pNode)
+				{
+					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, in MaBiquadNodeConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
+			{
+				fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
+				{
+					fixed (MaBiquadNode* ppNode = &pNode)
+					{
+						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquadNode*)ppNode);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, MaBiquadNodeConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+			{
+				fixed (MaBiquadNode* ppNode = &pNode)
+				{
+					MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, MaBiquadNodeConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
+			{
+				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+				{
+					fixed (MaBiquadNode* ppNode = &pNode)
+					{
+						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(MaNodeGraphPtr pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
+			{
+				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+				{
+					fixed (MaBiquadNode* ppNode = &pNode)
+					{
+						MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)pNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaBiquadNodeInit(ref MaNodeGraph pNodeGraph, in MaBiquadNodeConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquadNode pNode)
+		{
+			fixed (MaNodeGraph* ppNodeGraph = &pNodeGraph)
+			{
+				fixed (MaBiquadNodeConfig* ppConfig = &pConfig)
+				{
+					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+					{
+						fixed (MaBiquadNode* ppNode = &pNode)
+						{
+							MaResult ret = MaBiquadNodeInitNative((MaNodeGraph*)ppNodeGraph, (MaBiquadNodeConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquadNode*)ppNode);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaBiquadNodeReinitNative(MaBiquadConfig* pConfig, MaBiquadNode* pNode)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaBiquadConfig*, MaBiquadNode*, MaResult>)funcTable[708])(pConfig, pNode);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[708])((nint)pConfig, (nint)pNode);
+			#endif
+		}
+
+		public static MaResult MaBiquadNodeReinit(MaBiquadConfigPtr pConfig, MaBiquadNodePtr pNode)
+		{
+			MaResult ret = MaBiquadNodeReinitNative((MaBiquadConfig*)pConfig, (MaBiquadNode*)pNode);
+			return ret;
+		}
+
+		public static MaResult MaBiquadNodeReinit(in MaBiquadConfig pConfig, MaBiquadNodePtr pNode)
+		{
+			fixed (MaBiquadConfig* ppConfig = &pConfig)
+			{
+				MaResult ret = MaBiquadNodeReinitNative((MaBiquadConfig*)ppConfig, (MaBiquadNode*)pNode);
+				return ret;
 			}
 		}
 	}

@@ -5396,9 +5396,9 @@ namespace Hexa.NET.MiniAudio
 		/// Intermediary buffer for duplex device on asynchronous backends. <br/>
 		/// </summary>
 		public ref MaDuplexRb DuplexRB => ref Unsafe.AsRef<MaDuplexRb>(&Handle->DuplexRB);
-		public ref MaDevice.ResamplingUnion Union0 => ref Unsafe.AsRef<MaDevice.ResamplingUnion>(&Handle->Resampling);
-		public ref MaDevice.PlaybackUnion Union1 => ref Unsafe.AsRef<MaDevice.PlaybackUnion>(&Handle->Playback);
-		public ref MaDevice.CaptureUnion Union2 => ref Unsafe.AsRef<MaDevice.CaptureUnion>(&Handle->Capture);
+		public ref MaDevice.ResamplingUnion Resampling => ref Unsafe.AsRef<MaDevice.ResamplingUnion>(&Handle->Resampling);
+		public ref MaDevice.PlaybackUnion Playback => ref Unsafe.AsRef<MaDevice.PlaybackUnion>(&Handle->Playback);
+		public ref MaDevice.CaptureUnion Capture => ref Unsafe.AsRef<MaDevice.CaptureUnion>(&Handle->Capture);
 		public ref MaDevice.MaDeviceUnion24 Union3 => ref Unsafe.AsRef<MaDevice.MaDeviceUnion24>(&Handle->Union3);
 	}
 

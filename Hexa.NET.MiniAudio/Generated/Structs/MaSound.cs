@@ -32,10 +32,17 @@ namespace Hexa.NET.MiniAudio
 		public uint AtEnd;
 		public unsafe void* EndCallback;
 		public unsafe void* PEndCallbackUserData;
+		/// <summary>
+		/// Will be null if pDataSource is null. <br/>
+		/// </summary>
+		public unsafe float* PProcessingCache;
+
+		public uint ProcessingCacheFramesRemaining;
+		public uint ProcessingCacheCap;
 		public byte OwnsDataSource;
 		public unsafe MaResourceManagerDataSource* PResourceManagerDataSource;
 
-		public unsafe MaSound(MaEngineNode engineNode = default, void* pDataSource = default, ulong seekTarget = default, uint atEnd = default, delegate*<void*, MaSound*, void> endCallback = default, void* pEndCallbackUserData = default, byte ownsDataSource = default, MaResourceManagerDataSourcePtr pResourceManagerDataSource = default)
+		public unsafe MaSound(MaEngineNode engineNode = default, void* pDataSource = default, ulong seekTarget = default, uint atEnd = default, delegate*<void*, MaSound*, void> endCallback = default, void* pEndCallbackUserData = default, float* pProcessingCache = default, uint processingCacheFramesRemaining = default, uint processingCacheCap = default, byte ownsDataSource = default, MaResourceManagerDataSourcePtr pResourceManagerDataSource = default)
 		{
 			EngineNode = engineNode;
 			PDataSource = pDataSource;
@@ -43,6 +50,9 @@ namespace Hexa.NET.MiniAudio
 			AtEnd = atEnd;
 			EndCallback = (delegate*<void*, MaSound*, void>)endCallback;
 			PEndCallbackUserData = pEndCallbackUserData;
+			PProcessingCache = pProcessingCache;
+			ProcessingCacheFramesRemaining = processingCacheFramesRemaining;
+			ProcessingCacheCap = processingCacheCap;
 			OwnsDataSource = ownsDataSource;
 			PResourceManagerDataSource = pResourceManagerDataSource;
 		}
@@ -100,6 +110,12 @@ namespace Hexa.NET.MiniAudio
 		public ref uint AtEnd => ref Unsafe.AsRef<uint>(&Handle->AtEnd);
 		public void* EndCallback { get => Handle->EndCallback; set => Handle->EndCallback = value; }
 		public void* PEndCallbackUserData { get => Handle->PEndCallbackUserData; set => Handle->PEndCallbackUserData = value; }
+		/// <summary>
+		/// Will be null if pDataSource is null. <br/>
+		/// </summary>
+		public float* PProcessingCache { get => Handle->PProcessingCache; set => Handle->PProcessingCache = value; }
+		public ref uint ProcessingCacheFramesRemaining => ref Unsafe.AsRef<uint>(&Handle->ProcessingCacheFramesRemaining);
+		public ref uint ProcessingCacheCap => ref Unsafe.AsRef<uint>(&Handle->ProcessingCacheCap);
 		public ref byte OwnsDataSource => ref Unsafe.AsRef<byte>(&Handle->OwnsDataSource);
 		public ref MaResourceManagerDataSourcePtr PResourceManagerDataSource => ref Unsafe.AsRef<MaResourceManagerDataSourcePtr>(&Handle->PResourceManagerDataSource);
 	}

@@ -4798,5 +4798,226 @@ namespace Hexa.NET.MiniAudio
 			((delegate* unmanaged[Cdecl]<MaFormat, uint, ulong, nint, nint, void>)funcTable[281])(format, channels, frameCount, (nint)pInterleavedPCMFrames, (nint)ppDeinterleavedPCMFrames);
 			#endif
 		}
+
+		/// <summary>
+		/// Deinterleaves an interleaved buffer.<br/>
+		/// </summary>
+		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void* pInterleavedPCMFrames, void** ppDeinterleavedPCMFrames)
+		{
+			MaDeinterleavePcmFramesNative(format, channels, frameCount, pInterleavedPCMFrames, ppDeinterleavedPCMFrames);
+		}
+
+		/// <summary>
+		/// Deinterleaves an interleaved buffer.<br/>
+		/// </summary>
+		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, nint pInterleavedPCMFrames, void** ppDeinterleavedPCMFrames)
+		{
+			MaDeinterleavePcmFramesNative(format, channels, frameCount, (void*)pInterleavedPCMFrames, ppDeinterleavedPCMFrames);
+		}
+
+		/// <summary>
+		/// Deinterleaves an interleaved buffer.<br/>
+		/// </summary>
+		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void* pInterleavedPCMFrames, ref nint ppDeinterleavedPCMFrames)
+		{
+			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
+			{
+				MaDeinterleavePcmFramesNative(format, channels, frameCount, pInterleavedPCMFrames, (void**)pppDeinterleavedPCMFrames);
+			}
+		}
+
+		/// <summary>
+		/// Deinterleaves an interleaved buffer.<br/>
+		/// </summary>
+		public static void MaDeinterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, nint pInterleavedPCMFrames, ref nint ppDeinterleavedPCMFrames)
+		{
+			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
+			{
+				MaDeinterleavePcmFramesNative(format, channels, frameCount, (void*)pInterleavedPCMFrames, (void**)pppDeinterleavedPCMFrames);
+			}
+		}
+
+		/// <summary>
+		/// Interleaves a group of deinterleaved buffers.<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaInterleavePcmFramesNative(MaFormat format, uint channels, ulong frameCount, void** ppDeinterleavedPCMFrames, void* pInterleavedPCMFrames)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<MaFormat, uint, ulong, void**, void*, void>)funcTable[282])(format, channels, frameCount, ppDeinterleavedPCMFrames, pInterleavedPCMFrames);
+			#else
+			((delegate* unmanaged[Cdecl]<MaFormat, uint, ulong, nint, nint, void>)funcTable[282])(format, channels, frameCount, (nint)ppDeinterleavedPCMFrames, (nint)pInterleavedPCMFrames);
+			#endif
+		}
+
+		/// <summary>
+		/// Interleaves a group of deinterleaved buffers.<br/>
+		/// </summary>
+		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void** ppDeinterleavedPCMFrames, void* pInterleavedPCMFrames)
+		{
+			MaInterleavePcmFramesNative(format, channels, frameCount, ppDeinterleavedPCMFrames, pInterleavedPCMFrames);
+		}
+
+		/// <summary>
+		/// Interleaves a group of deinterleaved buffers.<br/>
+		/// </summary>
+		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, ref nint ppDeinterleavedPCMFrames, void* pInterleavedPCMFrames)
+		{
+			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
+			{
+				MaInterleavePcmFramesNative(format, channels, frameCount, (void**)pppDeinterleavedPCMFrames, pInterleavedPCMFrames);
+			}
+		}
+
+		/// <summary>
+		/// Interleaves a group of deinterleaved buffers.<br/>
+		/// </summary>
+		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, void** ppDeinterleavedPCMFrames, nint pInterleavedPCMFrames)
+		{
+			MaInterleavePcmFramesNative(format, channels, frameCount, ppDeinterleavedPCMFrames, (void*)pInterleavedPCMFrames);
+		}
+
+		/// <summary>
+		/// Interleaves a group of deinterleaved buffers.<br/>
+		/// </summary>
+		public static void MaInterleavePcmFrames(MaFormat format, uint channels, ulong frameCount, ref nint ppDeinterleavedPCMFrames, nint pInterleavedPCMFrames)
+		{
+			fixed (nint* pppDeinterleavedPCMFrames = &ppDeinterleavedPCMFrames)
+			{
+				MaInterleavePcmFramesNative(format, channels, frameCount, (void**)pppDeinterleavedPCMFrames, (void*)pInterleavedPCMFrames);
+			}
+		}
+
+		/// <summary>
+		/// Retrieves the channel position of the specified channel in the given channel map.<br/>
+		/// The pChannelMap parameter can be null, in which case miniaudio's default channel map will be assumed.<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static byte MaChannelMapGetChannelNative(byte* pChannelMap, uint channelCount, uint channelIndex)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<byte*, uint, uint, byte>)funcTable[283])(pChannelMap, channelCount, channelIndex);
+			#else
+			return (byte)((delegate* unmanaged[Cdecl]<nint, uint, uint, byte>)funcTable[283])((nint)pChannelMap, channelCount, channelIndex);
+			#endif
+		}
+
+		/// <summary>
+		/// Retrieves the channel position of the specified channel in the given channel map.<br/>
+		/// The pChannelMap parameter can be null, in which case miniaudio's default channel map will be assumed.<br/>
+		/// </summary>
+		public static byte MaChannelMapGetChannel(byte* pChannelMap, uint channelCount, uint channelIndex)
+		{
+			byte ret = MaChannelMapGetChannelNative(pChannelMap, channelCount, channelIndex);
+			return ret;
+		}
+
+		/// <summary>
+		/// Retrieves the channel position of the specified channel in the given channel map.<br/>
+		/// The pChannelMap parameter can be null, in which case miniaudio's default channel map will be assumed.<br/>
+		/// </summary>
+		public static byte MaChannelMapGetChannel(in byte pChannelMap, uint channelCount, uint channelIndex)
+		{
+			fixed (byte* ppChannelMap = &pChannelMap)
+			{
+				byte ret = MaChannelMapGetChannelNative((byte*)ppChannelMap, channelCount, channelIndex);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// Initializes a blank channel map.<br/>
+		/// When a blank channel map is specified anywhere it indicates that the native channel map should be used.<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaChannelMapInitBlankNative(byte* pChannelMap, uint channels)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<byte*, uint, void>)funcTable[284])(pChannelMap, channels);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, uint, void>)funcTable[284])((nint)pChannelMap, channels);
+			#endif
+		}
+
+		/// <summary>
+		/// Initializes a blank channel map.<br/>
+		/// When a blank channel map is specified anywhere it indicates that the native channel map should be used.<br/>
+		/// </summary>
+		public static void MaChannelMapInitBlank(byte* pChannelMap, uint channels)
+		{
+			MaChannelMapInitBlankNative(pChannelMap, channels);
+		}
+
+		/// <summary>
+		/// Initializes a blank channel map.<br/>
+		/// When a blank channel map is specified anywhere it indicates that the native channel map should be used.<br/>
+		/// </summary>
+		public static void MaChannelMapInitBlank(ref byte pChannelMap, uint channels)
+		{
+			fixed (byte* ppChannelMap = &pChannelMap)
+			{
+				MaChannelMapInitBlankNative((byte*)ppChannelMap, channels);
+			}
+		}
+
+		/// <summary>
+		/// Helper for retrieving a standard channel map.<br/>
+		/// The output channel map buffer must have a capacity of at least `channelMapCap`.<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaChannelMapInitStandardNative(MaStandardChannelMap standardChannelMap, byte* pChannelMap, nuint channelMapCap, uint channels)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<MaStandardChannelMap, byte*, nuint, uint, void>)funcTable[285])(standardChannelMap, pChannelMap, channelMapCap, channels);
+			#else
+			((delegate* unmanaged[Cdecl]<MaStandardChannelMap, nint, nuint, uint, void>)funcTable[285])(standardChannelMap, (nint)pChannelMap, channelMapCap, channels);
+			#endif
+		}
+
+		/// <summary>
+		/// Helper for retrieving a standard channel map.<br/>
+		/// The output channel map buffer must have a capacity of at least `channelMapCap`.<br/>
+		/// </summary>
+		public static void MaChannelMapInitStandard(MaStandardChannelMap standardChannelMap, byte* pChannelMap, nuint channelMapCap, uint channels)
+		{
+			MaChannelMapInitStandardNative(standardChannelMap, pChannelMap, channelMapCap, channels);
+		}
+
+		/// <summary>
+		/// Helper for retrieving a standard channel map.<br/>
+		/// The output channel map buffer must have a capacity of at least `channelMapCap`.<br/>
+		/// </summary>
+		public static void MaChannelMapInitStandard(MaStandardChannelMap standardChannelMap, ref byte pChannelMap, nuint channelMapCap, uint channels)
+		{
+			fixed (byte* ppChannelMap = &pChannelMap)
+			{
+				MaChannelMapInitStandardNative(standardChannelMap, (byte*)ppChannelMap, channelMapCap, channels);
+			}
+		}
+
+		/// <summary>
+		/// Copies a channel map.<br/>
+		/// Both input and output channel map buffers must have a capacity of at least `channels`.<br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void MaChannelMapCopyNative(byte* pOut, byte* pIn, uint channels)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<byte*, byte*, uint, void>)funcTable[286])(pOut, pIn, channels);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, nint, uint, void>)funcTable[286])((nint)pOut, (nint)pIn, channels);
+			#endif
+		}
+
+		/// <summary>
+		/// Copies a channel map.<br/>
+		/// Both input and output channel map buffers must have a capacity of at least `channels`.<br/>
+		/// </summary>
+		public static byte MaChannelMapCopy(byte* pIn, uint channels)
+		{
+			byte ret;
+			MaChannelMapCopyNative(&ret, pIn, channels);
+			return ret;
+		}
 	}
 }

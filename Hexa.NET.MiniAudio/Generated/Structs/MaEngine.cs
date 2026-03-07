@@ -63,8 +63,9 @@ namespace Hexa.NET.MiniAudio
 		public MaMonoExpansionMode MonoExpansionMode;
 		public unsafe void* OnProcess;
 		public unsafe void* PProcessUserData;
+		public MaResamplerConfig PitchResamplingConfig;
 
-		public unsafe MaEngine(MaNodeGraph nodeGraph = default, MaResourceManagerPtr pResourceManager = default, MaDevicePtr pDevice = default, MaLogPtr pLog = default, uint sampleRate = default, uint listenerCount = default, MaSpatializerListenerPtr listeners = default, MaAllocationCallbacks allocationCallbacks = default, byte ownsResourceManager = default, byte ownsDevice = default, uint inlinedSoundLock = default, MaSoundInlined* pInlinedSoundHead = default, uint inlinedSoundCount = default, uint gainSmoothTimeInFrames = default, uint defaultVolumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, delegate*<void*, float*, ulong, void> onProcess = default, void* pProcessUserData = default)
+		public unsafe MaEngine(MaNodeGraph nodeGraph = default, MaResourceManagerPtr pResourceManager = default, MaDevicePtr pDevice = default, MaLogPtr pLog = default, uint sampleRate = default, uint listenerCount = default, MaSpatializerListenerPtr listeners = default, MaAllocationCallbacks allocationCallbacks = default, byte ownsResourceManager = default, byte ownsDevice = default, uint inlinedSoundLock = default, MaSoundInlined* pInlinedSoundHead = default, uint inlinedSoundCount = default, uint gainSmoothTimeInFrames = default, uint defaultVolumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, delegate*<void*, float*, ulong, void> onProcess = default, void* pProcessUserData = default, MaResamplerConfig pitchResamplingConfig = default)
 		{
 			NodeGraph = nodeGraph;
 			PResourceManager = pResourceManager;
@@ -90,9 +91,10 @@ namespace Hexa.NET.MiniAudio
 			MonoExpansionMode = monoExpansionMode;
 			OnProcess = (delegate*<void*, float*, ulong, void>)onProcess;
 			PProcessUserData = pProcessUserData;
+			PitchResamplingConfig = pitchResamplingConfig;
 		}
 
-		public unsafe MaEngine(MaNodeGraph nodeGraph = default, MaResourceManagerPtr pResourceManager = default, MaDevicePtr pDevice = default, MaLogPtr pLog = default, uint sampleRate = default, uint listenerCount = default, Span<MaSpatializerListener> listeners = default, MaAllocationCallbacks allocationCallbacks = default, byte ownsResourceManager = default, byte ownsDevice = default, uint inlinedSoundLock = default, MaSoundInlined* pInlinedSoundHead = default, uint inlinedSoundCount = default, uint gainSmoothTimeInFrames = default, uint defaultVolumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, delegate*<void*, float*, ulong, void> onProcess = default, void* pProcessUserData = default)
+		public unsafe MaEngine(MaNodeGraph nodeGraph = default, MaResourceManagerPtr pResourceManager = default, MaDevicePtr pDevice = default, MaLogPtr pLog = default, uint sampleRate = default, uint listenerCount = default, Span<MaSpatializerListener> listeners = default, MaAllocationCallbacks allocationCallbacks = default, byte ownsResourceManager = default, byte ownsDevice = default, uint inlinedSoundLock = default, MaSoundInlined* pInlinedSoundHead = default, uint inlinedSoundCount = default, uint gainSmoothTimeInFrames = default, uint defaultVolumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, delegate*<void*, float*, ulong, void> onProcess = default, void* pProcessUserData = default, MaResamplerConfig pitchResamplingConfig = default)
 		{
 			NodeGraph = nodeGraph;
 			PResourceManager = pResourceManager;
@@ -118,6 +120,7 @@ namespace Hexa.NET.MiniAudio
 			MonoExpansionMode = monoExpansionMode;
 			OnProcess = (delegate*<void*, float*, ulong, void>)onProcess;
 			PProcessUserData = pProcessUserData;
+			PitchResamplingConfig = pitchResamplingConfig;
 		}
 
 
@@ -215,6 +218,7 @@ namespace Hexa.NET.MiniAudio
 		public ref MaMonoExpansionMode MonoExpansionMode => ref Unsafe.AsRef<MaMonoExpansionMode>(&Handle->MonoExpansionMode);
 		public void* OnProcess { get => Handle->OnProcess; set => Handle->OnProcess = value; }
 		public void* PProcessUserData { get => Handle->PProcessUserData; set => Handle->PProcessUserData = value; }
+		public ref MaResamplerConfig PitchResamplingConfig => ref Unsafe.AsRef<MaResamplerConfig>(&Handle->PitchResamplingConfig);
 	}
 
 }

@@ -17,193 +17,6 @@ namespace Hexa.NET.MiniAudio
 	public unsafe partial class MiniAudio
 	{
 
-		public static MaResult MaPulsewaveSetDutyCycle(ref MaPulsewave pWaveform, double dutyCycle)
-		{
-			fixed (MaPulsewave* ppWaveform = &pWaveform)
-			{
-				MaResult ret = MaPulsewaveSetDutyCycleNative((MaPulsewave*)ppWaveform, dutyCycle);
-				return ret;
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaNoiseConfig MaNoiseConfigInitNative(MaFormat format, uint channels, MaNoiseType type, int seed, double amplitude)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, MaNoiseType, int, double, MaNoiseConfig>)funcTable[595])(format, channels, type, seed, amplitude);
-			#else
-			return (MaNoiseConfig)((delegate* unmanaged[Cdecl]<MaFormat, uint, MaNoiseType, int, double, MaNoiseConfig>)funcTable[595])(format, channels, type, seed, amplitude);
-			#endif
-		}
-
-		public static MaNoiseConfig MaNoiseConfigInit(MaFormat format, uint channels, MaNoiseType type, int seed, double amplitude)
-		{
-			MaNoiseConfig ret = MaNoiseConfigInitNative(format, channels, type, seed, amplitude);
-			return ret;
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaNoiseGetHeapSizeNative(MaNoiseConfig* pConfig, nuint* pHeapSizeInBytes)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNoiseConfig*, nuint*, MaResult>)funcTable[596])(pConfig, pHeapSizeInBytes);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, MaResult>)funcTable[596])((nint)pConfig, (nint)pHeapSizeInBytes);
-			#endif
-		}
-
-		public static MaResult MaNoiseGetHeapSize(MaNoiseConfigPtr pConfig, nuint* pHeapSizeInBytes)
-		{
-			MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)pConfig, pHeapSizeInBytes);
-			return ret;
-		}
-
-		public static MaResult MaNoiseGetHeapSize(in MaNoiseConfig pConfig, nuint* pHeapSizeInBytes)
-		{
-			fixed (MaNoiseConfig* ppConfig = &pConfig)
-			{
-				MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)ppConfig, pHeapSizeInBytes);
-				return ret;
-			}
-		}
-
-		public static MaResult MaNoiseGetHeapSize(MaNoiseConfigPtr pConfig, ref nuint pHeapSizeInBytes)
-		{
-			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
-			{
-				MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
-				return ret;
-			}
-		}
-
-		public static MaResult MaNoiseGetHeapSize(in MaNoiseConfig pConfig, ref nuint pHeapSizeInBytes)
-		{
-			fixed (MaNoiseConfig* ppConfig = &pConfig)
-			{
-				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
-				{
-					MaResult ret = MaNoiseGetHeapSizeNative((MaNoiseConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
-					return ret;
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaNoiseInitPreallocatedNative(MaNoiseConfig* pConfig, void* pHeap, MaNoise* pNoise)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNoiseConfig*, void*, MaNoise*, MaResult>)funcTable[597])(pConfig, pHeap, pNoise);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[597])((nint)pConfig, (nint)pHeap, (nint)pNoise);
-			#endif
-		}
-
-		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, void* pHeap, MaNoisePtr pNoise)
-		{
-			MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, pHeap, (MaNoise*)pNoise);
-			return ret;
-		}
-
-		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, void* pHeap, MaNoisePtr pNoise)
-		{
-			fixed (MaNoiseConfig* ppConfig = &pConfig)
-			{
-				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, pHeap, (MaNoise*)pNoise);
-				return ret;
-			}
-		}
-
-		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, nint pHeap, MaNoisePtr pNoise)
-		{
-			MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, (void*)pHeap, (MaNoise*)pNoise);
-			return ret;
-		}
-
-		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, nint pHeap, MaNoisePtr pNoise)
-		{
-			fixed (MaNoiseConfig* ppConfig = &pConfig)
-			{
-				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, (void*)pHeap, (MaNoise*)pNoise);
-				return ret;
-			}
-		}
-
-		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, void* pHeap, ref MaNoise pNoise)
-		{
-			fixed (MaNoise* ppNoise = &pNoise)
-			{
-				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, pHeap, (MaNoise*)ppNoise);
-				return ret;
-			}
-		}
-
-		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, void* pHeap, ref MaNoise pNoise)
-		{
-			fixed (MaNoiseConfig* ppConfig = &pConfig)
-			{
-				fixed (MaNoise* ppNoise = &pNoise)
-				{
-					MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, pHeap, (MaNoise*)ppNoise);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaNoiseInitPreallocated(MaNoiseConfigPtr pConfig, nint pHeap, ref MaNoise pNoise)
-		{
-			fixed (MaNoise* ppNoise = &pNoise)
-			{
-				MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)pConfig, (void*)pHeap, (MaNoise*)ppNoise);
-				return ret;
-			}
-		}
-
-		public static MaResult MaNoiseInitPreallocated(in MaNoiseConfig pConfig, nint pHeap, ref MaNoise pNoise)
-		{
-			fixed (MaNoiseConfig* ppConfig = &pConfig)
-			{
-				fixed (MaNoise* ppNoise = &pNoise)
-				{
-					MaResult ret = MaNoiseInitPreallocatedNative((MaNoiseConfig*)ppConfig, (void*)pHeap, (MaNoise*)ppNoise);
-					return ret;
-				}
-			}
-		}
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaNoiseInitNative(MaNoiseConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaNoise* pNoise)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<MaNoiseConfig*, MaAllocationCallbacks*, MaNoise*, MaResult>)funcTable[598])(pConfig, pAllocationCallbacks, pNoise);
-			#else
-			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, MaResult>)funcTable[598])((nint)pConfig, (nint)pAllocationCallbacks, (nint)pNoise);
-			#endif
-		}
-
-		public static MaResult MaNoiseInit(MaNoiseConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNoisePtr pNoise)
-		{
-			MaResult ret = MaNoiseInitNative((MaNoiseConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNoise*)pNoise);
-			return ret;
-		}
-
-		public static MaResult MaNoiseInit(in MaNoiseConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNoisePtr pNoise)
-		{
-			fixed (MaNoiseConfig* ppConfig = &pConfig)
-			{
-				MaResult ret = MaNoiseInitNative((MaNoiseConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNoise*)pNoise);
-				return ret;
-			}
-		}
-
-		public static MaResult MaNoiseInit(MaNoiseConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaNoisePtr pNoise)
-		{
-			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-			{
-				MaResult ret = MaNoiseInitNative((MaNoiseConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaNoise*)pNoise);
-				return ret;
-			}
-		}
-
 		public static MaResult MaNoiseInit(in MaNoiseConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaNoisePtr pNoise)
 		{
 			fixed (MaNoiseConfig* ppConfig = &pConfig)
@@ -5016,6 +4829,197 @@ namespace Hexa.NET.MiniAudio
 					}
 				}
 			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, ReadOnlySpan<char> pFilePath, uint flags, MaResourceManagerPipelineNotificationsPtr pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
+			{
+				fixed (char* ppFilePath = pFilePath)
+				{
+					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+					{
+						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)pNotifications, (MaResourceManagerDataStream*)ppDataStream);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, string pFilePath, uint flags, MaResourceManagerPipelineNotificationsPtr pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
+			{
+				fixed (char* ppFilePath = pFilePath)
+				{
+					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+					{
+						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, ppFilePath, flags, (MaResourceManagerPipelineNotifications*)pNotifications, (MaResourceManagerDataStream*)ppDataStream);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, char* pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+			{
+				fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+				{
+					MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, pFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, char* pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
+			{
+				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+				{
+					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+					{
+						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, pFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, in char pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (char* ppFilePath = &pFilePath)
+			{
+				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+				{
+					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+					{
+						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, ReadOnlySpan<char> pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (char* ppFilePath = pFilePath)
+			{
+				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+				{
+					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+					{
+						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(MaResourceManagerPtr pResourceManager, string pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (char* ppFilePath = pFilePath)
+			{
+				fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+				{
+					fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+					{
+						MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)pResourceManager, ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+						return ret;
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, in char pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
+			{
+				fixed (char* ppFilePath = &pFilePath)
+				{
+					fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+					{
+						fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+						{
+							MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, ReadOnlySpan<char> pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
+			{
+				fixed (char* ppFilePath = pFilePath)
+				{
+					fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+					{
+						fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+						{
+							MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, (char*)ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		public static MaResult MaResourceManagerDataStreamInitW(ref MaResourceManager pResourceManager, string pFilePath, uint flags, in MaResourceManagerPipelineNotifications pNotifications, ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManager* ppResourceManager = &pResourceManager)
+			{
+				fixed (char* ppFilePath = pFilePath)
+				{
+					fixed (MaResourceManagerPipelineNotifications* ppNotifications = &pNotifications)
+					{
+						fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+						{
+							MaResult ret = MaResourceManagerDataStreamInitWNative((MaResourceManager*)ppResourceManager, ppFilePath, flags, (MaResourceManagerPipelineNotifications*)ppNotifications, (MaResourceManagerDataStream*)ppDataStream);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaResourceManagerDataStreamUninitNative(MaResourceManagerDataStream* pDataStream)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaResourceManagerDataStream*, MaResult>)funcTable[637])(pDataStream);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, MaResult>)funcTable[637])((nint)pDataStream);
+			#endif
+		}
+
+		public static MaResult MaResourceManagerDataStreamUninit(MaResourceManagerDataStreamPtr pDataStream)
+		{
+			MaResult ret = MaResourceManagerDataStreamUninitNative((MaResourceManagerDataStream*)pDataStream);
+			return ret;
+		}
+
+		public static MaResult MaResourceManagerDataStreamUninit(ref MaResourceManagerDataStream pDataStream)
+		{
+			fixed (MaResourceManagerDataStream* ppDataStream = &pDataStream)
+			{
+				MaResult ret = MaResourceManagerDataStreamUninitNative((MaResourceManagerDataStream*)ppDataStream);
+				return ret;
+			}
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static MaResult MaResourceManagerDataStreamReadPcmFramesNative(MaResourceManagerDataStream* pDataStream, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<MaResourceManagerDataStream*, void*, ulong, ulong*, MaResult>)funcTable[638])(pDataStream, pFramesOut, frameCount, pFramesRead);
+			#else
+			return (MaResult)((delegate* unmanaged[Cdecl]<nint, nint, ulong, nint, MaResult>)funcTable[638])((nint)pDataStream, (nint)pFramesOut, frameCount, (nint)pFramesRead);
+			#endif
 		}
 	}
 }

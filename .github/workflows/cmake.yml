@@ -24,13 +24,9 @@ jobs:
       bin-name-android-normalized: libminiaudio.so
       bin-name-windows-normalized: miniaudio.dll
 
-      linux-deps: "build-essential cmake ccache pkg-config libasound2-dev libpulse-dev libjack-jackd2-dev libsndio-dev libpipewire-0.3-dev libvorbis-dev libopus-dev libopusfile-dev"
-      macos-deps: "pkg-config libvorbis opus opusfile"
+      linux-deps: "build-essential cmake ccache pkg-config libasound2-dev libpulse-dev libjack-jackd2-dev libsndio-dev libpipewire-0.3-dev"
+      macos-deps: "pkg-config"
       android-deps: "build-essential cmake ninja-build"
-
-      use-vcpkg: true
-      vcpkg-packages: "libvorbis opus opusfile"
-      vcpkg-triplet-windows: "{arch}-windows-static"
 
   create-pr:
     uses: JunaMeinhold/cmake-actions/.github/workflows/create-pr.yml@v1.x.x

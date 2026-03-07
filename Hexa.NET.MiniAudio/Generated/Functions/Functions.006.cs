@@ -55,11 +55,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaDeviceConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
+				MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
 				return ret;
 			}
 		}
@@ -102,13 +102,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
 				fixed (MaDeviceConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
+					MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
 					return ret;
 				}
 			}
@@ -152,13 +152,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaContextConfig* ppContextConfig = &pContextConfig)
 			{
 				fixed (MaDeviceConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
+					MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
 					return ret;
 				}
 			}
@@ -202,7 +202,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
@@ -210,7 +210,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDeviceConfig* ppConfig = &pConfig)
 					{
-						MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
+						MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
 						return ret;
 					}
 				}
@@ -255,11 +255,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
+				MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -302,13 +302,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
 				fixed (MaDevice* ppDevice = &pDevice)
 				{
-					MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
+					MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
 					return ret;
 				}
 			}
@@ -352,13 +352,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaContextConfig* ppContextConfig = &pContextConfig)
 			{
 				fixed (MaDevice* ppDevice = &pDevice)
 				{
-					MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
+					MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
 					return ret;
 				}
 			}
@@ -402,7 +402,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
@@ -410,7 +410,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDevice* ppDevice = &pDevice)
 					{
-						MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
+						MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
 						return ret;
 					}
 				}
@@ -455,13 +455,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaDeviceConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDevice* ppDevice = &pDevice)
 				{
-					MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
+					MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
 					return ret;
 				}
 			}
@@ -505,7 +505,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
@@ -513,7 +513,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDevice* ppDevice = &pDevice)
 					{
-						MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
+						MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
 						return ret;
 					}
 				}
@@ -558,7 +558,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaContextConfig* ppContextConfig = &pContextConfig)
 			{
@@ -566,7 +566,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDevice* ppDevice = &pDevice)
 					{
-						MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
+						MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
 						return ret;
 					}
 				}
@@ -611,7 +611,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, in MaDeviceConfig pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
@@ -621,7 +621,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaDevice* ppDevice = &pDevice)
 						{
-							MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
+							MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
 							return ret;
 						}
 					}
@@ -651,7 +651,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_stop()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaDeviceUninitNative(MaDevice* pDevice)
+		internal static void DeviceUninitNative(MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaDevice*, void>)funcTable[475])(pDevice);
@@ -681,9 +681,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_init()<br/>
 		/// ma_device_stop()<br/>
 		/// </summary>
-		public static void MaDeviceUninit(MaDevicePtr pDevice)
+		public static void DeviceUninit(MaDevicePtr pDevice)
 		{
-			MaDeviceUninitNative((MaDevice*)pDevice);
+			DeviceUninitNative((MaDevice*)pDevice);
 		}
 
 		/// <summary>
@@ -707,11 +707,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_init()<br/>
 		/// ma_device_stop()<br/>
 		/// </summary>
-		public static void MaDeviceUninit(ref MaDevice pDevice)
+		public static void DeviceUninit(ref MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaDeviceUninitNative((MaDevice*)ppDevice);
+				DeviceUninitNative((MaDevice*)ppDevice);
 			}
 		}
 
@@ -719,7 +719,7 @@ namespace Hexa.NET.MiniAudio
 		/// Retrieves a pointer to the context that owns the given device.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaContext* MaDeviceGetContextNative(MaDevice* pDevice)
+		internal static MaContext* DeviceGetContextNative(MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaContext*>)funcTable[476])(pDevice);
@@ -731,20 +731,20 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves a pointer to the context that owns the given device.<br/>
 		/// </summary>
-		public static MaContextPtr MaDeviceGetContext(MaDevicePtr pDevice)
+		public static MaContextPtr DeviceGetContext(MaDevicePtr pDevice)
 		{
-			MaContextPtr ret = MaDeviceGetContextNative((MaDevice*)pDevice);
+			MaContextPtr ret = DeviceGetContextNative((MaDevice*)pDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// Retrieves a pointer to the context that owns the given device.<br/>
 		/// </summary>
-		public static MaContextPtr MaDeviceGetContext(ref MaDevice pDevice)
+		public static MaContextPtr DeviceGetContext(ref MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaContextPtr ret = MaDeviceGetContextNative((MaDevice*)ppDevice);
+				MaContextPtr ret = DeviceGetContextNative((MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -753,7 +753,7 @@ namespace Hexa.NET.MiniAudio
 		/// Helper function for retrieving the log object associated with the context that owns this device.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaLog* MaDeviceGetLogNative(MaDevice* pDevice)
+		internal static MaLog* DeviceGetLogNative(MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaLog*>)funcTable[477])(pDevice);
@@ -765,20 +765,20 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Helper function for retrieving the log object associated with the context that owns this device.<br/>
 		/// </summary>
-		public static MaLogPtr MaDeviceGetLog(MaDevicePtr pDevice)
+		public static MaLogPtr DeviceGetLog(MaDevicePtr pDevice)
 		{
-			MaLogPtr ret = MaDeviceGetLogNative((MaDevice*)pDevice);
+			MaLogPtr ret = DeviceGetLogNative((MaDevice*)pDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// Helper function for retrieving the log object associated with the context that owns this device.<br/>
 		/// </summary>
-		public static MaLogPtr MaDeviceGetLog(ref MaDevice pDevice)
+		public static MaLogPtr DeviceGetLog(ref MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaLogPtr ret = MaDeviceGetLogNative((MaDevice*)ppDevice);
+				MaLogPtr ret = DeviceGetLogNative((MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -807,7 +807,7 @@ namespace Hexa.NET.MiniAudio
 		/// which may or may not be safe.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceGetInfoNative(MaDevice* pDevice, MaDeviceType type, MaDeviceInfo* pDeviceInfo)
+		internal static MaResult DeviceGetInfoNative(MaDevice* pDevice, MaDeviceType type, MaDeviceInfo* pDeviceInfo)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaDeviceType, MaDeviceInfo*, MaResult>)funcTable[478])(pDevice, type, pDeviceInfo);
@@ -839,9 +839,9 @@ namespace Hexa.NET.MiniAudio
 		/// Unsafe. You should avoid calling this in the data callback because it may call into the backend<br/>
 		/// which may or may not be safe.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetInfo(MaDevicePtr pDevice, MaDeviceType type, MaDeviceInfoPtr pDeviceInfo)
+		public static MaResult DeviceGetInfo(MaDevicePtr pDevice, MaDeviceType type, MaDeviceInfoPtr pDeviceInfo)
 		{
-			MaResult ret = MaDeviceGetInfoNative((MaDevice*)pDevice, type, (MaDeviceInfo*)pDeviceInfo);
+			MaResult ret = DeviceGetInfoNative((MaDevice*)pDevice, type, (MaDeviceInfo*)pDeviceInfo);
 			return ret;
 		}
 
@@ -868,11 +868,11 @@ namespace Hexa.NET.MiniAudio
 		/// Unsafe. You should avoid calling this in the data callback because it may call into the backend<br/>
 		/// which may or may not be safe.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetInfo(ref MaDevice pDevice, MaDeviceType type, MaDeviceInfoPtr pDeviceInfo)
+		public static MaResult DeviceGetInfo(ref MaDevice pDevice, MaDeviceType type, MaDeviceInfoPtr pDeviceInfo)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceGetInfoNative((MaDevice*)ppDevice, type, (MaDeviceInfo*)pDeviceInfo);
+				MaResult ret = DeviceGetInfoNative((MaDevice*)ppDevice, type, (MaDeviceInfo*)pDeviceInfo);
 				return ret;
 			}
 		}
@@ -900,11 +900,11 @@ namespace Hexa.NET.MiniAudio
 		/// Unsafe. You should avoid calling this in the data callback because it may call into the backend<br/>
 		/// which may or may not be safe.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetInfo(MaDevicePtr pDevice, MaDeviceType type, ref MaDeviceInfo pDeviceInfo)
+		public static MaResult DeviceGetInfo(MaDevicePtr pDevice, MaDeviceType type, ref MaDeviceInfo pDeviceInfo)
 		{
 			fixed (MaDeviceInfo* ppDeviceInfo = &pDeviceInfo)
 			{
-				MaResult ret = MaDeviceGetInfoNative((MaDevice*)pDevice, type, (MaDeviceInfo*)ppDeviceInfo);
+				MaResult ret = DeviceGetInfoNative((MaDevice*)pDevice, type, (MaDeviceInfo*)ppDeviceInfo);
 				return ret;
 			}
 		}
@@ -932,13 +932,13 @@ namespace Hexa.NET.MiniAudio
 		/// Unsafe. You should avoid calling this in the data callback because it may call into the backend<br/>
 		/// which may or may not be safe.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetInfo(ref MaDevice pDevice, MaDeviceType type, ref MaDeviceInfo pDeviceInfo)
+		public static MaResult DeviceGetInfo(ref MaDevice pDevice, MaDeviceType type, ref MaDeviceInfo pDeviceInfo)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
 				fixed (MaDeviceInfo* ppDeviceInfo = &pDeviceInfo)
 				{
-					MaResult ret = MaDeviceGetInfoNative((MaDevice*)ppDevice, type, (MaDeviceInfo*)ppDeviceInfo);
+					MaResult ret = DeviceGetInfoNative((MaDevice*)ppDevice, type, (MaDeviceInfo*)ppDeviceInfo);
 					return ret;
 				}
 			}
@@ -980,7 +980,7 @@ namespace Hexa.NET.MiniAudio
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceGetNameNative(MaDevice* pDevice, MaDeviceType type, byte* pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
+		internal static MaResult DeviceGetNameNative(MaDevice* pDevice, MaDeviceType type, byte* pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaDeviceType, byte*, nuint, nuint*, MaResult>)funcTable[479])(pDevice, type, pName, nameCap, pLengthNotIncludingNullTerminator);
@@ -1024,9 +1024,9 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(MaDevicePtr pDevice, MaDeviceType type, byte* pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(MaDevicePtr pDevice, MaDeviceType type, byte* pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
 		{
-			MaResult ret = MaDeviceGetNameNative((MaDevice*)pDevice, type, pName, nameCap, pLengthNotIncludingNullTerminator);
+			MaResult ret = DeviceGetNameNative((MaDevice*)pDevice, type, pName, nameCap, pLengthNotIncludingNullTerminator);
 			return ret;
 		}
 
@@ -1065,11 +1065,11 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(ref MaDevice pDevice, MaDeviceType type, byte* pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(ref MaDevice pDevice, MaDeviceType type, byte* pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceGetNameNative((MaDevice*)ppDevice, type, pName, nameCap, pLengthNotIncludingNullTerminator);
+				MaResult ret = DeviceGetNameNative((MaDevice*)ppDevice, type, pName, nameCap, pLengthNotIncludingNullTerminator);
 				return ret;
 			}
 		}
@@ -1109,11 +1109,11 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref byte pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref byte pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
 		{
 			fixed (byte* ppName = &pName)
 			{
-				MaResult ret = MaDeviceGetNameNative((MaDevice*)pDevice, type, (byte*)ppName, nameCap, pLengthNotIncludingNullTerminator);
+				MaResult ret = DeviceGetNameNative((MaDevice*)pDevice, type, (byte*)ppName, nameCap, pLengthNotIncludingNullTerminator);
 				return ret;
 			}
 		}
@@ -1153,7 +1153,7 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref string pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref string pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1172,7 +1172,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaDeviceGetNameNative((MaDevice*)pDevice, type, pStr0, nameCap, pLengthNotIncludingNullTerminator);
+			MaResult ret = DeviceGetNameNative((MaDevice*)pDevice, type, pStr0, nameCap, pLengthNotIncludingNullTerminator);
 			pName = Utils.DecodeStringUTF8(pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
@@ -1216,13 +1216,13 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref byte pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref byte pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
 				fixed (byte* ppName = &pName)
 				{
-					MaResult ret = MaDeviceGetNameNative((MaDevice*)ppDevice, type, (byte*)ppName, nameCap, pLengthNotIncludingNullTerminator);
+					MaResult ret = DeviceGetNameNative((MaDevice*)ppDevice, type, (byte*)ppName, nameCap, pLengthNotIncludingNullTerminator);
 					return ret;
 				}
 			}
@@ -1263,7 +1263,7 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref string pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref string pName, nuint nameCap, nuint* pLengthNotIncludingNullTerminator)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
@@ -1284,7 +1284,7 @@ namespace Hexa.NET.MiniAudio
 					int pStrOffset0 = Utils.EncodeStringUTF8(pName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				MaResult ret = MaDeviceGetNameNative((MaDevice*)ppDevice, type, pStr0, nameCap, pLengthNotIncludingNullTerminator);
+				MaResult ret = DeviceGetNameNative((MaDevice*)ppDevice, type, pStr0, nameCap, pLengthNotIncludingNullTerminator);
 				pName = Utils.DecodeStringUTF8(pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
@@ -1329,11 +1329,11 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(MaDevicePtr pDevice, MaDeviceType type, byte* pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(MaDevicePtr pDevice, MaDeviceType type, byte* pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
 		{
 			fixed (nuint* ppLengthNotIncludingNullTerminator = &pLengthNotIncludingNullTerminator)
 			{
-				MaResult ret = MaDeviceGetNameNative((MaDevice*)pDevice, type, pName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
+				MaResult ret = DeviceGetNameNative((MaDevice*)pDevice, type, pName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
 				return ret;
 			}
 		}
@@ -1373,13 +1373,13 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(ref MaDevice pDevice, MaDeviceType type, byte* pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(ref MaDevice pDevice, MaDeviceType type, byte* pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
 				fixed (nuint* ppLengthNotIncludingNullTerminator = &pLengthNotIncludingNullTerminator)
 				{
-					MaResult ret = MaDeviceGetNameNative((MaDevice*)ppDevice, type, pName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
+					MaResult ret = DeviceGetNameNative((MaDevice*)ppDevice, type, pName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
 					return ret;
 				}
 			}
@@ -1420,13 +1420,13 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref byte pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref byte pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
 		{
 			fixed (byte* ppName = &pName)
 			{
 				fixed (nuint* ppLengthNotIncludingNullTerminator = &pLengthNotIncludingNullTerminator)
 				{
-					MaResult ret = MaDeviceGetNameNative((MaDevice*)pDevice, type, (byte*)ppName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
+					MaResult ret = DeviceGetNameNative((MaDevice*)pDevice, type, (byte*)ppName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
 					return ret;
 				}
 			}
@@ -1467,7 +1467,7 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref string pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(MaDevicePtr pDevice, MaDeviceType type, ref string pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1488,7 +1488,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (nuint* ppLengthNotIncludingNullTerminator = &pLengthNotIncludingNullTerminator)
 			{
-				MaResult ret = MaDeviceGetNameNative((MaDevice*)pDevice, type, pStr0, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
+				MaResult ret = DeviceGetNameNative((MaDevice*)pDevice, type, pStr0, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
 				pName = Utils.DecodeStringUTF8(pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
@@ -1533,7 +1533,7 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref byte pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref byte pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
@@ -1541,7 +1541,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (nuint* ppLengthNotIncludingNullTerminator = &pLengthNotIncludingNullTerminator)
 					{
-						MaResult ret = MaDeviceGetNameNative((MaDevice*)ppDevice, type, (byte*)ppName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
+						MaResult ret = DeviceGetNameNative((MaDevice*)ppDevice, type, (byte*)ppName, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
 						return ret;
 					}
 				}
@@ -1583,7 +1583,7 @@ namespace Hexa.NET.MiniAudio
 		/// most cases and will avoid the need for the inefficiency of calling this function twice.<br/>
 		/// This is implemented in terms of `ma_device_get_info()`.<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref string pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
+		public static MaResult DeviceGetName(ref MaDevice pDevice, MaDeviceType type, ref string pName, nuint nameCap, ref nuint pLengthNotIncludingNullTerminator)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
@@ -1606,7 +1606,7 @@ namespace Hexa.NET.MiniAudio
 				}
 				fixed (nuint* ppLengthNotIncludingNullTerminator = &pLengthNotIncludingNullTerminator)
 				{
-					MaResult ret = MaDeviceGetNameNative((MaDevice*)ppDevice, type, pStr0, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
+					MaResult ret = DeviceGetNameNative((MaDevice*)ppDevice, type, pStr0, nameCap, (nuint*)ppLengthNotIncludingNullTerminator);
 					pName = Utils.DecodeStringUTF8(pStr0);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
@@ -1644,7 +1644,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_stop()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceStartNative(MaDevice* pDevice)
+		internal static MaResult DeviceStartNative(MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaResult>)funcTable[480])(pDevice);
@@ -1679,9 +1679,9 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_device_stop()<br/>
 		/// </summary>
-		public static MaResult MaDeviceStart(MaDevicePtr pDevice)
+		public static MaResult DeviceStart(MaDevicePtr pDevice)
 		{
-			MaResult ret = MaDeviceStartNative((MaDevice*)pDevice);
+			MaResult ret = DeviceStartNative((MaDevice*)pDevice);
 			return ret;
 		}
 
@@ -1711,11 +1711,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_device_stop()<br/>
 		/// </summary>
-		public static MaResult MaDeviceStart(ref MaDevice pDevice)
+		public static MaResult DeviceStart(ref MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceStartNative((MaDevice*)ppDevice);
+				MaResult ret = DeviceStartNative((MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -1750,7 +1750,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_start()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceStopNative(MaDevice* pDevice)
+		internal static MaResult DeviceStopNative(MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaResult>)funcTable[481])(pDevice);
@@ -1788,9 +1788,9 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_device_start()<br/>
 		/// </summary>
-		public static MaResult MaDeviceStop(MaDevicePtr pDevice)
+		public static MaResult DeviceStop(MaDevicePtr pDevice)
 		{
-			MaResult ret = MaDeviceStopNative((MaDevice*)pDevice);
+			MaResult ret = DeviceStopNative((MaDevice*)pDevice);
 			return ret;
 		}
 
@@ -1823,11 +1823,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_device_start()<br/>
 		/// </summary>
-		public static MaResult MaDeviceStop(ref MaDevice pDevice)
+		public static MaResult DeviceStop(ref MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceStopNative((MaDevice*)ppDevice);
+				MaResult ret = DeviceStopNative((MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -1854,7 +1854,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_stop()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaDeviceIsStartedNative(MaDevice* pDevice)
+		internal static uint DeviceIsStartedNative(MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, uint>)funcTable[482])(pDevice);
@@ -1884,9 +1884,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_start()<br/>
 		/// ma_device_stop()<br/>
 		/// </summary>
-		public static uint MaDeviceIsStarted(MaDevicePtr pDevice)
+		public static uint DeviceIsStarted(MaDevicePtr pDevice)
 		{
-			uint ret = MaDeviceIsStartedNative((MaDevice*)pDevice);
+			uint ret = DeviceIsStartedNative((MaDevice*)pDevice);
 			return ret;
 		}
 
@@ -1911,11 +1911,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_start()<br/>
 		/// ma_device_stop()<br/>
 		/// </summary>
-		public static uint MaDeviceIsStarted(in MaDevice pDevice)
+		public static uint DeviceIsStarted(in MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				uint ret = MaDeviceIsStartedNative((MaDevice*)ppDevice);
+				uint ret = DeviceIsStartedNative((MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -1960,7 +1960,7 @@ namespace Hexa.NET.MiniAudio
 		/// synchronization.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaDeviceState MaDeviceGetStateNative(MaDevice* pDevice)
+		internal static MaDeviceState DeviceGetStateNative(MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaDeviceState>)funcTable[483])(pDevice);
@@ -2008,9 +2008,9 @@ namespace Hexa.NET.MiniAudio
 		/// value returned by this function could potentially be out of sync. If this is significant to your program you need to implement your own<br/>
 		/// synchronization.<br/>
 		/// </summary>
-		public static MaDeviceState MaDeviceGetState(MaDevicePtr pDevice)
+		public static MaDeviceState DeviceGetState(MaDevicePtr pDevice)
 		{
-			MaDeviceState ret = MaDeviceGetStateNative((MaDevice*)pDevice);
+			MaDeviceState ret = DeviceGetStateNative((MaDevice*)pDevice);
 			return ret;
 		}
 
@@ -2053,11 +2053,11 @@ namespace Hexa.NET.MiniAudio
 		/// value returned by this function could potentially be out of sync. If this is significant to your program you need to implement your own<br/>
 		/// synchronization.<br/>
 		/// </summary>
-		public static MaDeviceState MaDeviceGetState(in MaDevice pDevice)
+		public static MaDeviceState DeviceGetState(in MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaDeviceState ret = MaDeviceGetStateNative((MaDevice*)ppDevice);
+				MaDeviceState ret = DeviceGetStateNative((MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -2094,7 +2094,7 @@ namespace Hexa.NET.MiniAudio
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDevicePostInitNative(MaDevice* pDevice, MaDeviceType deviceType, MaDeviceDescriptor* pPlaybackDescriptor, MaDeviceDescriptor* pCaptureDescriptor)
+		internal static MaResult DevicePostInitNative(MaDevice* pDevice, MaDeviceType deviceType, MaDeviceDescriptor* pPlaybackDescriptor, MaDeviceDescriptor* pCaptureDescriptor)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, MaDeviceType, MaDeviceDescriptor*, MaDeviceDescriptor*, MaResult>)funcTable[484])(pDevice, deviceType, pPlaybackDescriptor, pCaptureDescriptor);
@@ -2134,9 +2134,9 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
+		public static MaResult DevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
 		{
-			MaResult ret = MaDevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
+			MaResult ret = DevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
 			return ret;
 		}
 
@@ -2171,11 +2171,11 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
+		public static MaResult DevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
+				MaResult ret = DevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
 				return ret;
 			}
 		}
@@ -2211,11 +2211,11 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
+		public static MaResult DevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
 		{
 			fixed (MaDeviceDescriptor* ppPlaybackDescriptor = &pPlaybackDescriptor)
 			{
-				MaResult ret = MaDevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
+				MaResult ret = DevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
 				return ret;
 			}
 		}
@@ -2251,13 +2251,13 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
+		public static MaResult DevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, MaDeviceDescriptorPtr pCaptureDescriptor)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
 				fixed (MaDeviceDescriptor* ppPlaybackDescriptor = &pPlaybackDescriptor)
 				{
-					MaResult ret = MaDevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
+					MaResult ret = DevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)pCaptureDescriptor);
 					return ret;
 				}
 			}
@@ -2294,11 +2294,11 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
+		public static MaResult DevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
 		{
 			fixed (MaDeviceDescriptor* ppCaptureDescriptor = &pCaptureDescriptor)
 			{
-				MaResult ret = MaDevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
+				MaResult ret = DevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
 				return ret;
 			}
 		}
@@ -2334,13 +2334,13 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
+		public static MaResult DevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, MaDeviceDescriptorPtr pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
 				fixed (MaDeviceDescriptor* ppCaptureDescriptor = &pCaptureDescriptor)
 				{
-					MaResult ret = MaDevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
+					MaResult ret = DevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)pPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
 					return ret;
 				}
 			}
@@ -2377,13 +2377,13 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
+		public static MaResult DevicePostInit(MaDevicePtr pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
 		{
 			fixed (MaDeviceDescriptor* ppPlaybackDescriptor = &pPlaybackDescriptor)
 			{
 				fixed (MaDeviceDescriptor* ppCaptureDescriptor = &pCaptureDescriptor)
 				{
-					MaResult ret = MaDevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
+					MaResult ret = DevicePostInitNative((MaDevice*)pDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
 					return ret;
 				}
 			}
@@ -2420,7 +2420,7 @@ namespace Hexa.NET.MiniAudio
 		/// You do not need to call this manually unless you are doing a custom backend, in which case you need<br/>
 		/// only do it if you're manually performing rerouting or reinitialization.<br/>
 		/// </summary>
-		public static MaResult MaDevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
+		public static MaResult DevicePostInit(ref MaDevice pDevice, MaDeviceType deviceType, in MaDeviceDescriptor pPlaybackDescriptor, in MaDeviceDescriptor pCaptureDescriptor)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
@@ -2428,7 +2428,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDeviceDescriptor* ppCaptureDescriptor = &pCaptureDescriptor)
 					{
-						MaResult ret = MaDevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
+						MaResult ret = DevicePostInitNative((MaDevice*)ppDevice, deviceType, (MaDeviceDescriptor*)ppPlaybackDescriptor, (MaDeviceDescriptor*)ppCaptureDescriptor);
 						return ret;
 					}
 				}
@@ -2467,7 +2467,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_get_master_volume_db()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceSetMasterVolumeNative(MaDevice* pDevice, float volume)
+		internal static MaResult DeviceSetMasterVolumeNative(MaDevice* pDevice, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, float, MaResult>)funcTable[485])(pDevice, volume);
@@ -2507,9 +2507,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume_db()<br/>
 		/// ma_device_get_master_volume_db()<br/>
 		/// </summary>
-		public static MaResult MaDeviceSetMasterVolume(MaDevicePtr pDevice, float volume)
+		public static MaResult DeviceSetMasterVolume(MaDevicePtr pDevice, float volume)
 		{
-			MaResult ret = MaDeviceSetMasterVolumeNative((MaDevice*)pDevice, volume);
+			MaResult ret = DeviceSetMasterVolumeNative((MaDevice*)pDevice, volume);
 			return ret;
 		}
 
@@ -2544,11 +2544,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume_db()<br/>
 		/// ma_device_get_master_volume_db()<br/>
 		/// </summary>
-		public static MaResult MaDeviceSetMasterVolume(ref MaDevice pDevice, float volume)
+		public static MaResult DeviceSetMasterVolume(ref MaDevice pDevice, float volume)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceSetMasterVolumeNative((MaDevice*)ppDevice, volume);
+				MaResult ret = DeviceSetMasterVolumeNative((MaDevice*)ppDevice, volume);
 				return ret;
 			}
 		}
@@ -2582,7 +2582,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_get_master_volume_gain_db()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceGetMasterVolumeNative(MaDevice* pDevice, float* pVolume)
+		internal static MaResult DeviceGetMasterVolumeNative(MaDevice* pDevice, float* pVolume)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, float*, MaResult>)funcTable[486])(pDevice, pVolume);
@@ -2619,9 +2619,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume_gain_db()<br/>
 		/// ma_device_get_master_volume_gain_db()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolume(MaDevicePtr pDevice, float* pVolume)
+		public static MaResult DeviceGetMasterVolume(MaDevicePtr pDevice, float* pVolume)
 		{
-			MaResult ret = MaDeviceGetMasterVolumeNative((MaDevice*)pDevice, pVolume);
+			MaResult ret = DeviceGetMasterVolumeNative((MaDevice*)pDevice, pVolume);
 			return ret;
 		}
 
@@ -2653,11 +2653,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume_gain_db()<br/>
 		/// ma_device_get_master_volume_gain_db()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolume(ref MaDevice pDevice, float* pVolume)
+		public static MaResult DeviceGetMasterVolume(ref MaDevice pDevice, float* pVolume)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceGetMasterVolumeNative((MaDevice*)ppDevice, pVolume);
+				MaResult ret = DeviceGetMasterVolumeNative((MaDevice*)ppDevice, pVolume);
 				return ret;
 			}
 		}
@@ -2690,11 +2690,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume_gain_db()<br/>
 		/// ma_device_get_master_volume_gain_db()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolume(MaDevicePtr pDevice, ref float pVolume)
+		public static MaResult DeviceGetMasterVolume(MaDevicePtr pDevice, ref float pVolume)
 		{
 			fixed (float* ppVolume = &pVolume)
 			{
-				MaResult ret = MaDeviceGetMasterVolumeNative((MaDevice*)pDevice, (float*)ppVolume);
+				MaResult ret = DeviceGetMasterVolumeNative((MaDevice*)pDevice, (float*)ppVolume);
 				return ret;
 			}
 		}
@@ -2727,13 +2727,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume_gain_db()<br/>
 		/// ma_device_get_master_volume_gain_db()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolume(ref MaDevice pDevice, ref float pVolume)
+		public static MaResult DeviceGetMasterVolume(ref MaDevice pDevice, ref float pVolume)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
 				fixed (float* ppVolume = &pVolume)
 				{
-					MaResult ret = MaDeviceGetMasterVolumeNative((MaDevice*)ppDevice, (float*)ppVolume);
+					MaResult ret = DeviceGetMasterVolumeNative((MaDevice*)ppDevice, (float*)ppVolume);
 					return ret;
 				}
 			}
@@ -2772,7 +2772,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceSetMasterVolumeDbNative(MaDevice* pDevice, float gainDB)
+		internal static MaResult DeviceSetMasterVolumeDbNative(MaDevice* pDevice, float gainDB)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, float, MaResult>)funcTable[487])(pDevice, gainDB);
@@ -2813,9 +2813,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume()<br/>
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
-		public static MaResult MaDeviceSetMasterVolumeDb(MaDevicePtr pDevice, float gainDB)
+		public static MaResult DeviceSetMasterVolumeDb(MaDevicePtr pDevice, float gainDB)
 		{
-			MaResult ret = MaDeviceSetMasterVolumeDbNative((MaDevice*)pDevice, gainDB);
+			MaResult ret = DeviceSetMasterVolumeDbNative((MaDevice*)pDevice, gainDB);
 			return ret;
 		}
 
@@ -2851,11 +2851,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume()<br/>
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
-		public static MaResult MaDeviceSetMasterVolumeDb(ref MaDevice pDevice, float gainDB)
+		public static MaResult DeviceSetMasterVolumeDb(ref MaDevice pDevice, float gainDB)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceSetMasterVolumeDbNative((MaDevice*)ppDevice, gainDB);
+				MaResult ret = DeviceSetMasterVolumeDbNative((MaDevice*)ppDevice, gainDB);
 				return ret;
 			}
 		}
@@ -2891,7 +2891,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceGetMasterVolumeDbNative(MaDevice* pDevice, float* pGainDB)
+		internal static MaResult DeviceGetMasterVolumeDbNative(MaDevice* pDevice, float* pGainDB)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, float*, MaResult>)funcTable[488])(pDevice, pGainDB);
@@ -2930,9 +2930,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume()<br/>
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolumeDb(MaDevicePtr pDevice, float* pGainDB)
+		public static MaResult DeviceGetMasterVolumeDb(MaDevicePtr pDevice, float* pGainDB)
 		{
-			MaResult ret = MaDeviceGetMasterVolumeDbNative((MaDevice*)pDevice, pGainDB);
+			MaResult ret = DeviceGetMasterVolumeDbNative((MaDevice*)pDevice, pGainDB);
 			return ret;
 		}
 
@@ -2966,11 +2966,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume()<br/>
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolumeDb(ref MaDevice pDevice, float* pGainDB)
+		public static MaResult DeviceGetMasterVolumeDb(ref MaDevice pDevice, float* pGainDB)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceGetMasterVolumeDbNative((MaDevice*)ppDevice, pGainDB);
+				MaResult ret = DeviceGetMasterVolumeDbNative((MaDevice*)ppDevice, pGainDB);
 				return ret;
 			}
 		}
@@ -3005,11 +3005,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume()<br/>
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolumeDb(MaDevicePtr pDevice, ref float pGainDB)
+		public static MaResult DeviceGetMasterVolumeDb(MaDevicePtr pDevice, ref float pGainDB)
 		{
 			fixed (float* ppGainDB = &pGainDB)
 			{
-				MaResult ret = MaDeviceGetMasterVolumeDbNative((MaDevice*)pDevice, (float*)ppGainDB);
+				MaResult ret = DeviceGetMasterVolumeDbNative((MaDevice*)pDevice, (float*)ppGainDB);
 				return ret;
 			}
 		}
@@ -3044,13 +3044,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_set_master_volume()<br/>
 		/// ma_device_get_master_volume()<br/>
 		/// </summary>
-		public static MaResult MaDeviceGetMasterVolumeDb(ref MaDevice pDevice, ref float pGainDB)
+		public static MaResult DeviceGetMasterVolumeDb(ref MaDevice pDevice, ref float pGainDB)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
 				fixed (float* ppGainDB = &pGainDB)
 				{
-					MaResult ret = MaDeviceGetMasterVolumeDbNative((MaDevice*)ppDevice, (float*)ppGainDB);
+					MaResult ret = DeviceGetMasterVolumeDbNative((MaDevice*)ppDevice, (float*)ppGainDB);
 					return ret;
 				}
 			}
@@ -3088,7 +3088,7 @@ namespace Hexa.NET.MiniAudio
 		/// callback.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceHandleBackendDataCallbackNative(MaDevice* pDevice, void* pOutput, void* pInput, uint frameCount)
+		internal static MaResult DeviceHandleBackendDataCallbackNative(MaDevice* pDevice, void* pOutput, void* pInput, uint frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDevice*, void*, void*, uint, MaResult>)funcTable[489])(pDevice, pOutput, pInput, frameCount);
@@ -3128,9 +3128,9 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(MaDevicePtr pDevice, void* pOutput, void* pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(MaDevicePtr pDevice, void* pOutput, void* pInput, uint frameCount)
 		{
-			MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, pOutput, pInput, frameCount);
+			MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, pOutput, pInput, frameCount);
 			return ret;
 		}
 
@@ -3165,11 +3165,11 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(ref MaDevice pDevice, void* pOutput, void* pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(ref MaDevice pDevice, void* pOutput, void* pInput, uint frameCount)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, pOutput, pInput, frameCount);
+				MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, pOutput, pInput, frameCount);
 				return ret;
 			}
 		}
@@ -3205,9 +3205,9 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(MaDevicePtr pDevice, nint pOutput, void* pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(MaDevicePtr pDevice, nint pOutput, void* pInput, uint frameCount)
 		{
-			MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, (void*)pOutput, pInput, frameCount);
+			MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, (void*)pOutput, pInput, frameCount);
 			return ret;
 		}
 
@@ -3242,11 +3242,11 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(ref MaDevice pDevice, nint pOutput, void* pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(ref MaDevice pDevice, nint pOutput, void* pInput, uint frameCount)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, (void*)pOutput, pInput, frameCount);
+				MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, (void*)pOutput, pInput, frameCount);
 				return ret;
 			}
 		}
@@ -3282,9 +3282,9 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(MaDevicePtr pDevice, void* pOutput, nint pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(MaDevicePtr pDevice, void* pOutput, nint pInput, uint frameCount)
 		{
-			MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, pOutput, (void*)pInput, frameCount);
+			MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, pOutput, (void*)pInput, frameCount);
 			return ret;
 		}
 
@@ -3319,11 +3319,11 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(ref MaDevice pDevice, void* pOutput, nint pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(ref MaDevice pDevice, void* pOutput, nint pInput, uint frameCount)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, pOutput, (void*)pInput, frameCount);
+				MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, pOutput, (void*)pInput, frameCount);
 				return ret;
 			}
 		}
@@ -3359,9 +3359,9 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(MaDevicePtr pDevice, nint pOutput, nint pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(MaDevicePtr pDevice, nint pOutput, nint pInput, uint frameCount)
 		{
-			MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, (void*)pOutput, (void*)pInput, frameCount);
+			MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)pDevice, (void*)pOutput, (void*)pInput, frameCount);
 			return ret;
 		}
 
@@ -3396,11 +3396,11 @@ namespace Hexa.NET.MiniAudio
 		/// If you are implementing a custom backend, and that backend uses a callback for data delivery, you'll need to call this from inside that<br/>
 		/// callback.<br/>
 		/// </summary>
-		public static MaResult MaDeviceHandleBackendDataCallback(ref MaDevice pDevice, nint pOutput, nint pInput, uint frameCount)
+		public static MaResult DeviceHandleBackendDataCallback(ref MaDevice pDevice, nint pOutput, nint pInput, uint frameCount)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, (void*)pOutput, (void*)pInput, frameCount);
+				MaResult ret = DeviceHandleBackendDataCallbackNative((MaDevice*)ppDevice, (void*)pOutput, (void*)pInput, frameCount);
 				return ret;
 			}
 		}
@@ -3443,7 +3443,7 @@ namespace Hexa.NET.MiniAudio
 		/// is also zero, `MA_DEFAULT_SAMPLE_RATE` will be used instead.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaCalculateBufferSizeInFramesFromDescriptorNative(MaDeviceDescriptor* pDescriptor, uint nativeSampleRate, MaPerformanceProfile performanceProfile)
+		internal static uint CalculateBufferSizeInFramesFromDescriptorNative(MaDeviceDescriptor* pDescriptor, uint nativeSampleRate, MaPerformanceProfile performanceProfile)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDeviceDescriptor*, uint, MaPerformanceProfile, uint>)funcTable[490])(pDescriptor, nativeSampleRate, performanceProfile);
@@ -3489,9 +3489,9 @@ namespace Hexa.NET.MiniAudio
 		/// If `nativeSampleRate` is zero, this function will fall back to `pDescriptor->sampleRate`. If that<br/>
 		/// is also zero, `MA_DEFAULT_SAMPLE_RATE` will be used instead.<br/>
 		/// </summary>
-		public static uint MaCalculateBufferSizeInFramesFromDescriptor(MaDeviceDescriptorPtr pDescriptor, uint nativeSampleRate, MaPerformanceProfile performanceProfile)
+		public static uint CalculateBufferSizeInFramesFromDescriptor(MaDeviceDescriptorPtr pDescriptor, uint nativeSampleRate, MaPerformanceProfile performanceProfile)
 		{
-			uint ret = MaCalculateBufferSizeInFramesFromDescriptorNative((MaDeviceDescriptor*)pDescriptor, nativeSampleRate, performanceProfile);
+			uint ret = CalculateBufferSizeInFramesFromDescriptorNative((MaDeviceDescriptor*)pDescriptor, nativeSampleRate, performanceProfile);
 			return ret;
 		}
 
@@ -3532,11 +3532,11 @@ namespace Hexa.NET.MiniAudio
 		/// If `nativeSampleRate` is zero, this function will fall back to `pDescriptor->sampleRate`. If that<br/>
 		/// is also zero, `MA_DEFAULT_SAMPLE_RATE` will be used instead.<br/>
 		/// </summary>
-		public static uint MaCalculateBufferSizeInFramesFromDescriptor(in MaDeviceDescriptor pDescriptor, uint nativeSampleRate, MaPerformanceProfile performanceProfile)
+		public static uint CalculateBufferSizeInFramesFromDescriptor(in MaDeviceDescriptor pDescriptor, uint nativeSampleRate, MaPerformanceProfile performanceProfile)
 		{
 			fixed (MaDeviceDescriptor* ppDescriptor = &pDescriptor)
 			{
-				uint ret = MaCalculateBufferSizeInFramesFromDescriptorNative((MaDeviceDescriptor*)ppDescriptor, nativeSampleRate, performanceProfile);
+				uint ret = CalculateBufferSizeInFramesFromDescriptorNative((MaDeviceDescriptor*)ppDescriptor, nativeSampleRate, performanceProfile);
 				return ret;
 			}
 		}
@@ -3545,7 +3545,7 @@ namespace Hexa.NET.MiniAudio
 		/// Retrieves a friendly name for a backend.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* MaGetBackendNameNative(MaBackend backend)
+		internal static byte* GetBackendNameNative(MaBackend backend)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBackend, byte*>)funcTable[491])(backend);
@@ -3557,18 +3557,18 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves a friendly name for a backend.<br/>
 		/// </summary>
-		public static byte* MaGetBackendName(MaBackend backend)
+		public static byte* GetBackendName(MaBackend backend)
 		{
-			byte* ret = MaGetBackendNameNative(backend);
+			byte* ret = GetBackendNameNative(backend);
 			return ret;
 		}
 
 		/// <summary>
 		/// Retrieves a friendly name for a backend.<br/>
 		/// </summary>
-		public static string MaGetBackendNameS(MaBackend backend)
+		public static string GetBackendNameS(MaBackend backend)
 		{
-			string ret = Utils.DecodeStringUTF8(MaGetBackendNameNative(backend));
+			string ret = Utils.DecodeStringUTF8(GetBackendNameNative(backend));
 			return ret;
 		}
 
@@ -3576,7 +3576,7 @@ namespace Hexa.NET.MiniAudio
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaGetBackendFromNameNative(byte* pBackendName, MaBackend* pBackend)
+		internal static MaResult GetBackendFromNameNative(byte* pBackendName, MaBackend* pBackend)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte*, MaBackend*, MaResult>)funcTable[492])(pBackendName, pBackend);
@@ -3588,20 +3588,20 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(byte* pBackendName, MaBackend* pBackend)
+		public static MaResult GetBackendFromName(byte* pBackendName, MaBackend* pBackend)
 		{
-			MaResult ret = MaGetBackendFromNameNative(pBackendName, pBackend);
+			MaResult ret = GetBackendFromNameNative(pBackendName, pBackend);
 			return ret;
 		}
 
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(in byte pBackendName, MaBackend* pBackend)
+		public static MaResult GetBackendFromName(in byte pBackendName, MaBackend* pBackend)
 		{
 			fixed (byte* ppBackendName = &pBackendName)
 			{
-				MaResult ret = MaGetBackendFromNameNative((byte*)ppBackendName, pBackend);
+				MaResult ret = GetBackendFromNameNative((byte*)ppBackendName, pBackend);
 				return ret;
 			}
 		}
@@ -3609,11 +3609,11 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(ReadOnlySpan<byte> pBackendName, MaBackend* pBackend)
+		public static MaResult GetBackendFromName(ReadOnlySpan<byte> pBackendName, MaBackend* pBackend)
 		{
 			fixed (byte* ppBackendName = pBackendName)
 			{
-				MaResult ret = MaGetBackendFromNameNative((byte*)ppBackendName, pBackend);
+				MaResult ret = GetBackendFromNameNative((byte*)ppBackendName, pBackend);
 				return ret;
 			}
 		}
@@ -3621,7 +3621,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(string pBackendName, MaBackend* pBackend)
+		public static MaResult GetBackendFromName(string pBackendName, MaBackend* pBackend)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3640,7 +3640,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pBackendName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaGetBackendFromNameNative(pStr0, pBackend);
+			MaResult ret = GetBackendFromNameNative(pStr0, pBackend);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -3651,11 +3651,11 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(byte* pBackendName, ref MaBackend pBackend)
+		public static MaResult GetBackendFromName(byte* pBackendName, ref MaBackend pBackend)
 		{
 			fixed (MaBackend* ppBackend = &pBackend)
 			{
-				MaResult ret = MaGetBackendFromNameNative(pBackendName, (MaBackend*)ppBackend);
+				MaResult ret = GetBackendFromNameNative(pBackendName, (MaBackend*)ppBackend);
 				return ret;
 			}
 		}
@@ -3663,13 +3663,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(in byte pBackendName, ref MaBackend pBackend)
+		public static MaResult GetBackendFromName(in byte pBackendName, ref MaBackend pBackend)
 		{
 			fixed (byte* ppBackendName = &pBackendName)
 			{
 				fixed (MaBackend* ppBackend = &pBackend)
 				{
-					MaResult ret = MaGetBackendFromNameNative((byte*)ppBackendName, (MaBackend*)ppBackend);
+					MaResult ret = GetBackendFromNameNative((byte*)ppBackendName, (MaBackend*)ppBackend);
 					return ret;
 				}
 			}
@@ -3678,13 +3678,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(ReadOnlySpan<byte> pBackendName, ref MaBackend pBackend)
+		public static MaResult GetBackendFromName(ReadOnlySpan<byte> pBackendName, ref MaBackend pBackend)
 		{
 			fixed (byte* ppBackendName = pBackendName)
 			{
 				fixed (MaBackend* ppBackend = &pBackend)
 				{
-					MaResult ret = MaGetBackendFromNameNative((byte*)ppBackendName, (MaBackend*)ppBackend);
+					MaResult ret = GetBackendFromNameNative((byte*)ppBackendName, (MaBackend*)ppBackend);
 					return ret;
 				}
 			}
@@ -3693,7 +3693,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the backend enum from the given name.<br/>
 		/// </summary>
-		public static MaResult MaGetBackendFromName(string pBackendName, ref MaBackend pBackend)
+		public static MaResult GetBackendFromName(string pBackendName, ref MaBackend pBackend)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3714,7 +3714,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaBackend* ppBackend = &pBackend)
 			{
-				MaResult ret = MaGetBackendFromNameNative(pStr0, (MaBackend*)ppBackend);
+				MaResult ret = GetBackendFromNameNative(pStr0, (MaBackend*)ppBackend);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3727,7 +3727,7 @@ namespace Hexa.NET.MiniAudio
 		/// Determines whether or not the given backend is available by the compilation environment.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaIsBackendEnabledNative(MaBackend backend)
+		internal static uint IsBackendEnabledNative(MaBackend backend)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBackend, uint>)funcTable[493])(backend);
@@ -3739,9 +3739,9 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Determines whether or not the given backend is available by the compilation environment.<br/>
 		/// </summary>
-		public static uint MaIsBackendEnabled(MaBackend backend)
+		public static uint IsBackendEnabled(MaBackend backend)
 		{
-			uint ret = MaIsBackendEnabledNative(backend);
+			uint ret = IsBackendEnabledNative(backend);
 			return ret;
 		}
 
@@ -3798,7 +3798,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_is_backend_enabled()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaGetEnabledBackendsNative(MaBackend* pBackends, nuint backendCap, nuint* pBackendCount)
+		internal static MaResult GetEnabledBackendsNative(MaBackend* pBackends, nuint backendCap, nuint* pBackendCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBackend*, nuint, nuint*, MaResult>)funcTable[494])(pBackends, backendCap, pBackendCount);
@@ -3859,9 +3859,9 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_is_backend_enabled()<br/>
 		/// </summary>
-		public static MaResult MaGetEnabledBackends(MaBackend* pBackends, nuint backendCap, nuint* pBackendCount)
+		public static MaResult GetEnabledBackends(MaBackend* pBackends, nuint backendCap, nuint* pBackendCount)
 		{
-			MaResult ret = MaGetEnabledBackendsNative(pBackends, backendCap, pBackendCount);
+			MaResult ret = GetEnabledBackendsNative(pBackends, backendCap, pBackendCount);
 			return ret;
 		}
 
@@ -3917,11 +3917,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_is_backend_enabled()<br/>
 		/// </summary>
-		public static MaResult MaGetEnabledBackends(ref MaBackend pBackends, nuint backendCap, nuint* pBackendCount)
+		public static MaResult GetEnabledBackends(ref MaBackend pBackends, nuint backendCap, nuint* pBackendCount)
 		{
 			fixed (MaBackend* ppBackends = &pBackends)
 			{
-				MaResult ret = MaGetEnabledBackendsNative((MaBackend*)ppBackends, backendCap, pBackendCount);
+				MaResult ret = GetEnabledBackendsNative((MaBackend*)ppBackends, backendCap, pBackendCount);
 				return ret;
 			}
 		}
@@ -3978,11 +3978,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_is_backend_enabled()<br/>
 		/// </summary>
-		public static MaResult MaGetEnabledBackends(MaBackend* pBackends, nuint backendCap, ref nuint pBackendCount)
+		public static MaResult GetEnabledBackends(MaBackend* pBackends, nuint backendCap, ref nuint pBackendCount)
 		{
 			fixed (nuint* ppBackendCount = &pBackendCount)
 			{
-				MaResult ret = MaGetEnabledBackendsNative(pBackends, backendCap, (nuint*)ppBackendCount);
+				MaResult ret = GetEnabledBackendsNative(pBackends, backendCap, (nuint*)ppBackendCount);
 				return ret;
 			}
 		}
@@ -4039,13 +4039,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_is_backend_enabled()<br/>
 		/// </summary>
-		public static MaResult MaGetEnabledBackends(ref MaBackend pBackends, nuint backendCap, ref nuint pBackendCount)
+		public static MaResult GetEnabledBackends(ref MaBackend pBackends, nuint backendCap, ref nuint pBackendCount)
 		{
 			fixed (MaBackend* ppBackends = &pBackends)
 			{
 				fixed (nuint* ppBackendCount = &pBackendCount)
 				{
-					MaResult ret = MaGetEnabledBackendsNative((MaBackend*)ppBackends, backendCap, (nuint*)ppBackendCount);
+					MaResult ret = GetEnabledBackendsNative((MaBackend*)ppBackends, backendCap, (nuint*)ppBackendCount);
 					return ret;
 				}
 			}
@@ -4055,7 +4055,7 @@ namespace Hexa.NET.MiniAudio
 		/// Determines whether or not loopback mode is support by a backend.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaIsLoopbackSupportedNative(MaBackend backend)
+		internal static uint IsLoopbackSupportedNative(MaBackend backend)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBackend, uint>)funcTable[495])(backend);
@@ -4067,9 +4067,9 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Determines whether or not loopback mode is support by a backend.<br/>
 		/// </summary>
-		public static uint MaIsLoopbackSupported(MaBackend backend)
+		public static uint IsLoopbackSupported(MaBackend backend)
 		{
-			uint ret = MaIsLoopbackSupportedNative(backend);
+			uint ret = IsLoopbackSupportedNative(backend);
 			return ret;
 		}
 
@@ -4077,7 +4077,7 @@ namespace Hexa.NET.MiniAudio
 		/// Calculates a buffer size in milliseconds (rounded up) from the specified number of frames and sample rate.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaCalculateBufferSizeInMillisecondsFromFramesNative(uint bufferSizeInFrames, uint sampleRate)
+		internal static uint CalculateBufferSizeInMillisecondsFromFramesNative(uint bufferSizeInFrames, uint sampleRate)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, uint, uint>)funcTable[496])(bufferSizeInFrames, sampleRate);
@@ -4089,9 +4089,9 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Calculates a buffer size in milliseconds (rounded up) from the specified number of frames and sample rate.<br/>
 		/// </summary>
-		public static uint MaCalculateBufferSizeInMillisecondsFromFrames(uint bufferSizeInFrames, uint sampleRate)
+		public static uint CalculateBufferSizeInMillisecondsFromFrames(uint bufferSizeInFrames, uint sampleRate)
 		{
-			uint ret = MaCalculateBufferSizeInMillisecondsFromFramesNative(bufferSizeInFrames, sampleRate);
+			uint ret = CalculateBufferSizeInMillisecondsFromFramesNative(bufferSizeInFrames, sampleRate);
 			return ret;
 		}
 
@@ -4099,7 +4099,7 @@ namespace Hexa.NET.MiniAudio
 		/// Calculates a buffer size in frames from the specified number of milliseconds and sample rate.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaCalculateBufferSizeInFramesFromMillisecondsNative(uint bufferSizeInMilliseconds, uint sampleRate)
+		internal static uint CalculateBufferSizeInFramesFromMillisecondsNative(uint bufferSizeInMilliseconds, uint sampleRate)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, uint, uint>)funcTable[497])(bufferSizeInMilliseconds, sampleRate);
@@ -4111,9 +4111,9 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Calculates a buffer size in frames from the specified number of milliseconds and sample rate.<br/>
 		/// </summary>
-		public static uint MaCalculateBufferSizeInFramesFromMilliseconds(uint bufferSizeInMilliseconds, uint sampleRate)
+		public static uint CalculateBufferSizeInFramesFromMilliseconds(uint bufferSizeInMilliseconds, uint sampleRate)
 		{
-			uint ret = MaCalculateBufferSizeInFramesFromMillisecondsNative(bufferSizeInMilliseconds, sampleRate);
+			uint ret = CalculateBufferSizeInFramesFromMillisecondsNative(bufferSizeInMilliseconds, sampleRate);
 			return ret;
 		}
 
@@ -4121,7 +4121,7 @@ namespace Hexa.NET.MiniAudio
 		/// Copies PCM frames from one buffer to another.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyPcmFramesNative(void* dst, void* src, ulong frameCount, MaFormat format, uint channels)
+		internal static void CopyPcmFramesNative(void* dst, void* src, ulong frameCount, MaFormat format, uint channels)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, void*, ulong, MaFormat, uint, void>)funcTable[498])(dst, src, frameCount, format, channels);
@@ -4133,33 +4133,33 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Copies PCM frames from one buffer to another.<br/>
 		/// </summary>
-		public static void MaCopyPcmFrames(void* dst, void* src, ulong frameCount, MaFormat format, uint channels)
+		public static void CopyPcmFrames(void* dst, void* src, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaCopyPcmFramesNative(dst, src, frameCount, format, channels);
+			CopyPcmFramesNative(dst, src, frameCount, format, channels);
 		}
 
 		/// <summary>
 		/// Copies PCM frames from one buffer to another.<br/>
 		/// </summary>
-		public static void MaCopyPcmFrames(nint dst, void* src, ulong frameCount, MaFormat format, uint channels)
+		public static void CopyPcmFrames(nint dst, void* src, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaCopyPcmFramesNative((void*)dst, src, frameCount, format, channels);
+			CopyPcmFramesNative((void*)dst, src, frameCount, format, channels);
 		}
 
 		/// <summary>
 		/// Copies PCM frames from one buffer to another.<br/>
 		/// </summary>
-		public static void MaCopyPcmFrames(void* dst, nint src, ulong frameCount, MaFormat format, uint channels)
+		public static void CopyPcmFrames(void* dst, nint src, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaCopyPcmFramesNative(dst, (void*)src, frameCount, format, channels);
+			CopyPcmFramesNative(dst, (void*)src, frameCount, format, channels);
 		}
 
 		/// <summary>
 		/// Copies PCM frames from one buffer to another.<br/>
 		/// </summary>
-		public static void MaCopyPcmFrames(nint dst, nint src, ulong frameCount, MaFormat format, uint channels)
+		public static void CopyPcmFrames(nint dst, nint src, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaCopyPcmFramesNative((void*)dst, (void*)src, frameCount, format, channels);
+			CopyPcmFramesNative((void*)dst, (void*)src, frameCount, format, channels);
 		}
 
 		/// <summary>
@@ -4170,7 +4170,7 @@ namespace Hexa.NET.MiniAudio
 		/// makes more sense for the purpose of mixing to initialize it to the center point.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSilencePcmFramesNative(void* p, ulong frameCount, MaFormat format, uint channels)
+		internal static void SilencePcmFramesNative(void* p, ulong frameCount, MaFormat format, uint channels)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, ulong, MaFormat, uint, void>)funcTable[499])(p, frameCount, format, channels);
@@ -4186,9 +4186,9 @@ namespace Hexa.NET.MiniAudio
 		/// For all formats except `ma_format_u8`, the output buffer will be filled with 0. For `ma_format_u8` it will be filled with 128. The reason for this is that it<br/>
 		/// makes more sense for the purpose of mixing to initialize it to the center point.<br/>
 		/// </summary>
-		public static void MaSilencePcmFrames(void* p, ulong frameCount, MaFormat format, uint channels)
+		public static void SilencePcmFrames(void* p, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaSilencePcmFramesNative(p, frameCount, format, channels);
+			SilencePcmFramesNative(p, frameCount, format, channels);
 		}
 
 		/// <summary>
@@ -4198,16 +4198,16 @@ namespace Hexa.NET.MiniAudio
 		/// For all formats except `ma_format_u8`, the output buffer will be filled with 0. For `ma_format_u8` it will be filled with 128. The reason for this is that it<br/>
 		/// makes more sense for the purpose of mixing to initialize it to the center point.<br/>
 		/// </summary>
-		public static void MaSilencePcmFrames(nint p, ulong frameCount, MaFormat format, uint channels)
+		public static void SilencePcmFrames(nint p, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaSilencePcmFramesNative((void*)p, frameCount, format, channels);
+			SilencePcmFramesNative((void*)p, frameCount, format, channels);
 		}
 
 		/// <summary>
 		/// Offsets a pointer by the specified number of PCM frames.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* MaOffsetPcmFramesPtrNative(void* p, ulong offsetInFrames, MaFormat format, uint channels)
+		internal static void* OffsetPcmFramesPtrNative(void* p, ulong offsetInFrames, MaFormat format, uint channels)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, ulong, MaFormat, uint, void*>)funcTable[500])(p, offsetInFrames, format, channels);
@@ -4219,23 +4219,23 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Offsets a pointer by the specified number of PCM frames.<br/>
 		/// </summary>
-		public static void* MaOffsetPcmFramesPtr(void* p, ulong offsetInFrames, MaFormat format, uint channels)
+		public static void* OffsetPcmFramesPtr(void* p, ulong offsetInFrames, MaFormat format, uint channels)
 		{
-			void* ret = MaOffsetPcmFramesPtrNative(p, offsetInFrames, format, channels);
+			void* ret = OffsetPcmFramesPtrNative(p, offsetInFrames, format, channels);
 			return ret;
 		}
 
 		/// <summary>
 		/// Offsets a pointer by the specified number of PCM frames.<br/>
 		/// </summary>
-		public static void* MaOffsetPcmFramesPtr(nint p, ulong offsetInFrames, MaFormat format, uint channels)
+		public static void* OffsetPcmFramesPtr(nint p, ulong offsetInFrames, MaFormat format, uint channels)
 		{
-			void* ret = MaOffsetPcmFramesPtrNative((void*)p, offsetInFrames, format, channels);
+			void* ret = OffsetPcmFramesPtrNative((void*)p, offsetInFrames, format, channels);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* MaOffsetPcmFramesConstPtrNative(void* p, ulong offsetInFrames, MaFormat format, uint channels)
+		internal static void* OffsetPcmFramesConstPtrNative(void* p, ulong offsetInFrames, MaFormat format, uint channels)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, ulong, MaFormat, uint, void*>)funcTable[501])(p, offsetInFrames, format, channels);
@@ -4244,15 +4244,15 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void* MaOffsetPcmFramesConstPtr(void* p, ulong offsetInFrames, MaFormat format, uint channels)
+		public static void* OffsetPcmFramesConstPtr(void* p, ulong offsetInFrames, MaFormat format, uint channels)
 		{
-			void* ret = MaOffsetPcmFramesConstPtrNative(p, offsetInFrames, format, channels);
+			void* ret = OffsetPcmFramesConstPtrNative(p, offsetInFrames, format, channels);
 			return ret;
 		}
 
-		public static void* MaOffsetPcmFramesConstPtr(nint p, ulong offsetInFrames, MaFormat format, uint channels)
+		public static void* OffsetPcmFramesConstPtr(nint p, ulong offsetInFrames, MaFormat format, uint channels)
 		{
-			void* ret = MaOffsetPcmFramesConstPtrNative((void*)p, offsetInFrames, format, channels);
+			void* ret = OffsetPcmFramesConstPtrNative((void*)p, offsetInFrames, format, channels);
 			return ret;
 		}
 
@@ -4260,7 +4260,7 @@ namespace Hexa.NET.MiniAudio
 		/// Clips samples.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaClipSamplesU8Native(byte* pDst, short* pSrc, ulong count)
+		internal static void ClipSamplesU8Native(byte* pDst, short* pSrc, ulong count)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, short*, ulong, void>)funcTable[502])(pDst, pSrc, count);
@@ -4272,49 +4272,49 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Clips samples.<br/>
 		/// </summary>
-		public static void MaClipSamplesU8(byte* pDst, short* pSrc, ulong count)
+		public static void ClipSamplesU8(byte* pDst, short* pSrc, ulong count)
 		{
-			MaClipSamplesU8Native(pDst, pSrc, count);
+			ClipSamplesU8Native(pDst, pSrc, count);
 		}
 
 		/// <summary>
 		/// Clips samples.<br/>
 		/// </summary>
-		public static void MaClipSamplesU8(ref byte pDst, short* pSrc, ulong count)
+		public static void ClipSamplesU8(ref byte pDst, short* pSrc, ulong count)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
-				MaClipSamplesU8Native((byte*)ppDst, pSrc, count);
+				ClipSamplesU8Native((byte*)ppDst, pSrc, count);
 			}
 		}
 
 		/// <summary>
 		/// Clips samples.<br/>
 		/// </summary>
-		public static void MaClipSamplesU8(byte* pDst, in short pSrc, ulong count)
+		public static void ClipSamplesU8(byte* pDst, in short pSrc, ulong count)
 		{
 			fixed (short* ppSrc = &pSrc)
 			{
-				MaClipSamplesU8Native(pDst, (short*)ppSrc, count);
+				ClipSamplesU8Native(pDst, (short*)ppSrc, count);
 			}
 		}
 
 		/// <summary>
 		/// Clips samples.<br/>
 		/// </summary>
-		public static void MaClipSamplesU8(ref byte pDst, in short pSrc, ulong count)
+		public static void ClipSamplesU8(ref byte pDst, in short pSrc, ulong count)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
 				fixed (short* ppSrc = &pSrc)
 				{
-					MaClipSamplesU8Native((byte*)ppDst, (short*)ppSrc, count);
+					ClipSamplesU8Native((byte*)ppDst, (short*)ppSrc, count);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaClipSamplesS16Native(short* pDst, int* pSrc, ulong count)
+		internal static void ClipSamplesS16Native(short* pDst, int* pSrc, ulong count)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<short*, int*, ulong, void>)funcTable[503])(pDst, pSrc, count);
@@ -4323,40 +4323,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaClipSamplesS16(short* pDst, int* pSrc, ulong count)
+		public static void ClipSamplesS16(short* pDst, int* pSrc, ulong count)
 		{
-			MaClipSamplesS16Native(pDst, pSrc, count);
+			ClipSamplesS16Native(pDst, pSrc, count);
 		}
 
-		public static void MaClipSamplesS16(ref short pDst, int* pSrc, ulong count)
+		public static void ClipSamplesS16(ref short pDst, int* pSrc, ulong count)
 		{
 			fixed (short* ppDst = &pDst)
 			{
-				MaClipSamplesS16Native((short*)ppDst, pSrc, count);
+				ClipSamplesS16Native((short*)ppDst, pSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesS16(short* pDst, in int pSrc, ulong count)
+		public static void ClipSamplesS16(short* pDst, in int pSrc, ulong count)
 		{
 			fixed (int* ppSrc = &pSrc)
 			{
-				MaClipSamplesS16Native(pDst, (int*)ppSrc, count);
+				ClipSamplesS16Native(pDst, (int*)ppSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesS16(ref short pDst, in int pSrc, ulong count)
+		public static void ClipSamplesS16(ref short pDst, in int pSrc, ulong count)
 		{
 			fixed (short* ppDst = &pDst)
 			{
 				fixed (int* ppSrc = &pSrc)
 				{
-					MaClipSamplesS16Native((short*)ppDst, (int*)ppSrc, count);
+					ClipSamplesS16Native((short*)ppDst, (int*)ppSrc, count);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaClipSamplesS24Native(byte* pDst, long* pSrc, ulong count)
+		internal static void ClipSamplesS24Native(byte* pDst, long* pSrc, ulong count)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, long*, ulong, void>)funcTable[504])(pDst, pSrc, count);
@@ -4365,40 +4365,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaClipSamplesS24(byte* pDst, long* pSrc, ulong count)
+		public static void ClipSamplesS24(byte* pDst, long* pSrc, ulong count)
 		{
-			MaClipSamplesS24Native(pDst, pSrc, count);
+			ClipSamplesS24Native(pDst, pSrc, count);
 		}
 
-		public static void MaClipSamplesS24(ref byte pDst, long* pSrc, ulong count)
+		public static void ClipSamplesS24(ref byte pDst, long* pSrc, ulong count)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
-				MaClipSamplesS24Native((byte*)ppDst, pSrc, count);
+				ClipSamplesS24Native((byte*)ppDst, pSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesS24(byte* pDst, in long pSrc, ulong count)
+		public static void ClipSamplesS24(byte* pDst, in long pSrc, ulong count)
 		{
 			fixed (long* ppSrc = &pSrc)
 			{
-				MaClipSamplesS24Native(pDst, (long*)ppSrc, count);
+				ClipSamplesS24Native(pDst, (long*)ppSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesS24(ref byte pDst, in long pSrc, ulong count)
+		public static void ClipSamplesS24(ref byte pDst, in long pSrc, ulong count)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
 				fixed (long* ppSrc = &pSrc)
 				{
-					MaClipSamplesS24Native((byte*)ppDst, (long*)ppSrc, count);
+					ClipSamplesS24Native((byte*)ppDst, (long*)ppSrc, count);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaClipSamplesS32Native(int* pDst, long* pSrc, ulong count)
+		internal static void ClipSamplesS32Native(int* pDst, long* pSrc, ulong count)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int*, long*, ulong, void>)funcTable[505])(pDst, pSrc, count);
@@ -4407,40 +4407,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaClipSamplesS32(int* pDst, long* pSrc, ulong count)
+		public static void ClipSamplesS32(int* pDst, long* pSrc, ulong count)
 		{
-			MaClipSamplesS32Native(pDst, pSrc, count);
+			ClipSamplesS32Native(pDst, pSrc, count);
 		}
 
-		public static void MaClipSamplesS32(ref int pDst, long* pSrc, ulong count)
+		public static void ClipSamplesS32(ref int pDst, long* pSrc, ulong count)
 		{
 			fixed (int* ppDst = &pDst)
 			{
-				MaClipSamplesS32Native((int*)ppDst, pSrc, count);
+				ClipSamplesS32Native((int*)ppDst, pSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesS32(int* pDst, in long pSrc, ulong count)
+		public static void ClipSamplesS32(int* pDst, in long pSrc, ulong count)
 		{
 			fixed (long* ppSrc = &pSrc)
 			{
-				MaClipSamplesS32Native(pDst, (long*)ppSrc, count);
+				ClipSamplesS32Native(pDst, (long*)ppSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesS32(ref int pDst, in long pSrc, ulong count)
+		public static void ClipSamplesS32(ref int pDst, in long pSrc, ulong count)
 		{
 			fixed (int* ppDst = &pDst)
 			{
 				fixed (long* ppSrc = &pSrc)
 				{
-					MaClipSamplesS32Native((int*)ppDst, (long*)ppSrc, count);
+					ClipSamplesS32Native((int*)ppDst, (long*)ppSrc, count);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaClipSamplesF32Native(float* pDst, float* pSrc, ulong count)
+		internal static void ClipSamplesF32Native(float* pDst, float* pSrc, ulong count)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<float*, float*, ulong, void>)funcTable[506])(pDst, pSrc, count);
@@ -4449,40 +4449,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaClipSamplesF32(float* pDst, float* pSrc, ulong count)
+		public static void ClipSamplesF32(float* pDst, float* pSrc, ulong count)
 		{
-			MaClipSamplesF32Native(pDst, pSrc, count);
+			ClipSamplesF32Native(pDst, pSrc, count);
 		}
 
-		public static void MaClipSamplesF32(ref float pDst, float* pSrc, ulong count)
+		public static void ClipSamplesF32(ref float pDst, float* pSrc, ulong count)
 		{
 			fixed (float* ppDst = &pDst)
 			{
-				MaClipSamplesF32Native((float*)ppDst, pSrc, count);
+				ClipSamplesF32Native((float*)ppDst, pSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesF32(float* pDst, in float pSrc, ulong count)
+		public static void ClipSamplesF32(float* pDst, in float pSrc, ulong count)
 		{
 			fixed (float* ppSrc = &pSrc)
 			{
-				MaClipSamplesF32Native(pDst, (float*)ppSrc, count);
+				ClipSamplesF32Native(pDst, (float*)ppSrc, count);
 			}
 		}
 
-		public static void MaClipSamplesF32(ref float pDst, in float pSrc, ulong count)
+		public static void ClipSamplesF32(ref float pDst, in float pSrc, ulong count)
 		{
 			fixed (float* ppDst = &pDst)
 			{
 				fixed (float* ppSrc = &pSrc)
 				{
-					MaClipSamplesF32Native((float*)ppDst, (float*)ppSrc, count);
+					ClipSamplesF32Native((float*)ppDst, (float*)ppSrc, count);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaClipPcmFramesNative(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels)
+		internal static void ClipPcmFramesNative(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, void*, ulong, MaFormat, uint, void>)funcTable[507])(pDst, pSrc, frameCount, format, channels);
@@ -4491,24 +4491,24 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaClipPcmFrames(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels)
+		public static void ClipPcmFrames(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaClipPcmFramesNative(pDst, pSrc, frameCount, format, channels);
+			ClipPcmFramesNative(pDst, pSrc, frameCount, format, channels);
 		}
 
-		public static void MaClipPcmFrames(nint pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels)
+		public static void ClipPcmFrames(nint pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaClipPcmFramesNative((void*)pDst, pSrc, frameCount, format, channels);
+			ClipPcmFramesNative((void*)pDst, pSrc, frameCount, format, channels);
 		}
 
-		public static void MaClipPcmFrames(void* pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels)
+		public static void ClipPcmFrames(void* pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaClipPcmFramesNative(pDst, (void*)pSrc, frameCount, format, channels);
+			ClipPcmFramesNative(pDst, (void*)pSrc, frameCount, format, channels);
 		}
 
-		public static void MaClipPcmFrames(nint pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels)
+		public static void ClipPcmFrames(nint pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels)
 		{
-			MaClipPcmFramesNative((void*)pDst, (void*)pSrc, frameCount, format, channels);
+			ClipPcmFramesNative((void*)pDst, (void*)pSrc, frameCount, format, channels);
 		}
 
 		/// <summary>
@@ -4516,7 +4516,7 @@ namespace Hexa.NET.MiniAudio
 		/// Note that the source and destination buffers can be the same, in which case it'll perform the operation in-place.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorU8Native(byte* pSamplesOut, byte* pSamplesIn, ulong sampleCount, float factor)
+		internal static void CopyAndApplyVolumeFactorU8Native(byte* pSamplesOut, byte* pSamplesIn, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, byte*, ulong, float, void>)funcTable[508])(pSamplesOut, pSamplesIn, sampleCount, factor);
@@ -4529,20 +4529,20 @@ namespace Hexa.NET.MiniAudio
 		/// Helper for applying a volume factor to samples.<br/>
 		/// Note that the source and destination buffers can be the same, in which case it'll perform the operation in-place.<br/>
 		/// </summary>
-		public static void MaCopyAndApplyVolumeFactorU8(byte* pSamplesOut, byte* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorU8(byte* pSamplesOut, byte* pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorU8Native(pSamplesOut, pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorU8Native(pSamplesOut, pSamplesIn, sampleCount, factor);
 		}
 
 		/// <summary>
 		/// Helper for applying a volume factor to samples.<br/>
 		/// Note that the source and destination buffers can be the same, in which case it'll perform the operation in-place.<br/>
 		/// </summary>
-		public static void MaCopyAndApplyVolumeFactorU8(ref byte pSamplesOut, byte* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorU8(ref byte pSamplesOut, byte* pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (byte* ppSamplesOut = &pSamplesOut)
 			{
-				MaCopyAndApplyVolumeFactorU8Native((byte*)ppSamplesOut, pSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorU8Native((byte*)ppSamplesOut, pSamplesIn, sampleCount, factor);
 			}
 		}
 
@@ -4550,11 +4550,11 @@ namespace Hexa.NET.MiniAudio
 		/// Helper for applying a volume factor to samples.<br/>
 		/// Note that the source and destination buffers can be the same, in which case it'll perform the operation in-place.<br/>
 		/// </summary>
-		public static void MaCopyAndApplyVolumeFactorU8(byte* pSamplesOut, in byte pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorU8(byte* pSamplesOut, in byte pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (byte* ppSamplesIn = &pSamplesIn)
 			{
-				MaCopyAndApplyVolumeFactorU8Native(pSamplesOut, (byte*)ppSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorU8Native(pSamplesOut, (byte*)ppSamplesIn, sampleCount, factor);
 			}
 		}
 
@@ -4562,19 +4562,19 @@ namespace Hexa.NET.MiniAudio
 		/// Helper for applying a volume factor to samples.<br/>
 		/// Note that the source and destination buffers can be the same, in which case it'll perform the operation in-place.<br/>
 		/// </summary>
-		public static void MaCopyAndApplyVolumeFactorU8(ref byte pSamplesOut, in byte pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorU8(ref byte pSamplesOut, in byte pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (byte* ppSamplesOut = &pSamplesOut)
 			{
 				fixed (byte* ppSamplesIn = &pSamplesIn)
 				{
-					MaCopyAndApplyVolumeFactorU8Native((byte*)ppSamplesOut, (byte*)ppSamplesIn, sampleCount, factor);
+					CopyAndApplyVolumeFactorU8Native((byte*)ppSamplesOut, (byte*)ppSamplesIn, sampleCount, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorS16Native(short* pSamplesOut, short* pSamplesIn, ulong sampleCount, float factor)
+		internal static void CopyAndApplyVolumeFactorS16Native(short* pSamplesOut, short* pSamplesIn, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<short*, short*, ulong, float, void>)funcTable[509])(pSamplesOut, pSamplesIn, sampleCount, factor);
@@ -4583,40 +4583,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS16(short* pSamplesOut, short* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS16(short* pSamplesOut, short* pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorS16Native(pSamplesOut, pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorS16Native(pSamplesOut, pSamplesIn, sampleCount, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS16(ref short pSamplesOut, short* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS16(ref short pSamplesOut, short* pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (short* ppSamplesOut = &pSamplesOut)
 			{
-				MaCopyAndApplyVolumeFactorS16Native((short*)ppSamplesOut, pSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorS16Native((short*)ppSamplesOut, pSamplesIn, sampleCount, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS16(short* pSamplesOut, in short pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS16(short* pSamplesOut, in short pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (short* ppSamplesIn = &pSamplesIn)
 			{
-				MaCopyAndApplyVolumeFactorS16Native(pSamplesOut, (short*)ppSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorS16Native(pSamplesOut, (short*)ppSamplesIn, sampleCount, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS16(ref short pSamplesOut, in short pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS16(ref short pSamplesOut, in short pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (short* ppSamplesOut = &pSamplesOut)
 			{
 				fixed (short* ppSamplesIn = &pSamplesIn)
 				{
-					MaCopyAndApplyVolumeFactorS16Native((short*)ppSamplesOut, (short*)ppSamplesIn, sampleCount, factor);
+					CopyAndApplyVolumeFactorS16Native((short*)ppSamplesOut, (short*)ppSamplesIn, sampleCount, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorS24Native(void* pSamplesOut, void* pSamplesIn, ulong sampleCount, float factor)
+		internal static void CopyAndApplyVolumeFactorS24Native(void* pSamplesOut, void* pSamplesIn, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, void*, ulong, float, void>)funcTable[510])(pSamplesOut, pSamplesIn, sampleCount, factor);
@@ -4625,28 +4625,28 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS24(void* pSamplesOut, void* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS24(void* pSamplesOut, void* pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorS24Native(pSamplesOut, pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorS24Native(pSamplesOut, pSamplesIn, sampleCount, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS24(nint pSamplesOut, void* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS24(nint pSamplesOut, void* pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorS24Native((void*)pSamplesOut, pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorS24Native((void*)pSamplesOut, pSamplesIn, sampleCount, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS24(void* pSamplesOut, nint pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS24(void* pSamplesOut, nint pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorS24Native(pSamplesOut, (void*)pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorS24Native(pSamplesOut, (void*)pSamplesIn, sampleCount, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS24(nint pSamplesOut, nint pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS24(nint pSamplesOut, nint pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorS24Native((void*)pSamplesOut, (void*)pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorS24Native((void*)pSamplesOut, (void*)pSamplesIn, sampleCount, factor);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorS32Native(int* pSamplesOut, int* pSamplesIn, ulong sampleCount, float factor)
+		internal static void CopyAndApplyVolumeFactorS32Native(int* pSamplesOut, int* pSamplesIn, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int*, int*, ulong, float, void>)funcTable[511])(pSamplesOut, pSamplesIn, sampleCount, factor);
@@ -4655,40 +4655,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS32(int* pSamplesOut, int* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS32(int* pSamplesOut, int* pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorS32Native(pSamplesOut, pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorS32Native(pSamplesOut, pSamplesIn, sampleCount, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS32(ref int pSamplesOut, int* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS32(ref int pSamplesOut, int* pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (int* ppSamplesOut = &pSamplesOut)
 			{
-				MaCopyAndApplyVolumeFactorS32Native((int*)ppSamplesOut, pSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorS32Native((int*)ppSamplesOut, pSamplesIn, sampleCount, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS32(int* pSamplesOut, in int pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS32(int* pSamplesOut, in int pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (int* ppSamplesIn = &pSamplesIn)
 			{
-				MaCopyAndApplyVolumeFactorS32Native(pSamplesOut, (int*)ppSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorS32Native(pSamplesOut, (int*)ppSamplesIn, sampleCount, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorS32(ref int pSamplesOut, in int pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorS32(ref int pSamplesOut, in int pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (int* ppSamplesOut = &pSamplesOut)
 			{
 				fixed (int* ppSamplesIn = &pSamplesIn)
 				{
-					MaCopyAndApplyVolumeFactorS32Native((int*)ppSamplesOut, (int*)ppSamplesIn, sampleCount, factor);
+					CopyAndApplyVolumeFactorS32Native((int*)ppSamplesOut, (int*)ppSamplesIn, sampleCount, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorF32Native(float* pSamplesOut, float* pSamplesIn, ulong sampleCount, float factor)
+		internal static void CopyAndApplyVolumeFactorF32Native(float* pSamplesOut, float* pSamplesIn, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<float*, float*, ulong, float, void>)funcTable[512])(pSamplesOut, pSamplesIn, sampleCount, factor);
@@ -4697,40 +4697,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorF32(float* pSamplesOut, float* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorF32(float* pSamplesOut, float* pSamplesIn, ulong sampleCount, float factor)
 		{
-			MaCopyAndApplyVolumeFactorF32Native(pSamplesOut, pSamplesIn, sampleCount, factor);
+			CopyAndApplyVolumeFactorF32Native(pSamplesOut, pSamplesIn, sampleCount, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorF32(ref float pSamplesOut, float* pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorF32(ref float pSamplesOut, float* pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (float* ppSamplesOut = &pSamplesOut)
 			{
-				MaCopyAndApplyVolumeFactorF32Native((float*)ppSamplesOut, pSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorF32Native((float*)ppSamplesOut, pSamplesIn, sampleCount, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorF32(float* pSamplesOut, in float pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorF32(float* pSamplesOut, in float pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (float* ppSamplesIn = &pSamplesIn)
 			{
-				MaCopyAndApplyVolumeFactorF32Native(pSamplesOut, (float*)ppSamplesIn, sampleCount, factor);
+				CopyAndApplyVolumeFactorF32Native(pSamplesOut, (float*)ppSamplesIn, sampleCount, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorF32(ref float pSamplesOut, in float pSamplesIn, ulong sampleCount, float factor)
+		public static void CopyAndApplyVolumeFactorF32(ref float pSamplesOut, in float pSamplesIn, ulong sampleCount, float factor)
 		{
 			fixed (float* ppSamplesOut = &pSamplesOut)
 			{
 				fixed (float* ppSamplesIn = &pSamplesIn)
 				{
-					MaCopyAndApplyVolumeFactorF32Native((float*)ppSamplesOut, (float*)ppSamplesIn, sampleCount, factor);
+					CopyAndApplyVolumeFactorF32Native((float*)ppSamplesOut, (float*)ppSamplesIn, sampleCount, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorU8Native(byte* pSamples, ulong sampleCount, float factor)
+		internal static void ApplyVolumeFactorU8Native(byte* pSamples, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, ulong, float, void>)funcTable[513])(pSamples, sampleCount, factor);
@@ -4739,21 +4739,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorU8(byte* pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorU8(byte* pSamples, ulong sampleCount, float factor)
 		{
-			MaApplyVolumeFactorU8Native(pSamples, sampleCount, factor);
+			ApplyVolumeFactorU8Native(pSamples, sampleCount, factor);
 		}
 
-		public static void MaApplyVolumeFactorU8(ref byte pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorU8(ref byte pSamples, ulong sampleCount, float factor)
 		{
 			fixed (byte* ppSamples = &pSamples)
 			{
-				MaApplyVolumeFactorU8Native((byte*)ppSamples, sampleCount, factor);
+				ApplyVolumeFactorU8Native((byte*)ppSamples, sampleCount, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorS16Native(short* pSamples, ulong sampleCount, float factor)
+		internal static void ApplyVolumeFactorS16Native(short* pSamples, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<short*, ulong, float, void>)funcTable[514])(pSamples, sampleCount, factor);
@@ -4762,21 +4762,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorS16(short* pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorS16(short* pSamples, ulong sampleCount, float factor)
 		{
-			MaApplyVolumeFactorS16Native(pSamples, sampleCount, factor);
+			ApplyVolumeFactorS16Native(pSamples, sampleCount, factor);
 		}
 
-		public static void MaApplyVolumeFactorS16(ref short pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorS16(ref short pSamples, ulong sampleCount, float factor)
 		{
 			fixed (short* ppSamples = &pSamples)
 			{
-				MaApplyVolumeFactorS16Native((short*)ppSamples, sampleCount, factor);
+				ApplyVolumeFactorS16Native((short*)ppSamples, sampleCount, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorS24Native(void* pSamples, ulong sampleCount, float factor)
+		internal static void ApplyVolumeFactorS24Native(void* pSamples, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, ulong, float, void>)funcTable[515])(pSamples, sampleCount, factor);
@@ -4785,18 +4785,18 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorS24(void* pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorS24(void* pSamples, ulong sampleCount, float factor)
 		{
-			MaApplyVolumeFactorS24Native(pSamples, sampleCount, factor);
+			ApplyVolumeFactorS24Native(pSamples, sampleCount, factor);
 		}
 
-		public static void MaApplyVolumeFactorS24(nint pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorS24(nint pSamples, ulong sampleCount, float factor)
 		{
-			MaApplyVolumeFactorS24Native((void*)pSamples, sampleCount, factor);
+			ApplyVolumeFactorS24Native((void*)pSamples, sampleCount, factor);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorS32Native(int* pSamples, ulong sampleCount, float factor)
+		internal static void ApplyVolumeFactorS32Native(int* pSamples, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int*, ulong, float, void>)funcTable[516])(pSamples, sampleCount, factor);
@@ -4805,21 +4805,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorS32(int* pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorS32(int* pSamples, ulong sampleCount, float factor)
 		{
-			MaApplyVolumeFactorS32Native(pSamples, sampleCount, factor);
+			ApplyVolumeFactorS32Native(pSamples, sampleCount, factor);
 		}
 
-		public static void MaApplyVolumeFactorS32(ref int pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorS32(ref int pSamples, ulong sampleCount, float factor)
 		{
 			fixed (int* ppSamples = &pSamples)
 			{
-				MaApplyVolumeFactorS32Native((int*)ppSamples, sampleCount, factor);
+				ApplyVolumeFactorS32Native((int*)ppSamples, sampleCount, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorF32Native(float* pSamples, ulong sampleCount, float factor)
+		internal static void ApplyVolumeFactorF32Native(float* pSamples, ulong sampleCount, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<float*, ulong, float, void>)funcTable[517])(pSamples, sampleCount, factor);
@@ -4828,21 +4828,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorF32(float* pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorF32(float* pSamples, ulong sampleCount, float factor)
 		{
-			MaApplyVolumeFactorF32Native(pSamples, sampleCount, factor);
+			ApplyVolumeFactorF32Native(pSamples, sampleCount, factor);
 		}
 
-		public static void MaApplyVolumeFactorF32(ref float pSamples, ulong sampleCount, float factor)
+		public static void ApplyVolumeFactorF32(ref float pSamples, ulong sampleCount, float factor)
 		{
 			fixed (float* ppSamples = &pSamples)
 			{
-				MaApplyVolumeFactorF32Native((float*)ppSamples, sampleCount, factor);
+				ApplyVolumeFactorF32Native((float*)ppSamples, sampleCount, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesU8Native(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
+		internal static void CopyAndApplyVolumeFactorPcmFramesU8Native(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, byte*, ulong, uint, float, void>)funcTable[518])(pFramesOut, pFramesIn, frameCount, channels, factor);
@@ -4851,40 +4851,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, pFramesIn, frameCount, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, byte* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (byte* ppFramesOut = &pFramesOut)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, pFramesIn, frameCount, channels, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesU8(byte* pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (byte* ppFramesIn = &pFramesIn)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesU8Native(pFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesU8(ref byte pFramesOut, in byte pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (byte* ppFramesOut = &pFramesOut)
 			{
 				fixed (byte* ppFramesIn = &pFramesIn)
 				{
-					MaCopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
+					CopyAndApplyVolumeFactorPcmFramesU8Native((byte*)ppFramesOut, (byte*)ppFramesIn, frameCount, channels, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesS16Native(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
+		internal static void CopyAndApplyVolumeFactorPcmFramesS16Native(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<short*, short*, ulong, uint, float, void>)funcTable[519])(pFramesOut, pFramesIn, frameCount, channels, factor);
@@ -4893,40 +4893,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, pFramesIn, frameCount, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, short* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (short* ppFramesOut = &pFramesOut)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, pFramesIn, frameCount, channels, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS16(short* pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (short* ppFramesIn = &pFramesIn)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesS16Native(pFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS16(ref short pFramesOut, in short pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (short* ppFramesOut = &pFramesOut)
 			{
 				fixed (short* ppFramesIn = &pFramesIn)
 				{
-					MaCopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
+					CopyAndApplyVolumeFactorPcmFramesS16Native((short*)ppFramesOut, (short*)ppFramesIn, frameCount, channels, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesS24Native(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
+		internal static void CopyAndApplyVolumeFactorPcmFramesS24Native(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, void*, ulong, uint, float, void>)funcTable[520])(pFramesOut, pFramesIn, frameCount, channels, factor);
@@ -4935,28 +4935,28 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, pFramesIn, frameCount, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, void* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, pFramesIn, frameCount, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS24(void* pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesS24Native(pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS24(nint pFramesOut, nint pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesS24Native((void*)pFramesOut, (void*)pFramesIn, frameCount, channels, factor);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesS32Native(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
+		internal static void CopyAndApplyVolumeFactorPcmFramesS32Native(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int*, int*, ulong, uint, float, void>)funcTable[521])(pFramesOut, pFramesIn, frameCount, channels, factor);
@@ -4965,40 +4965,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, int* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (int* ppFramesOut = &pFramesOut)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, pFramesIn, frameCount, channels, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS32(int* pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (int* ppFramesIn = &pFramesIn)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesS32Native(pFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesS32(ref int pFramesOut, in int pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (int* ppFramesOut = &pFramesOut)
 			{
 				fixed (int* ppFramesIn = &pFramesIn)
 				{
-					MaCopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
+					CopyAndApplyVolumeFactorPcmFramesS32Native((int*)ppFramesOut, (int*)ppFramesIn, frameCount, channels, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesF32Native(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
+		internal static void CopyAndApplyVolumeFactorPcmFramesF32Native(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<float*, float*, ulong, uint, float, void>)funcTable[522])(pFramesOut, pFramesIn, frameCount, channels, factor);
@@ -5007,16 +5007,16 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesF32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesF32Native(pFramesOut, pFramesIn, frameCount, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (float* ppFramesOut = &pFramesOut)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, factor);
 			}
 		}
 	}

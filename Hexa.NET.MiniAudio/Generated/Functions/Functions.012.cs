@@ -17,19 +17,19 @@ namespace Hexa.NET.MiniAudio
 	public unsafe partial class MiniAudio
 	{
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
 				fixed (MaFence* ppDoneFence = &pDoneFence)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -37,14 +37,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -52,14 +52,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -67,14 +67,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -97,7 +97,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaFence* ppDoneFence = &pDoneFence)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -107,7 +107,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -117,7 +117,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaFence* ppDoneFence = &pDoneFence)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 							return ret;
 						}
 					}
@@ -125,7 +125,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -135,7 +135,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaFence* ppDoneFence = &pDoneFence)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 							return ret;
 						}
 					}
@@ -143,7 +143,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -168,7 +168,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -179,52 +179,52 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+				MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -245,7 +245,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+				MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -254,7 +254,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -262,14 +262,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -277,14 +277,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -307,7 +307,7 @@ namespace Hexa.NET.MiniAudio
 				}
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -317,19 +317,19 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -337,14 +337,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -352,14 +352,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -367,14 +367,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -397,7 +397,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -407,7 +407,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -417,7 +417,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -425,7 +425,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -435,7 +435,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -443,7 +443,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -468,7 +468,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -479,19 +479,19 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaFence* ppDoneFence = &pDoneFence)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -499,14 +499,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -514,14 +514,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -529,14 +529,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -559,7 +559,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -569,7 +569,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -579,7 +579,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -587,7 +587,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -597,7 +597,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -605,7 +605,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -630,7 +630,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -641,7 +641,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
@@ -649,14 +649,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, byte* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -666,7 +666,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -674,7 +674,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -684,7 +684,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -692,7 +692,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -702,7 +702,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -710,7 +710,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -735,7 +735,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileNative((MaEngine*)pEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -746,7 +746,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, in byte pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -758,7 +758,7 @@ namespace Hexa.NET.MiniAudio
 						{
 							fixed (MaSound* ppSound = &pSound)
 							{
-								MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+								MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 								return ret;
 							}
 						}
@@ -767,7 +767,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, ReadOnlySpan<byte> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -779,7 +779,7 @@ namespace Hexa.NET.MiniAudio
 						{
 							fixed (MaSound* ppSound = &pSound)
 							{
-								MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+								MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, (byte*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 								return ret;
 							}
 						}
@@ -788,7 +788,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFile(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -815,7 +815,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileNative((MaEngine*)ppEngine, pStr0, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -828,7 +828,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundInitFromFileWNative(MaEngine* pEngine, char* pFilePath, uint flags, MaSound* pGroup, MaFence* pDoneFence, MaSound* pSound)
+		internal static MaResult SoundInitFromFileWNative(MaEngine* pEngine, char* pFilePath, uint flags, MaSound* pGroup, MaFence* pDoneFence, MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaEngine*, char*, uint, MaSound*, MaFence*, MaSound*, MaResult>)funcTable[796])(pEngine, pFilePath, flags, pGroup, pDoneFence, pSound);
@@ -837,142 +837,142 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
-			MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+			MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
-				MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+				MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+				MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+				MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+				MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (char* ppFilePath = &pFilePath)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (char* ppFilePath = pFilePath)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (char* ppFilePath = pFilePath)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+				MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -980,14 +980,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppGroup = &pGroup)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -995,14 +995,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppGroup = &pGroup)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1010,71 +1010,71 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppGroup = &pGroup)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaFence* ppDoneFence = &pDoneFence)
 			{
-				MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+				MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaFence* ppDoneFence = &pDoneFence)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaFence* ppDoneFence = &pDoneFence)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaFence* ppDoneFence = &pDoneFence)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaFence* ppDoneFence = &pDoneFence)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1082,14 +1082,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1097,14 +1097,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1112,26 +1112,26 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
 				fixed (MaFence* ppDoneFence = &pDoneFence)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1139,14 +1139,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
@@ -1154,14 +1154,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1169,14 +1169,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1184,14 +1184,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaFence* ppDoneFence = &pDoneFence)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1201,7 +1201,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaFence* ppDoneFence = &pDoneFence)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 							return ret;
 						}
 					}
@@ -1209,7 +1209,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1219,7 +1219,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaFence* ppDoneFence = &pDoneFence)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 							return ret;
 						}
 					}
@@ -1227,7 +1227,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1237,7 +1237,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaFence* ppDoneFence = &pDoneFence)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)pSound);
 							return ret;
 						}
 					}
@@ -1245,64 +1245,64 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+				MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1310,14 +1310,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1325,14 +1325,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1340,26 +1340,26 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1367,14 +1367,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
@@ -1382,14 +1382,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1397,14 +1397,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1412,14 +1412,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1429,7 +1429,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1437,7 +1437,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1447,7 +1447,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1455,7 +1455,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, MaFencePtr pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1465,7 +1465,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)pDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1473,19 +1473,19 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaFence* ppDoneFence = &pDoneFence)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1493,14 +1493,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
@@ -1508,14 +1508,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1523,14 +1523,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1538,14 +1538,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1555,7 +1555,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1563,7 +1563,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1573,7 +1573,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1581,7 +1581,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, MaSoundPtr pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1591,7 +1591,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)pGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1599,7 +1599,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
@@ -1607,14 +1607,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, char* pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1624,7 +1624,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, pFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1632,7 +1632,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
@@ -1642,7 +1642,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1650,7 +1650,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1660,7 +1660,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1668,7 +1668,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(MaEnginePtr pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -1678,7 +1678,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+							MaResult ret = SoundInitFromFileWNative((MaEngine*)pEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1686,7 +1686,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, in char pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1698,7 +1698,7 @@ namespace Hexa.NET.MiniAudio
 						{
 							fixed (MaSound* ppSound = &pSound)
 							{
-								MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+								MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 								return ret;
 							}
 						}
@@ -1707,7 +1707,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, ReadOnlySpan<char> pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1719,7 +1719,7 @@ namespace Hexa.NET.MiniAudio
 						{
 							fixed (MaSound* ppSound = &pSound)
 							{
-								MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+								MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, (char*)ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 								return ret;
 							}
 						}
@@ -1728,7 +1728,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
+		public static MaResult SoundInitFromFileW(ref MaEngine pEngine, string pFilePath, uint flags, ref MaSound pGroup, ref MaFence pDoneFence, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1740,7 +1740,7 @@ namespace Hexa.NET.MiniAudio
 						{
 							fixed (MaSound* ppSound = &pSound)
 							{
-								MaResult ret = MaSoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
+								MaResult ret = SoundInitFromFileWNative((MaEngine*)ppEngine, ppFilePath, flags, (MaSound*)ppGroup, (MaFence*)ppDoneFence, (MaSound*)ppSound);
 								return ret;
 							}
 						}
@@ -1750,7 +1750,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundInitCopyNative(MaEngine* pEngine, MaSound* pExistingSound, uint flags, MaSound* pGroup, MaSound* pSound)
+		internal static MaResult SoundInitCopyNative(MaEngine* pEngine, MaSound* pExistingSound, uint flags, MaSound* pGroup, MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaSound*, uint, MaSound*, MaSound*, MaResult>)funcTable[797])(pEngine, pExistingSound, flags, pGroup, pSound);
@@ -1759,76 +1759,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
-			MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
+			MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
-				MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
+				MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppExistingSound = &pExistingSound)
 			{
-				MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
+				MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppExistingSound = &pExistingSound)
 				{
-					MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
+					MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+				MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+					MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppExistingSound = &pExistingSound)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+					MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1836,47 +1836,47 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppGroup = &pGroup)
 					{
-						MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+						MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+				MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+					MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppExistingSound = &pExistingSound)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+					MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1884,26 +1884,26 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+						MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+					MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, MaSoundPtr pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1911,14 +1911,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+						MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)pExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(MaEnginePtr pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppExistingSound = &pExistingSound)
 			{
@@ -1926,14 +1926,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+						MaResult ret = SoundInitCopyNative((MaEngine*)pEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitCopy(ref MaEngine pEngine, in MaSound pExistingSound, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -1943,7 +1943,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaSound* ppSound = &pSound)
 						{
-							MaResult ret = MaSoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+							MaResult ret = SoundInitCopyNative((MaEngine*)ppEngine, (MaSound*)ppExistingSound, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 							return ret;
 						}
 					}
@@ -1952,7 +1952,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundInitFromDataSourceNative(MaEngine* pEngine, void* pDataSource, uint flags, MaSound* pGroup, MaSound* pSound)
+		internal static MaResult SoundInitFromDataSourceNative(MaEngine* pEngine, void* pDataSource, uint flags, MaSound* pGroup, MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaEngine*, void*, uint, MaSound*, MaSound*, MaResult>)funcTable[798])(pEngine, pDataSource, flags, pGroup, pSound);
@@ -1961,133 +1961,133 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
-			MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
+			MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
-				MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
+				MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
-			MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
+			MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
-				MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
+				MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+				MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+					MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+				MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, ref MaSound pGroup, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
+					MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+				MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+				MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, MaSoundPtr pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)pGroup, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, void* pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, void* pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -2095,26 +2095,26 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(MaEnginePtr pEngine, nint pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+					MaResult ret = SoundInitFromDataSourceNative((MaEngine*)pEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
+		public static MaResult SoundInitFromDataSource(ref MaEngine pEngine, nint pDataSource, uint flags, ref MaSound pGroup, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -2122,7 +2122,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
+						MaResult ret = SoundInitFromDataSourceNative((MaEngine*)ppEngine, (void*)pDataSource, flags, (MaSound*)ppGroup, (MaSound*)ppSound);
 						return ret;
 					}
 				}
@@ -2130,7 +2130,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundInitExNative(MaEngine* pEngine, MaSoundConfig* pConfig, MaSound* pSound)
+		internal static MaResult SoundInitExNative(MaEngine* pEngine, MaSoundConfig* pConfig, MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaSoundConfig*, MaSound*, MaResult>)funcTable[799])(pEngine, pConfig, pSound);
@@ -2139,76 +2139,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pSound)
+		public static MaResult SoundInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pSound)
 		{
-			MaResult ret = MaSoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)pSound);
+			MaResult ret = SoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaResult MaSoundInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pSound)
+		public static MaResult SoundInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
-				MaResult ret = MaSoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)pSound);
+				MaResult ret = SoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, MaSoundPtr pSound)
+		public static MaResult SoundInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, MaSoundPtr pSound)
 		{
 			fixed (MaSoundConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaSoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)pSound);
+				MaResult ret = SoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)pSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, MaSoundPtr pSound)
+		public static MaResult SoundInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, MaSoundPtr pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSoundConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaSoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)pSound);
+					MaResult ret = SoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)pSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, ref MaSound pSound)
+		public static MaResult SoundInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)ppSound);
+				MaResult ret = SoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)ppSound);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, ref MaSound pSound)
+		public static MaResult SoundInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)ppSound);
+					MaResult ret = SoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, ref MaSound pSound)
+		public static MaResult SoundInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, ref MaSound pSound)
 		{
 			fixed (MaSoundConfig* ppConfig = &pConfig)
 			{
 				fixed (MaSound* ppSound = &pSound)
 				{
-					MaResult ret = MaSoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppSound);
+					MaResult ret = SoundInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppSound);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, ref MaSound pSound)
+		public static MaResult SoundInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, ref MaSound pSound)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -2216,7 +2216,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppSound = &pSound)
 					{
-						MaResult ret = MaSoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppSound);
+						MaResult ret = SoundInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppSound);
 						return ret;
 					}
 				}
@@ -2224,7 +2224,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundUninitNative(MaSound* pSound)
+		internal static void SoundUninitNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, void>)funcTable[800])(pSound);
@@ -2233,21 +2233,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundUninit(MaSoundPtr pSound)
+		public static void SoundUninit(MaSoundPtr pSound)
 		{
-			MaSoundUninitNative((MaSound*)pSound);
+			SoundUninitNative((MaSound*)pSound);
 		}
 
-		public static void MaSoundUninit(ref MaSound pSound)
+		public static void SoundUninit(ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundUninitNative((MaSound*)ppSound);
+				SoundUninitNative((MaSound*)ppSound);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaEngine* MaSoundGetEngineNative(MaSound* pSound)
+		internal static MaEngine* SoundGetEngineNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaEngine*>)funcTable[801])(pSound);
@@ -2256,23 +2256,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaEnginePtr MaSoundGetEngine(MaSoundPtr pSound)
+		public static MaEnginePtr SoundGetEngine(MaSoundPtr pSound)
 		{
-			MaEnginePtr ret = MaSoundGetEngineNative((MaSound*)pSound);
+			MaEnginePtr ret = SoundGetEngineNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaEnginePtr MaSoundGetEngine(in MaSound pSound)
+		public static MaEnginePtr SoundGetEngine(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaEnginePtr ret = MaSoundGetEngineNative((MaSound*)ppSound);
+				MaEnginePtr ret = SoundGetEngineNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* MaSoundGetDataSourceNative(MaSound* pSound)
+		internal static void* SoundGetDataSourceNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, void*>)funcTable[802])(pSound);
@@ -2281,23 +2281,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void* MaSoundGetDataSource(MaSoundPtr pSound)
+		public static void* SoundGetDataSource(MaSoundPtr pSound)
 		{
-			void* ret = MaSoundGetDataSourceNative((MaSound*)pSound);
+			void* ret = SoundGetDataSourceNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static void* MaSoundGetDataSource(in MaSound pSound)
+		public static void* SoundGetDataSource(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				void* ret = MaSoundGetDataSourceNative((MaSound*)ppSound);
+				void* ret = SoundGetDataSourceNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundStartNative(MaSound* pSound)
+		internal static MaResult SoundStartNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaResult>)funcTable[803])(pSound);
@@ -2306,23 +2306,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundStart(MaSoundPtr pSound)
+		public static MaResult SoundStart(MaSoundPtr pSound)
 		{
-			MaResult ret = MaSoundStartNative((MaSound*)pSound);
+			MaResult ret = SoundStartNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaResult MaSoundStart(ref MaSound pSound)
+		public static MaResult SoundStart(ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundStartNative((MaSound*)ppSound);
+				MaResult ret = SoundStartNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundStopNative(MaSound* pSound)
+		internal static MaResult SoundStopNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaResult>)funcTable[804])(pSound);
@@ -2331,23 +2331,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundStop(MaSoundPtr pSound)
+		public static MaResult SoundStop(MaSoundPtr pSound)
 		{
-			MaResult ret = MaSoundStopNative((MaSound*)pSound);
+			MaResult ret = SoundStopNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaResult MaSoundStop(ref MaSound pSound)
+		public static MaResult SoundStop(ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundStopNative((MaSound*)ppSound);
+				MaResult ret = SoundStopNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundStopWithFadeInPcmFramesNative(MaSound* pSound, ulong fadeLengthInFrames)
+		internal static MaResult SoundStopWithFadeInPcmFramesNative(MaSound* pSound, ulong fadeLengthInFrames)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong, MaResult>)funcTable[805])(pSound, fadeLengthInFrames);
@@ -2356,23 +2356,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundStopWithFadeInPcmFrames(MaSoundPtr pSound, ulong fadeLengthInFrames)
+		public static MaResult SoundStopWithFadeInPcmFrames(MaSoundPtr pSound, ulong fadeLengthInFrames)
 		{
-			MaResult ret = MaSoundStopWithFadeInPcmFramesNative((MaSound*)pSound, fadeLengthInFrames);
+			MaResult ret = SoundStopWithFadeInPcmFramesNative((MaSound*)pSound, fadeLengthInFrames);
 			return ret;
 		}
 
-		public static MaResult MaSoundStopWithFadeInPcmFrames(ref MaSound pSound, ulong fadeLengthInFrames)
+		public static MaResult SoundStopWithFadeInPcmFrames(ref MaSound pSound, ulong fadeLengthInFrames)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundStopWithFadeInPcmFramesNative((MaSound*)ppSound, fadeLengthInFrames);
+				MaResult ret = SoundStopWithFadeInPcmFramesNative((MaSound*)ppSound, fadeLengthInFrames);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundStopWithFadeInMillisecondsNative(MaSound* pSound, ulong fadeLengthInFrames)
+		internal static MaResult SoundStopWithFadeInMillisecondsNative(MaSound* pSound, ulong fadeLengthInFrames)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong, MaResult>)funcTable[806])(pSound, fadeLengthInFrames);
@@ -2381,23 +2381,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundStopWithFadeInMilliseconds(MaSoundPtr pSound, ulong fadeLengthInFrames)
+		public static MaResult SoundStopWithFadeInMilliseconds(MaSoundPtr pSound, ulong fadeLengthInFrames)
 		{
-			MaResult ret = MaSoundStopWithFadeInMillisecondsNative((MaSound*)pSound, fadeLengthInFrames);
+			MaResult ret = SoundStopWithFadeInMillisecondsNative((MaSound*)pSound, fadeLengthInFrames);
 			return ret;
 		}
 
-		public static MaResult MaSoundStopWithFadeInMilliseconds(ref MaSound pSound, ulong fadeLengthInFrames)
+		public static MaResult SoundStopWithFadeInMilliseconds(ref MaSound pSound, ulong fadeLengthInFrames)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundStopWithFadeInMillisecondsNative((MaSound*)ppSound, fadeLengthInFrames);
+				MaResult ret = SoundStopWithFadeInMillisecondsNative((MaSound*)ppSound, fadeLengthInFrames);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundResetStartTimeNative(MaSound* pSound)
+		internal static void SoundResetStartTimeNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, void>)funcTable[807])(pSound);
@@ -2406,21 +2406,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundResetStartTime(MaSoundPtr pSound)
+		public static void SoundResetStartTime(MaSoundPtr pSound)
 		{
-			MaSoundResetStartTimeNative((MaSound*)pSound);
+			SoundResetStartTimeNative((MaSound*)pSound);
 		}
 
-		public static void MaSoundResetStartTime(ref MaSound pSound)
+		public static void SoundResetStartTime(ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundResetStartTimeNative((MaSound*)ppSound);
+				SoundResetStartTimeNative((MaSound*)ppSound);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundResetStopTimeNative(MaSound* pSound)
+		internal static void SoundResetStopTimeNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, void>)funcTable[808])(pSound);
@@ -2429,21 +2429,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundResetStopTime(MaSoundPtr pSound)
+		public static void SoundResetStopTime(MaSoundPtr pSound)
 		{
-			MaSoundResetStopTimeNative((MaSound*)pSound);
+			SoundResetStopTimeNative((MaSound*)pSound);
 		}
 
-		public static void MaSoundResetStopTime(ref MaSound pSound)
+		public static void SoundResetStopTime(ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundResetStopTimeNative((MaSound*)ppSound);
+				SoundResetStopTimeNative((MaSound*)ppSound);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundResetFadeNative(MaSound* pSound)
+		internal static void SoundResetFadeNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, void>)funcTable[809])(pSound);
@@ -2452,21 +2452,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundResetFade(MaSoundPtr pSound)
+		public static void SoundResetFade(MaSoundPtr pSound)
 		{
-			MaSoundResetFadeNative((MaSound*)pSound);
+			SoundResetFadeNative((MaSound*)pSound);
 		}
 
-		public static void MaSoundResetFade(ref MaSound pSound)
+		public static void SoundResetFade(ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundResetFadeNative((MaSound*)ppSound);
+				SoundResetFadeNative((MaSound*)ppSound);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundResetStopTimeAndFadeNative(MaSound* pSound)
+		internal static void SoundResetStopTimeAndFadeNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, void>)funcTable[810])(pSound);
@@ -2475,21 +2475,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundResetStopTimeAndFade(MaSoundPtr pSound)
+		public static void SoundResetStopTimeAndFade(MaSoundPtr pSound)
 		{
-			MaSoundResetStopTimeAndFadeNative((MaSound*)pSound);
+			SoundResetStopTimeAndFadeNative((MaSound*)pSound);
 		}
 
-		public static void MaSoundResetStopTimeAndFade(ref MaSound pSound)
+		public static void SoundResetStopTimeAndFade(ref MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundResetStopTimeAndFadeNative((MaSound*)ppSound);
+				SoundResetStopTimeAndFadeNative((MaSound*)ppSound);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetVolumeNative(MaSound* pSound, float volume)
+		internal static void SoundSetVolumeNative(MaSound* pSound, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[811])(pSound, volume);
@@ -2498,21 +2498,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetVolume(MaSoundPtr pSound, float volume)
+		public static void SoundSetVolume(MaSoundPtr pSound, float volume)
 		{
-			MaSoundSetVolumeNative((MaSound*)pSound, volume);
+			SoundSetVolumeNative((MaSound*)pSound, volume);
 		}
 
-		public static void MaSoundSetVolume(ref MaSound pSound, float volume)
+		public static void SoundSetVolume(ref MaSound pSound, float volume)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetVolumeNative((MaSound*)ppSound, volume);
+				SoundSetVolumeNative((MaSound*)ppSound, volume);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetVolumeNative(MaSound* pSound)
+		internal static float SoundGetVolumeNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[812])(pSound);
@@ -2521,23 +2521,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetVolume(MaSoundPtr pSound)
+		public static float SoundGetVolume(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetVolumeNative((MaSound*)pSound);
+			float ret = SoundGetVolumeNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetVolume(in MaSound pSound)
+		public static float SoundGetVolume(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetVolumeNative((MaSound*)ppSound);
+				float ret = SoundGetVolumeNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetPanNative(MaSound* pSound, float pan)
+		internal static void SoundSetPanNative(MaSound* pSound, float pan)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[813])(pSound, pan);
@@ -2546,21 +2546,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetPan(MaSoundPtr pSound, float pan)
+		public static void SoundSetPan(MaSoundPtr pSound, float pan)
 		{
-			MaSoundSetPanNative((MaSound*)pSound, pan);
+			SoundSetPanNative((MaSound*)pSound, pan);
 		}
 
-		public static void MaSoundSetPan(ref MaSound pSound, float pan)
+		public static void SoundSetPan(ref MaSound pSound, float pan)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetPanNative((MaSound*)ppSound, pan);
+				SoundSetPanNative((MaSound*)ppSound, pan);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetPanNative(MaSound* pSound)
+		internal static float SoundGetPanNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[814])(pSound);
@@ -2569,23 +2569,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetPan(MaSoundPtr pSound)
+		public static float SoundGetPan(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetPanNative((MaSound*)pSound);
+			float ret = SoundGetPanNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetPan(in MaSound pSound)
+		public static float SoundGetPan(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetPanNative((MaSound*)ppSound);
+				float ret = SoundGetPanNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetPanModeNative(MaSound* pSound, MaPanMode panMode)
+		internal static void SoundSetPanModeNative(MaSound* pSound, MaPanMode panMode)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, MaPanMode, void>)funcTable[815])(pSound, panMode);
@@ -2594,21 +2594,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetPanMode(MaSoundPtr pSound, MaPanMode panMode)
+		public static void SoundSetPanMode(MaSoundPtr pSound, MaPanMode panMode)
 		{
-			MaSoundSetPanModeNative((MaSound*)pSound, panMode);
+			SoundSetPanModeNative((MaSound*)pSound, panMode);
 		}
 
-		public static void MaSoundSetPanMode(ref MaSound pSound, MaPanMode panMode)
+		public static void SoundSetPanMode(ref MaSound pSound, MaPanMode panMode)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetPanModeNative((MaSound*)ppSound, panMode);
+				SoundSetPanModeNative((MaSound*)ppSound, panMode);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaPanMode MaSoundGetPanModeNative(MaSound* pSound)
+		internal static MaPanMode SoundGetPanModeNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaPanMode>)funcTable[816])(pSound);
@@ -2617,23 +2617,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaPanMode MaSoundGetPanMode(MaSoundPtr pSound)
+		public static MaPanMode SoundGetPanMode(MaSoundPtr pSound)
 		{
-			MaPanMode ret = MaSoundGetPanModeNative((MaSound*)pSound);
+			MaPanMode ret = SoundGetPanModeNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaPanMode MaSoundGetPanMode(in MaSound pSound)
+		public static MaPanMode SoundGetPanMode(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaPanMode ret = MaSoundGetPanModeNative((MaSound*)ppSound);
+				MaPanMode ret = SoundGetPanModeNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetPitchNative(MaSound* pSound, float pitch)
+		internal static void SoundSetPitchNative(MaSound* pSound, float pitch)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[817])(pSound, pitch);
@@ -2642,21 +2642,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetPitch(MaSoundPtr pSound, float pitch)
+		public static void SoundSetPitch(MaSoundPtr pSound, float pitch)
 		{
-			MaSoundSetPitchNative((MaSound*)pSound, pitch);
+			SoundSetPitchNative((MaSound*)pSound, pitch);
 		}
 
-		public static void MaSoundSetPitch(ref MaSound pSound, float pitch)
+		public static void SoundSetPitch(ref MaSound pSound, float pitch)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetPitchNative((MaSound*)ppSound, pitch);
+				SoundSetPitchNative((MaSound*)ppSound, pitch);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetPitchNative(MaSound* pSound)
+		internal static float SoundGetPitchNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[818])(pSound);
@@ -2665,23 +2665,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetPitch(MaSoundPtr pSound)
+		public static float SoundGetPitch(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetPitchNative((MaSound*)pSound);
+			float ret = SoundGetPitchNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetPitch(in MaSound pSound)
+		public static float SoundGetPitch(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetPitchNative((MaSound*)ppSound);
+				float ret = SoundGetPitchNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetSpatializationEnabledNative(MaSound* pSound, uint enabled)
+		internal static void SoundSetSpatializationEnabledNative(MaSound* pSound, uint enabled)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, uint, void>)funcTable[819])(pSound, enabled);
@@ -2690,21 +2690,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetSpatializationEnabled(MaSoundPtr pSound, uint enabled)
+		public static void SoundSetSpatializationEnabled(MaSoundPtr pSound, uint enabled)
 		{
-			MaSoundSetSpatializationEnabledNative((MaSound*)pSound, enabled);
+			SoundSetSpatializationEnabledNative((MaSound*)pSound, enabled);
 		}
 
-		public static void MaSoundSetSpatializationEnabled(ref MaSound pSound, uint enabled)
+		public static void SoundSetSpatializationEnabled(ref MaSound pSound, uint enabled)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetSpatializationEnabledNative((MaSound*)ppSound, enabled);
+				SoundSetSpatializationEnabledNative((MaSound*)ppSound, enabled);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaSoundIsSpatializationEnabledNative(MaSound* pSound)
+		internal static uint SoundIsSpatializationEnabledNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[820])(pSound);
@@ -2713,23 +2713,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaSoundIsSpatializationEnabled(MaSoundPtr pSound)
+		public static uint SoundIsSpatializationEnabled(MaSoundPtr pSound)
 		{
-			uint ret = MaSoundIsSpatializationEnabledNative((MaSound*)pSound);
+			uint ret = SoundIsSpatializationEnabledNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static uint MaSoundIsSpatializationEnabled(in MaSound pSound)
+		public static uint SoundIsSpatializationEnabled(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				uint ret = MaSoundIsSpatializationEnabledNative((MaSound*)ppSound);
+				uint ret = SoundIsSpatializationEnabledNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetPinnedListenerIndexNative(MaSound* pSound, uint listenerIndex)
+		internal static void SoundSetPinnedListenerIndexNative(MaSound* pSound, uint listenerIndex)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, uint, void>)funcTable[821])(pSound, listenerIndex);
@@ -2738,21 +2738,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetPinnedListenerIndex(MaSoundPtr pSound, uint listenerIndex)
+		public static void SoundSetPinnedListenerIndex(MaSoundPtr pSound, uint listenerIndex)
 		{
-			MaSoundSetPinnedListenerIndexNative((MaSound*)pSound, listenerIndex);
+			SoundSetPinnedListenerIndexNative((MaSound*)pSound, listenerIndex);
 		}
 
-		public static void MaSoundSetPinnedListenerIndex(ref MaSound pSound, uint listenerIndex)
+		public static void SoundSetPinnedListenerIndex(ref MaSound pSound, uint listenerIndex)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetPinnedListenerIndexNative((MaSound*)ppSound, listenerIndex);
+				SoundSetPinnedListenerIndexNative((MaSound*)ppSound, listenerIndex);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaSoundGetPinnedListenerIndexNative(MaSound* pSound)
+		internal static uint SoundGetPinnedListenerIndexNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[822])(pSound);
@@ -2761,23 +2761,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaSoundGetPinnedListenerIndex(MaSoundPtr pSound)
+		public static uint SoundGetPinnedListenerIndex(MaSoundPtr pSound)
 		{
-			uint ret = MaSoundGetPinnedListenerIndexNative((MaSound*)pSound);
+			uint ret = SoundGetPinnedListenerIndexNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static uint MaSoundGetPinnedListenerIndex(in MaSound pSound)
+		public static uint SoundGetPinnedListenerIndex(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				uint ret = MaSoundGetPinnedListenerIndexNative((MaSound*)ppSound);
+				uint ret = SoundGetPinnedListenerIndexNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaSoundGetListenerIndexNative(MaSound* pSound)
+		internal static uint SoundGetListenerIndexNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[823])(pSound);
@@ -2786,23 +2786,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaSoundGetListenerIndex(MaSoundPtr pSound)
+		public static uint SoundGetListenerIndex(MaSoundPtr pSound)
 		{
-			uint ret = MaSoundGetListenerIndexNative((MaSound*)pSound);
+			uint ret = SoundGetListenerIndexNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static uint MaSoundGetListenerIndex(in MaSound pSound)
+		public static uint SoundGetListenerIndex(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				uint ret = MaSoundGetListenerIndexNative((MaSound*)ppSound);
+				uint ret = SoundGetListenerIndexNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaVec3F MaSoundGetDirectionToListenerNative(MaSound* pSound)
+		internal static MaVec3F SoundGetDirectionToListenerNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[824])(pSound);
@@ -2811,23 +2811,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaVec3F MaSoundGetDirectionToListener(MaSoundPtr pSound)
+		public static MaVec3F SoundGetDirectionToListener(MaSoundPtr pSound)
 		{
-			MaVec3F ret = MaSoundGetDirectionToListenerNative((MaSound*)pSound);
+			MaVec3F ret = SoundGetDirectionToListenerNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaVec3F MaSoundGetDirectionToListener(in MaSound pSound)
+		public static MaVec3F SoundGetDirectionToListener(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaVec3F ret = MaSoundGetDirectionToListenerNative((MaSound*)ppSound);
+				MaVec3F ret = SoundGetDirectionToListenerNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetPositionNative(MaSound* pSound, float x, float y, float z)
+		internal static void SoundSetPositionNative(MaSound* pSound, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[825])(pSound, x, y, z);
@@ -2836,21 +2836,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetPosition(MaSoundPtr pSound, float x, float y, float z)
+		public static void SoundSetPosition(MaSoundPtr pSound, float x, float y, float z)
 		{
-			MaSoundSetPositionNative((MaSound*)pSound, x, y, z);
+			SoundSetPositionNative((MaSound*)pSound, x, y, z);
 		}
 
-		public static void MaSoundSetPosition(ref MaSound pSound, float x, float y, float z)
+		public static void SoundSetPosition(ref MaSound pSound, float x, float y, float z)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetPositionNative((MaSound*)ppSound, x, y, z);
+				SoundSetPositionNative((MaSound*)ppSound, x, y, z);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaVec3F MaSoundGetPositionNative(MaSound* pSound)
+		internal static MaVec3F SoundGetPositionNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[826])(pSound);
@@ -2859,23 +2859,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaVec3F MaSoundGetPosition(MaSoundPtr pSound)
+		public static MaVec3F SoundGetPosition(MaSoundPtr pSound)
 		{
-			MaVec3F ret = MaSoundGetPositionNative((MaSound*)pSound);
+			MaVec3F ret = SoundGetPositionNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaVec3F MaSoundGetPosition(in MaSound pSound)
+		public static MaVec3F SoundGetPosition(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaVec3F ret = MaSoundGetPositionNative((MaSound*)ppSound);
+				MaVec3F ret = SoundGetPositionNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetDirectionNative(MaSound* pSound, float x, float y, float z)
+		internal static void SoundSetDirectionNative(MaSound* pSound, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[827])(pSound, x, y, z);
@@ -2884,21 +2884,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetDirection(MaSoundPtr pSound, float x, float y, float z)
+		public static void SoundSetDirection(MaSoundPtr pSound, float x, float y, float z)
 		{
-			MaSoundSetDirectionNative((MaSound*)pSound, x, y, z);
+			SoundSetDirectionNative((MaSound*)pSound, x, y, z);
 		}
 
-		public static void MaSoundSetDirection(ref MaSound pSound, float x, float y, float z)
+		public static void SoundSetDirection(ref MaSound pSound, float x, float y, float z)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetDirectionNative((MaSound*)ppSound, x, y, z);
+				SoundSetDirectionNative((MaSound*)ppSound, x, y, z);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaVec3F MaSoundGetDirectionNative(MaSound* pSound)
+		internal static MaVec3F SoundGetDirectionNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[828])(pSound);
@@ -2907,23 +2907,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaVec3F MaSoundGetDirection(MaSoundPtr pSound)
+		public static MaVec3F SoundGetDirection(MaSoundPtr pSound)
 		{
-			MaVec3F ret = MaSoundGetDirectionNative((MaSound*)pSound);
+			MaVec3F ret = SoundGetDirectionNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaVec3F MaSoundGetDirection(in MaSound pSound)
+		public static MaVec3F SoundGetDirection(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaVec3F ret = MaSoundGetDirectionNative((MaSound*)ppSound);
+				MaVec3F ret = SoundGetDirectionNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetVelocityNative(MaSound* pSound, float x, float y, float z)
+		internal static void SoundSetVelocityNative(MaSound* pSound, float x, float y, float z)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[829])(pSound, x, y, z);
@@ -2932,21 +2932,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetVelocity(MaSoundPtr pSound, float x, float y, float z)
+		public static void SoundSetVelocity(MaSoundPtr pSound, float x, float y, float z)
 		{
-			MaSoundSetVelocityNative((MaSound*)pSound, x, y, z);
+			SoundSetVelocityNative((MaSound*)pSound, x, y, z);
 		}
 
-		public static void MaSoundSetVelocity(ref MaSound pSound, float x, float y, float z)
+		public static void SoundSetVelocity(ref MaSound pSound, float x, float y, float z)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetVelocityNative((MaSound*)ppSound, x, y, z);
+				SoundSetVelocityNative((MaSound*)ppSound, x, y, z);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaVec3F MaSoundGetVelocityNative(MaSound* pSound)
+		internal static MaVec3F SoundGetVelocityNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaVec3F>)funcTable[830])(pSound);
@@ -2955,23 +2955,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaVec3F MaSoundGetVelocity(MaSoundPtr pSound)
+		public static MaVec3F SoundGetVelocity(MaSoundPtr pSound)
 		{
-			MaVec3F ret = MaSoundGetVelocityNative((MaSound*)pSound);
+			MaVec3F ret = SoundGetVelocityNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaVec3F MaSoundGetVelocity(in MaSound pSound)
+		public static MaVec3F SoundGetVelocity(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaVec3F ret = MaSoundGetVelocityNative((MaSound*)ppSound);
+				MaVec3F ret = SoundGetVelocityNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetAttenuationModelNative(MaSound* pSound, MaAttenuationModel attenuationModel)
+		internal static void SoundSetAttenuationModelNative(MaSound* pSound, MaAttenuationModel attenuationModel)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, MaAttenuationModel, void>)funcTable[831])(pSound, attenuationModel);
@@ -2980,21 +2980,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetAttenuationModel(MaSoundPtr pSound, MaAttenuationModel attenuationModel)
+		public static void SoundSetAttenuationModel(MaSoundPtr pSound, MaAttenuationModel attenuationModel)
 		{
-			MaSoundSetAttenuationModelNative((MaSound*)pSound, attenuationModel);
+			SoundSetAttenuationModelNative((MaSound*)pSound, attenuationModel);
 		}
 
-		public static void MaSoundSetAttenuationModel(ref MaSound pSound, MaAttenuationModel attenuationModel)
+		public static void SoundSetAttenuationModel(ref MaSound pSound, MaAttenuationModel attenuationModel)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetAttenuationModelNative((MaSound*)ppSound, attenuationModel);
+				SoundSetAttenuationModelNative((MaSound*)ppSound, attenuationModel);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaAttenuationModel MaSoundGetAttenuationModelNative(MaSound* pSound)
+		internal static MaAttenuationModel SoundGetAttenuationModelNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaAttenuationModel>)funcTable[832])(pSound);
@@ -3003,23 +3003,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaAttenuationModel MaSoundGetAttenuationModel(MaSoundPtr pSound)
+		public static MaAttenuationModel SoundGetAttenuationModel(MaSoundPtr pSound)
 		{
-			MaAttenuationModel ret = MaSoundGetAttenuationModelNative((MaSound*)pSound);
+			MaAttenuationModel ret = SoundGetAttenuationModelNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaAttenuationModel MaSoundGetAttenuationModel(in MaSound pSound)
+		public static MaAttenuationModel SoundGetAttenuationModel(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaAttenuationModel ret = MaSoundGetAttenuationModelNative((MaSound*)ppSound);
+				MaAttenuationModel ret = SoundGetAttenuationModelNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetPositioningNative(MaSound* pSound, MaPositioning positioning)
+		internal static void SoundSetPositioningNative(MaSound* pSound, MaPositioning positioning)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, MaPositioning, void>)funcTable[833])(pSound, positioning);
@@ -3028,21 +3028,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetPositioning(MaSoundPtr pSound, MaPositioning positioning)
+		public static void SoundSetPositioning(MaSoundPtr pSound, MaPositioning positioning)
 		{
-			MaSoundSetPositioningNative((MaSound*)pSound, positioning);
+			SoundSetPositioningNative((MaSound*)pSound, positioning);
 		}
 
-		public static void MaSoundSetPositioning(ref MaSound pSound, MaPositioning positioning)
+		public static void SoundSetPositioning(ref MaSound pSound, MaPositioning positioning)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetPositioningNative((MaSound*)ppSound, positioning);
+				SoundSetPositioningNative((MaSound*)ppSound, positioning);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaPositioning MaSoundGetPositioningNative(MaSound* pSound)
+		internal static MaPositioning SoundGetPositioningNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaPositioning>)funcTable[834])(pSound);
@@ -3051,23 +3051,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaPositioning MaSoundGetPositioning(MaSoundPtr pSound)
+		public static MaPositioning SoundGetPositioning(MaSoundPtr pSound)
 		{
-			MaPositioning ret = MaSoundGetPositioningNative((MaSound*)pSound);
+			MaPositioning ret = SoundGetPositioningNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static MaPositioning MaSoundGetPositioning(in MaSound pSound)
+		public static MaPositioning SoundGetPositioning(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaPositioning ret = MaSoundGetPositioningNative((MaSound*)ppSound);
+				MaPositioning ret = SoundGetPositioningNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetRolloffNative(MaSound* pSound, float rolloff)
+		internal static void SoundSetRolloffNative(MaSound* pSound, float rolloff)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[835])(pSound, rolloff);
@@ -3076,21 +3076,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetRolloff(MaSoundPtr pSound, float rolloff)
+		public static void SoundSetRolloff(MaSoundPtr pSound, float rolloff)
 		{
-			MaSoundSetRolloffNative((MaSound*)pSound, rolloff);
+			SoundSetRolloffNative((MaSound*)pSound, rolloff);
 		}
 
-		public static void MaSoundSetRolloff(ref MaSound pSound, float rolloff)
+		public static void SoundSetRolloff(ref MaSound pSound, float rolloff)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetRolloffNative((MaSound*)ppSound, rolloff);
+				SoundSetRolloffNative((MaSound*)ppSound, rolloff);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetRolloffNative(MaSound* pSound)
+		internal static float SoundGetRolloffNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[836])(pSound);
@@ -3099,23 +3099,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetRolloff(MaSoundPtr pSound)
+		public static float SoundGetRolloff(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetRolloffNative((MaSound*)pSound);
+			float ret = SoundGetRolloffNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetRolloff(in MaSound pSound)
+		public static float SoundGetRolloff(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetRolloffNative((MaSound*)ppSound);
+				float ret = SoundGetRolloffNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetMinGainNative(MaSound* pSound, float minGain)
+		internal static void SoundSetMinGainNative(MaSound* pSound, float minGain)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[837])(pSound, minGain);
@@ -3124,21 +3124,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetMinGain(MaSoundPtr pSound, float minGain)
+		public static void SoundSetMinGain(MaSoundPtr pSound, float minGain)
 		{
-			MaSoundSetMinGainNative((MaSound*)pSound, minGain);
+			SoundSetMinGainNative((MaSound*)pSound, minGain);
 		}
 
-		public static void MaSoundSetMinGain(ref MaSound pSound, float minGain)
+		public static void SoundSetMinGain(ref MaSound pSound, float minGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetMinGainNative((MaSound*)ppSound, minGain);
+				SoundSetMinGainNative((MaSound*)ppSound, minGain);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetMinGainNative(MaSound* pSound)
+		internal static float SoundGetMinGainNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[838])(pSound);
@@ -3147,23 +3147,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetMinGain(MaSoundPtr pSound)
+		public static float SoundGetMinGain(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetMinGainNative((MaSound*)pSound);
+			float ret = SoundGetMinGainNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetMinGain(in MaSound pSound)
+		public static float SoundGetMinGain(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetMinGainNative((MaSound*)ppSound);
+				float ret = SoundGetMinGainNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetMaxGainNative(MaSound* pSound, float maxGain)
+		internal static void SoundSetMaxGainNative(MaSound* pSound, float maxGain)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[839])(pSound, maxGain);
@@ -3172,21 +3172,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetMaxGain(MaSoundPtr pSound, float maxGain)
+		public static void SoundSetMaxGain(MaSoundPtr pSound, float maxGain)
 		{
-			MaSoundSetMaxGainNative((MaSound*)pSound, maxGain);
+			SoundSetMaxGainNative((MaSound*)pSound, maxGain);
 		}
 
-		public static void MaSoundSetMaxGain(ref MaSound pSound, float maxGain)
+		public static void SoundSetMaxGain(ref MaSound pSound, float maxGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetMaxGainNative((MaSound*)ppSound, maxGain);
+				SoundSetMaxGainNative((MaSound*)ppSound, maxGain);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetMaxGainNative(MaSound* pSound)
+		internal static float SoundGetMaxGainNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[840])(pSound);
@@ -3195,23 +3195,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetMaxGain(MaSoundPtr pSound)
+		public static float SoundGetMaxGain(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetMaxGainNative((MaSound*)pSound);
+			float ret = SoundGetMaxGainNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetMaxGain(in MaSound pSound)
+		public static float SoundGetMaxGain(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetMaxGainNative((MaSound*)ppSound);
+				float ret = SoundGetMaxGainNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetMinDistanceNative(MaSound* pSound, float minDistance)
+		internal static void SoundSetMinDistanceNative(MaSound* pSound, float minDistance)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[841])(pSound, minDistance);
@@ -3220,21 +3220,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetMinDistance(MaSoundPtr pSound, float minDistance)
+		public static void SoundSetMinDistance(MaSoundPtr pSound, float minDistance)
 		{
-			MaSoundSetMinDistanceNative((MaSound*)pSound, minDistance);
+			SoundSetMinDistanceNative((MaSound*)pSound, minDistance);
 		}
 
-		public static void MaSoundSetMinDistance(ref MaSound pSound, float minDistance)
+		public static void SoundSetMinDistance(ref MaSound pSound, float minDistance)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetMinDistanceNative((MaSound*)ppSound, minDistance);
+				SoundSetMinDistanceNative((MaSound*)ppSound, minDistance);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetMinDistanceNative(MaSound* pSound)
+		internal static float SoundGetMinDistanceNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[842])(pSound);
@@ -3243,23 +3243,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetMinDistance(MaSoundPtr pSound)
+		public static float SoundGetMinDistance(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetMinDistanceNative((MaSound*)pSound);
+			float ret = SoundGetMinDistanceNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetMinDistance(in MaSound pSound)
+		public static float SoundGetMinDistance(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetMinDistanceNative((MaSound*)ppSound);
+				float ret = SoundGetMinDistanceNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetMaxDistanceNative(MaSound* pSound, float maxDistance)
+		internal static void SoundSetMaxDistanceNative(MaSound* pSound, float maxDistance)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[843])(pSound, maxDistance);
@@ -3268,21 +3268,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetMaxDistance(MaSoundPtr pSound, float maxDistance)
+		public static void SoundSetMaxDistance(MaSoundPtr pSound, float maxDistance)
 		{
-			MaSoundSetMaxDistanceNative((MaSound*)pSound, maxDistance);
+			SoundSetMaxDistanceNative((MaSound*)pSound, maxDistance);
 		}
 
-		public static void MaSoundSetMaxDistance(ref MaSound pSound, float maxDistance)
+		public static void SoundSetMaxDistance(ref MaSound pSound, float maxDistance)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetMaxDistanceNative((MaSound*)ppSound, maxDistance);
+				SoundSetMaxDistanceNative((MaSound*)ppSound, maxDistance);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetMaxDistanceNative(MaSound* pSound)
+		internal static float SoundGetMaxDistanceNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[844])(pSound);
@@ -3291,23 +3291,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetMaxDistance(MaSoundPtr pSound)
+		public static float SoundGetMaxDistance(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetMaxDistanceNative((MaSound*)pSound);
+			float ret = SoundGetMaxDistanceNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetMaxDistance(in MaSound pSound)
+		public static float SoundGetMaxDistance(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetMaxDistanceNative((MaSound*)ppSound);
+				float ret = SoundGetMaxDistanceNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetConeNative(MaSound* pSound, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
+		internal static void SoundSetConeNative(MaSound* pSound, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, float, void>)funcTable[845])(pSound, innerAngleInRadians, outerAngleInRadians, outerGain);
@@ -3316,21 +3316,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetCone(MaSoundPtr pSound, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
+		public static void SoundSetCone(MaSoundPtr pSound, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
 		{
-			MaSoundSetConeNative((MaSound*)pSound, innerAngleInRadians, outerAngleInRadians, outerGain);
+			SoundSetConeNative((MaSound*)pSound, innerAngleInRadians, outerAngleInRadians, outerGain);
 		}
 
-		public static void MaSoundSetCone(ref MaSound pSound, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
+		public static void SoundSetCone(ref MaSound pSound, float innerAngleInRadians, float outerAngleInRadians, float outerGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetConeNative((MaSound*)ppSound, innerAngleInRadians, outerAngleInRadians, outerGain);
+				SoundSetConeNative((MaSound*)ppSound, innerAngleInRadians, outerAngleInRadians, outerGain);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundGetConeNative(MaSound* pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
+		internal static void SoundGetConeNative(MaSound* pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float*, float*, float*, void>)funcTable[846])(pSound, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
@@ -3339,69 +3339,69 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
 		{
-			MaSoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
+			SoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
+				SoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
 			}
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
 		{
 			fixed (float* ppInnerAngleInRadians = &pInnerAngleInRadians)
 			{
-				MaSoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
+				SoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
 			}
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, float* pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (float* ppInnerAngleInRadians = &pInnerAngleInRadians)
 				{
-					MaSoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
+					SoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, pOuterGain);
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
 		{
 			fixed (float* ppOuterAngleInRadians = &pOuterAngleInRadians)
 			{
-				MaSoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
+				SoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
 			}
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (float* ppOuterAngleInRadians = &pOuterAngleInRadians)
 				{
-					MaSoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
+					SoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
 		{
 			fixed (float* ppInnerAngleInRadians = &pInnerAngleInRadians)
 			{
 				fixed (float* ppOuterAngleInRadians = &pOuterAngleInRadians)
 				{
-					MaSoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
+					SoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, float* pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -3409,43 +3409,43 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (float* ppOuterAngleInRadians = &pOuterAngleInRadians)
 					{
-						MaSoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
+						SoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, pOuterGain);
 					}
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (float* ppOuterGain = &pOuterGain)
 			{
-				MaSoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
+				SoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
 			}
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (float* ppOuterGain = &pOuterGain)
 				{
-					MaSoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
+					SoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (float* ppInnerAngleInRadians = &pInnerAngleInRadians)
 			{
 				fixed (float* ppOuterGain = &pOuterGain)
 				{
-					MaSoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
+					SoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, float* pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -3453,24 +3453,24 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (float* ppOuterGain = &pOuterGain)
 					{
-						MaSoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
+						SoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, pOuterAngleInRadians, (float*)ppOuterGain);
 					}
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (float* ppOuterAngleInRadians = &pOuterAngleInRadians)
 			{
 				fixed (float* ppOuterGain = &pOuterGain)
 				{
-					MaSoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
+					SoundGetConeNative((MaSound*)pSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, float* pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -3478,13 +3478,13 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (float* ppOuterGain = &pOuterGain)
 					{
-						MaSoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
+						SoundGetConeNative((MaSound*)ppSound, pInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
 					}
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(MaSoundPtr pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (float* ppInnerAngleInRadians = &pInnerAngleInRadians)
 			{
@@ -3492,13 +3492,13 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (float* ppOuterGain = &pOuterGain)
 					{
-						MaSoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
+						SoundGetConeNative((MaSound*)pSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
 					}
 				}
 			}
 		}
 
-		public static void MaSoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
+		public static void SoundGetCone(in MaSound pSound, ref float pInnerAngleInRadians, ref float pOuterAngleInRadians, ref float pOuterGain)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -3508,7 +3508,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (float* ppOuterGain = &pOuterGain)
 						{
-							MaSoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
+							SoundGetConeNative((MaSound*)ppSound, (float*)ppInnerAngleInRadians, (float*)ppOuterAngleInRadians, (float*)ppOuterGain);
 						}
 					}
 				}
@@ -3516,7 +3516,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetDopplerFactorNative(MaSound* pSound, float dopplerFactor)
+		internal static void SoundSetDopplerFactorNative(MaSound* pSound, float dopplerFactor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[847])(pSound, dopplerFactor);
@@ -3525,21 +3525,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetDopplerFactor(MaSoundPtr pSound, float dopplerFactor)
+		public static void SoundSetDopplerFactor(MaSoundPtr pSound, float dopplerFactor)
 		{
-			MaSoundSetDopplerFactorNative((MaSound*)pSound, dopplerFactor);
+			SoundSetDopplerFactorNative((MaSound*)pSound, dopplerFactor);
 		}
 
-		public static void MaSoundSetDopplerFactor(ref MaSound pSound, float dopplerFactor)
+		public static void SoundSetDopplerFactor(ref MaSound pSound, float dopplerFactor)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetDopplerFactorNative((MaSound*)ppSound, dopplerFactor);
+				SoundSetDopplerFactorNative((MaSound*)ppSound, dopplerFactor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetDopplerFactorNative(MaSound* pSound)
+		internal static float SoundGetDopplerFactorNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[848])(pSound);
@@ -3548,23 +3548,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetDopplerFactor(MaSoundPtr pSound)
+		public static float SoundGetDopplerFactor(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetDopplerFactorNative((MaSound*)pSound);
+			float ret = SoundGetDopplerFactorNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetDopplerFactor(in MaSound pSound)
+		public static float SoundGetDopplerFactor(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetDopplerFactorNative((MaSound*)ppSound);
+				float ret = SoundGetDopplerFactorNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetDirectionalAttenuationFactorNative(MaSound* pSound, float directionalAttenuationFactor)
+		internal static void SoundSetDirectionalAttenuationFactorNative(MaSound* pSound, float directionalAttenuationFactor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, void>)funcTable[849])(pSound, directionalAttenuationFactor);
@@ -3573,21 +3573,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetDirectionalAttenuationFactor(MaSoundPtr pSound, float directionalAttenuationFactor)
+		public static void SoundSetDirectionalAttenuationFactor(MaSoundPtr pSound, float directionalAttenuationFactor)
 		{
-			MaSoundSetDirectionalAttenuationFactorNative((MaSound*)pSound, directionalAttenuationFactor);
+			SoundSetDirectionalAttenuationFactorNative((MaSound*)pSound, directionalAttenuationFactor);
 		}
 
-		public static void MaSoundSetDirectionalAttenuationFactor(ref MaSound pSound, float directionalAttenuationFactor)
+		public static void SoundSetDirectionalAttenuationFactor(ref MaSound pSound, float directionalAttenuationFactor)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetDirectionalAttenuationFactorNative((MaSound*)ppSound, directionalAttenuationFactor);
+				SoundSetDirectionalAttenuationFactorNative((MaSound*)ppSound, directionalAttenuationFactor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetDirectionalAttenuationFactorNative(MaSound* pSound)
+		internal static float SoundGetDirectionalAttenuationFactorNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[850])(pSound);
@@ -3596,23 +3596,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetDirectionalAttenuationFactor(MaSoundPtr pSound)
+		public static float SoundGetDirectionalAttenuationFactor(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetDirectionalAttenuationFactorNative((MaSound*)pSound);
+			float ret = SoundGetDirectionalAttenuationFactorNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetDirectionalAttenuationFactor(in MaSound pSound)
+		public static float SoundGetDirectionalAttenuationFactor(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetDirectionalAttenuationFactorNative((MaSound*)ppSound);
+				float ret = SoundGetDirectionalAttenuationFactorNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetFadeInPcmFramesNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames)
+		internal static void SoundSetFadeInPcmFramesNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, void>)funcTable[851])(pSound, volumeBeg, volumeEnd, fadeLengthInFrames);
@@ -3621,21 +3621,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetFadeInPcmFrames(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames)
+		public static void SoundSetFadeInPcmFrames(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames)
 		{
-			MaSoundSetFadeInPcmFramesNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInFrames);
+			SoundSetFadeInPcmFramesNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInFrames);
 		}
 
-		public static void MaSoundSetFadeInPcmFrames(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames)
+		public static void SoundSetFadeInPcmFrames(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetFadeInPcmFramesNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInFrames);
+				SoundSetFadeInPcmFramesNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInFrames);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetFadeInMillisecondsNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds)
+		internal static void SoundSetFadeInMillisecondsNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, void>)funcTable[852])(pSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
@@ -3644,21 +3644,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetFadeInMilliseconds(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds)
+		public static void SoundSetFadeInMilliseconds(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds)
 		{
-			MaSoundSetFadeInMillisecondsNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
+			SoundSetFadeInMillisecondsNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
 		}
 
-		public static void MaSoundSetFadeInMilliseconds(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds)
+		public static void SoundSetFadeInMilliseconds(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetFadeInMillisecondsNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
+				SoundSetFadeInMillisecondsNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetFadeStartInPcmFramesNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames, ulong absoluteGlobalTimeInFrames)
+		internal static void SoundSetFadeStartInPcmFramesNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames, ulong absoluteGlobalTimeInFrames)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, ulong, void>)funcTable[853])(pSound, volumeBeg, volumeEnd, fadeLengthInFrames, absoluteGlobalTimeInFrames);
@@ -3667,21 +3667,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetFadeStartInPcmFrames(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames, ulong absoluteGlobalTimeInFrames)
+		public static void SoundSetFadeStartInPcmFrames(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames, ulong absoluteGlobalTimeInFrames)
 		{
-			MaSoundSetFadeStartInPcmFramesNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInFrames, absoluteGlobalTimeInFrames);
+			SoundSetFadeStartInPcmFramesNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInFrames, absoluteGlobalTimeInFrames);
 		}
 
-		public static void MaSoundSetFadeStartInPcmFrames(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames, ulong absoluteGlobalTimeInFrames)
+		public static void SoundSetFadeStartInPcmFrames(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInFrames, ulong absoluteGlobalTimeInFrames)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetFadeStartInPcmFramesNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInFrames, absoluteGlobalTimeInFrames);
+				SoundSetFadeStartInPcmFramesNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInFrames, absoluteGlobalTimeInFrames);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetFadeStartInMillisecondsNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds, ulong absoluteGlobalTimeInMilliseconds)
+		internal static void SoundSetFadeStartInMillisecondsNative(MaSound* pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, float, float, ulong, ulong, void>)funcTable[854])(pSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds, absoluteGlobalTimeInMilliseconds);
@@ -3690,21 +3690,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetFadeStartInMilliseconds(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds, ulong absoluteGlobalTimeInMilliseconds)
+		public static void SoundSetFadeStartInMilliseconds(MaSoundPtr pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds, ulong absoluteGlobalTimeInMilliseconds)
 		{
-			MaSoundSetFadeStartInMillisecondsNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds, absoluteGlobalTimeInMilliseconds);
+			SoundSetFadeStartInMillisecondsNative((MaSound*)pSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds, absoluteGlobalTimeInMilliseconds);
 		}
 
-		public static void MaSoundSetFadeStartInMilliseconds(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds, ulong absoluteGlobalTimeInMilliseconds)
+		public static void SoundSetFadeStartInMilliseconds(ref MaSound pSound, float volumeBeg, float volumeEnd, ulong fadeLengthInMilliseconds, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetFadeStartInMillisecondsNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds, absoluteGlobalTimeInMilliseconds);
+				SoundSetFadeStartInMillisecondsNative((MaSound*)ppSound, volumeBeg, volumeEnd, fadeLengthInMilliseconds, absoluteGlobalTimeInMilliseconds);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaSoundGetCurrentFadeVolumeNative(MaSound* pSound)
+		internal static float SoundGetCurrentFadeVolumeNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float>)funcTable[855])(pSound);
@@ -3713,23 +3713,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static float MaSoundGetCurrentFadeVolume(MaSoundPtr pSound)
+		public static float SoundGetCurrentFadeVolume(MaSoundPtr pSound)
 		{
-			float ret = MaSoundGetCurrentFadeVolumeNative((MaSound*)pSound);
+			float ret = SoundGetCurrentFadeVolumeNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static float MaSoundGetCurrentFadeVolume(in MaSound pSound)
+		public static float SoundGetCurrentFadeVolume(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				float ret = MaSoundGetCurrentFadeVolumeNative((MaSound*)ppSound);
+				float ret = SoundGetCurrentFadeVolumeNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetStartTimeInPcmFramesNative(MaSound* pSound, ulong absoluteGlobalTimeInFrames)
+		internal static void SoundSetStartTimeInPcmFramesNative(MaSound* pSound, ulong absoluteGlobalTimeInFrames)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[856])(pSound, absoluteGlobalTimeInFrames);
@@ -3738,21 +3738,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetStartTimeInPcmFrames(MaSoundPtr pSound, ulong absoluteGlobalTimeInFrames)
+		public static void SoundSetStartTimeInPcmFrames(MaSoundPtr pSound, ulong absoluteGlobalTimeInFrames)
 		{
-			MaSoundSetStartTimeInPcmFramesNative((MaSound*)pSound, absoluteGlobalTimeInFrames);
+			SoundSetStartTimeInPcmFramesNative((MaSound*)pSound, absoluteGlobalTimeInFrames);
 		}
 
-		public static void MaSoundSetStartTimeInPcmFrames(ref MaSound pSound, ulong absoluteGlobalTimeInFrames)
+		public static void SoundSetStartTimeInPcmFrames(ref MaSound pSound, ulong absoluteGlobalTimeInFrames)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetStartTimeInPcmFramesNative((MaSound*)ppSound, absoluteGlobalTimeInFrames);
+				SoundSetStartTimeInPcmFramesNative((MaSound*)ppSound, absoluteGlobalTimeInFrames);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetStartTimeInMillisecondsNative(MaSound* pSound, ulong absoluteGlobalTimeInMilliseconds)
+		internal static void SoundSetStartTimeInMillisecondsNative(MaSound* pSound, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[857])(pSound, absoluteGlobalTimeInMilliseconds);
@@ -3761,21 +3761,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetStartTimeInMilliseconds(MaSoundPtr pSound, ulong absoluteGlobalTimeInMilliseconds)
+		public static void SoundSetStartTimeInMilliseconds(MaSoundPtr pSound, ulong absoluteGlobalTimeInMilliseconds)
 		{
-			MaSoundSetStartTimeInMillisecondsNative((MaSound*)pSound, absoluteGlobalTimeInMilliseconds);
+			SoundSetStartTimeInMillisecondsNative((MaSound*)pSound, absoluteGlobalTimeInMilliseconds);
 		}
 
-		public static void MaSoundSetStartTimeInMilliseconds(ref MaSound pSound, ulong absoluteGlobalTimeInMilliseconds)
+		public static void SoundSetStartTimeInMilliseconds(ref MaSound pSound, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetStartTimeInMillisecondsNative((MaSound*)ppSound, absoluteGlobalTimeInMilliseconds);
+				SoundSetStartTimeInMillisecondsNative((MaSound*)ppSound, absoluteGlobalTimeInMilliseconds);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetStopTimeInPcmFramesNative(MaSound* pSound, ulong absoluteGlobalTimeInFrames)
+		internal static void SoundSetStopTimeInPcmFramesNative(MaSound* pSound, ulong absoluteGlobalTimeInFrames)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[858])(pSound, absoluteGlobalTimeInFrames);
@@ -3784,21 +3784,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetStopTimeInPcmFrames(MaSoundPtr pSound, ulong absoluteGlobalTimeInFrames)
+		public static void SoundSetStopTimeInPcmFrames(MaSoundPtr pSound, ulong absoluteGlobalTimeInFrames)
 		{
-			MaSoundSetStopTimeInPcmFramesNative((MaSound*)pSound, absoluteGlobalTimeInFrames);
+			SoundSetStopTimeInPcmFramesNative((MaSound*)pSound, absoluteGlobalTimeInFrames);
 		}
 
-		public static void MaSoundSetStopTimeInPcmFrames(ref MaSound pSound, ulong absoluteGlobalTimeInFrames)
+		public static void SoundSetStopTimeInPcmFrames(ref MaSound pSound, ulong absoluteGlobalTimeInFrames)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetStopTimeInPcmFramesNative((MaSound*)ppSound, absoluteGlobalTimeInFrames);
+				SoundSetStopTimeInPcmFramesNative((MaSound*)ppSound, absoluteGlobalTimeInFrames);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetStopTimeInMillisecondsNative(MaSound* pSound, ulong absoluteGlobalTimeInMilliseconds)
+		internal static void SoundSetStopTimeInMillisecondsNative(MaSound* pSound, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, ulong, void>)funcTable[859])(pSound, absoluteGlobalTimeInMilliseconds);
@@ -3807,21 +3807,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetStopTimeInMilliseconds(MaSoundPtr pSound, ulong absoluteGlobalTimeInMilliseconds)
+		public static void SoundSetStopTimeInMilliseconds(MaSoundPtr pSound, ulong absoluteGlobalTimeInMilliseconds)
 		{
-			MaSoundSetStopTimeInMillisecondsNative((MaSound*)pSound, absoluteGlobalTimeInMilliseconds);
+			SoundSetStopTimeInMillisecondsNative((MaSound*)pSound, absoluteGlobalTimeInMilliseconds);
 		}
 
-		public static void MaSoundSetStopTimeInMilliseconds(ref MaSound pSound, ulong absoluteGlobalTimeInMilliseconds)
+		public static void SoundSetStopTimeInMilliseconds(ref MaSound pSound, ulong absoluteGlobalTimeInMilliseconds)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetStopTimeInMillisecondsNative((MaSound*)ppSound, absoluteGlobalTimeInMilliseconds);
+				SoundSetStopTimeInMillisecondsNative((MaSound*)ppSound, absoluteGlobalTimeInMilliseconds);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetStopTimeWithFadeInPcmFramesNative(MaSound* pSound, ulong stopAbsoluteGlobalTimeInFrames, ulong fadeLengthInFrames)
+		internal static void SoundSetStopTimeWithFadeInPcmFramesNative(MaSound* pSound, ulong stopAbsoluteGlobalTimeInFrames, ulong fadeLengthInFrames)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, ulong, ulong, void>)funcTable[860])(pSound, stopAbsoluteGlobalTimeInFrames, fadeLengthInFrames);
@@ -3830,21 +3830,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetStopTimeWithFadeInPcmFrames(MaSoundPtr pSound, ulong stopAbsoluteGlobalTimeInFrames, ulong fadeLengthInFrames)
+		public static void SoundSetStopTimeWithFadeInPcmFrames(MaSoundPtr pSound, ulong stopAbsoluteGlobalTimeInFrames, ulong fadeLengthInFrames)
 		{
-			MaSoundSetStopTimeWithFadeInPcmFramesNative((MaSound*)pSound, stopAbsoluteGlobalTimeInFrames, fadeLengthInFrames);
+			SoundSetStopTimeWithFadeInPcmFramesNative((MaSound*)pSound, stopAbsoluteGlobalTimeInFrames, fadeLengthInFrames);
 		}
 
-		public static void MaSoundSetStopTimeWithFadeInPcmFrames(ref MaSound pSound, ulong stopAbsoluteGlobalTimeInFrames, ulong fadeLengthInFrames)
+		public static void SoundSetStopTimeWithFadeInPcmFrames(ref MaSound pSound, ulong stopAbsoluteGlobalTimeInFrames, ulong fadeLengthInFrames)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetStopTimeWithFadeInPcmFramesNative((MaSound*)ppSound, stopAbsoluteGlobalTimeInFrames, fadeLengthInFrames);
+				SoundSetStopTimeWithFadeInPcmFramesNative((MaSound*)ppSound, stopAbsoluteGlobalTimeInFrames, fadeLengthInFrames);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetStopTimeWithFadeInMillisecondsNative(MaSound* pSound, ulong stopAbsoluteGlobalTimeInMilliseconds, ulong fadeLengthInMilliseconds)
+		internal static void SoundSetStopTimeWithFadeInMillisecondsNative(MaSound* pSound, ulong stopAbsoluteGlobalTimeInMilliseconds, ulong fadeLengthInMilliseconds)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, ulong, ulong, void>)funcTable[861])(pSound, stopAbsoluteGlobalTimeInMilliseconds, fadeLengthInMilliseconds);
@@ -3853,21 +3853,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetStopTimeWithFadeInMilliseconds(MaSoundPtr pSound, ulong stopAbsoluteGlobalTimeInMilliseconds, ulong fadeLengthInMilliseconds)
+		public static void SoundSetStopTimeWithFadeInMilliseconds(MaSoundPtr pSound, ulong stopAbsoluteGlobalTimeInMilliseconds, ulong fadeLengthInMilliseconds)
 		{
-			MaSoundSetStopTimeWithFadeInMillisecondsNative((MaSound*)pSound, stopAbsoluteGlobalTimeInMilliseconds, fadeLengthInMilliseconds);
+			SoundSetStopTimeWithFadeInMillisecondsNative((MaSound*)pSound, stopAbsoluteGlobalTimeInMilliseconds, fadeLengthInMilliseconds);
 		}
 
-		public static void MaSoundSetStopTimeWithFadeInMilliseconds(ref MaSound pSound, ulong stopAbsoluteGlobalTimeInMilliseconds, ulong fadeLengthInMilliseconds)
+		public static void SoundSetStopTimeWithFadeInMilliseconds(ref MaSound pSound, ulong stopAbsoluteGlobalTimeInMilliseconds, ulong fadeLengthInMilliseconds)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetStopTimeWithFadeInMillisecondsNative((MaSound*)ppSound, stopAbsoluteGlobalTimeInMilliseconds, fadeLengthInMilliseconds);
+				SoundSetStopTimeWithFadeInMillisecondsNative((MaSound*)ppSound, stopAbsoluteGlobalTimeInMilliseconds, fadeLengthInMilliseconds);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaSoundIsPlayingNative(MaSound* pSound)
+		internal static uint SoundIsPlayingNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[862])(pSound);
@@ -3876,23 +3876,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaSoundIsPlaying(MaSoundPtr pSound)
+		public static uint SoundIsPlaying(MaSoundPtr pSound)
 		{
-			uint ret = MaSoundIsPlayingNative((MaSound*)pSound);
+			uint ret = SoundIsPlayingNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static uint MaSoundIsPlaying(in MaSound pSound)
+		public static uint SoundIsPlaying(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				uint ret = MaSoundIsPlayingNative((MaSound*)ppSound);
+				uint ret = SoundIsPlayingNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ulong MaSoundGetTimeInPcmFramesNative(MaSound* pSound)
+		internal static ulong SoundGetTimeInPcmFramesNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong>)funcTable[863])(pSound);
@@ -3901,23 +3901,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static ulong MaSoundGetTimeInPcmFrames(MaSoundPtr pSound)
+		public static ulong SoundGetTimeInPcmFrames(MaSoundPtr pSound)
 		{
-			ulong ret = MaSoundGetTimeInPcmFramesNative((MaSound*)pSound);
+			ulong ret = SoundGetTimeInPcmFramesNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static ulong MaSoundGetTimeInPcmFrames(in MaSound pSound)
+		public static ulong SoundGetTimeInPcmFrames(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				ulong ret = MaSoundGetTimeInPcmFramesNative((MaSound*)ppSound);
+				ulong ret = SoundGetTimeInPcmFramesNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ulong MaSoundGetTimeInMillisecondsNative(MaSound* pSound)
+		internal static ulong SoundGetTimeInMillisecondsNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong>)funcTable[864])(pSound);
@@ -3926,23 +3926,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static ulong MaSoundGetTimeInMilliseconds(MaSoundPtr pSound)
+		public static ulong SoundGetTimeInMilliseconds(MaSoundPtr pSound)
 		{
-			ulong ret = MaSoundGetTimeInMillisecondsNative((MaSound*)pSound);
+			ulong ret = SoundGetTimeInMillisecondsNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static ulong MaSoundGetTimeInMilliseconds(in MaSound pSound)
+		public static ulong SoundGetTimeInMilliseconds(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				ulong ret = MaSoundGetTimeInMillisecondsNative((MaSound*)ppSound);
+				ulong ret = SoundGetTimeInMillisecondsNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundSetLoopingNative(MaSound* pSound, uint isLooping)
+		internal static void SoundSetLoopingNative(MaSound* pSound, uint isLooping)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, uint, void>)funcTable[865])(pSound, isLooping);
@@ -3951,21 +3951,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundSetLooping(MaSoundPtr pSound, uint isLooping)
+		public static void SoundSetLooping(MaSoundPtr pSound, uint isLooping)
 		{
-			MaSoundSetLoopingNative((MaSound*)pSound, isLooping);
+			SoundSetLoopingNative((MaSound*)pSound, isLooping);
 		}
 
-		public static void MaSoundSetLooping(ref MaSound pSound, uint isLooping)
+		public static void SoundSetLooping(ref MaSound pSound, uint isLooping)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaSoundSetLoopingNative((MaSound*)ppSound, isLooping);
+				SoundSetLoopingNative((MaSound*)ppSound, isLooping);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaSoundIsLoopingNative(MaSound* pSound)
+		internal static uint SoundIsLoopingNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[866])(pSound);
@@ -3974,23 +3974,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaSoundIsLooping(MaSoundPtr pSound)
+		public static uint SoundIsLooping(MaSoundPtr pSound)
 		{
-			uint ret = MaSoundIsLoopingNative((MaSound*)pSound);
+			uint ret = SoundIsLoopingNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static uint MaSoundIsLooping(in MaSound pSound)
+		public static uint SoundIsLooping(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				uint ret = MaSoundIsLoopingNative((MaSound*)ppSound);
+				uint ret = SoundIsLoopingNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaSoundAtEndNative(MaSound* pSound)
+		internal static uint SoundAtEndNative(MaSound* pSound)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, uint>)funcTable[867])(pSound);
@@ -3999,23 +3999,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaSoundAtEnd(MaSoundPtr pSound)
+		public static uint SoundAtEnd(MaSoundPtr pSound)
 		{
-			uint ret = MaSoundAtEndNative((MaSound*)pSound);
+			uint ret = SoundAtEndNative((MaSound*)pSound);
 			return ret;
 		}
 
-		public static uint MaSoundAtEnd(in MaSound pSound)
+		public static uint SoundAtEnd(in MaSound pSound)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				uint ret = MaSoundAtEndNative((MaSound*)ppSound);
+				uint ret = SoundAtEndNative((MaSound*)ppSound);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundSeekToPcmFrameNative(MaSound* pSound, ulong frameIndex)
+		internal static MaResult SoundSeekToPcmFrameNative(MaSound* pSound, ulong frameIndex)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong, MaResult>)funcTable[868])(pSound, frameIndex);
@@ -4024,23 +4024,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundSeekToPcmFrame(MaSoundPtr pSound, ulong frameIndex)
+		public static MaResult SoundSeekToPcmFrame(MaSoundPtr pSound, ulong frameIndex)
 		{
-			MaResult ret = MaSoundSeekToPcmFrameNative((MaSound*)pSound, frameIndex);
+			MaResult ret = SoundSeekToPcmFrameNative((MaSound*)pSound, frameIndex);
 			return ret;
 		}
 
-		public static MaResult MaSoundSeekToPcmFrame(ref MaSound pSound, ulong frameIndex)
+		public static MaResult SoundSeekToPcmFrame(ref MaSound pSound, ulong frameIndex)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundSeekToPcmFrameNative((MaSound*)ppSound, frameIndex);
+				MaResult ret = SoundSeekToPcmFrameNative((MaSound*)ppSound, frameIndex);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundSeekToSecondNative(MaSound* pSound, float seekPointInSeconds)
+		internal static MaResult SoundSeekToSecondNative(MaSound* pSound, float seekPointInSeconds)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float, MaResult>)funcTable[869])(pSound, seekPointInSeconds);
@@ -4049,23 +4049,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundSeekToSecond(MaSoundPtr pSound, float seekPointInSeconds)
+		public static MaResult SoundSeekToSecond(MaSoundPtr pSound, float seekPointInSeconds)
 		{
-			MaResult ret = MaSoundSeekToSecondNative((MaSound*)pSound, seekPointInSeconds);
+			MaResult ret = SoundSeekToSecondNative((MaSound*)pSound, seekPointInSeconds);
 			return ret;
 		}
 
-		public static MaResult MaSoundSeekToSecond(ref MaSound pSound, float seekPointInSeconds)
+		public static MaResult SoundSeekToSecond(ref MaSound pSound, float seekPointInSeconds)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundSeekToSecondNative((MaSound*)ppSound, seekPointInSeconds);
+				MaResult ret = SoundSeekToSecondNative((MaSound*)ppSound, seekPointInSeconds);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGetDataFormatNative(MaSound* pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		internal static MaResult SoundGetDataFormatNative(MaSound* pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaFormat*, uint*, uint*, byte*, nuint, MaResult>)funcTable[870])(pSound, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
@@ -4074,76 +4074,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
-			MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+			MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 			return ret;
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
-				MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (MaFormat* ppFormat = &pFormat)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppChannels = &pChannels)
 			{
-				MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (uint* ppChannels = &pChannels)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
 				fixed (uint* ppChannels = &pChannels)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4151,47 +4151,47 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppChannels = &pChannels)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppSampleRate = &pSampleRate)
 			{
-				MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (uint* ppSampleRate = &pSampleRate)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
 				fixed (uint* ppSampleRate = &pSampleRate)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4199,26 +4199,26 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppSampleRate = &pSampleRate)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppChannels = &pChannels)
 			{
 				fixed (uint* ppSampleRate = &pSampleRate)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4226,14 +4226,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppSampleRate = &pSampleRate)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
@@ -4241,14 +4241,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppSampleRate = &pSampleRate)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4258,7 +4258,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (uint* ppSampleRate = &pSampleRate)
 						{
-							MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+							MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 							return ret;
 						}
 					}
@@ -4266,40 +4266,40 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (byte* ppChannelMap = &pChannelMap)
 			{
-				MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+				MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4307,26 +4307,26 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppChannels = &pChannels)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4334,14 +4334,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
@@ -4349,14 +4349,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4366,7 +4366,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (byte* ppChannelMap = &pChannelMap)
 						{
-							MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+							MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 							return ret;
 						}
 					}
@@ -4374,19 +4374,19 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppSampleRate = &pSampleRate)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4394,14 +4394,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
@@ -4409,14 +4409,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4426,7 +4426,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (byte* ppChannelMap = &pChannelMap)
 						{
-							MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+							MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 							return ret;
 						}
 					}
@@ -4434,7 +4434,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppChannels = &pChannels)
 			{
@@ -4442,14 +4442,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4459,7 +4459,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (byte* ppChannelMap = &pChannelMap)
 						{
-							MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+							MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 							return ret;
 						}
 					}
@@ -4467,7 +4467,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(MaSoundPtr pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
@@ -4477,7 +4477,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (byte* ppChannelMap = &pChannelMap)
 						{
-							MaResult ret = MaSoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+							MaResult ret = SoundGetDataFormatNative((MaSound*)pSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 							return ret;
 						}
 					}
@@ -4485,7 +4485,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaSoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult SoundGetDataFormat(in MaSound pSound, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
@@ -4497,7 +4497,7 @@ namespace Hexa.NET.MiniAudio
 						{
 							fixed (byte* ppChannelMap = &pChannelMap)
 							{
-								MaResult ret = MaSoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+								MaResult ret = SoundGetDataFormatNative((MaSound*)ppSound, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 								return ret;
 							}
 						}
@@ -4507,7 +4507,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGetCursorInPcmFramesNative(MaSound* pSound, ulong* pCursor)
+		internal static MaResult SoundGetCursorInPcmFramesNative(MaSound* pSound, ulong* pCursor)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong*, MaResult>)funcTable[871])(pSound, pCursor);
@@ -4516,44 +4516,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGetCursorInPcmFrames(MaSoundPtr pSound, ulong* pCursor)
+		public static MaResult SoundGetCursorInPcmFrames(MaSoundPtr pSound, ulong* pCursor)
 		{
-			MaResult ret = MaSoundGetCursorInPcmFramesNative((MaSound*)pSound, pCursor);
+			MaResult ret = SoundGetCursorInPcmFramesNative((MaSound*)pSound, pCursor);
 			return ret;
 		}
 
-		public static MaResult MaSoundGetCursorInPcmFrames(in MaSound pSound, ulong* pCursor)
+		public static MaResult SoundGetCursorInPcmFrames(in MaSound pSound, ulong* pCursor)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundGetCursorInPcmFramesNative((MaSound*)ppSound, pCursor);
+				MaResult ret = SoundGetCursorInPcmFramesNative((MaSound*)ppSound, pCursor);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetCursorInPcmFrames(MaSoundPtr pSound, ref ulong pCursor)
+		public static MaResult SoundGetCursorInPcmFrames(MaSoundPtr pSound, ref ulong pCursor)
 		{
 			fixed (ulong* ppCursor = &pCursor)
 			{
-				MaResult ret = MaSoundGetCursorInPcmFramesNative((MaSound*)pSound, (ulong*)ppCursor);
+				MaResult ret = SoundGetCursorInPcmFramesNative((MaSound*)pSound, (ulong*)ppCursor);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetCursorInPcmFrames(in MaSound pSound, ref ulong pCursor)
+		public static MaResult SoundGetCursorInPcmFrames(in MaSound pSound, ref ulong pCursor)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (ulong* ppCursor = &pCursor)
 				{
-					MaResult ret = MaSoundGetCursorInPcmFramesNative((MaSound*)ppSound, (ulong*)ppCursor);
+					MaResult ret = SoundGetCursorInPcmFramesNative((MaSound*)ppSound, (ulong*)ppCursor);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGetLengthInPcmFramesNative(MaSound* pSound, ulong* pLength)
+		internal static MaResult SoundGetLengthInPcmFramesNative(MaSound* pSound, ulong* pLength)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, ulong*, MaResult>)funcTable[872])(pSound, pLength);
@@ -4562,44 +4562,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGetLengthInPcmFrames(MaSoundPtr pSound, ulong* pLength)
+		public static MaResult SoundGetLengthInPcmFrames(MaSoundPtr pSound, ulong* pLength)
 		{
-			MaResult ret = MaSoundGetLengthInPcmFramesNative((MaSound*)pSound, pLength);
+			MaResult ret = SoundGetLengthInPcmFramesNative((MaSound*)pSound, pLength);
 			return ret;
 		}
 
-		public static MaResult MaSoundGetLengthInPcmFrames(in MaSound pSound, ulong* pLength)
+		public static MaResult SoundGetLengthInPcmFrames(in MaSound pSound, ulong* pLength)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundGetLengthInPcmFramesNative((MaSound*)ppSound, pLength);
+				MaResult ret = SoundGetLengthInPcmFramesNative((MaSound*)ppSound, pLength);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetLengthInPcmFrames(MaSoundPtr pSound, ref ulong pLength)
+		public static MaResult SoundGetLengthInPcmFrames(MaSoundPtr pSound, ref ulong pLength)
 		{
 			fixed (ulong* ppLength = &pLength)
 			{
-				MaResult ret = MaSoundGetLengthInPcmFramesNative((MaSound*)pSound, (ulong*)ppLength);
+				MaResult ret = SoundGetLengthInPcmFramesNative((MaSound*)pSound, (ulong*)ppLength);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetLengthInPcmFrames(in MaSound pSound, ref ulong pLength)
+		public static MaResult SoundGetLengthInPcmFrames(in MaSound pSound, ref ulong pLength)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (ulong* ppLength = &pLength)
 				{
-					MaResult ret = MaSoundGetLengthInPcmFramesNative((MaSound*)ppSound, (ulong*)ppLength);
+					MaResult ret = SoundGetLengthInPcmFramesNative((MaSound*)ppSound, (ulong*)ppLength);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGetCursorInSecondsNative(MaSound* pSound, float* pCursor)
+		internal static MaResult SoundGetCursorInSecondsNative(MaSound* pSound, float* pCursor)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float*, MaResult>)funcTable[873])(pSound, pCursor);
@@ -4608,44 +4608,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGetCursorInSeconds(MaSoundPtr pSound, float* pCursor)
+		public static MaResult SoundGetCursorInSeconds(MaSoundPtr pSound, float* pCursor)
 		{
-			MaResult ret = MaSoundGetCursorInSecondsNative((MaSound*)pSound, pCursor);
+			MaResult ret = SoundGetCursorInSecondsNative((MaSound*)pSound, pCursor);
 			return ret;
 		}
 
-		public static MaResult MaSoundGetCursorInSeconds(in MaSound pSound, float* pCursor)
+		public static MaResult SoundGetCursorInSeconds(in MaSound pSound, float* pCursor)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundGetCursorInSecondsNative((MaSound*)ppSound, pCursor);
+				MaResult ret = SoundGetCursorInSecondsNative((MaSound*)ppSound, pCursor);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetCursorInSeconds(MaSoundPtr pSound, ref float pCursor)
+		public static MaResult SoundGetCursorInSeconds(MaSoundPtr pSound, ref float pCursor)
 		{
 			fixed (float* ppCursor = &pCursor)
 			{
-				MaResult ret = MaSoundGetCursorInSecondsNative((MaSound*)pSound, (float*)ppCursor);
+				MaResult ret = SoundGetCursorInSecondsNative((MaSound*)pSound, (float*)ppCursor);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetCursorInSeconds(in MaSound pSound, ref float pCursor)
+		public static MaResult SoundGetCursorInSeconds(in MaSound pSound, ref float pCursor)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (float* ppCursor = &pCursor)
 				{
-					MaResult ret = MaSoundGetCursorInSecondsNative((MaSound*)ppSound, (float*)ppCursor);
+					MaResult ret = SoundGetCursorInSecondsNative((MaSound*)ppSound, (float*)ppCursor);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGetLengthInSecondsNative(MaSound* pSound, float* pLength)
+		internal static MaResult SoundGetLengthInSecondsNative(MaSound* pSound, float* pLength)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, float*, MaResult>)funcTable[874])(pSound, pLength);
@@ -4654,44 +4654,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGetLengthInSeconds(MaSoundPtr pSound, float* pLength)
+		public static MaResult SoundGetLengthInSeconds(MaSoundPtr pSound, float* pLength)
 		{
-			MaResult ret = MaSoundGetLengthInSecondsNative((MaSound*)pSound, pLength);
+			MaResult ret = SoundGetLengthInSecondsNative((MaSound*)pSound, pLength);
 			return ret;
 		}
 
-		public static MaResult MaSoundGetLengthInSeconds(in MaSound pSound, float* pLength)
+		public static MaResult SoundGetLengthInSeconds(in MaSound pSound, float* pLength)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundGetLengthInSecondsNative((MaSound*)ppSound, pLength);
+				MaResult ret = SoundGetLengthInSecondsNative((MaSound*)ppSound, pLength);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetLengthInSeconds(MaSoundPtr pSound, ref float pLength)
+		public static MaResult SoundGetLengthInSeconds(MaSoundPtr pSound, ref float pLength)
 		{
 			fixed (float* ppLength = &pLength)
 			{
-				MaResult ret = MaSoundGetLengthInSecondsNative((MaSound*)pSound, (float*)ppLength);
+				MaResult ret = SoundGetLengthInSecondsNative((MaSound*)pSound, (float*)ppLength);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGetLengthInSeconds(in MaSound pSound, ref float pLength)
+		public static MaResult SoundGetLengthInSeconds(in MaSound pSound, ref float pLength)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
 				fixed (float* ppLength = &pLength)
 				{
-					MaResult ret = MaSoundGetLengthInSecondsNative((MaSound*)ppSound, (float*)ppLength);
+					MaResult ret = SoundGetLengthInSecondsNative((MaSound*)ppSound, (float*)ppLength);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundSetEndCallbackNative(MaSound* pSound, delegate*<void*, MaSound*, void> callback, void* pUserData)
+		internal static MaResult SoundSetEndCallbackNative(MaSound* pSound, delegate*<void*, MaSound*, void> callback, void* pUserData)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, delegate*<void*, MaSound*, void>, void*, MaResult>)funcTable[875])(pSound, callback, pUserData);
@@ -4700,68 +4700,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundSetEndCallback(MaSoundPtr pSound, delegate*<void*, MaSound*, void> callback, void* pUserData)
+		public static MaResult SoundSetEndCallback(MaSoundPtr pSound, delegate*<void*, MaSound*, void> callback, void* pUserData)
 		{
-			MaResult ret = MaSoundSetEndCallbackNative((MaSound*)pSound, callback, pUserData);
+			MaResult ret = SoundSetEndCallbackNative((MaSound*)pSound, callback, pUserData);
 			return ret;
 		}
 
-		public static MaResult MaSoundSetEndCallback(ref MaSound pSound, delegate*<void*, MaSound*, void> callback, void* pUserData)
+		public static MaResult SoundSetEndCallback(ref MaSound pSound, delegate*<void*, MaSound*, void> callback, void* pUserData)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundSetEndCallbackNative((MaSound*)ppSound, callback, pUserData);
+				MaResult ret = SoundSetEndCallbackNative((MaSound*)ppSound, callback, pUserData);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundSetEndCallback(MaSoundPtr pSound, MaSoundEndProc callback, void* pUserData)
+		public static MaResult SoundSetEndCallback(MaSoundPtr pSound, MaSoundEndProc callback, void* pUserData)
 		{
-			MaResult ret = MaSoundSetEndCallbackNative((MaSound*)pSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
+			MaResult ret = SoundSetEndCallbackNative((MaSound*)pSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
 			return ret;
 		}
 
-		public static MaResult MaSoundSetEndCallback(ref MaSound pSound, MaSoundEndProc callback, void* pUserData)
+		public static MaResult SoundSetEndCallback(ref MaSound pSound, MaSoundEndProc callback, void* pUserData)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundSetEndCallbackNative((MaSound*)ppSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
+				MaResult ret = SoundSetEndCallbackNative((MaSound*)ppSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), pUserData);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundSetEndCallback(MaSoundPtr pSound, delegate*<void*, MaSound*, void> callback, nint pUserData)
+		public static MaResult SoundSetEndCallback(MaSoundPtr pSound, delegate*<void*, MaSound*, void> callback, nint pUserData)
 		{
-			MaResult ret = MaSoundSetEndCallbackNative((MaSound*)pSound, callback, (void*)pUserData);
+			MaResult ret = SoundSetEndCallbackNative((MaSound*)pSound, callback, (void*)pUserData);
 			return ret;
 		}
 
-		public static MaResult MaSoundSetEndCallback(ref MaSound pSound, delegate*<void*, MaSound*, void> callback, nint pUserData)
+		public static MaResult SoundSetEndCallback(ref MaSound pSound, delegate*<void*, MaSound*, void> callback, nint pUserData)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundSetEndCallbackNative((MaSound*)ppSound, callback, (void*)pUserData);
+				MaResult ret = SoundSetEndCallbackNative((MaSound*)ppSound, callback, (void*)pUserData);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundSetEndCallback(MaSoundPtr pSound, MaSoundEndProc callback, nint pUserData)
+		public static MaResult SoundSetEndCallback(MaSoundPtr pSound, MaSoundEndProc callback, nint pUserData)
 		{
-			MaResult ret = MaSoundSetEndCallbackNative((MaSound*)pSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
+			MaResult ret = SoundSetEndCallbackNative((MaSound*)pSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
 			return ret;
 		}
 
-		public static MaResult MaSoundSetEndCallback(ref MaSound pSound, MaSoundEndProc callback, nint pUserData)
+		public static MaResult SoundSetEndCallback(ref MaSound pSound, MaSoundEndProc callback, nint pUserData)
 		{
 			fixed (MaSound* ppSound = &pSound)
 			{
-				MaResult ret = MaSoundSetEndCallbackNative((MaSound*)ppSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
+				MaResult ret = SoundSetEndCallbackNative((MaSound*)ppSound, (delegate*<void*, MaSound*, void>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGroupInitNative(MaEngine* pEngine, uint flags, MaSound* pParentGroup, MaSound* pGroup)
+		internal static MaResult SoundGroupInitNative(MaEngine* pEngine, uint flags, MaSound* pParentGroup, MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaEngine*, uint, MaSound*, MaSound*, MaResult>)funcTable[876])(pEngine, flags, pParentGroup, pGroup);
@@ -4770,76 +4770,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGroupInit(MaEnginePtr pEngine, uint flags, MaSoundPtr pParentGroup, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInit(MaEnginePtr pEngine, uint flags, MaSoundPtr pParentGroup, MaSoundPtr pGroup)
 		{
-			MaResult ret = MaSoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)pParentGroup, (MaSound*)pGroup);
+			MaResult ret = SoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)pParentGroup, (MaSound*)pGroup);
 			return ret;
 		}
 
-		public static MaResult MaSoundGroupInit(ref MaEngine pEngine, uint flags, MaSoundPtr pParentGroup, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInit(ref MaEngine pEngine, uint flags, MaSoundPtr pParentGroup, MaSoundPtr pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
-				MaResult ret = MaSoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)pParentGroup, (MaSound*)pGroup);
+				MaResult ret = SoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)pParentGroup, (MaSound*)pGroup);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGroupInit(MaEnginePtr pEngine, uint flags, ref MaSound pParentGroup, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInit(MaEnginePtr pEngine, uint flags, ref MaSound pParentGroup, MaSoundPtr pGroup)
 		{
 			fixed (MaSound* ppParentGroup = &pParentGroup)
 			{
-				MaResult ret = MaSoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)ppParentGroup, (MaSound*)pGroup);
+				MaResult ret = SoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)ppParentGroup, (MaSound*)pGroup);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGroupInit(ref MaEngine pEngine, uint flags, ref MaSound pParentGroup, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInit(ref MaEngine pEngine, uint flags, ref MaSound pParentGroup, MaSoundPtr pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppParentGroup = &pParentGroup)
 				{
-					MaResult ret = MaSoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)ppParentGroup, (MaSound*)pGroup);
+					MaResult ret = SoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)ppParentGroup, (MaSound*)pGroup);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGroupInit(MaEnginePtr pEngine, uint flags, MaSoundPtr pParentGroup, ref MaSound pGroup)
+		public static MaResult SoundGroupInit(MaEnginePtr pEngine, uint flags, MaSoundPtr pParentGroup, ref MaSound pGroup)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaResult ret = MaSoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)pParentGroup, (MaSound*)ppGroup);
+				MaResult ret = SoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)pParentGroup, (MaSound*)ppGroup);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGroupInit(ref MaEngine pEngine, uint flags, MaSoundPtr pParentGroup, ref MaSound pGroup)
+		public static MaResult SoundGroupInit(ref MaEngine pEngine, uint flags, MaSoundPtr pParentGroup, ref MaSound pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)pParentGroup, (MaSound*)ppGroup);
+					MaResult ret = SoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)pParentGroup, (MaSound*)ppGroup);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGroupInit(MaEnginePtr pEngine, uint flags, ref MaSound pParentGroup, ref MaSound pGroup)
+		public static MaResult SoundGroupInit(MaEnginePtr pEngine, uint flags, ref MaSound pParentGroup, ref MaSound pGroup)
 		{
 			fixed (MaSound* ppParentGroup = &pParentGroup)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)ppParentGroup, (MaSound*)ppGroup);
+					MaResult ret = SoundGroupInitNative((MaEngine*)pEngine, flags, (MaSound*)ppParentGroup, (MaSound*)ppGroup);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGroupInit(ref MaEngine pEngine, uint flags, ref MaSound pParentGroup, ref MaSound pGroup)
+		public static MaResult SoundGroupInit(ref MaEngine pEngine, uint flags, ref MaSound pParentGroup, ref MaSound pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -4847,7 +4847,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppGroup = &pGroup)
 					{
-						MaResult ret = MaSoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)ppParentGroup, (MaSound*)ppGroup);
+						MaResult ret = SoundGroupInitNative((MaEngine*)ppEngine, flags, (MaSound*)ppParentGroup, (MaSound*)ppGroup);
 						return ret;
 					}
 				}
@@ -4855,7 +4855,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGroupInitExNative(MaEngine* pEngine, MaSoundConfig* pConfig, MaSound* pGroup)
+		internal static MaResult SoundGroupInitExNative(MaEngine* pEngine, MaSoundConfig* pConfig, MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaEngine*, MaSoundConfig*, MaSound*, MaResult>)funcTable[877])(pEngine, pConfig, pGroup);
@@ -4864,76 +4864,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGroupInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pGroup)
 		{
-			MaResult ret = MaSoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)pGroup);
+			MaResult ret = SoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)pGroup);
 			return ret;
 		}
 
-		public static MaResult MaSoundGroupInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, MaSoundPtr pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
-				MaResult ret = MaSoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)pGroup);
+				MaResult ret = SoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)pGroup);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGroupInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, MaSoundPtr pGroup)
 		{
 			fixed (MaSoundConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaSoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)pGroup);
+				MaResult ret = SoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)pGroup);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGroupInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, MaSoundPtr pGroup)
+		public static MaResult SoundGroupInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, MaSoundPtr pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSoundConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaSoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)pGroup);
+					MaResult ret = SoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)pGroup);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGroupInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, ref MaSound pGroup)
+		public static MaResult SoundGroupInitEx(MaEnginePtr pEngine, MaSoundConfigPtr pConfig, ref MaSound pGroup)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaResult ret = MaSoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)ppGroup);
+				MaResult ret = SoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)pConfig, (MaSound*)ppGroup);
 				return ret;
 			}
 		}
 
-		public static MaResult MaSoundGroupInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, ref MaSound pGroup)
+		public static MaResult SoundGroupInitEx(ref MaEngine pEngine, MaSoundConfigPtr pConfig, ref MaSound pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)ppGroup);
+					MaResult ret = SoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)pConfig, (MaSound*)ppGroup);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGroupInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, ref MaSound pGroup)
+		public static MaResult SoundGroupInitEx(MaEnginePtr pEngine, in MaSoundConfig pConfig, ref MaSound pGroup)
 		{
 			fixed (MaSoundConfig* ppConfig = &pConfig)
 			{
 				fixed (MaSound* ppGroup = &pGroup)
 				{
-					MaResult ret = MaSoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppGroup);
+					MaResult ret = SoundGroupInitExNative((MaEngine*)pEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppGroup);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaSoundGroupInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, ref MaSound pGroup)
+		public static MaResult SoundGroupInitEx(ref MaEngine pEngine, in MaSoundConfig pConfig, ref MaSound pGroup)
 		{
 			fixed (MaEngine* ppEngine = &pEngine)
 			{
@@ -4941,7 +4941,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaSound* ppGroup = &pGroup)
 					{
-						MaResult ret = MaSoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppGroup);
+						MaResult ret = SoundGroupInitExNative((MaEngine*)ppEngine, (MaSoundConfig*)ppConfig, (MaSound*)ppGroup);
 						return ret;
 					}
 				}
@@ -4949,7 +4949,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaSoundGroupUninitNative(MaSound* pGroup)
+		internal static void SoundGroupUninitNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaSound*, void>)funcTable[878])(pGroup);
@@ -4958,21 +4958,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaSoundGroupUninit(MaSoundPtr pGroup)
+		public static void SoundGroupUninit(MaSoundPtr pGroup)
 		{
-			MaSoundGroupUninitNative((MaSound*)pGroup);
+			SoundGroupUninitNative((MaSound*)pGroup);
 		}
 
-		public static void MaSoundGroupUninit(ref MaSound pGroup)
+		public static void SoundGroupUninit(ref MaSound pGroup)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaSoundGroupUninitNative((MaSound*)ppGroup);
+				SoundGroupUninitNative((MaSound*)ppGroup);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaEngine* MaSoundGroupGetEngineNative(MaSound* pGroup)
+		internal static MaEngine* SoundGroupGetEngineNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaEngine*>)funcTable[879])(pGroup);
@@ -4981,23 +4981,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaEnginePtr MaSoundGroupGetEngine(MaSoundPtr pGroup)
+		public static MaEnginePtr SoundGroupGetEngine(MaSoundPtr pGroup)
 		{
-			MaEnginePtr ret = MaSoundGroupGetEngineNative((MaSound*)pGroup);
+			MaEnginePtr ret = SoundGroupGetEngineNative((MaSound*)pGroup);
 			return ret;
 		}
 
-		public static MaEnginePtr MaSoundGroupGetEngine(in MaSound pGroup)
+		public static MaEnginePtr SoundGroupGetEngine(in MaSound pGroup)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaEnginePtr ret = MaSoundGroupGetEngineNative((MaSound*)ppGroup);
+				MaEnginePtr ret = SoundGroupGetEngineNative((MaSound*)ppGroup);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaSoundGroupStartNative(MaSound* pGroup)
+		internal static MaResult SoundGroupStartNative(MaSound* pGroup)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaSound*, MaResult>)funcTable[880])(pGroup);
@@ -5006,17 +5006,17 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaSoundGroupStart(MaSoundPtr pGroup)
+		public static MaResult SoundGroupStart(MaSoundPtr pGroup)
 		{
-			MaResult ret = MaSoundGroupStartNative((MaSound*)pGroup);
+			MaResult ret = SoundGroupStartNative((MaSound*)pGroup);
 			return ret;
 		}
 
-		public static MaResult MaSoundGroupStart(ref MaSound pGroup)
+		public static MaResult SoundGroupStart(ref MaSound pGroup)
 		{
 			fixed (MaSound* ppGroup = &pGroup)
 			{
-				MaResult ret = MaSoundGroupStartNative((MaSound*)ppGroup);
+				MaResult ret = SoundGroupStartNative((MaSound*)ppGroup);
 				return ret;
 			}
 		}

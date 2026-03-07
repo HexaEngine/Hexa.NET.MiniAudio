@@ -63,11 +63,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_get_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextEnumerateDevices(ref MaContext pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, nint pUserData)
+		public static MaResult ContextEnumerateDevices(ref MaContext pContext, delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, nint pUserData)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
-				MaResult ret = MaContextEnumerateDevicesNative((MaContext*)ppContext, callback, (void*)pUserData);
+				MaResult ret = ContextEnumerateDevicesNative((MaContext*)ppContext, callback, (void*)pUserData);
 				return ret;
 			}
 		}
@@ -118,9 +118,9 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_get_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextEnumerateDevices(MaContextPtr pContext, MaEnumDevicesCallbackProc callback, nint pUserData)
+		public static MaResult ContextEnumerateDevices(MaContextPtr pContext, MaEnumDevicesCallbackProc callback, nint pUserData)
 		{
-			MaResult ret = MaContextEnumerateDevicesNative((MaContext*)pContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
+			MaResult ret = ContextEnumerateDevicesNative((MaContext*)pContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
 			return ret;
 		}
 
@@ -170,11 +170,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_get_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextEnumerateDevices(ref MaContext pContext, MaEnumDevicesCallbackProc callback, nint pUserData)
+		public static MaResult ContextEnumerateDevices(ref MaContext pContext, MaEnumDevicesCallbackProc callback, nint pUserData)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
-				MaResult ret = MaContextEnumerateDevicesNative((MaContext*)ppContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
+				MaResult ret = ContextEnumerateDevicesNative((MaContext*)ppContext, (delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint>)Utils.GetFunctionPointerForDelegate(callback), (void*)pUserData);
 				return ret;
 			}
 		}
@@ -215,7 +215,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaContextGetDevicesNative(MaContext* pContext, MaDeviceInfo** ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfo** ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		internal static MaResult ContextGetDevicesNative(MaContext* pContext, MaDeviceInfo** ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfo** ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaContext*, MaDeviceInfo**, uint*, MaDeviceInfo**, uint*, MaResult>)funcTable[469])(pContext, ppPlaybackDeviceInfos, pPlaybackDeviceCount, ppCaptureDeviceInfos, pCaptureDeviceCount);
@@ -259,9 +259,9 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
-			MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+			MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 			return ret;
 		}
 
@@ -300,11 +300,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
-				MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+				MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 				return ret;
 			}
 		}
@@ -344,11 +344,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
-				MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+				MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 				return ret;
 			}
 		}
@@ -388,13 +388,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -435,11 +435,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (uint* ppPlaybackDeviceCount = &pPlaybackDeviceCount)
 			{
-				MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+				MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 				return ret;
 			}
 		}
@@ -479,13 +479,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (uint* ppPlaybackDeviceCount = &pPlaybackDeviceCount)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -526,13 +526,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
 				fixed (uint* ppPlaybackDeviceCount = &pPlaybackDeviceCount)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -573,7 +573,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -581,7 +581,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppPlaybackDeviceCount = &pPlaybackDeviceCount)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, pCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -623,11 +623,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 			{
-				MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+				MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 				return ret;
 			}
 		}
@@ -667,13 +667,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -714,13 +714,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
 				fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -761,7 +761,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -769,7 +769,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -811,13 +811,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (uint* ppPlaybackDeviceCount = &pPlaybackDeviceCount)
 			{
 				fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -858,7 +858,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -866,7 +866,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -908,7 +908,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
@@ -916,7 +916,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -958,7 +958,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, uint* pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -968,7 +968,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 						{
-							MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
+							MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, pCaptureDeviceCount);
 							return ret;
 						}
 					}
@@ -1011,11 +1011,11 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 			{
-				MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+				MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 				return ret;
 			}
 		}
@@ -1055,13 +1055,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -1102,13 +1102,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
 				fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -1149,7 +1149,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -1157,7 +1157,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -1199,13 +1199,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (uint* ppPlaybackDeviceCount = &pPlaybackDeviceCount)
 			{
 				fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -1246,7 +1246,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -1254,7 +1254,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -1296,7 +1296,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
@@ -1304,7 +1304,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -1346,7 +1346,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, MaDeviceInfoPtrPtr ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -1356,7 +1356,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 						{
-							MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+							MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)ppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 							return ret;
 						}
 					}
@@ -1399,13 +1399,13 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppCaptureDeviceInfos = &ppCaptureDeviceInfos)
 			{
 				fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 				{
-					MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+					MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 					return ret;
 				}
 			}
@@ -1446,7 +1446,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -1454,7 +1454,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -1496,7 +1496,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
@@ -1504,7 +1504,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -1546,7 +1546,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, uint* pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -1556,7 +1556,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 						{
-							MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+							MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, pPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 							return ret;
 						}
 					}
@@ -1599,7 +1599,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (uint* ppPlaybackDeviceCount = &pPlaybackDeviceCount)
 			{
@@ -1607,7 +1607,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 					{
-						MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+						MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 						return ret;
 					}
 				}
@@ -1649,7 +1649,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, MaDeviceInfoPtrPtr ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -1659,7 +1659,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 						{
-							MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+							MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)ppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 							return ret;
 						}
 					}
@@ -1702,7 +1702,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(MaContextPtr pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaDeviceInfo** pppPlaybackDeviceInfos = &ppPlaybackDeviceInfos)
 			{
@@ -1712,7 +1712,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 						{
-							MaResult ret = MaContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+							MaResult ret = ContextGetDevicesNative((MaContext*)pContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 							return ret;
 						}
 					}
@@ -1755,7 +1755,7 @@ namespace Hexa.NET.MiniAudio
 		/// --------<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
+		public static MaResult ContextGetDevices(ref MaContext pContext, ref MaDeviceInfo* ppPlaybackDeviceInfos, ref uint pPlaybackDeviceCount, ref MaDeviceInfo* ppCaptureDeviceInfos, ref uint pCaptureDeviceCount)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -1767,7 +1767,7 @@ namespace Hexa.NET.MiniAudio
 						{
 							fixed (uint* ppCaptureDeviceCount = &pCaptureDeviceCount)
 							{
-								MaResult ret = MaContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
+								MaResult ret = ContextGetDevicesNative((MaContext*)ppContext, (MaDeviceInfo**)pppPlaybackDeviceInfos, (uint*)ppPlaybackDeviceCount, (MaDeviceInfo**)pppCaptureDeviceInfos, (uint*)ppCaptureDeviceCount);
 								return ret;
 							}
 						}
@@ -1804,7 +1804,7 @@ namespace Hexa.NET.MiniAudio
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaContextGetDeviceInfoNative(MaContext* pContext, MaDeviceType deviceType, MaDeviceId* pDeviceID, MaDeviceInfo* pDeviceInfo)
+		internal static MaResult ContextGetDeviceInfoNative(MaContext* pContext, MaDeviceType deviceType, MaDeviceId* pDeviceID, MaDeviceInfo* pDeviceInfo)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaContext*, MaDeviceType, MaDeviceId*, MaDeviceInfo*, MaResult>)funcTable[470])(pContext, deviceType, pDeviceID, pDeviceInfo);
@@ -1840,9 +1840,9 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, MaDeviceInfoPtr pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, MaDeviceInfoPtr pDeviceInfo)
 		{
-			MaResult ret = MaContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)pDeviceInfo);
+			MaResult ret = ContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)pDeviceInfo);
 			return ret;
 		}
 
@@ -1873,11 +1873,11 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, MaDeviceInfoPtr pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, MaDeviceInfoPtr pDeviceInfo)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
-				MaResult ret = MaContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)pDeviceInfo);
+				MaResult ret = ContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)pDeviceInfo);
 				return ret;
 			}
 		}
@@ -1909,11 +1909,11 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, MaDeviceInfoPtr pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, MaDeviceInfoPtr pDeviceInfo)
 		{
 			fixed (MaDeviceId* ppDeviceID = &pDeviceID)
 			{
-				MaResult ret = MaContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)pDeviceInfo);
+				MaResult ret = ContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)pDeviceInfo);
 				return ret;
 			}
 		}
@@ -1945,13 +1945,13 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, MaDeviceInfoPtr pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, MaDeviceInfoPtr pDeviceInfo)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (MaDeviceId* ppDeviceID = &pDeviceID)
 				{
-					MaResult ret = MaContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)pDeviceInfo);
+					MaResult ret = ContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)pDeviceInfo);
 					return ret;
 				}
 			}
@@ -1984,11 +1984,11 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, ref MaDeviceInfo pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, ref MaDeviceInfo pDeviceInfo)
 		{
 			fixed (MaDeviceInfo* ppDeviceInfo = &pDeviceInfo)
 			{
-				MaResult ret = MaContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)ppDeviceInfo);
+				MaResult ret = ContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)ppDeviceInfo);
 				return ret;
 			}
 		}
@@ -2020,13 +2020,13 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, ref MaDeviceInfo pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, MaDeviceIdPtr pDeviceID, ref MaDeviceInfo pDeviceInfo)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (MaDeviceInfo* ppDeviceInfo = &pDeviceInfo)
 				{
-					MaResult ret = MaContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)ppDeviceInfo);
+					MaResult ret = ContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)pDeviceID, (MaDeviceInfo*)ppDeviceInfo);
 					return ret;
 				}
 			}
@@ -2059,13 +2059,13 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, ref MaDeviceInfo pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(MaContextPtr pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, ref MaDeviceInfo pDeviceInfo)
 		{
 			fixed (MaDeviceId* ppDeviceID = &pDeviceID)
 			{
 				fixed (MaDeviceInfo* ppDeviceInfo = &pDeviceInfo)
 				{
-					MaResult ret = MaContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)ppDeviceInfo);
+					MaResult ret = ContextGetDeviceInfoNative((MaContext*)pContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)ppDeviceInfo);
 					return ret;
 				}
 			}
@@ -2098,7 +2098,7 @@ namespace Hexa.NET.MiniAudio
 		/// the requested share mode is unsupported.<br/>
 		/// This leaves pDeviceInfo unmodified in the result of an error.<br/>
 		/// </summary>
-		public static MaResult MaContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, ref MaDeviceInfo pDeviceInfo)
+		public static MaResult ContextGetDeviceInfo(ref MaContext pContext, MaDeviceType deviceType, in MaDeviceId pDeviceID, ref MaDeviceInfo pDeviceInfo)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -2106,7 +2106,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDeviceInfo* ppDeviceInfo = &pDeviceInfo)
 					{
-						MaResult ret = MaContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)ppDeviceInfo);
+						MaResult ret = ContextGetDeviceInfoNative((MaContext*)ppContext, deviceType, (MaDeviceId*)ppDeviceID, (MaDeviceInfo*)ppDeviceInfo);
 						return ret;
 					}
 				}
@@ -2124,7 +2124,7 @@ namespace Hexa.NET.MiniAudio
 		/// MA_TRUE if the context supports loopback mode; MA_FALSE otherwise.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaContextIsLoopbackSupportedNative(MaContext* pContext)
+		internal static uint ContextIsLoopbackSupportedNative(MaContext* pContext)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaContext*, uint>)funcTable[471])(pContext);
@@ -2143,9 +2143,9 @@ namespace Hexa.NET.MiniAudio
 		/// ------------<br/>
 		/// MA_TRUE if the context supports loopback mode; MA_FALSE otherwise.<br/>
 		/// </summary>
-		public static uint MaContextIsLoopbackSupported(MaContextPtr pContext)
+		public static uint ContextIsLoopbackSupported(MaContextPtr pContext)
 		{
-			uint ret = MaContextIsLoopbackSupportedNative((MaContext*)pContext);
+			uint ret = ContextIsLoopbackSupportedNative((MaContext*)pContext);
 			return ret;
 		}
 
@@ -2159,11 +2159,11 @@ namespace Hexa.NET.MiniAudio
 		/// ------------<br/>
 		/// MA_TRUE if the context supports loopback mode; MA_FALSE otherwise.<br/>
 		/// </summary>
-		public static uint MaContextIsLoopbackSupported(ref MaContext pContext)
+		public static uint ContextIsLoopbackSupported(ref MaContext pContext)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
-				uint ret = MaContextIsLoopbackSupportedNative((MaContext*)ppContext);
+				uint ret = ContextIsLoopbackSupportedNative((MaContext*)ppContext);
 				return ret;
 			}
 		}
@@ -2216,7 +2216,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_init_ex()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaDeviceConfig MaDeviceConfigInitNative(MaDeviceType deviceType)
+		internal static MaDeviceConfig DeviceConfigInitNative(MaDeviceType deviceType)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDeviceType, MaDeviceConfig>)funcTable[472])(deviceType);
@@ -2272,9 +2272,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_init()<br/>
 		/// ma_device_init_ex()<br/>
 		/// </summary>
-		public static MaDeviceConfig MaDeviceConfigInit(MaDeviceType deviceType)
+		public static MaDeviceConfig DeviceConfigInit(MaDeviceType deviceType)
 		{
-			MaDeviceConfig ret = MaDeviceConfigInitNative(deviceType);
+			MaDeviceConfig ret = DeviceConfigInitNative(deviceType);
 			return ret;
 		}
 
@@ -2547,7 +2547,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceInitNative(MaContext* pContext, MaDeviceConfig* pConfig, MaDevice* pDevice)
+		internal static MaResult DeviceInitNative(MaContext* pContext, MaDeviceConfig* pConfig, MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaContext*, MaDeviceConfig*, MaDevice*, MaResult>)funcTable[473])(pContext, pConfig, pDevice);
@@ -2824,9 +2824,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(MaContextPtr pContext, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInit(MaContextPtr pContext, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
 		{
-			MaResult ret = MaDeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+			MaResult ret = DeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
 			return ret;
 		}
 
@@ -3098,11 +3098,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(ref MaContext pContext, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInit(ref MaContext pContext, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
-				MaResult ret = MaDeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+				MaResult ret = DeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
 				return ret;
 			}
 		}
@@ -3375,11 +3375,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(MaContextPtr pContext, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInit(MaContextPtr pContext, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaDeviceConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
+				MaResult ret = DeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
 				return ret;
 			}
 		}
@@ -3652,13 +3652,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(ref MaContext pContext, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInit(ref MaContext pContext, in MaDeviceConfig pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (MaDeviceConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
+					MaResult ret = DeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)ppConfig, (MaDevice*)pDevice);
 					return ret;
 				}
 			}
@@ -3932,11 +3932,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(MaContextPtr pContext, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInit(MaContextPtr pContext, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaDevice* ppDevice = &pDevice)
 			{
-				MaResult ret = MaDeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
+				MaResult ret = DeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
 				return ret;
 			}
 		}
@@ -4209,13 +4209,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(ref MaContext pContext, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInit(ref MaContext pContext, MaDeviceConfigPtr pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
 				fixed (MaDevice* ppDevice = &pDevice)
 				{
-					MaResult ret = MaDeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
+					MaResult ret = DeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)pConfig, (MaDevice*)ppDevice);
 					return ret;
 				}
 			}
@@ -4489,13 +4489,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(MaContextPtr pContext, in MaDeviceConfig pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInit(MaContextPtr pContext, in MaDeviceConfig pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaDeviceConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDevice* ppDevice = &pDevice)
 				{
-					MaResult ret = MaDeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
+					MaResult ret = DeviceInitNative((MaContext*)pContext, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
 					return ret;
 				}
 			}
@@ -4769,7 +4769,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_get_devices()<br/>
 		/// ma_context_enumerate_devices()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInit(ref MaContext pContext, in MaDeviceConfig pConfig, ref MaDevice pDevice)
+		public static MaResult DeviceInit(ref MaContext pContext, in MaDeviceConfig pConfig, ref MaDevice pDevice)
 		{
 			fixed (MaContext* ppContext = &pContext)
 			{
@@ -4777,7 +4777,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDevice* ppDevice = &pDevice)
 					{
-						MaResult ret = MaDeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
+						MaResult ret = DeviceInitNative((MaContext*)ppContext, (MaDeviceConfig*)ppConfig, (MaDevice*)ppDevice);
 						return ret;
 					}
 				}
@@ -4823,7 +4823,7 @@ namespace Hexa.NET.MiniAudio
 		/// ma_context_init()<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDeviceInitExNative(MaBackend* backends, uint backendCount, MaContextConfig* pContextConfig, MaDeviceConfig* pConfig, MaDevice* pDevice)
+		internal static MaResult DeviceInitExNative(MaBackend* backends, uint backendCount, MaContextConfig* pContextConfig, MaDeviceConfig* pConfig, MaDevice* pDevice)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBackend*, uint, MaContextConfig*, MaDeviceConfig*, MaDevice*, MaResult>)funcTable[474])(backends, backendCount, pContextConfig, pConfig, pDevice);
@@ -4870,9 +4870,9 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
 		{
-			MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+			MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
 			return ret;
 		}
 
@@ -4914,11 +4914,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, MaContextConfigPtr pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
-				MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+				MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)pContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
 				return ret;
 			}
 		}
@@ -4961,11 +4961,11 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(MaBackend* backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaContextConfig* ppContextConfig = &pContextConfig)
 			{
-				MaResult ret = MaDeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+				MaResult ret = DeviceInitExNative(backends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
 				return ret;
 			}
 		}
@@ -5008,13 +5008,13 @@ namespace Hexa.NET.MiniAudio
 		/// ma_device_config_init()<br/>
 		/// ma_context_init()<br/>
 		/// </summary>
-		public static MaResult MaDeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
+		public static MaResult DeviceInitEx(in MaBackend backends, uint backendCount, in MaContextConfig pContextConfig, MaDeviceConfigPtr pConfig, MaDevicePtr pDevice)
 		{
 			fixed (MaBackend* pbackends = &backends)
 			{
 				fixed (MaContextConfig* ppContextConfig = &pContextConfig)
 				{
-					MaResult ret = MaDeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
+					MaResult ret = DeviceInitExNative((MaBackend*)pbackends, backendCount, (MaContextConfig*)ppContextConfig, (MaDeviceConfig*)pConfig, (MaDevice*)pDevice);
 					return ret;
 				}
 			}

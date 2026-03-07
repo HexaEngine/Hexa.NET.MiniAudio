@@ -2,9 +2,18 @@
 {
     public static unsafe partial class MiniAudio
     {
+        static MiniAudio()
+        {
+            InitApi();
+        }
+
         public static string GetLibraryName()
         {
-            return "miniaudio";
+            if (OperatingSystem.IsWindows())
+            {
+                return "miniaudio";
+            }
+            return "libminiaudio";
         }
     }
 }

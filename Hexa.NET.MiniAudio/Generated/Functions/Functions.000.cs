@@ -20,7 +20,7 @@ namespace Hexa.NET.MiniAudio
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaVersionNative(uint* pMajor, uint* pMinor, uint* pRevision)
+		internal static void VersionNative(uint* pMajor, uint* pMinor, uint* pRevision)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<uint*, uint*, uint*, void>)funcTable[0])(pMajor, pMinor, pRevision);
@@ -32,43 +32,43 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(uint* pMajor, uint* pMinor, uint* pRevision)
+		public static void Version(uint* pMajor, uint* pMinor, uint* pRevision)
 		{
-			MaVersionNative(pMajor, pMinor, pRevision);
+			VersionNative(pMajor, pMinor, pRevision);
 		}
 
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(ref uint pMajor, uint* pMinor, uint* pRevision)
+		public static void Version(ref uint pMajor, uint* pMinor, uint* pRevision)
 		{
 			fixed (uint* ppMajor = &pMajor)
 			{
-				MaVersionNative((uint*)ppMajor, pMinor, pRevision);
+				VersionNative((uint*)ppMajor, pMinor, pRevision);
 			}
 		}
 
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(uint* pMajor, ref uint pMinor, uint* pRevision)
+		public static void Version(uint* pMajor, ref uint pMinor, uint* pRevision)
 		{
 			fixed (uint* ppMinor = &pMinor)
 			{
-				MaVersionNative(pMajor, (uint*)ppMinor, pRevision);
+				VersionNative(pMajor, (uint*)ppMinor, pRevision);
 			}
 		}
 
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(ref uint pMajor, ref uint pMinor, uint* pRevision)
+		public static void Version(ref uint pMajor, ref uint pMinor, uint* pRevision)
 		{
 			fixed (uint* ppMajor = &pMajor)
 			{
 				fixed (uint* ppMinor = &pMinor)
 				{
-					MaVersionNative((uint*)ppMajor, (uint*)ppMinor, pRevision);
+					VersionNative((uint*)ppMajor, (uint*)ppMinor, pRevision);
 				}
 			}
 		}
@@ -76,24 +76,24 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(uint* pMajor, uint* pMinor, ref uint pRevision)
+		public static void Version(uint* pMajor, uint* pMinor, ref uint pRevision)
 		{
 			fixed (uint* ppRevision = &pRevision)
 			{
-				MaVersionNative(pMajor, pMinor, (uint*)ppRevision);
+				VersionNative(pMajor, pMinor, (uint*)ppRevision);
 			}
 		}
 
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(ref uint pMajor, uint* pMinor, ref uint pRevision)
+		public static void Version(ref uint pMajor, uint* pMinor, ref uint pRevision)
 		{
 			fixed (uint* ppMajor = &pMajor)
 			{
 				fixed (uint* ppRevision = &pRevision)
 				{
-					MaVersionNative((uint*)ppMajor, pMinor, (uint*)ppRevision);
+					VersionNative((uint*)ppMajor, pMinor, (uint*)ppRevision);
 				}
 			}
 		}
@@ -101,13 +101,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(uint* pMajor, ref uint pMinor, ref uint pRevision)
+		public static void Version(uint* pMajor, ref uint pMinor, ref uint pRevision)
 		{
 			fixed (uint* ppMinor = &pMinor)
 			{
 				fixed (uint* ppRevision = &pRevision)
 				{
-					MaVersionNative(pMajor, (uint*)ppMinor, (uint*)ppRevision);
+					VersionNative(pMajor, (uint*)ppMinor, (uint*)ppRevision);
 				}
 			}
 		}
@@ -115,7 +115,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the version of miniaudio as separated integers. Each component can be NULL if it's not required.<br/>
 		/// </summary>
-		public static void MaVersion(ref uint pMajor, ref uint pMinor, ref uint pRevision)
+		public static void Version(ref uint pMajor, ref uint pMinor, ref uint pRevision)
 		{
 			fixed (uint* ppMajor = &pMajor)
 			{
@@ -123,7 +123,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppRevision = &pRevision)
 					{
-						MaVersionNative((uint*)ppMajor, (uint*)ppMinor, (uint*)ppRevision);
+						VersionNative((uint*)ppMajor, (uint*)ppMinor, (uint*)ppRevision);
 					}
 				}
 			}
@@ -133,7 +133,7 @@ namespace Hexa.NET.MiniAudio
 		/// Retrieves the version of miniaudio as a string which can be useful for logging purposes.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* MaVersionStringNative()
+		internal static byte* VersionStringNative()
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte*>)funcTable[1])();
@@ -145,23 +145,23 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the version of miniaudio as a string which can be useful for logging purposes.<br/>
 		/// </summary>
-		public static byte* MaVersionString()
+		public static byte* VersionString()
 		{
-			byte* ret = MaVersionStringNative();
+			byte* ret = VersionStringNative();
 			return ret;
 		}
 
 		/// <summary>
 		/// Retrieves the version of miniaudio as a string which can be useful for logging purposes.<br/>
 		/// </summary>
-		public static string MaVersionStringS()
+		public static string VersionStringS()
 		{
-			string ret = Utils.DecodeStringUTF8(MaVersionStringNative());
+			string ret = Utils.DecodeStringUTF8(VersionStringNative());
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaLogCallback MaLogCallbackInitNative(delegate*<void*, uint, byte*, void> onLog, void* pUserData)
+		internal static MaLogCallback LogCallbackInitNative(delegate*<void*, uint, byte*, void> onLog, void* pUserData)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<delegate*<void*, uint, byte*, void>, void*, MaLogCallback>)funcTable[2])(onLog, pUserData);
@@ -170,32 +170,32 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaLogCallback MaLogCallbackInit(delegate*<void*, uint, byte*, void> onLog, void* pUserData)
+		public static MaLogCallback LogCallbackInit(delegate*<void*, uint, byte*, void> onLog, void* pUserData)
 		{
-			MaLogCallback ret = MaLogCallbackInitNative(onLog, pUserData);
+			MaLogCallback ret = LogCallbackInitNative(onLog, pUserData);
 			return ret;
 		}
 
-		public static MaLogCallback MaLogCallbackInit(MaLogCallbackProc onLog, void* pUserData)
+		public static MaLogCallback LogCallbackInit(MaLogCallbackProc onLog, void* pUserData)
 		{
-			MaLogCallback ret = MaLogCallbackInitNative((delegate*<void*, uint, byte*, void>)Utils.GetFunctionPointerForDelegate(onLog), pUserData);
+			MaLogCallback ret = LogCallbackInitNative((delegate*<void*, uint, byte*, void>)Utils.GetFunctionPointerForDelegate(onLog), pUserData);
 			return ret;
 		}
 
-		public static MaLogCallback MaLogCallbackInit(delegate*<void*, uint, byte*, void> onLog, nint pUserData)
+		public static MaLogCallback LogCallbackInit(delegate*<void*, uint, byte*, void> onLog, nint pUserData)
 		{
-			MaLogCallback ret = MaLogCallbackInitNative(onLog, (void*)pUserData);
+			MaLogCallback ret = LogCallbackInitNative(onLog, (void*)pUserData);
 			return ret;
 		}
 
-		public static MaLogCallback MaLogCallbackInit(MaLogCallbackProc onLog, nint pUserData)
+		public static MaLogCallback LogCallbackInit(MaLogCallbackProc onLog, nint pUserData)
 		{
-			MaLogCallback ret = MaLogCallbackInitNative((delegate*<void*, uint, byte*, void>)Utils.GetFunctionPointerForDelegate(onLog), (void*)pUserData);
+			MaLogCallback ret = LogCallbackInitNative((delegate*<void*, uint, byte*, void>)Utils.GetFunctionPointerForDelegate(onLog), (void*)pUserData);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLogInitNative(MaAllocationCallbacks* pAllocationCallbacks, MaLog* pLog)
+		internal static MaResult LogInitNative(MaAllocationCallbacks* pAllocationCallbacks, MaLog* pLog)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaAllocationCallbacks*, MaLog*, MaResult>)funcTable[3])(pAllocationCallbacks, pLog);
@@ -204,44 +204,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLogInit(MaAllocationCallbacksPtr pAllocationCallbacks, MaLogPtr pLog)
+		public static MaResult LogInit(MaAllocationCallbacksPtr pAllocationCallbacks, MaLogPtr pLog)
 		{
-			MaResult ret = MaLogInitNative((MaAllocationCallbacks*)pAllocationCallbacks, (MaLog*)pLog);
+			MaResult ret = LogInitNative((MaAllocationCallbacks*)pAllocationCallbacks, (MaLog*)pLog);
 			return ret;
 		}
 
-		public static MaResult MaLogInit(in MaAllocationCallbacks pAllocationCallbacks, MaLogPtr pLog)
+		public static MaResult LogInit(in MaAllocationCallbacks pAllocationCallbacks, MaLogPtr pLog)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaLogInitNative((MaAllocationCallbacks*)ppAllocationCallbacks, (MaLog*)pLog);
+				MaResult ret = LogInitNative((MaAllocationCallbacks*)ppAllocationCallbacks, (MaLog*)pLog);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogInit(MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLog pLog)
+		public static MaResult LogInit(MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLog pLog)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
-				MaResult ret = MaLogInitNative((MaAllocationCallbacks*)pAllocationCallbacks, (MaLog*)ppLog);
+				MaResult ret = LogInitNative((MaAllocationCallbacks*)pAllocationCallbacks, (MaLog*)ppLog);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogInit(in MaAllocationCallbacks pAllocationCallbacks, ref MaLog pLog)
+		public static MaResult LogInit(in MaAllocationCallbacks pAllocationCallbacks, ref MaLog pLog)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaLog* ppLog = &pLog)
 				{
-					MaResult ret = MaLogInitNative((MaAllocationCallbacks*)ppAllocationCallbacks, (MaLog*)ppLog);
+					MaResult ret = LogInitNative((MaAllocationCallbacks*)ppAllocationCallbacks, (MaLog*)ppLog);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaLogUninitNative(MaLog* pLog)
+		internal static void LogUninitNative(MaLog* pLog)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaLog*, void>)funcTable[4])(pLog);
@@ -250,21 +250,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaLogUninit(MaLogPtr pLog)
+		public static void LogUninit(MaLogPtr pLog)
 		{
-			MaLogUninitNative((MaLog*)pLog);
+			LogUninitNative((MaLog*)pLog);
 		}
 
-		public static void MaLogUninit(ref MaLog pLog)
+		public static void LogUninit(ref MaLog pLog)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
-				MaLogUninitNative((MaLog*)ppLog);
+				LogUninitNative((MaLog*)ppLog);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLogRegisterCallbackNative(MaLog* pLog, MaLogCallback callback)
+		internal static MaResult LogRegisterCallbackNative(MaLog* pLog, MaLogCallback callback)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLog*, MaLogCallback, MaResult>)funcTable[5])(pLog, callback);
@@ -273,23 +273,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLogRegisterCallback(MaLogPtr pLog, MaLogCallback callback)
+		public static MaResult LogRegisterCallback(MaLogPtr pLog, MaLogCallback callback)
 		{
-			MaResult ret = MaLogRegisterCallbackNative((MaLog*)pLog, callback);
+			MaResult ret = LogRegisterCallbackNative((MaLog*)pLog, callback);
 			return ret;
 		}
 
-		public static MaResult MaLogRegisterCallback(ref MaLog pLog, MaLogCallback callback)
+		public static MaResult LogRegisterCallback(ref MaLog pLog, MaLogCallback callback)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
-				MaResult ret = MaLogRegisterCallbackNative((MaLog*)ppLog, callback);
+				MaResult ret = LogRegisterCallbackNative((MaLog*)ppLog, callback);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLogUnregisterCallbackNative(MaLog* pLog, MaLogCallback callback)
+		internal static MaResult LogUnregisterCallbackNative(MaLog* pLog, MaLogCallback callback)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLog*, MaLogCallback, MaResult>)funcTable[6])(pLog, callback);
@@ -298,23 +298,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLogUnregisterCallback(MaLogPtr pLog, MaLogCallback callback)
+		public static MaResult LogUnregisterCallback(MaLogPtr pLog, MaLogCallback callback)
 		{
-			MaResult ret = MaLogUnregisterCallbackNative((MaLog*)pLog, callback);
+			MaResult ret = LogUnregisterCallbackNative((MaLog*)pLog, callback);
 			return ret;
 		}
 
-		public static MaResult MaLogUnregisterCallback(ref MaLog pLog, MaLogCallback callback)
+		public static MaResult LogUnregisterCallback(ref MaLog pLog, MaLogCallback callback)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
-				MaResult ret = MaLogUnregisterCallbackNative((MaLog*)ppLog, callback);
+				MaResult ret = LogUnregisterCallbackNative((MaLog*)ppLog, callback);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLogPostNative(MaLog* pLog, uint level, byte* pMessage)
+		internal static MaResult LogPostNative(MaLog* pLog, uint level, byte* pMessage)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLog*, uint, byte*, MaResult>)funcTable[7])(pLog, level, pMessage);
@@ -323,40 +323,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLogPost(MaLogPtr pLog, uint level, byte* pMessage)
+		public static MaResult LogPost(MaLogPtr pLog, uint level, byte* pMessage)
 		{
-			MaResult ret = MaLogPostNative((MaLog*)pLog, level, pMessage);
+			MaResult ret = LogPostNative((MaLog*)pLog, level, pMessage);
 			return ret;
 		}
 
-		public static MaResult MaLogPost(ref MaLog pLog, uint level, byte* pMessage)
+		public static MaResult LogPost(ref MaLog pLog, uint level, byte* pMessage)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
-				MaResult ret = MaLogPostNative((MaLog*)ppLog, level, pMessage);
+				MaResult ret = LogPostNative((MaLog*)ppLog, level, pMessage);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPost(MaLogPtr pLog, uint level, in byte pMessage)
+		public static MaResult LogPost(MaLogPtr pLog, uint level, in byte pMessage)
 		{
 			fixed (byte* ppMessage = &pMessage)
 			{
-				MaResult ret = MaLogPostNative((MaLog*)pLog, level, (byte*)ppMessage);
+				MaResult ret = LogPostNative((MaLog*)pLog, level, (byte*)ppMessage);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPost(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pMessage)
+		public static MaResult LogPost(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pMessage)
 		{
 			fixed (byte* ppMessage = pMessage)
 			{
-				MaResult ret = MaLogPostNative((MaLog*)pLog, level, (byte*)ppMessage);
+				MaResult ret = LogPostNative((MaLog*)pLog, level, (byte*)ppMessage);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPost(MaLogPtr pLog, uint level, string pMessage)
+		public static MaResult LogPost(MaLogPtr pLog, uint level, string pMessage)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -375,7 +375,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pMessage, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaLogPostNative((MaLog*)pLog, level, pStr0);
+			MaResult ret = LogPostNative((MaLog*)pLog, level, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -383,31 +383,31 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaLogPost(ref MaLog pLog, uint level, in byte pMessage)
+		public static MaResult LogPost(ref MaLog pLog, uint level, in byte pMessage)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* ppMessage = &pMessage)
 				{
-					MaResult ret = MaLogPostNative((MaLog*)ppLog, level, (byte*)ppMessage);
+					MaResult ret = LogPostNative((MaLog*)ppLog, level, (byte*)ppMessage);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPost(ref MaLog pLog, uint level, ReadOnlySpan<byte> pMessage)
+		public static MaResult LogPost(ref MaLog pLog, uint level, ReadOnlySpan<byte> pMessage)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* ppMessage = pMessage)
 				{
-					MaResult ret = MaLogPostNative((MaLog*)ppLog, level, (byte*)ppMessage);
+					MaResult ret = LogPostNative((MaLog*)ppLog, level, (byte*)ppMessage);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPost(ref MaLog pLog, uint level, string pMessage)
+		public static MaResult LogPost(ref MaLog pLog, uint level, string pMessage)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
@@ -428,7 +428,7 @@ namespace Hexa.NET.MiniAudio
 					int pStrOffset0 = Utils.EncodeStringUTF8(pMessage, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				MaResult ret = MaLogPostNative((MaLog*)ppLog, level, pStr0);
+				MaResult ret = LogPostNative((MaLog*)ppLog, level, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -438,7 +438,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLogPostvNative(MaLog* pLog, uint level, byte* pFormat, byte* args)
+		internal static MaResult LogPostvNative(MaLog* pLog, uint level, byte* pFormat, byte* args)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLog*, uint, byte*, byte*, MaResult>)funcTable[8])(pLog, level, pFormat, args);
@@ -447,40 +447,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, byte* pFormat, byte* args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, byte* pFormat, byte* args)
 		{
-			MaResult ret = MaLogPostvNative((MaLog*)pLog, level, pFormat, args);
+			MaResult ret = LogPostvNative((MaLog*)pLog, level, pFormat, args);
 			return ret;
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, byte* pFormat, byte* args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, byte* pFormat, byte* args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
-				MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, pFormat, args);
+				MaResult ret = LogPostvNative((MaLog*)ppLog, level, pFormat, args);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, in byte pFormat, byte* args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, in byte pFormat, byte* args)
 		{
 			fixed (byte* ppFormat = &pFormat)
 			{
-				MaResult ret = MaLogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, args);
+				MaResult ret = LogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, args);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pFormat, byte* args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pFormat, byte* args)
 		{
 			fixed (byte* ppFormat = pFormat)
 			{
-				MaResult ret = MaLogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, args);
+				MaResult ret = LogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, args);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, string pFormat, byte* args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, string pFormat, byte* args)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -499,7 +499,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFormat, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaLogPostvNative((MaLog*)pLog, level, pStr0, args);
+			MaResult ret = LogPostvNative((MaLog*)pLog, level, pStr0, args);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -507,31 +507,31 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, in byte pFormat, byte* args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, in byte pFormat, byte* args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* ppFormat = &pFormat)
 				{
-					MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, args);
+					MaResult ret = LogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, args);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, ReadOnlySpan<byte> pFormat, byte* args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, ReadOnlySpan<byte> pFormat, byte* args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* ppFormat = pFormat)
 				{
-					MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, args);
+					MaResult ret = LogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, args);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, string pFormat, byte* args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, string pFormat, byte* args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
@@ -552,7 +552,7 @@ namespace Hexa.NET.MiniAudio
 					int pStrOffset0 = Utils.EncodeStringUTF8(pFormat, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, pStr0, args);
+				MaResult ret = LogPostvNative((MaLog*)ppLog, level, pStr0, args);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -561,25 +561,25 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, byte* pFormat, ref byte args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, byte* pFormat, ref byte args)
 		{
 			fixed (byte* pargs = &args)
 			{
-				MaResult ret = MaLogPostvNative((MaLog*)pLog, level, pFormat, (byte*)pargs);
+				MaResult ret = LogPostvNative((MaLog*)pLog, level, pFormat, (byte*)pargs);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, byte* pFormat, ReadOnlySpan<byte> args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, byte* pFormat, ReadOnlySpan<byte> args)
 		{
 			fixed (byte* pargs = args)
 			{
-				MaResult ret = MaLogPostvNative((MaLog*)pLog, level, pFormat, (byte*)pargs);
+				MaResult ret = LogPostvNative((MaLog*)pLog, level, pFormat, (byte*)pargs);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, byte* pFormat, string args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, byte* pFormat, string args)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -598,7 +598,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(args, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaLogPostvNative((MaLog*)pLog, level, pFormat, pStr0);
+			MaResult ret = LogPostvNative((MaLog*)pLog, level, pFormat, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -606,31 +606,31 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, byte* pFormat, ref byte args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, byte* pFormat, ref byte args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* pargs = &args)
 				{
-					MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, pFormat, (byte*)pargs);
+					MaResult ret = LogPostvNative((MaLog*)ppLog, level, pFormat, (byte*)pargs);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, byte* pFormat, ReadOnlySpan<byte> args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, byte* pFormat, ReadOnlySpan<byte> args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* pargs = args)
 				{
-					MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, pFormat, (byte*)pargs);
+					MaResult ret = LogPostvNative((MaLog*)ppLog, level, pFormat, (byte*)pargs);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, byte* pFormat, string args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, byte* pFormat, string args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
@@ -651,7 +651,7 @@ namespace Hexa.NET.MiniAudio
 					int pStrOffset0 = Utils.EncodeStringUTF8(args, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, pFormat, pStr0);
+				MaResult ret = LogPostvNative((MaLog*)ppLog, level, pFormat, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -660,31 +660,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, in byte pFormat, ref byte args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, in byte pFormat, ref byte args)
 		{
 			fixed (byte* ppFormat = &pFormat)
 			{
 				fixed (byte* pargs = &args)
 				{
-					MaResult ret = MaLogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, (byte*)pargs);
+					MaResult ret = LogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, (byte*)pargs);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pFormat, ReadOnlySpan<byte> args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pFormat, ReadOnlySpan<byte> args)
 		{
 			fixed (byte* ppFormat = pFormat)
 			{
 				fixed (byte* pargs = args)
 				{
-					MaResult ret = MaLogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, (byte*)pargs);
+					MaResult ret = LogPostvNative((MaLog*)pLog, level, (byte*)ppFormat, (byte*)pargs);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(MaLogPtr pLog, uint level, string pFormat, string args)
+		public static MaResult LogPostv(MaLogPtr pLog, uint level, string pFormat, string args)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -720,7 +720,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset1 = Utils.EncodeStringUTF8(args, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			MaResult ret = MaLogPostvNative((MaLog*)pLog, level, pStr0, pStr1);
+			MaResult ret = LogPostvNative((MaLog*)pLog, level, pStr0, pStr1);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -732,7 +732,7 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, in byte pFormat, ref byte args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, in byte pFormat, ref byte args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
@@ -740,14 +740,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* pargs = &args)
 					{
-						MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, (byte*)pargs);
+						MaResult ret = LogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, (byte*)pargs);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, ReadOnlySpan<byte> pFormat, ReadOnlySpan<byte> args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, ReadOnlySpan<byte> pFormat, ReadOnlySpan<byte> args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
@@ -755,14 +755,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* pargs = args)
 					{
-						MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, (byte*)pargs);
+						MaResult ret = LogPostvNative((MaLog*)ppLog, level, (byte*)ppFormat, (byte*)pargs);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaLogPostv(ref MaLog pLog, uint level, string pFormat, string args)
+		public static MaResult LogPostv(ref MaLog pLog, uint level, string pFormat, string args)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
@@ -800,7 +800,7 @@ namespace Hexa.NET.MiniAudio
 					int pStrOffset1 = Utils.EncodeStringUTF8(args, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				MaResult ret = MaLogPostvNative((MaLog*)ppLog, level, pStr0, pStr1);
+				MaResult ret = LogPostvNative((MaLog*)ppLog, level, pStr0, pStr1);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -814,7 +814,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLogPostfNative(MaLog* pLog, uint level, byte* pFormat)
+		internal static MaResult LogPostfNative(MaLog* pLog, uint level, byte* pFormat)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLog*, uint, byte*, MaResult>)funcTable[9])(pLog, level, pFormat);
@@ -823,40 +823,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLogPostf(MaLogPtr pLog, uint level, byte* pFormat)
+		public static MaResult LogPostf(MaLogPtr pLog, uint level, byte* pFormat)
 		{
-			MaResult ret = MaLogPostfNative((MaLog*)pLog, level, pFormat);
+			MaResult ret = LogPostfNative((MaLog*)pLog, level, pFormat);
 			return ret;
 		}
 
-		public static MaResult MaLogPostf(ref MaLog pLog, uint level, byte* pFormat)
+		public static MaResult LogPostf(ref MaLog pLog, uint level, byte* pFormat)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
-				MaResult ret = MaLogPostfNative((MaLog*)ppLog, level, pFormat);
+				MaResult ret = LogPostfNative((MaLog*)ppLog, level, pFormat);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostf(MaLogPtr pLog, uint level, in byte pFormat)
+		public static MaResult LogPostf(MaLogPtr pLog, uint level, in byte pFormat)
 		{
 			fixed (byte* ppFormat = &pFormat)
 			{
-				MaResult ret = MaLogPostfNative((MaLog*)pLog, level, (byte*)ppFormat);
+				MaResult ret = LogPostfNative((MaLog*)pLog, level, (byte*)ppFormat);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostf(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pFormat)
+		public static MaResult LogPostf(MaLogPtr pLog, uint level, ReadOnlySpan<byte> pFormat)
 		{
 			fixed (byte* ppFormat = pFormat)
 			{
-				MaResult ret = MaLogPostfNative((MaLog*)pLog, level, (byte*)ppFormat);
+				MaResult ret = LogPostfNative((MaLog*)pLog, level, (byte*)ppFormat);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLogPostf(MaLogPtr pLog, uint level, string pFormat)
+		public static MaResult LogPostf(MaLogPtr pLog, uint level, string pFormat)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -875,7 +875,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFormat, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaLogPostfNative((MaLog*)pLog, level, pStr0);
+			MaResult ret = LogPostfNative((MaLog*)pLog, level, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -883,31 +883,31 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaLogPostf(ref MaLog pLog, uint level, in byte pFormat)
+		public static MaResult LogPostf(ref MaLog pLog, uint level, in byte pFormat)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* ppFormat = &pFormat)
 				{
-					MaResult ret = MaLogPostfNative((MaLog*)ppLog, level, (byte*)ppFormat);
+					MaResult ret = LogPostfNative((MaLog*)ppLog, level, (byte*)ppFormat);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostf(ref MaLog pLog, uint level, ReadOnlySpan<byte> pFormat)
+		public static MaResult LogPostf(ref MaLog pLog, uint level, ReadOnlySpan<byte> pFormat)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
 				fixed (byte* ppFormat = pFormat)
 				{
-					MaResult ret = MaLogPostfNative((MaLog*)ppLog, level, (byte*)ppFormat);
+					MaResult ret = LogPostfNative((MaLog*)ppLog, level, (byte*)ppFormat);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLogPostf(ref MaLog pLog, uint level, string pFormat)
+		public static MaResult LogPostf(ref MaLog pLog, uint level, string pFormat)
 		{
 			fixed (MaLog* ppLog = &pLog)
 			{
@@ -928,7 +928,7 @@ namespace Hexa.NET.MiniAudio
 					int pStrOffset0 = Utils.EncodeStringUTF8(pFormat, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				MaResult ret = MaLogPostfNative((MaLog*)ppLog, level, pStr0);
+				MaResult ret = LogPostfNative((MaLog*)ppLog, level, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -938,7 +938,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaBiquadConfig MaBiquadConfigInitNative(MaFormat format, uint channels, double b0, double b1, double b2, double a0, double a1, double a2)
+		internal static MaBiquadConfig BiquadConfigInitNative(MaFormat format, uint channels, double b0, double b1, double b2, double a0, double a1, double a2)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, double, double, double, double, double, double, MaBiquadConfig>)funcTable[10])(format, channels, b0, b1, b2, a0, a1, a2);
@@ -947,14 +947,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaBiquadConfig MaBiquadConfigInit(MaFormat format, uint channels, double b0, double b1, double b2, double a0, double a1, double a2)
+		public static MaBiquadConfig BiquadConfigInit(MaFormat format, uint channels, double b0, double b1, double b2, double a0, double a1, double a2)
 		{
-			MaBiquadConfig ret = MaBiquadConfigInitNative(format, channels, b0, b1, b2, a0, a1, a2);
+			MaBiquadConfig ret = BiquadConfigInitNative(format, channels, b0, b1, b2, a0, a1, a2);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBiquadGetHeapSizeNative(MaBiquadConfig* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult BiquadGetHeapSizeNative(MaBiquadConfig* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBiquadConfig*, nuint*, MaResult>)funcTable[11])(pConfig, pHeapSizeInBytes);
@@ -963,44 +963,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBiquadGetHeapSize(MaBiquadConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult BiquadGetHeapSize(MaBiquadConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaBiquadGetHeapSizeNative((MaBiquadConfig*)pConfig, pHeapSizeInBytes);
+			MaResult ret = BiquadGetHeapSizeNative((MaBiquadConfig*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaBiquadGetHeapSize(in MaBiquadConfig pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult BiquadGetHeapSize(in MaBiquadConfig pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBiquadGetHeapSizeNative((MaBiquadConfig*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = BiquadGetHeapSizeNative((MaBiquadConfig*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadGetHeapSize(MaBiquadConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult BiquadGetHeapSize(MaBiquadConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaBiquadGetHeapSizeNative((MaBiquadConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = BiquadGetHeapSizeNative((MaBiquadConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadGetHeapSize(in MaBiquadConfig pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult BiquadGetHeapSize(in MaBiquadConfig pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaBiquadGetHeapSizeNative((MaBiquadConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = BiquadGetHeapSizeNative((MaBiquadConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBiquadInitPreallocatedNative(MaBiquadConfig* pConfig, void* pHeap, MaBiquad* pBQ)
+		internal static MaResult BiquadInitPreallocatedNative(MaBiquadConfig* pConfig, void* pHeap, MaBiquad* pBQ)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBiquadConfig*, void*, MaBiquad*, MaResult>)funcTable[12])(pConfig, pHeap, pBQ);
@@ -1009,80 +1009,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBiquadInitPreallocated(MaBiquadConfigPtr pConfig, void* pHeap, MaBiquadPtr pBQ)
+		public static MaResult BiquadInitPreallocated(MaBiquadConfigPtr pConfig, void* pHeap, MaBiquadPtr pBQ)
 		{
-			MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, pHeap, (MaBiquad*)pBQ);
+			MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, pHeap, (MaBiquad*)pBQ);
 			return ret;
 		}
 
-		public static MaResult MaBiquadInitPreallocated(in MaBiquadConfig pConfig, void* pHeap, MaBiquadPtr pBQ)
+		public static MaResult BiquadInitPreallocated(in MaBiquadConfig pConfig, void* pHeap, MaBiquadPtr pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, pHeap, (MaBiquad*)pBQ);
+				MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, pHeap, (MaBiquad*)pBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadInitPreallocated(MaBiquadConfigPtr pConfig, nint pHeap, MaBiquadPtr pBQ)
+		public static MaResult BiquadInitPreallocated(MaBiquadConfigPtr pConfig, nint pHeap, MaBiquadPtr pBQ)
 		{
-			MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, (void*)pHeap, (MaBiquad*)pBQ);
+			MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, (void*)pHeap, (MaBiquad*)pBQ);
 			return ret;
 		}
 
-		public static MaResult MaBiquadInitPreallocated(in MaBiquadConfig pConfig, nint pHeap, MaBiquadPtr pBQ)
+		public static MaResult BiquadInitPreallocated(in MaBiquadConfig pConfig, nint pHeap, MaBiquadPtr pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, (void*)pHeap, (MaBiquad*)pBQ);
+				MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, (void*)pHeap, (MaBiquad*)pBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadInitPreallocated(MaBiquadConfigPtr pConfig, void* pHeap, ref MaBiquad pBQ)
+		public static MaResult BiquadInitPreallocated(MaBiquadConfigPtr pConfig, void* pHeap, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, pHeap, (MaBiquad*)ppBQ);
+				MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, pHeap, (MaBiquad*)ppBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadInitPreallocated(in MaBiquadConfig pConfig, void* pHeap, ref MaBiquad pBQ)
+		public static MaResult BiquadInitPreallocated(in MaBiquadConfig pConfig, void* pHeap, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBiquad* ppBQ = &pBQ)
 				{
-					MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, pHeap, (MaBiquad*)ppBQ);
+					MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, pHeap, (MaBiquad*)ppBQ);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBiquadInitPreallocated(MaBiquadConfigPtr pConfig, nint pHeap, ref MaBiquad pBQ)
+		public static MaResult BiquadInitPreallocated(MaBiquadConfigPtr pConfig, nint pHeap, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, (void*)pHeap, (MaBiquad*)ppBQ);
+				MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)pConfig, (void*)pHeap, (MaBiquad*)ppBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadInitPreallocated(in MaBiquadConfig pConfig, nint pHeap, ref MaBiquad pBQ)
+		public static MaResult BiquadInitPreallocated(in MaBiquadConfig pConfig, nint pHeap, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBiquad* ppBQ = &pBQ)
 				{
-					MaResult ret = MaBiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, (void*)pHeap, (MaBiquad*)ppBQ);
+					MaResult ret = BiquadInitPreallocatedNative((MaBiquadConfig*)ppConfig, (void*)pHeap, (MaBiquad*)ppBQ);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBiquadInitNative(MaBiquadConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBiquad* pBQ)
+		internal static MaResult BiquadInitNative(MaBiquadConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBiquad* pBQ)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBiquadConfig*, MaAllocationCallbacks*, MaBiquad*, MaResult>)funcTable[13])(pConfig, pAllocationCallbacks, pBQ);
@@ -1091,76 +1091,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBiquadInit(MaBiquadConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBiquadPtr pBQ)
+		public static MaResult BiquadInit(MaBiquadConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBiquadPtr pBQ)
 		{
-			MaResult ret = MaBiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)pBQ);
+			MaResult ret = BiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)pBQ);
 			return ret;
 		}
 
-		public static MaResult MaBiquadInit(in MaBiquadConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBiquadPtr pBQ)
+		public static MaResult BiquadInit(in MaBiquadConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBiquadPtr pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)pBQ);
+				MaResult ret = BiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)pBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadInit(MaBiquadConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadPtr pBQ)
+		public static MaResult BiquadInit(MaBiquadConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadPtr pBQ)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaBiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)pBQ);
+				MaResult ret = BiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)pBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadInit(in MaBiquadConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadPtr pBQ)
+		public static MaResult BiquadInit(in MaBiquadConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBiquadPtr pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaBiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)pBQ);
+					MaResult ret = BiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)pBQ);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBiquadInit(MaBiquadConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquad pBQ)
+		public static MaResult BiquadInit(MaBiquadConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)ppBQ);
+				MaResult ret = BiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)ppBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadInit(in MaBiquadConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquad pBQ)
+		public static MaResult BiquadInit(in MaBiquadConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBiquad* ppBQ = &pBQ)
 				{
-					MaResult ret = MaBiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)ppBQ);
+					MaResult ret = BiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBiquad*)ppBQ);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBiquadInit(MaBiquadConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquad pBQ)
+		public static MaResult BiquadInit(MaBiquadConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquad pBQ)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaBiquad* ppBQ = &pBQ)
 				{
-					MaResult ret = MaBiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)ppBQ);
+					MaResult ret = BiquadInitNative((MaBiquadConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)ppBQ);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBiquadInit(in MaBiquadConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquad pBQ)
+		public static MaResult BiquadInit(in MaBiquadConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
@@ -1168,7 +1168,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaBiquad* ppBQ = &pBQ)
 					{
-						MaResult ret = MaBiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)ppBQ);
+						MaResult ret = BiquadInitNative((MaBiquadConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBiquad*)ppBQ);
 						return ret;
 					}
 				}
@@ -1176,7 +1176,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaBiquadUninitNative(MaBiquad* pBQ, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void BiquadUninitNative(MaBiquad* pBQ, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaBiquad*, MaAllocationCallbacks*, void>)funcTable[14])(pBQ, pAllocationCallbacks);
@@ -1185,40 +1185,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaBiquadUninit(MaBiquadPtr pBQ, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void BiquadUninit(MaBiquadPtr pBQ, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaBiquadUninitNative((MaBiquad*)pBQ, (MaAllocationCallbacks*)pAllocationCallbacks);
+			BiquadUninitNative((MaBiquad*)pBQ, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaBiquadUninit(ref MaBiquad pBQ, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void BiquadUninit(ref MaBiquad pBQ, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaBiquadUninitNative((MaBiquad*)ppBQ, (MaAllocationCallbacks*)pAllocationCallbacks);
+				BiquadUninitNative((MaBiquad*)ppBQ, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaBiquadUninit(MaBiquadPtr pBQ, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void BiquadUninit(MaBiquadPtr pBQ, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaBiquadUninitNative((MaBiquad*)pBQ, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				BiquadUninitNative((MaBiquad*)pBQ, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaBiquadUninit(ref MaBiquad pBQ, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void BiquadUninit(ref MaBiquad pBQ, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaBiquadUninitNative((MaBiquad*)ppBQ, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					BiquadUninitNative((MaBiquad*)ppBQ, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBiquadReinitNative(MaBiquadConfig* pConfig, MaBiquad* pBQ)
+		internal static MaResult BiquadReinitNative(MaBiquadConfig* pConfig, MaBiquad* pBQ)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBiquadConfig*, MaBiquad*, MaResult>)funcTable[15])(pConfig, pBQ);
@@ -1227,44 +1227,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBiquadReinit(MaBiquadConfigPtr pConfig, MaBiquadPtr pBQ)
+		public static MaResult BiquadReinit(MaBiquadConfigPtr pConfig, MaBiquadPtr pBQ)
 		{
-			MaResult ret = MaBiquadReinitNative((MaBiquadConfig*)pConfig, (MaBiquad*)pBQ);
+			MaResult ret = BiquadReinitNative((MaBiquadConfig*)pConfig, (MaBiquad*)pBQ);
 			return ret;
 		}
 
-		public static MaResult MaBiquadReinit(in MaBiquadConfig pConfig, MaBiquadPtr pBQ)
+		public static MaResult BiquadReinit(in MaBiquadConfig pConfig, MaBiquadPtr pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBiquadReinitNative((MaBiquadConfig*)ppConfig, (MaBiquad*)pBQ);
+				MaResult ret = BiquadReinitNative((MaBiquadConfig*)ppConfig, (MaBiquad*)pBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadReinit(MaBiquadConfigPtr pConfig, ref MaBiquad pBQ)
+		public static MaResult BiquadReinit(MaBiquadConfigPtr pConfig, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadReinitNative((MaBiquadConfig*)pConfig, (MaBiquad*)ppBQ);
+				MaResult ret = BiquadReinitNative((MaBiquadConfig*)pConfig, (MaBiquad*)ppBQ);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadReinit(in MaBiquadConfig pConfig, ref MaBiquad pBQ)
+		public static MaResult BiquadReinit(in MaBiquadConfig pConfig, ref MaBiquad pBQ)
 		{
 			fixed (MaBiquadConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBiquad* ppBQ = &pBQ)
 				{
-					MaResult ret = MaBiquadReinitNative((MaBiquadConfig*)ppConfig, (MaBiquad*)ppBQ);
+					MaResult ret = BiquadReinitNative((MaBiquadConfig*)ppConfig, (MaBiquad*)ppBQ);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBiquadClearCacheNative(MaBiquad* pBQ)
+		internal static MaResult BiquadClearCacheNative(MaBiquad* pBQ)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBiquad*, MaResult>)funcTable[16])(pBQ);
@@ -1273,23 +1273,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBiquadClearCache(MaBiquadPtr pBQ)
+		public static MaResult BiquadClearCache(MaBiquadPtr pBQ)
 		{
-			MaResult ret = MaBiquadClearCacheNative((MaBiquad*)pBQ);
+			MaResult ret = BiquadClearCacheNative((MaBiquad*)pBQ);
 			return ret;
 		}
 
-		public static MaResult MaBiquadClearCache(ref MaBiquad pBQ)
+		public static MaResult BiquadClearCache(ref MaBiquad pBQ)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadClearCacheNative((MaBiquad*)ppBQ);
+				MaResult ret = BiquadClearCacheNative((MaBiquad*)ppBQ);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBiquadProcessPcmFramesNative(MaBiquad* pBQ, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult BiquadProcessPcmFramesNative(MaBiquad* pBQ, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBiquad*, void*, void*, ulong, MaResult>)funcTable[17])(pBQ, pFramesOut, pFramesIn, frameCount);
@@ -1298,68 +1298,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(MaBiquadPtr pBQ, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(MaBiquadPtr pBQ, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)pBQ, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)pBQ, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(ref MaBiquad pBQ, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(ref MaBiquad pBQ, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)ppBQ, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)ppBQ, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(MaBiquadPtr pBQ, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(MaBiquadPtr pBQ, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)pBQ, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)pBQ, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(ref MaBiquad pBQ, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(ref MaBiquad pBQ, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)ppBQ, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)ppBQ, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(MaBiquadPtr pBQ, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(MaBiquadPtr pBQ, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)pBQ, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)pBQ, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(ref MaBiquad pBQ, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(ref MaBiquad pBQ, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)ppBQ, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)ppBQ, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(MaBiquadPtr pBQ, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(MaBiquadPtr pBQ, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)pBQ, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)pBQ, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBiquadProcessPcmFrames(ref MaBiquad pBQ, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BiquadProcessPcmFrames(ref MaBiquad pBQ, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				MaResult ret = MaBiquadProcessPcmFramesNative((MaBiquad*)ppBQ, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = BiquadProcessPcmFramesNative((MaBiquad*)ppBQ, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaBiquadGetLatencyNative(MaBiquad* pBQ)
+		internal static uint BiquadGetLatencyNative(MaBiquad* pBQ)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBiquad*, uint>)funcTable[18])(pBQ);
@@ -1368,23 +1368,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaBiquadGetLatency(MaBiquadPtr pBQ)
+		public static uint BiquadGetLatency(MaBiquadPtr pBQ)
 		{
-			uint ret = MaBiquadGetLatencyNative((MaBiquad*)pBQ);
+			uint ret = BiquadGetLatencyNative((MaBiquad*)pBQ);
 			return ret;
 		}
 
-		public static uint MaBiquadGetLatency(in MaBiquad pBQ)
+		public static uint BiquadGetLatency(in MaBiquad pBQ)
 		{
 			fixed (MaBiquad* ppBQ = &pBQ)
 			{
-				uint ret = MaBiquadGetLatencyNative((MaBiquad*)ppBQ);
+				uint ret = BiquadGetLatencyNative((MaBiquad*)ppBQ);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaLpf1Config MaLpf1ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
+		internal static MaLpf1Config Lpf1ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, MaLpf1Config>)funcTable[19])(format, channels, sampleRate, cutoffFrequency);
@@ -1393,14 +1393,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaLpf1Config MaLpf1ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
+		public static MaLpf1Config Lpf1ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
 		{
-			MaLpf1Config ret = MaLpf1ConfigInitNative(format, channels, sampleRate, cutoffFrequency);
+			MaLpf1Config ret = Lpf1ConfigInitNative(format, channels, sampleRate, cutoffFrequency);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaLpf1Config MaLpf2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
+		internal static MaLpf1Config Lpf2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, double, MaLpf1Config>)funcTable[20])(format, channels, sampleRate, cutoffFrequency, q);
@@ -1409,14 +1409,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaLpf1Config MaLpf2ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
+		public static MaLpf1Config Lpf2ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
 		{
-			MaLpf1Config ret = MaLpf2ConfigInitNative(format, channels, sampleRate, cutoffFrequency, q);
+			MaLpf1Config ret = Lpf2ConfigInitNative(format, channels, sampleRate, cutoffFrequency, q);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf1GetHeapSizeNative(MaLpf1Config* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult Lpf1GetHeapSizeNative(MaLpf1Config* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, nuint*, MaResult>)funcTable[21])(pConfig, pHeapSizeInBytes);
@@ -1425,44 +1425,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf1GetHeapSize(MaLpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Lpf1GetHeapSize(MaLpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaLpf1GetHeapSizeNative((MaLpf1Config*)pConfig, pHeapSizeInBytes);
+			MaResult ret = Lpf1GetHeapSizeNative((MaLpf1Config*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaLpf1GetHeapSize(in MaLpf1Config pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Lpf1GetHeapSize(in MaLpf1Config pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf1GetHeapSizeNative((MaLpf1Config*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = Lpf1GetHeapSizeNative((MaLpf1Config*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1GetHeapSize(MaLpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Lpf1GetHeapSize(MaLpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaLpf1GetHeapSizeNative((MaLpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = Lpf1GetHeapSizeNative((MaLpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1GetHeapSize(in MaLpf1Config pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Lpf1GetHeapSize(in MaLpf1Config pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaLpf1GetHeapSizeNative((MaLpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = Lpf1GetHeapSizeNative((MaLpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf1InitPreallocatedNative(MaLpf1Config* pConfig, void* pHeap, MaLpf1* plPf)
+		internal static MaResult Lpf1InitPreallocatedNative(MaLpf1Config* pConfig, void* pHeap, MaLpf1* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, void*, MaLpf1*, MaResult>)funcTable[22])(pConfig, pHeap, plPf);
@@ -1471,80 +1471,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf1InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, MaLpf1Ptr plPf)
+		public static MaResult Lpf1InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, MaLpf1Ptr plPf)
 		{
-			MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf1*)plPf);
+			MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf1*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf1InitPreallocated(in MaLpf1Config pConfig, void* pHeap, MaLpf1Ptr plPf)
+		public static MaResult Lpf1InitPreallocated(in MaLpf1Config pConfig, void* pHeap, MaLpf1Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf1*)plPf);
+				MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf1*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, MaLpf1Ptr plPf)
+		public static MaResult Lpf1InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, MaLpf1Ptr plPf)
 		{
-			MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf1*)plPf);
+			MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf1*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf1InitPreallocated(in MaLpf1Config pConfig, nint pHeap, MaLpf1Ptr plPf)
+		public static MaResult Lpf1InitPreallocated(in MaLpf1Config pConfig, nint pHeap, MaLpf1Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf1*)plPf);
+				MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf1*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, ref MaLpf1 plPf)
+		public static MaResult Lpf1InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf1*)pplPf);
+				MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf1*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1InitPreallocated(in MaLpf1Config pConfig, void* pHeap, ref MaLpf1 plPf)
+		public static MaResult Lpf1InitPreallocated(in MaLpf1Config pConfig, void* pHeap, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf1* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf1*)pplPf);
+					MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf1*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf1InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, ref MaLpf1 plPf)
+		public static MaResult Lpf1InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf1*)pplPf);
+				MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf1*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1InitPreallocated(in MaLpf1Config pConfig, nint pHeap, ref MaLpf1 plPf)
+		public static MaResult Lpf1InitPreallocated(in MaLpf1Config pConfig, nint pHeap, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf1* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf1*)pplPf);
+					MaResult ret = Lpf1InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf1*)pplPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf1InitNative(MaLpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLpf1* plPf)
+		internal static MaResult Lpf1InitNative(MaLpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLpf1* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, MaAllocationCallbacks*, MaLpf1*, MaResult>)funcTable[23])(pConfig, pAllocationCallbacks, plPf);
@@ -1553,76 +1553,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf1Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf1Ptr plPf)
+		public static MaResult Lpf1Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf1Ptr plPf)
 		{
-			MaResult ret = MaLpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)plPf);
+			MaResult ret = Lpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf1Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf1Ptr plPf)
+		public static MaResult Lpf1Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf1Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)plPf);
+				MaResult ret = Lpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf1Ptr plPf)
+		public static MaResult Lpf1Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf1Ptr plPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaLpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)plPf);
+				MaResult ret = Lpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf1Ptr plPf)
+		public static MaResult Lpf1Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf1Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaLpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)plPf);
+					MaResult ret = Lpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)plPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf1Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf1 plPf)
+		public static MaResult Lpf1Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)pplPf);
+				MaResult ret = Lpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf1 plPf)
+		public static MaResult Lpf1Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf1* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)pplPf);
+					MaResult ret = Lpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf1*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf1Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf1 plPf)
+		public static MaResult Lpf1Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf1 plPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaLpf1* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)pplPf);
+					MaResult ret = Lpf1InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf1Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf1 plPf)
+		public static MaResult Lpf1Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
@@ -1630,7 +1630,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaLpf1* pplPf = &plPf)
 					{
-						MaResult ret = MaLpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)pplPf);
+						MaResult ret = Lpf1InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf1*)pplPf);
 						return ret;
 					}
 				}
@@ -1638,7 +1638,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaLpf1UninitNative(MaLpf1* plPf, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void Lpf1UninitNative(MaLpf1* plPf, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaLpf1*, MaAllocationCallbacks*, void>)funcTable[24])(plPf, pAllocationCallbacks);
@@ -1647,40 +1647,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaLpf1Uninit(MaLpf1Ptr plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Lpf1Uninit(MaLpf1Ptr plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaLpf1UninitNative((MaLpf1*)plPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+			Lpf1UninitNative((MaLpf1*)plPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaLpf1Uninit(ref MaLpf1 plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Lpf1Uninit(ref MaLpf1 plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaLpf1UninitNative((MaLpf1*)pplPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+				Lpf1UninitNative((MaLpf1*)pplPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaLpf1Uninit(MaLpf1Ptr plPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Lpf1Uninit(MaLpf1Ptr plPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaLpf1UninitNative((MaLpf1*)plPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				Lpf1UninitNative((MaLpf1*)plPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaLpf1Uninit(ref MaLpf1 plPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Lpf1Uninit(ref MaLpf1 plPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaLpf1UninitNative((MaLpf1*)pplPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					Lpf1UninitNative((MaLpf1*)pplPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf1ReinitNative(MaLpf1Config* pConfig, MaLpf1* plPf)
+		internal static MaResult Lpf1ReinitNative(MaLpf1Config* pConfig, MaLpf1* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, MaLpf1*, MaResult>)funcTable[25])(pConfig, plPf);
@@ -1689,44 +1689,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf1Reinit(MaLpf1ConfigPtr pConfig, MaLpf1Ptr plPf)
+		public static MaResult Lpf1Reinit(MaLpf1ConfigPtr pConfig, MaLpf1Ptr plPf)
 		{
-			MaResult ret = MaLpf1ReinitNative((MaLpf1Config*)pConfig, (MaLpf1*)plPf);
+			MaResult ret = Lpf1ReinitNative((MaLpf1Config*)pConfig, (MaLpf1*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf1Reinit(in MaLpf1Config pConfig, MaLpf1Ptr plPf)
+		public static MaResult Lpf1Reinit(in MaLpf1Config pConfig, MaLpf1Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf1ReinitNative((MaLpf1Config*)ppConfig, (MaLpf1*)plPf);
+				MaResult ret = Lpf1ReinitNative((MaLpf1Config*)ppConfig, (MaLpf1*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1Reinit(MaLpf1ConfigPtr pConfig, ref MaLpf1 plPf)
+		public static MaResult Lpf1Reinit(MaLpf1ConfigPtr pConfig, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1ReinitNative((MaLpf1Config*)pConfig, (MaLpf1*)pplPf);
+				MaResult ret = Lpf1ReinitNative((MaLpf1Config*)pConfig, (MaLpf1*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1Reinit(in MaLpf1Config pConfig, ref MaLpf1 plPf)
+		public static MaResult Lpf1Reinit(in MaLpf1Config pConfig, ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf1* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf1ReinitNative((MaLpf1Config*)ppConfig, (MaLpf1*)pplPf);
+					MaResult ret = Lpf1ReinitNative((MaLpf1Config*)ppConfig, (MaLpf1*)pplPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf1ClearCacheNative(MaLpf1* plPf)
+		internal static MaResult Lpf1ClearCacheNative(MaLpf1* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1*, MaResult>)funcTable[26])(plPf);
@@ -1735,23 +1735,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf1ClearCache(MaLpf1Ptr plPf)
+		public static MaResult Lpf1ClearCache(MaLpf1Ptr plPf)
 		{
-			MaResult ret = MaLpf1ClearCacheNative((MaLpf1*)plPf);
+			MaResult ret = Lpf1ClearCacheNative((MaLpf1*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf1ClearCache(ref MaLpf1 plPf)
+		public static MaResult Lpf1ClearCache(ref MaLpf1 plPf)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1ClearCacheNative((MaLpf1*)pplPf);
+				MaResult ret = Lpf1ClearCacheNative((MaLpf1*)pplPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf1ProcessPcmFramesNative(MaLpf1* plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult Lpf1ProcessPcmFramesNative(MaLpf1* plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1*, void*, void*, ulong, MaResult>)funcTable[27])(plPf, pFramesOut, pFramesIn, frameCount);
@@ -1760,68 +1760,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(MaLpf1Ptr plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(MaLpf1Ptr plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)plPf, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)plPf, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(ref MaLpf1 plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(ref MaLpf1 plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)pplPf, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)pplPf, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(MaLpf1Ptr plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(MaLpf1Ptr plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)plPf, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)plPf, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(ref MaLpf1 plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(ref MaLpf1 plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)pplPf, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)pplPf, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(MaLpf1Ptr plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(MaLpf1Ptr plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)plPf, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)plPf, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(ref MaLpf1 plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(ref MaLpf1 plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)pplPf, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)pplPf, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(MaLpf1Ptr plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(MaLpf1Ptr plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)plPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)plPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf1ProcessPcmFrames(ref MaLpf1 plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf1ProcessPcmFrames(ref MaLpf1 plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf1ProcessPcmFramesNative((MaLpf1*)pplPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Lpf1ProcessPcmFramesNative((MaLpf1*)pplPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaLpf1GetLatencyNative(MaLpf1* plPf)
+		internal static uint Lpf1GetLatencyNative(MaLpf1* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1*, uint>)funcTable[28])(plPf);
@@ -1830,23 +1830,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaLpf1GetLatency(MaLpf1Ptr plPf)
+		public static uint Lpf1GetLatency(MaLpf1Ptr plPf)
 		{
-			uint ret = MaLpf1GetLatencyNative((MaLpf1*)plPf);
+			uint ret = Lpf1GetLatencyNative((MaLpf1*)plPf);
 			return ret;
 		}
 
-		public static uint MaLpf1GetLatency(in MaLpf1 plPf)
+		public static uint Lpf1GetLatency(in MaLpf1 plPf)
 		{
 			fixed (MaLpf1* pplPf = &plPf)
 			{
-				uint ret = MaLpf1GetLatencyNative((MaLpf1*)pplPf);
+				uint ret = Lpf1GetLatencyNative((MaLpf1*)pplPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf2GetHeapSizeNative(MaLpf1Config* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult Lpf2GetHeapSizeNative(MaLpf1Config* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, nuint*, MaResult>)funcTable[29])(pConfig, pHeapSizeInBytes);
@@ -1855,44 +1855,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf2GetHeapSize(MaLpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Lpf2GetHeapSize(MaLpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaLpf2GetHeapSizeNative((MaLpf1Config*)pConfig, pHeapSizeInBytes);
+			MaResult ret = Lpf2GetHeapSizeNative((MaLpf1Config*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaLpf2GetHeapSize(in MaLpf1Config pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Lpf2GetHeapSize(in MaLpf1Config pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf2GetHeapSizeNative((MaLpf1Config*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = Lpf2GetHeapSizeNative((MaLpf1Config*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2GetHeapSize(MaLpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Lpf2GetHeapSize(MaLpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaLpf2GetHeapSizeNative((MaLpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = Lpf2GetHeapSizeNative((MaLpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2GetHeapSize(in MaLpf1Config pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Lpf2GetHeapSize(in MaLpf1Config pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaLpf2GetHeapSizeNative((MaLpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = Lpf2GetHeapSizeNative((MaLpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf2InitPreallocatedNative(MaLpf1Config* pConfig, void* pHeap, MaLpf2* phPf)
+		internal static MaResult Lpf2InitPreallocatedNative(MaLpf1Config* pConfig, void* pHeap, MaLpf2* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, void*, MaLpf2*, MaResult>)funcTable[30])(pConfig, pHeap, phPf);
@@ -1901,80 +1901,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf2InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, MaLpf2Ptr phPf)
+		public static MaResult Lpf2InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, MaLpf2Ptr phPf)
 		{
-			MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf2*)phPf);
+			MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf2*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf2InitPreallocated(in MaLpf1Config pConfig, void* pHeap, MaLpf2Ptr phPf)
+		public static MaResult Lpf2InitPreallocated(in MaLpf1Config pConfig, void* pHeap, MaLpf2Ptr phPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf2*)phPf);
+				MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf2*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, MaLpf2Ptr phPf)
+		public static MaResult Lpf2InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, MaLpf2Ptr phPf)
 		{
-			MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf2*)phPf);
+			MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf2*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf2InitPreallocated(in MaLpf1Config pConfig, nint pHeap, MaLpf2Ptr phPf)
+		public static MaResult Lpf2InitPreallocated(in MaLpf1Config pConfig, nint pHeap, MaLpf2Ptr phPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf2*)phPf);
+				MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf2*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, ref MaLpf2 phPf)
+		public static MaResult Lpf2InitPreallocated(MaLpf1ConfigPtr pConfig, void* pHeap, ref MaLpf2 phPf)
 		{
 			fixed (MaLpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf2*)pphPf);
+				MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)pConfig, pHeap, (MaLpf2*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2InitPreallocated(in MaLpf1Config pConfig, void* pHeap, ref MaLpf2 phPf)
+		public static MaResult Lpf2InitPreallocated(in MaLpf1Config pConfig, void* pHeap, ref MaLpf2 phPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf2* pphPf = &phPf)
 				{
-					MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf2*)pphPf);
+					MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, pHeap, (MaLpf2*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf2InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, ref MaLpf2 phPf)
+		public static MaResult Lpf2InitPreallocated(MaLpf1ConfigPtr pConfig, nint pHeap, ref MaLpf2 phPf)
 		{
 			fixed (MaLpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf2*)pphPf);
+				MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)pConfig, (void*)pHeap, (MaLpf2*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2InitPreallocated(in MaLpf1Config pConfig, nint pHeap, ref MaLpf2 phPf)
+		public static MaResult Lpf2InitPreallocated(in MaLpf1Config pConfig, nint pHeap, ref MaLpf2 phPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf2* pphPf = &phPf)
 				{
-					MaResult ret = MaLpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf2*)pphPf);
+					MaResult ret = Lpf2InitPreallocatedNative((MaLpf1Config*)ppConfig, (void*)pHeap, (MaLpf2*)pphPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf2InitNative(MaLpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLpf2* plPf)
+		internal static MaResult Lpf2InitNative(MaLpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLpf2* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, MaAllocationCallbacks*, MaLpf2*, MaResult>)funcTable[31])(pConfig, pAllocationCallbacks, plPf);
@@ -1983,76 +1983,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf2Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf2Ptr plPf)
+		public static MaResult Lpf2Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf2Ptr plPf)
 		{
-			MaResult ret = MaLpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)plPf);
+			MaResult ret = Lpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf2Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf2Ptr plPf)
+		public static MaResult Lpf2Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpf2Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)plPf);
+				MaResult ret = Lpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf2Ptr plPf)
+		public static MaResult Lpf2Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf2Ptr plPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaLpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)plPf);
+				MaResult ret = Lpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf2Ptr plPf)
+		public static MaResult Lpf2Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpf2Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaLpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)plPf);
+					MaResult ret = Lpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)plPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf2Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf2 plPf)
+		public static MaResult Lpf2Init(MaLpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf2 plPf)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)pplPf);
+				MaResult ret = Lpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf2 plPf)
+		public static MaResult Lpf2Init(in MaLpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf2 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf2* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)pplPf);
+					MaResult ret = Lpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf2*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf2Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf2 plPf)
+		public static MaResult Lpf2Init(MaLpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf2 plPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaLpf2* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)pplPf);
+					MaResult ret = Lpf2InitNative((MaLpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpf2Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf2 plPf)
+		public static MaResult Lpf2Init(in MaLpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf2 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
@@ -2060,7 +2060,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaLpf2* pplPf = &plPf)
 					{
-						MaResult ret = MaLpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)pplPf);
+						MaResult ret = Lpf2InitNative((MaLpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf2*)pplPf);
 						return ret;
 					}
 				}
@@ -2068,7 +2068,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaLpf2UninitNative(MaLpf2* plPf, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void Lpf2UninitNative(MaLpf2* plPf, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaLpf2*, MaAllocationCallbacks*, void>)funcTable[32])(plPf, pAllocationCallbacks);
@@ -2077,40 +2077,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaLpf2Uninit(MaLpf2Ptr plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Lpf2Uninit(MaLpf2Ptr plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaLpf2UninitNative((MaLpf2*)plPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+			Lpf2UninitNative((MaLpf2*)plPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaLpf2Uninit(ref MaLpf2 plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Lpf2Uninit(ref MaLpf2 plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaLpf2UninitNative((MaLpf2*)pplPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+				Lpf2UninitNative((MaLpf2*)pplPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaLpf2Uninit(MaLpf2Ptr plPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Lpf2Uninit(MaLpf2Ptr plPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaLpf2UninitNative((MaLpf2*)plPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				Lpf2UninitNative((MaLpf2*)plPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaLpf2Uninit(ref MaLpf2 plPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Lpf2Uninit(ref MaLpf2 plPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaLpf2UninitNative((MaLpf2*)pplPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					Lpf2UninitNative((MaLpf2*)pplPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf2ReinitNative(MaLpf1Config* pConfig, MaLpf2* plPf)
+		internal static MaResult Lpf2ReinitNative(MaLpf1Config* pConfig, MaLpf2* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf1Config*, MaLpf2*, MaResult>)funcTable[33])(pConfig, plPf);
@@ -2119,44 +2119,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf2Reinit(MaLpf1ConfigPtr pConfig, MaLpf2Ptr plPf)
+		public static MaResult Lpf2Reinit(MaLpf1ConfigPtr pConfig, MaLpf2Ptr plPf)
 		{
-			MaResult ret = MaLpf2ReinitNative((MaLpf1Config*)pConfig, (MaLpf2*)plPf);
+			MaResult ret = Lpf2ReinitNative((MaLpf1Config*)pConfig, (MaLpf2*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf2Reinit(in MaLpf1Config pConfig, MaLpf2Ptr plPf)
+		public static MaResult Lpf2Reinit(in MaLpf1Config pConfig, MaLpf2Ptr plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpf2ReinitNative((MaLpf1Config*)ppConfig, (MaLpf2*)plPf);
+				MaResult ret = Lpf2ReinitNative((MaLpf1Config*)ppConfig, (MaLpf2*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2Reinit(MaLpf1ConfigPtr pConfig, ref MaLpf2 plPf)
+		public static MaResult Lpf2Reinit(MaLpf1ConfigPtr pConfig, ref MaLpf2 plPf)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf2ReinitNative((MaLpf1Config*)pConfig, (MaLpf2*)pplPf);
+				MaResult ret = Lpf2ReinitNative((MaLpf1Config*)pConfig, (MaLpf2*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2Reinit(in MaLpf1Config pConfig, ref MaLpf2 plPf)
+		public static MaResult Lpf2Reinit(in MaLpf1Config pConfig, ref MaLpf2 plPf)
 		{
 			fixed (MaLpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaLpf2* pplPf = &plPf)
 				{
-					MaResult ret = MaLpf2ReinitNative((MaLpf1Config*)ppConfig, (MaLpf2*)pplPf);
+					MaResult ret = Lpf2ReinitNative((MaLpf1Config*)ppConfig, (MaLpf2*)pplPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf2ClearCacheNative(MaLpf2* plPf)
+		internal static MaResult Lpf2ClearCacheNative(MaLpf2* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf2*, MaResult>)funcTable[34])(plPf);
@@ -2165,23 +2165,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf2ClearCache(MaLpf2Ptr plPf)
+		public static MaResult Lpf2ClearCache(MaLpf2Ptr plPf)
 		{
-			MaResult ret = MaLpf2ClearCacheNative((MaLpf2*)plPf);
+			MaResult ret = Lpf2ClearCacheNative((MaLpf2*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpf2ClearCache(ref MaLpf2 plPf)
+		public static MaResult Lpf2ClearCache(ref MaLpf2 plPf)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf2ClearCacheNative((MaLpf2*)pplPf);
+				MaResult ret = Lpf2ClearCacheNative((MaLpf2*)pplPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpf2ProcessPcmFramesNative(MaLpf2* plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult Lpf2ProcessPcmFramesNative(MaLpf2* plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf2*, void*, void*, ulong, MaResult>)funcTable[35])(plPf, pFramesOut, pFramesIn, frameCount);
@@ -2190,68 +2190,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(MaLpf2Ptr plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(MaLpf2Ptr plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)plPf, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)plPf, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(ref MaLpf2 plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(ref MaLpf2 plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)pplPf, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)pplPf, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(MaLpf2Ptr plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(MaLpf2Ptr plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)plPf, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)plPf, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(ref MaLpf2 plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(ref MaLpf2 plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)pplPf, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)pplPf, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(MaLpf2Ptr plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(MaLpf2Ptr plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)plPf, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)plPf, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(ref MaLpf2 plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(ref MaLpf2 plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)pplPf, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)pplPf, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(MaLpf2Ptr plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(MaLpf2Ptr plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)plPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)plPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpf2ProcessPcmFrames(ref MaLpf2 plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Lpf2ProcessPcmFrames(ref MaLpf2 plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				MaResult ret = MaLpf2ProcessPcmFramesNative((MaLpf2*)pplPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Lpf2ProcessPcmFramesNative((MaLpf2*)pplPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaLpf2GetLatencyNative(MaLpf2* plPf)
+		internal static uint Lpf2GetLatencyNative(MaLpf2* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf2*, uint>)funcTable[36])(plPf);
@@ -2260,23 +2260,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaLpf2GetLatency(MaLpf2Ptr plPf)
+		public static uint Lpf2GetLatency(MaLpf2Ptr plPf)
 		{
-			uint ret = MaLpf2GetLatencyNative((MaLpf2*)plPf);
+			uint ret = Lpf2GetLatencyNative((MaLpf2*)plPf);
 			return ret;
 		}
 
-		public static uint MaLpf2GetLatency(in MaLpf2 plPf)
+		public static uint Lpf2GetLatency(in MaLpf2 plPf)
 		{
 			fixed (MaLpf2* pplPf = &plPf)
 			{
-				uint ret = MaLpf2GetLatencyNative((MaLpf2*)pplPf);
+				uint ret = Lpf2GetLatencyNative((MaLpf2*)pplPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaLpfConfig MaLpfConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
+		internal static MaLpfConfig LpfConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, uint, MaLpfConfig>)funcTable[37])(format, channels, sampleRate, cutoffFrequency, order);
@@ -2285,14 +2285,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaLpfConfig MaLpfConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
+		public static MaLpfConfig LpfConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
-			MaLpfConfig ret = MaLpfConfigInitNative(format, channels, sampleRate, cutoffFrequency, order);
+			MaLpfConfig ret = LpfConfigInitNative(format, channels, sampleRate, cutoffFrequency, order);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpfGetHeapSizeNative(MaLpfConfig* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult LpfGetHeapSizeNative(MaLpfConfig* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpfConfig*, nuint*, MaResult>)funcTable[38])(pConfig, pHeapSizeInBytes);
@@ -2301,44 +2301,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpfGetHeapSize(MaLpfConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult LpfGetHeapSize(MaLpfConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaLpfGetHeapSizeNative((MaLpfConfig*)pConfig, pHeapSizeInBytes);
+			MaResult ret = LpfGetHeapSizeNative((MaLpfConfig*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaLpfGetHeapSize(in MaLpfConfig pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult LpfGetHeapSize(in MaLpfConfig pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpfGetHeapSizeNative((MaLpfConfig*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = LpfGetHeapSizeNative((MaLpfConfig*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfGetHeapSize(MaLpfConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult LpfGetHeapSize(MaLpfConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaLpfGetHeapSizeNative((MaLpfConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = LpfGetHeapSizeNative((MaLpfConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfGetHeapSize(in MaLpfConfig pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult LpfGetHeapSize(in MaLpfConfig pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaLpfGetHeapSizeNative((MaLpfConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = LpfGetHeapSizeNative((MaLpfConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpfInitPreallocatedNative(MaLpfConfig* pConfig, void* pHeap, MaLpf* plPf)
+		internal static MaResult LpfInitPreallocatedNative(MaLpfConfig* pConfig, void* pHeap, MaLpf* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpfConfig*, void*, MaLpf*, MaResult>)funcTable[39])(pConfig, pHeap, plPf);
@@ -2347,80 +2347,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpfInitPreallocated(MaLpfConfigPtr pConfig, void* pHeap, MaLpfPtr plPf)
+		public static MaResult LpfInitPreallocated(MaLpfConfigPtr pConfig, void* pHeap, MaLpfPtr plPf)
 		{
-			MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)pConfig, pHeap, (MaLpf*)plPf);
+			MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)pConfig, pHeap, (MaLpf*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpfInitPreallocated(in MaLpfConfig pConfig, void* pHeap, MaLpfPtr plPf)
+		public static MaResult LpfInitPreallocated(in MaLpfConfig pConfig, void* pHeap, MaLpfPtr plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)ppConfig, pHeap, (MaLpf*)plPf);
+				MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)ppConfig, pHeap, (MaLpf*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfInitPreallocated(MaLpfConfigPtr pConfig, nint pHeap, MaLpfPtr plPf)
+		public static MaResult LpfInitPreallocated(MaLpfConfigPtr pConfig, nint pHeap, MaLpfPtr plPf)
 		{
-			MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)pConfig, (void*)pHeap, (MaLpf*)plPf);
+			MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)pConfig, (void*)pHeap, (MaLpf*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpfInitPreallocated(in MaLpfConfig pConfig, nint pHeap, MaLpfPtr plPf)
+		public static MaResult LpfInitPreallocated(in MaLpfConfig pConfig, nint pHeap, MaLpfPtr plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)ppConfig, (void*)pHeap, (MaLpf*)plPf);
+				MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)ppConfig, (void*)pHeap, (MaLpf*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfInitPreallocated(MaLpfConfigPtr pConfig, void* pHeap, ref MaLpf plPf)
+		public static MaResult LpfInitPreallocated(MaLpfConfigPtr pConfig, void* pHeap, ref MaLpf plPf)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)pConfig, pHeap, (MaLpf*)pplPf);
+				MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)pConfig, pHeap, (MaLpf*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfInitPreallocated(in MaLpfConfig pConfig, void* pHeap, ref MaLpf plPf)
+		public static MaResult LpfInitPreallocated(in MaLpfConfig pConfig, void* pHeap, ref MaLpf plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaLpf* pplPf = &plPf)
 				{
-					MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)ppConfig, pHeap, (MaLpf*)pplPf);
+					MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)ppConfig, pHeap, (MaLpf*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpfInitPreallocated(MaLpfConfigPtr pConfig, nint pHeap, ref MaLpf plPf)
+		public static MaResult LpfInitPreallocated(MaLpfConfigPtr pConfig, nint pHeap, ref MaLpf plPf)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)pConfig, (void*)pHeap, (MaLpf*)pplPf);
+				MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)pConfig, (void*)pHeap, (MaLpf*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfInitPreallocated(in MaLpfConfig pConfig, nint pHeap, ref MaLpf plPf)
+		public static MaResult LpfInitPreallocated(in MaLpfConfig pConfig, nint pHeap, ref MaLpf plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaLpf* pplPf = &plPf)
 				{
-					MaResult ret = MaLpfInitPreallocatedNative((MaLpfConfig*)ppConfig, (void*)pHeap, (MaLpf*)pplPf);
+					MaResult ret = LpfInitPreallocatedNative((MaLpfConfig*)ppConfig, (void*)pHeap, (MaLpf*)pplPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpfInitNative(MaLpfConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLpf* plPf)
+		internal static MaResult LpfInitNative(MaLpfConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaLpf* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpfConfig*, MaAllocationCallbacks*, MaLpf*, MaResult>)funcTable[40])(pConfig, pAllocationCallbacks, plPf);
@@ -2429,76 +2429,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpfInit(MaLpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpfPtr plPf)
+		public static MaResult LpfInit(MaLpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpfPtr plPf)
 		{
-			MaResult ret = MaLpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)plPf);
+			MaResult ret = LpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpfInit(in MaLpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpfPtr plPf)
+		public static MaResult LpfInit(in MaLpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaLpfPtr plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)plPf);
+				MaResult ret = LpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfInit(MaLpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpfPtr plPf)
+		public static MaResult LpfInit(MaLpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpfPtr plPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaLpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)plPf);
+				MaResult ret = LpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfInit(in MaLpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpfPtr plPf)
+		public static MaResult LpfInit(in MaLpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaLpfPtr plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaLpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)plPf);
+					MaResult ret = LpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)plPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpfInit(MaLpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf plPf)
+		public static MaResult LpfInit(MaLpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf plPf)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)pplPf);
+				MaResult ret = LpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfInit(in MaLpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf plPf)
+		public static MaResult LpfInit(in MaLpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaLpf plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaLpf* pplPf = &plPf)
 				{
-					MaResult ret = MaLpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)pplPf);
+					MaResult ret = LpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaLpf*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpfInit(MaLpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf plPf)
+		public static MaResult LpfInit(MaLpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf plPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaLpf* pplPf = &plPf)
 				{
-					MaResult ret = MaLpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)pplPf);
+					MaResult ret = LpfInitNative((MaLpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaLpfInit(in MaLpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf plPf)
+		public static MaResult LpfInit(in MaLpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaLpf plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
@@ -2506,7 +2506,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaLpf* pplPf = &plPf)
 					{
-						MaResult ret = MaLpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)pplPf);
+						MaResult ret = LpfInitNative((MaLpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaLpf*)pplPf);
 						return ret;
 					}
 				}
@@ -2514,7 +2514,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaLpfUninitNative(MaLpf* plPf, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void LpfUninitNative(MaLpf* plPf, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaLpf*, MaAllocationCallbacks*, void>)funcTable[41])(plPf, pAllocationCallbacks);
@@ -2523,40 +2523,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaLpfUninit(MaLpfPtr plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void LpfUninit(MaLpfPtr plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaLpfUninitNative((MaLpf*)plPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+			LpfUninitNative((MaLpf*)plPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaLpfUninit(ref MaLpf plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void LpfUninit(ref MaLpf plPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaLpfUninitNative((MaLpf*)pplPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+				LpfUninitNative((MaLpf*)pplPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaLpfUninit(MaLpfPtr plPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void LpfUninit(MaLpfPtr plPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaLpfUninitNative((MaLpf*)plPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				LpfUninitNative((MaLpf*)plPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaLpfUninit(ref MaLpf plPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void LpfUninit(ref MaLpf plPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaLpfUninitNative((MaLpf*)pplPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					LpfUninitNative((MaLpf*)pplPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpfReinitNative(MaLpfConfig* pConfig, MaLpf* plPf)
+		internal static MaResult LpfReinitNative(MaLpfConfig* pConfig, MaLpf* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpfConfig*, MaLpf*, MaResult>)funcTable[42])(pConfig, plPf);
@@ -2565,44 +2565,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpfReinit(MaLpfConfigPtr pConfig, MaLpfPtr plPf)
+		public static MaResult LpfReinit(MaLpfConfigPtr pConfig, MaLpfPtr plPf)
 		{
-			MaResult ret = MaLpfReinitNative((MaLpfConfig*)pConfig, (MaLpf*)plPf);
+			MaResult ret = LpfReinitNative((MaLpfConfig*)pConfig, (MaLpf*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpfReinit(in MaLpfConfig pConfig, MaLpfPtr plPf)
+		public static MaResult LpfReinit(in MaLpfConfig pConfig, MaLpfPtr plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaLpfReinitNative((MaLpfConfig*)ppConfig, (MaLpf*)plPf);
+				MaResult ret = LpfReinitNative((MaLpfConfig*)ppConfig, (MaLpf*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfReinit(MaLpfConfigPtr pConfig, ref MaLpf plPf)
+		public static MaResult LpfReinit(MaLpfConfigPtr pConfig, ref MaLpf plPf)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfReinitNative((MaLpfConfig*)pConfig, (MaLpf*)pplPf);
+				MaResult ret = LpfReinitNative((MaLpfConfig*)pConfig, (MaLpf*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfReinit(in MaLpfConfig pConfig, ref MaLpf plPf)
+		public static MaResult LpfReinit(in MaLpfConfig pConfig, ref MaLpf plPf)
 		{
 			fixed (MaLpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaLpf* pplPf = &plPf)
 				{
-					MaResult ret = MaLpfReinitNative((MaLpfConfig*)ppConfig, (MaLpf*)pplPf);
+					MaResult ret = LpfReinitNative((MaLpfConfig*)ppConfig, (MaLpf*)pplPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpfClearCacheNative(MaLpf* plPf)
+		internal static MaResult LpfClearCacheNative(MaLpf* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf*, MaResult>)funcTable[43])(plPf);
@@ -2611,23 +2611,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpfClearCache(MaLpfPtr plPf)
+		public static MaResult LpfClearCache(MaLpfPtr plPf)
 		{
-			MaResult ret = MaLpfClearCacheNative((MaLpf*)plPf);
+			MaResult ret = LpfClearCacheNative((MaLpf*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaLpfClearCache(ref MaLpf plPf)
+		public static MaResult LpfClearCache(ref MaLpf plPf)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfClearCacheNative((MaLpf*)pplPf);
+				MaResult ret = LpfClearCacheNative((MaLpf*)pplPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaLpfProcessPcmFramesNative(MaLpf* plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult LpfProcessPcmFramesNative(MaLpf* plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf*, void*, void*, ulong, MaResult>)funcTable[44])(plPf, pFramesOut, pFramesIn, frameCount);
@@ -2636,68 +2636,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(MaLpfPtr plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(MaLpfPtr plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)plPf, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = LpfProcessPcmFramesNative((MaLpf*)plPf, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(ref MaLpf plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(ref MaLpf plPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)pplPf, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = LpfProcessPcmFramesNative((MaLpf*)pplPf, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(MaLpfPtr plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(MaLpfPtr plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)plPf, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = LpfProcessPcmFramesNative((MaLpf*)plPf, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(ref MaLpf plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(ref MaLpf plPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)pplPf, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = LpfProcessPcmFramesNative((MaLpf*)pplPf, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(MaLpfPtr plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(MaLpfPtr plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)plPf, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = LpfProcessPcmFramesNative((MaLpf*)plPf, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(ref MaLpf plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(ref MaLpf plPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)pplPf, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = LpfProcessPcmFramesNative((MaLpf*)pplPf, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(MaLpfPtr plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(MaLpfPtr plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)plPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = LpfProcessPcmFramesNative((MaLpf*)plPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaLpfProcessPcmFrames(ref MaLpf plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult LpfProcessPcmFrames(ref MaLpf plPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				MaResult ret = MaLpfProcessPcmFramesNative((MaLpf*)pplPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = LpfProcessPcmFramesNative((MaLpf*)pplPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaLpfGetLatencyNative(MaLpf* plPf)
+		internal static uint LpfGetLatencyNative(MaLpf* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaLpf*, uint>)funcTable[45])(plPf);
@@ -2706,23 +2706,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaLpfGetLatency(MaLpfPtr plPf)
+		public static uint LpfGetLatency(MaLpfPtr plPf)
 		{
-			uint ret = MaLpfGetLatencyNative((MaLpf*)plPf);
+			uint ret = LpfGetLatencyNative((MaLpf*)plPf);
 			return ret;
 		}
 
-		public static uint MaLpfGetLatency(in MaLpf plPf)
+		public static uint LpfGetLatency(in MaLpf plPf)
 		{
 			fixed (MaLpf* pplPf = &plPf)
 			{
-				uint ret = MaLpfGetLatencyNative((MaLpf*)pplPf);
+				uint ret = LpfGetLatencyNative((MaLpf*)pplPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaHpf1Config MaHpf1ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
+		internal static MaHpf1Config Hpf1ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, MaHpf1Config>)funcTable[46])(format, channels, sampleRate, cutoffFrequency);
@@ -2731,14 +2731,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaHpf1Config MaHpf1ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
+		public static MaHpf1Config Hpf1ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency)
 		{
-			MaHpf1Config ret = MaHpf1ConfigInitNative(format, channels, sampleRate, cutoffFrequency);
+			MaHpf1Config ret = Hpf1ConfigInitNative(format, channels, sampleRate, cutoffFrequency);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaHpf1Config MaHpf2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
+		internal static MaHpf1Config Hpf2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, double, MaHpf1Config>)funcTable[47])(format, channels, sampleRate, cutoffFrequency, q);
@@ -2747,14 +2747,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaHpf1Config MaHpf2ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
+		public static MaHpf1Config Hpf2ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
 		{
-			MaHpf1Config ret = MaHpf2ConfigInitNative(format, channels, sampleRate, cutoffFrequency, q);
+			MaHpf1Config ret = Hpf2ConfigInitNative(format, channels, sampleRate, cutoffFrequency, q);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf1GetHeapSizeNative(MaHpf1Config* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult Hpf1GetHeapSizeNative(MaHpf1Config* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, nuint*, MaResult>)funcTable[48])(pConfig, pHeapSizeInBytes);
@@ -2763,44 +2763,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf1GetHeapSize(MaHpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Hpf1GetHeapSize(MaHpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaHpf1GetHeapSizeNative((MaHpf1Config*)pConfig, pHeapSizeInBytes);
+			MaResult ret = Hpf1GetHeapSizeNative((MaHpf1Config*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaHpf1GetHeapSize(in MaHpf1Config pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Hpf1GetHeapSize(in MaHpf1Config pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf1GetHeapSizeNative((MaHpf1Config*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = Hpf1GetHeapSizeNative((MaHpf1Config*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1GetHeapSize(MaHpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Hpf1GetHeapSize(MaHpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaHpf1GetHeapSizeNative((MaHpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = Hpf1GetHeapSizeNative((MaHpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1GetHeapSize(in MaHpf1Config pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Hpf1GetHeapSize(in MaHpf1Config pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaHpf1GetHeapSizeNative((MaHpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = Hpf1GetHeapSizeNative((MaHpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf1InitPreallocatedNative(MaHpf1Config* pConfig, void* pHeap, MaHpf1* plPf)
+		internal static MaResult Hpf1InitPreallocatedNative(MaHpf1Config* pConfig, void* pHeap, MaHpf1* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, void*, MaHpf1*, MaResult>)funcTable[49])(pConfig, pHeap, plPf);
@@ -2809,80 +2809,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf1InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, MaHpf1Ptr plPf)
+		public static MaResult Hpf1InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, MaHpf1Ptr plPf)
 		{
-			MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf1*)plPf);
+			MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf1*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf1InitPreallocated(in MaHpf1Config pConfig, void* pHeap, MaHpf1Ptr plPf)
+		public static MaResult Hpf1InitPreallocated(in MaHpf1Config pConfig, void* pHeap, MaHpf1Ptr plPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf1*)plPf);
+				MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf1*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, MaHpf1Ptr plPf)
+		public static MaResult Hpf1InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, MaHpf1Ptr plPf)
 		{
-			MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf1*)plPf);
+			MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf1*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf1InitPreallocated(in MaHpf1Config pConfig, nint pHeap, MaHpf1Ptr plPf)
+		public static MaResult Hpf1InitPreallocated(in MaHpf1Config pConfig, nint pHeap, MaHpf1Ptr plPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf1*)plPf);
+				MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf1*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, ref MaHpf1 plPf)
+		public static MaResult Hpf1InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, ref MaHpf1 plPf)
 		{
 			fixed (MaHpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf1*)pplPf);
+				MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf1*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1InitPreallocated(in MaHpf1Config pConfig, void* pHeap, ref MaHpf1 plPf)
+		public static MaResult Hpf1InitPreallocated(in MaHpf1Config pConfig, void* pHeap, ref MaHpf1 plPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf1* pplPf = &plPf)
 				{
-					MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf1*)pplPf);
+					MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf1*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf1InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, ref MaHpf1 plPf)
+		public static MaResult Hpf1InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, ref MaHpf1 plPf)
 		{
 			fixed (MaHpf1* pplPf = &plPf)
 			{
-				MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf1*)pplPf);
+				MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf1*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1InitPreallocated(in MaHpf1Config pConfig, nint pHeap, ref MaHpf1 plPf)
+		public static MaResult Hpf1InitPreallocated(in MaHpf1Config pConfig, nint pHeap, ref MaHpf1 plPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf1* pplPf = &plPf)
 				{
-					MaResult ret = MaHpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf1*)pplPf);
+					MaResult ret = Hpf1InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf1*)pplPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf1InitNative(MaHpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHpf1* phPf)
+		internal static MaResult Hpf1InitNative(MaHpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHpf1* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, MaAllocationCallbacks*, MaHpf1*, MaResult>)funcTable[50])(pConfig, pAllocationCallbacks, phPf);
@@ -2891,76 +2891,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf1Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf1Ptr phPf)
+		public static MaResult Hpf1Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf1Ptr phPf)
 		{
-			MaResult ret = MaHpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)phPf);
+			MaResult ret = Hpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf1Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf1Ptr phPf)
+		public static MaResult Hpf1Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf1Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)phPf);
+				MaResult ret = Hpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf1Ptr phPf)
+		public static MaResult Hpf1Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf1Ptr phPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaHpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)phPf);
+				MaResult ret = Hpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf1Ptr phPf)
+		public static MaResult Hpf1Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf1Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaHpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)phPf);
+					MaResult ret = Hpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)phPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf1Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf1 phPf)
+		public static MaResult Hpf1Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf1 phPf)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)pphPf);
+				MaResult ret = Hpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf1 phPf)
+		public static MaResult Hpf1Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf1 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf1* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)pphPf);
+					MaResult ret = Hpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf1*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf1Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf1 phPf)
+		public static MaResult Hpf1Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf1 phPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaHpf1* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)pphPf);
+					MaResult ret = Hpf1InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf1Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf1 phPf)
+		public static MaResult Hpf1Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf1 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
@@ -2968,7 +2968,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaHpf1* pphPf = &phPf)
 					{
-						MaResult ret = MaHpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)pphPf);
+						MaResult ret = Hpf1InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf1*)pphPf);
 						return ret;
 					}
 				}
@@ -2976,7 +2976,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaHpf1UninitNative(MaHpf1* phPf, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void Hpf1UninitNative(MaHpf1* phPf, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaHpf1*, MaAllocationCallbacks*, void>)funcTable[51])(phPf, pAllocationCallbacks);
@@ -2985,40 +2985,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaHpf1Uninit(MaHpf1Ptr phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Hpf1Uninit(MaHpf1Ptr phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaHpf1UninitNative((MaHpf1*)phPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+			Hpf1UninitNative((MaHpf1*)phPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaHpf1Uninit(ref MaHpf1 phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Hpf1Uninit(ref MaHpf1 phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				MaHpf1UninitNative((MaHpf1*)pphPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+				Hpf1UninitNative((MaHpf1*)pphPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaHpf1Uninit(MaHpf1Ptr phPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Hpf1Uninit(MaHpf1Ptr phPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaHpf1UninitNative((MaHpf1*)phPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				Hpf1UninitNative((MaHpf1*)phPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaHpf1Uninit(ref MaHpf1 phPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Hpf1Uninit(ref MaHpf1 phPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaHpf1UninitNative((MaHpf1*)pphPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					Hpf1UninitNative((MaHpf1*)pphPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf1ReinitNative(MaHpf1Config* pConfig, MaHpf1* phPf)
+		internal static MaResult Hpf1ReinitNative(MaHpf1Config* pConfig, MaHpf1* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, MaHpf1*, MaResult>)funcTable[52])(pConfig, phPf);
@@ -3027,44 +3027,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf1Reinit(MaHpf1ConfigPtr pConfig, MaHpf1Ptr phPf)
+		public static MaResult Hpf1Reinit(MaHpf1ConfigPtr pConfig, MaHpf1Ptr phPf)
 		{
-			MaResult ret = MaHpf1ReinitNative((MaHpf1Config*)pConfig, (MaHpf1*)phPf);
+			MaResult ret = Hpf1ReinitNative((MaHpf1Config*)pConfig, (MaHpf1*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf1Reinit(in MaHpf1Config pConfig, MaHpf1Ptr phPf)
+		public static MaResult Hpf1Reinit(in MaHpf1Config pConfig, MaHpf1Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf1ReinitNative((MaHpf1Config*)ppConfig, (MaHpf1*)phPf);
+				MaResult ret = Hpf1ReinitNative((MaHpf1Config*)ppConfig, (MaHpf1*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1Reinit(MaHpf1ConfigPtr pConfig, ref MaHpf1 phPf)
+		public static MaResult Hpf1Reinit(MaHpf1ConfigPtr pConfig, ref MaHpf1 phPf)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf1ReinitNative((MaHpf1Config*)pConfig, (MaHpf1*)pphPf);
+				MaResult ret = Hpf1ReinitNative((MaHpf1Config*)pConfig, (MaHpf1*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1Reinit(in MaHpf1Config pConfig, ref MaHpf1 phPf)
+		public static MaResult Hpf1Reinit(in MaHpf1Config pConfig, ref MaHpf1 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf1* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf1ReinitNative((MaHpf1Config*)ppConfig, (MaHpf1*)pphPf);
+					MaResult ret = Hpf1ReinitNative((MaHpf1Config*)ppConfig, (MaHpf1*)pphPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf1ProcessPcmFramesNative(MaHpf1* phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult Hpf1ProcessPcmFramesNative(MaHpf1* phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1*, void*, void*, ulong, MaResult>)funcTable[53])(phPf, pFramesOut, pFramesIn, frameCount);
@@ -3073,68 +3073,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(MaHpf1Ptr phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(MaHpf1Ptr phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)phPf, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)phPf, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(ref MaHpf1 phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(ref MaHpf1 phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)pphPf, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)pphPf, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(MaHpf1Ptr phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(MaHpf1Ptr phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)phPf, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)phPf, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(ref MaHpf1 phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(ref MaHpf1 phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)pphPf, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)pphPf, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(MaHpf1Ptr phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(MaHpf1Ptr phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)phPf, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)phPf, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(ref MaHpf1 phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(ref MaHpf1 phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)pphPf, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)pphPf, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(MaHpf1Ptr phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(MaHpf1Ptr phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)phPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)phPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf1ProcessPcmFrames(ref MaHpf1 phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf1ProcessPcmFrames(ref MaHpf1 phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf1ProcessPcmFramesNative((MaHpf1*)pphPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Hpf1ProcessPcmFramesNative((MaHpf1*)pphPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaHpf1GetLatencyNative(MaHpf1* phPf)
+		internal static uint Hpf1GetLatencyNative(MaHpf1* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1*, uint>)funcTable[54])(phPf);
@@ -3143,23 +3143,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaHpf1GetLatency(MaHpf1Ptr phPf)
+		public static uint Hpf1GetLatency(MaHpf1Ptr phPf)
 		{
-			uint ret = MaHpf1GetLatencyNative((MaHpf1*)phPf);
+			uint ret = Hpf1GetLatencyNative((MaHpf1*)phPf);
 			return ret;
 		}
 
-		public static uint MaHpf1GetLatency(in MaHpf1 phPf)
+		public static uint Hpf1GetLatency(in MaHpf1 phPf)
 		{
 			fixed (MaHpf1* pphPf = &phPf)
 			{
-				uint ret = MaHpf1GetLatencyNative((MaHpf1*)pphPf);
+				uint ret = Hpf1GetLatencyNative((MaHpf1*)pphPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf2GetHeapSizeNative(MaHpf1Config* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult Hpf2GetHeapSizeNative(MaHpf1Config* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, nuint*, MaResult>)funcTable[55])(pConfig, pHeapSizeInBytes);
@@ -3168,44 +3168,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf2GetHeapSize(MaHpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Hpf2GetHeapSize(MaHpf1ConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaHpf2GetHeapSizeNative((MaHpf1Config*)pConfig, pHeapSizeInBytes);
+			MaResult ret = Hpf2GetHeapSizeNative((MaHpf1Config*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaHpf2GetHeapSize(in MaHpf1Config pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Hpf2GetHeapSize(in MaHpf1Config pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf2GetHeapSizeNative((MaHpf1Config*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = Hpf2GetHeapSizeNative((MaHpf1Config*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2GetHeapSize(MaHpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Hpf2GetHeapSize(MaHpf1ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaHpf2GetHeapSizeNative((MaHpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = Hpf2GetHeapSizeNative((MaHpf1Config*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2GetHeapSize(in MaHpf1Config pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Hpf2GetHeapSize(in MaHpf1Config pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaHpf2GetHeapSizeNative((MaHpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = Hpf2GetHeapSizeNative((MaHpf1Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf2InitPreallocatedNative(MaHpf1Config* pConfig, void* pHeap, MaHpf2* phPf)
+		internal static MaResult Hpf2InitPreallocatedNative(MaHpf1Config* pConfig, void* pHeap, MaHpf2* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, void*, MaHpf2*, MaResult>)funcTable[56])(pConfig, pHeap, phPf);
@@ -3214,80 +3214,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf2InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, MaHpf2Ptr phPf)
+		public static MaResult Hpf2InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, MaHpf2Ptr phPf)
 		{
-			MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf2*)phPf);
+			MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf2*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf2InitPreallocated(in MaHpf1Config pConfig, void* pHeap, MaHpf2Ptr phPf)
+		public static MaResult Hpf2InitPreallocated(in MaHpf1Config pConfig, void* pHeap, MaHpf2Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf2*)phPf);
+				MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf2*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, MaHpf2Ptr phPf)
+		public static MaResult Hpf2InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, MaHpf2Ptr phPf)
 		{
-			MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf2*)phPf);
+			MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf2*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf2InitPreallocated(in MaHpf1Config pConfig, nint pHeap, MaHpf2Ptr phPf)
+		public static MaResult Hpf2InitPreallocated(in MaHpf1Config pConfig, nint pHeap, MaHpf2Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf2*)phPf);
+				MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf2*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, ref MaHpf2 phPf)
+		public static MaResult Hpf2InitPreallocated(MaHpf1ConfigPtr pConfig, void* pHeap, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf2*)pphPf);
+				MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)pConfig, pHeap, (MaHpf2*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2InitPreallocated(in MaHpf1Config pConfig, void* pHeap, ref MaHpf2 phPf)
+		public static MaResult Hpf2InitPreallocated(in MaHpf1Config pConfig, void* pHeap, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf2* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf2*)pphPf);
+					MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, pHeap, (MaHpf2*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf2InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, ref MaHpf2 phPf)
+		public static MaResult Hpf2InitPreallocated(MaHpf1ConfigPtr pConfig, nint pHeap, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf2*)pphPf);
+				MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)pConfig, (void*)pHeap, (MaHpf2*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2InitPreallocated(in MaHpf1Config pConfig, nint pHeap, ref MaHpf2 phPf)
+		public static MaResult Hpf2InitPreallocated(in MaHpf1Config pConfig, nint pHeap, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf2* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf2*)pphPf);
+					MaResult ret = Hpf2InitPreallocatedNative((MaHpf1Config*)ppConfig, (void*)pHeap, (MaHpf2*)pphPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf2InitNative(MaHpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHpf2* phPf)
+		internal static MaResult Hpf2InitNative(MaHpf1Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHpf2* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, MaAllocationCallbacks*, MaHpf2*, MaResult>)funcTable[57])(pConfig, pAllocationCallbacks, phPf);
@@ -3296,76 +3296,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf2Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf2Ptr phPf)
+		public static MaResult Hpf2Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf2Ptr phPf)
 		{
-			MaResult ret = MaHpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)phPf);
+			MaResult ret = Hpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf2Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf2Ptr phPf)
+		public static MaResult Hpf2Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpf2Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)phPf);
+				MaResult ret = Hpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf2Ptr phPf)
+		public static MaResult Hpf2Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf2Ptr phPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaHpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)phPf);
+				MaResult ret = Hpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf2Ptr phPf)
+		public static MaResult Hpf2Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpf2Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaHpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)phPf);
+					MaResult ret = Hpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)phPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf2Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf2 phPf)
+		public static MaResult Hpf2Init(MaHpf1ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)pphPf);
+				MaResult ret = Hpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf2 phPf)
+		public static MaResult Hpf2Init(in MaHpf1Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf2* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)pphPf);
+					MaResult ret = Hpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf2*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf2Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf2 phPf)
+		public static MaResult Hpf2Init(MaHpf1ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf2 phPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaHpf2* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)pphPf);
+					MaResult ret = Hpf2InitNative((MaHpf1Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpf2Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf2 phPf)
+		public static MaResult Hpf2Init(in MaHpf1Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
@@ -3373,7 +3373,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaHpf2* pphPf = &phPf)
 					{
-						MaResult ret = MaHpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)pphPf);
+						MaResult ret = Hpf2InitNative((MaHpf1Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf2*)pphPf);
 						return ret;
 					}
 				}
@@ -3381,7 +3381,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaHpf2UninitNative(MaHpf2* phPf, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void Hpf2UninitNative(MaHpf2* phPf, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaHpf2*, MaAllocationCallbacks*, void>)funcTable[58])(phPf, pAllocationCallbacks);
@@ -3390,40 +3390,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaHpf2Uninit(MaHpf2Ptr phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Hpf2Uninit(MaHpf2Ptr phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaHpf2UninitNative((MaHpf2*)phPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+			Hpf2UninitNative((MaHpf2*)phPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaHpf2Uninit(ref MaHpf2 phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Hpf2Uninit(ref MaHpf2 phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaHpf2UninitNative((MaHpf2*)pphPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+				Hpf2UninitNative((MaHpf2*)pphPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaHpf2Uninit(MaHpf2Ptr phPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Hpf2Uninit(MaHpf2Ptr phPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaHpf2UninitNative((MaHpf2*)phPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				Hpf2UninitNative((MaHpf2*)phPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaHpf2Uninit(ref MaHpf2 phPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Hpf2Uninit(ref MaHpf2 phPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaHpf2UninitNative((MaHpf2*)pphPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					Hpf2UninitNative((MaHpf2*)pphPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf2ReinitNative(MaHpf1Config* pConfig, MaHpf2* phPf)
+		internal static MaResult Hpf2ReinitNative(MaHpf1Config* pConfig, MaHpf2* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf1Config*, MaHpf2*, MaResult>)funcTable[59])(pConfig, phPf);
@@ -3432,44 +3432,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf2Reinit(MaHpf1ConfigPtr pConfig, MaHpf2Ptr phPf)
+		public static MaResult Hpf2Reinit(MaHpf1ConfigPtr pConfig, MaHpf2Ptr phPf)
 		{
-			MaResult ret = MaHpf2ReinitNative((MaHpf1Config*)pConfig, (MaHpf2*)phPf);
+			MaResult ret = Hpf2ReinitNative((MaHpf1Config*)pConfig, (MaHpf2*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpf2Reinit(in MaHpf1Config pConfig, MaHpf2Ptr phPf)
+		public static MaResult Hpf2Reinit(in MaHpf1Config pConfig, MaHpf2Ptr phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpf2ReinitNative((MaHpf1Config*)ppConfig, (MaHpf2*)phPf);
+				MaResult ret = Hpf2ReinitNative((MaHpf1Config*)ppConfig, (MaHpf2*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2Reinit(MaHpf1ConfigPtr pConfig, ref MaHpf2 phPf)
+		public static MaResult Hpf2Reinit(MaHpf1ConfigPtr pConfig, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2ReinitNative((MaHpf1Config*)pConfig, (MaHpf2*)pphPf);
+				MaResult ret = Hpf2ReinitNative((MaHpf1Config*)pConfig, (MaHpf2*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2Reinit(in MaHpf1Config pConfig, ref MaHpf2 phPf)
+		public static MaResult Hpf2Reinit(in MaHpf1Config pConfig, ref MaHpf2 phPf)
 		{
 			fixed (MaHpf1Config* ppConfig = &pConfig)
 			{
 				fixed (MaHpf2* pphPf = &phPf)
 				{
-					MaResult ret = MaHpf2ReinitNative((MaHpf1Config*)ppConfig, (MaHpf2*)pphPf);
+					MaResult ret = Hpf2ReinitNative((MaHpf1Config*)ppConfig, (MaHpf2*)pphPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpf2ProcessPcmFramesNative(MaHpf2* phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult Hpf2ProcessPcmFramesNative(MaHpf2* phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf2*, void*, void*, ulong, MaResult>)funcTable[60])(phPf, pFramesOut, pFramesIn, frameCount);
@@ -3478,68 +3478,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(MaHpf2Ptr phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(MaHpf2Ptr phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)phPf, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)phPf, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(ref MaHpf2 phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(ref MaHpf2 phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)pphPf, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)pphPf, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(MaHpf2Ptr phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(MaHpf2Ptr phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)phPf, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)phPf, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(ref MaHpf2 phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(ref MaHpf2 phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)pphPf, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)pphPf, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(MaHpf2Ptr phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(MaHpf2Ptr phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)phPf, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)phPf, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(ref MaHpf2 phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(ref MaHpf2 phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)pphPf, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)pphPf, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(MaHpf2Ptr phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(MaHpf2Ptr phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)phPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)phPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpf2ProcessPcmFrames(ref MaHpf2 phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Hpf2ProcessPcmFrames(ref MaHpf2 phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				MaResult ret = MaHpf2ProcessPcmFramesNative((MaHpf2*)pphPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Hpf2ProcessPcmFramesNative((MaHpf2*)pphPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaHpf2GetLatencyNative(MaHpf2* phPf)
+		internal static uint Hpf2GetLatencyNative(MaHpf2* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf2*, uint>)funcTable[61])(phPf);
@@ -3548,23 +3548,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaHpf2GetLatency(MaHpf2Ptr phPf)
+		public static uint Hpf2GetLatency(MaHpf2Ptr phPf)
 		{
-			uint ret = MaHpf2GetLatencyNative((MaHpf2*)phPf);
+			uint ret = Hpf2GetLatencyNative((MaHpf2*)phPf);
 			return ret;
 		}
 
-		public static uint MaHpf2GetLatency(in MaHpf2 phPf)
+		public static uint Hpf2GetLatency(in MaHpf2 phPf)
 		{
 			fixed (MaHpf2* pphPf = &phPf)
 			{
-				uint ret = MaHpf2GetLatencyNative((MaHpf2*)pphPf);
+				uint ret = Hpf2GetLatencyNative((MaHpf2*)pphPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaHpfConfig MaHpfConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
+		internal static MaHpfConfig HpfConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, uint, MaHpfConfig>)funcTable[62])(format, channels, sampleRate, cutoffFrequency, order);
@@ -3573,14 +3573,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaHpfConfig MaHpfConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
+		public static MaHpfConfig HpfConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
-			MaHpfConfig ret = MaHpfConfigInitNative(format, channels, sampleRate, cutoffFrequency, order);
+			MaHpfConfig ret = HpfConfigInitNative(format, channels, sampleRate, cutoffFrequency, order);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpfGetHeapSizeNative(MaHpfConfig* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult HpfGetHeapSizeNative(MaHpfConfig* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpfConfig*, nuint*, MaResult>)funcTable[63])(pConfig, pHeapSizeInBytes);
@@ -3589,44 +3589,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpfGetHeapSize(MaHpfConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult HpfGetHeapSize(MaHpfConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaHpfGetHeapSizeNative((MaHpfConfig*)pConfig, pHeapSizeInBytes);
+			MaResult ret = HpfGetHeapSizeNative((MaHpfConfig*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaHpfGetHeapSize(in MaHpfConfig pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult HpfGetHeapSize(in MaHpfConfig pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpfGetHeapSizeNative((MaHpfConfig*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = HpfGetHeapSizeNative((MaHpfConfig*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfGetHeapSize(MaHpfConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult HpfGetHeapSize(MaHpfConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaHpfGetHeapSizeNative((MaHpfConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = HpfGetHeapSizeNative((MaHpfConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfGetHeapSize(in MaHpfConfig pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult HpfGetHeapSize(in MaHpfConfig pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaHpfGetHeapSizeNative((MaHpfConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = HpfGetHeapSizeNative((MaHpfConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpfInitPreallocatedNative(MaHpfConfig* pConfig, void* pHeap, MaHpf* plPf)
+		internal static MaResult HpfInitPreallocatedNative(MaHpfConfig* pConfig, void* pHeap, MaHpf* plPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpfConfig*, void*, MaHpf*, MaResult>)funcTable[64])(pConfig, pHeap, plPf);
@@ -3635,80 +3635,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpfInitPreallocated(MaHpfConfigPtr pConfig, void* pHeap, MaHpfPtr plPf)
+		public static MaResult HpfInitPreallocated(MaHpfConfigPtr pConfig, void* pHeap, MaHpfPtr plPf)
 		{
-			MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)pConfig, pHeap, (MaHpf*)plPf);
+			MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)pConfig, pHeap, (MaHpf*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaHpfInitPreallocated(in MaHpfConfig pConfig, void* pHeap, MaHpfPtr plPf)
+		public static MaResult HpfInitPreallocated(in MaHpfConfig pConfig, void* pHeap, MaHpfPtr plPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)ppConfig, pHeap, (MaHpf*)plPf);
+				MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)ppConfig, pHeap, (MaHpf*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfInitPreallocated(MaHpfConfigPtr pConfig, nint pHeap, MaHpfPtr plPf)
+		public static MaResult HpfInitPreallocated(MaHpfConfigPtr pConfig, nint pHeap, MaHpfPtr plPf)
 		{
-			MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)pConfig, (void*)pHeap, (MaHpf*)plPf);
+			MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)pConfig, (void*)pHeap, (MaHpf*)plPf);
 			return ret;
 		}
 
-		public static MaResult MaHpfInitPreallocated(in MaHpfConfig pConfig, nint pHeap, MaHpfPtr plPf)
+		public static MaResult HpfInitPreallocated(in MaHpfConfig pConfig, nint pHeap, MaHpfPtr plPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)ppConfig, (void*)pHeap, (MaHpf*)plPf);
+				MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)ppConfig, (void*)pHeap, (MaHpf*)plPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfInitPreallocated(MaHpfConfigPtr pConfig, void* pHeap, ref MaHpf plPf)
+		public static MaResult HpfInitPreallocated(MaHpfConfigPtr pConfig, void* pHeap, ref MaHpf plPf)
 		{
 			fixed (MaHpf* pplPf = &plPf)
 			{
-				MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)pConfig, pHeap, (MaHpf*)pplPf);
+				MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)pConfig, pHeap, (MaHpf*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfInitPreallocated(in MaHpfConfig pConfig, void* pHeap, ref MaHpf plPf)
+		public static MaResult HpfInitPreallocated(in MaHpfConfig pConfig, void* pHeap, ref MaHpf plPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaHpf* pplPf = &plPf)
 				{
-					MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)ppConfig, pHeap, (MaHpf*)pplPf);
+					MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)ppConfig, pHeap, (MaHpf*)pplPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpfInitPreallocated(MaHpfConfigPtr pConfig, nint pHeap, ref MaHpf plPf)
+		public static MaResult HpfInitPreallocated(MaHpfConfigPtr pConfig, nint pHeap, ref MaHpf plPf)
 		{
 			fixed (MaHpf* pplPf = &plPf)
 			{
-				MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)pConfig, (void*)pHeap, (MaHpf*)pplPf);
+				MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)pConfig, (void*)pHeap, (MaHpf*)pplPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfInitPreallocated(in MaHpfConfig pConfig, nint pHeap, ref MaHpf plPf)
+		public static MaResult HpfInitPreallocated(in MaHpfConfig pConfig, nint pHeap, ref MaHpf plPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaHpf* pplPf = &plPf)
 				{
-					MaResult ret = MaHpfInitPreallocatedNative((MaHpfConfig*)ppConfig, (void*)pHeap, (MaHpf*)pplPf);
+					MaResult ret = HpfInitPreallocatedNative((MaHpfConfig*)ppConfig, (void*)pHeap, (MaHpf*)pplPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpfInitNative(MaHpfConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHpf* phPf)
+		internal static MaResult HpfInitNative(MaHpfConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaHpf* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpfConfig*, MaAllocationCallbacks*, MaHpf*, MaResult>)funcTable[65])(pConfig, pAllocationCallbacks, phPf);
@@ -3717,76 +3717,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpfInit(MaHpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpfPtr phPf)
+		public static MaResult HpfInit(MaHpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpfPtr phPf)
 		{
-			MaResult ret = MaHpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)phPf);
+			MaResult ret = HpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpfInit(in MaHpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpfPtr phPf)
+		public static MaResult HpfInit(in MaHpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaHpfPtr phPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)phPf);
+				MaResult ret = HpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfInit(MaHpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpfPtr phPf)
+		public static MaResult HpfInit(MaHpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpfPtr phPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaHpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)phPf);
+				MaResult ret = HpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfInit(in MaHpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpfPtr phPf)
+		public static MaResult HpfInit(in MaHpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaHpfPtr phPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaHpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)phPf);
+					MaResult ret = HpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)phPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpfInit(MaHpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf phPf)
+		public static MaResult HpfInit(MaHpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf phPf)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				MaResult ret = MaHpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)pphPf);
+				MaResult ret = HpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfInit(in MaHpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf phPf)
+		public static MaResult HpfInit(in MaHpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaHpf phPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaHpf* pphPf = &phPf)
 				{
-					MaResult ret = MaHpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)pphPf);
+					MaResult ret = HpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaHpf*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpfInit(MaHpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf phPf)
+		public static MaResult HpfInit(MaHpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf phPf)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaHpf* pphPf = &phPf)
 				{
-					MaResult ret = MaHpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)pphPf);
+					MaResult ret = HpfInitNative((MaHpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)pphPf);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaHpfInit(in MaHpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf phPf)
+		public static MaResult HpfInit(in MaHpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaHpf phPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
@@ -3794,7 +3794,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaHpf* pphPf = &phPf)
 					{
-						MaResult ret = MaHpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)pphPf);
+						MaResult ret = HpfInitNative((MaHpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaHpf*)pphPf);
 						return ret;
 					}
 				}
@@ -3802,7 +3802,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaHpfUninitNative(MaHpf* phPf, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void HpfUninitNative(MaHpf* phPf, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaHpf*, MaAllocationCallbacks*, void>)funcTable[66])(phPf, pAllocationCallbacks);
@@ -3811,40 +3811,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaHpfUninit(MaHpfPtr phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void HpfUninit(MaHpfPtr phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaHpfUninitNative((MaHpf*)phPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+			HpfUninitNative((MaHpf*)phPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaHpfUninit(ref MaHpf phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void HpfUninit(ref MaHpf phPf, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				MaHpfUninitNative((MaHpf*)pphPf, (MaAllocationCallbacks*)pAllocationCallbacks);
+				HpfUninitNative((MaHpf*)pphPf, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaHpfUninit(MaHpfPtr phPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void HpfUninit(MaHpfPtr phPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaHpfUninitNative((MaHpf*)phPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				HpfUninitNative((MaHpf*)phPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaHpfUninit(ref MaHpf phPf, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void HpfUninit(ref MaHpf phPf, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaHpfUninitNative((MaHpf*)pphPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					HpfUninitNative((MaHpf*)pphPf, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpfReinitNative(MaHpfConfig* pConfig, MaHpf* phPf)
+		internal static MaResult HpfReinitNative(MaHpfConfig* pConfig, MaHpf* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpfConfig*, MaHpf*, MaResult>)funcTable[67])(pConfig, phPf);
@@ -3853,44 +3853,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpfReinit(MaHpfConfigPtr pConfig, MaHpfPtr phPf)
+		public static MaResult HpfReinit(MaHpfConfigPtr pConfig, MaHpfPtr phPf)
 		{
-			MaResult ret = MaHpfReinitNative((MaHpfConfig*)pConfig, (MaHpf*)phPf);
+			MaResult ret = HpfReinitNative((MaHpfConfig*)pConfig, (MaHpf*)phPf);
 			return ret;
 		}
 
-		public static MaResult MaHpfReinit(in MaHpfConfig pConfig, MaHpfPtr phPf)
+		public static MaResult HpfReinit(in MaHpfConfig pConfig, MaHpfPtr phPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaHpfReinitNative((MaHpfConfig*)ppConfig, (MaHpf*)phPf);
+				MaResult ret = HpfReinitNative((MaHpfConfig*)ppConfig, (MaHpf*)phPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfReinit(MaHpfConfigPtr pConfig, ref MaHpf phPf)
+		public static MaResult HpfReinit(MaHpfConfigPtr pConfig, ref MaHpf phPf)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				MaResult ret = MaHpfReinitNative((MaHpfConfig*)pConfig, (MaHpf*)pphPf);
+				MaResult ret = HpfReinitNative((MaHpfConfig*)pConfig, (MaHpf*)pphPf);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfReinit(in MaHpfConfig pConfig, ref MaHpf phPf)
+		public static MaResult HpfReinit(in MaHpfConfig pConfig, ref MaHpf phPf)
 		{
 			fixed (MaHpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaHpf* pphPf = &phPf)
 				{
-					MaResult ret = MaHpfReinitNative((MaHpfConfig*)ppConfig, (MaHpf*)pphPf);
+					MaResult ret = HpfReinitNative((MaHpfConfig*)ppConfig, (MaHpf*)pphPf);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaHpfProcessPcmFramesNative(MaHpf* phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult HpfProcessPcmFramesNative(MaHpf* phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf*, void*, void*, ulong, MaResult>)funcTable[68])(phPf, pFramesOut, pFramesIn, frameCount);
@@ -3899,68 +3899,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(MaHpfPtr phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(MaHpfPtr phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)phPf, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = HpfProcessPcmFramesNative((MaHpf*)phPf, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(ref MaHpf phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(ref MaHpf phPf, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)pphPf, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = HpfProcessPcmFramesNative((MaHpf*)pphPf, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(MaHpfPtr phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(MaHpfPtr phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)phPf, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = HpfProcessPcmFramesNative((MaHpf*)phPf, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(ref MaHpf phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(ref MaHpf phPf, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)pphPf, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = HpfProcessPcmFramesNative((MaHpf*)pphPf, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(MaHpfPtr phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(MaHpfPtr phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)phPf, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = HpfProcessPcmFramesNative((MaHpf*)phPf, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(ref MaHpf phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(ref MaHpf phPf, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)pphPf, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = HpfProcessPcmFramesNative((MaHpf*)pphPf, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(MaHpfPtr phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(MaHpfPtr phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)phPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = HpfProcessPcmFramesNative((MaHpf*)phPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaHpfProcessPcmFrames(ref MaHpf phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult HpfProcessPcmFrames(ref MaHpf phPf, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				MaResult ret = MaHpfProcessPcmFramesNative((MaHpf*)pphPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = HpfProcessPcmFramesNative((MaHpf*)pphPf, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaHpfGetLatencyNative(MaHpf* phPf)
+		internal static uint HpfGetLatencyNative(MaHpf* phPf)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaHpf*, uint>)funcTable[69])(phPf);
@@ -3969,23 +3969,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaHpfGetLatency(MaHpfPtr phPf)
+		public static uint HpfGetLatency(MaHpfPtr phPf)
 		{
-			uint ret = MaHpfGetLatencyNative((MaHpf*)phPf);
+			uint ret = HpfGetLatencyNative((MaHpf*)phPf);
 			return ret;
 		}
 
-		public static uint MaHpfGetLatency(in MaHpf phPf)
+		public static uint HpfGetLatency(in MaHpf phPf)
 		{
 			fixed (MaHpf* pphPf = &phPf)
 			{
-				uint ret = MaHpfGetLatencyNative((MaHpf*)pphPf);
+				uint ret = HpfGetLatencyNative((MaHpf*)pphPf);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaBpf2Config MaBpf2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
+		internal static MaBpf2Config Bpf2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, double, MaBpf2Config>)funcTable[70])(format, channels, sampleRate, cutoffFrequency, q);
@@ -3994,14 +3994,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaBpf2Config MaBpf2ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
+		public static MaBpf2Config Bpf2ConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, double q)
 		{
-			MaBpf2Config ret = MaBpf2ConfigInitNative(format, channels, sampleRate, cutoffFrequency, q);
+			MaBpf2Config ret = Bpf2ConfigInitNative(format, channels, sampleRate, cutoffFrequency, q);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpf2GetHeapSizeNative(MaBpf2Config* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult Bpf2GetHeapSizeNative(MaBpf2Config* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf2Config*, nuint*, MaResult>)funcTable[71])(pConfig, pHeapSizeInBytes);
@@ -4010,44 +4010,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpf2GetHeapSize(MaBpf2ConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Bpf2GetHeapSize(MaBpf2ConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaBpf2GetHeapSizeNative((MaBpf2Config*)pConfig, pHeapSizeInBytes);
+			MaResult ret = Bpf2GetHeapSizeNative((MaBpf2Config*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaBpf2GetHeapSize(in MaBpf2Config pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Bpf2GetHeapSize(in MaBpf2Config pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpf2GetHeapSizeNative((MaBpf2Config*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = Bpf2GetHeapSizeNative((MaBpf2Config*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2GetHeapSize(MaBpf2ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Bpf2GetHeapSize(MaBpf2ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaBpf2GetHeapSizeNative((MaBpf2Config*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = Bpf2GetHeapSizeNative((MaBpf2Config*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2GetHeapSize(in MaBpf2Config pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Bpf2GetHeapSize(in MaBpf2Config pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaBpf2GetHeapSizeNative((MaBpf2Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = Bpf2GetHeapSizeNative((MaBpf2Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpf2InitPreallocatedNative(MaBpf2Config* pConfig, void* pHeap, MaBpf2* pBpF)
+		internal static MaResult Bpf2InitPreallocatedNative(MaBpf2Config* pConfig, void* pHeap, MaBpf2* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf2Config*, void*, MaBpf2*, MaResult>)funcTable[72])(pConfig, pHeap, pBpF);
@@ -4056,80 +4056,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpf2InitPreallocated(MaBpf2ConfigPtr pConfig, void* pHeap, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2InitPreallocated(MaBpf2ConfigPtr pConfig, void* pHeap, MaBpf2Ptr pBpF)
 		{
-			MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)pConfig, pHeap, (MaBpf2*)pBpF);
+			MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)pConfig, pHeap, (MaBpf2*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpf2InitPreallocated(in MaBpf2Config pConfig, void* pHeap, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2InitPreallocated(in MaBpf2Config pConfig, void* pHeap, MaBpf2Ptr pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, pHeap, (MaBpf2*)pBpF);
+				MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, pHeap, (MaBpf2*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2InitPreallocated(MaBpf2ConfigPtr pConfig, nint pHeap, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2InitPreallocated(MaBpf2ConfigPtr pConfig, nint pHeap, MaBpf2Ptr pBpF)
 		{
-			MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)pConfig, (void*)pHeap, (MaBpf2*)pBpF);
+			MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)pConfig, (void*)pHeap, (MaBpf2*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpf2InitPreallocated(in MaBpf2Config pConfig, nint pHeap, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2InitPreallocated(in MaBpf2Config pConfig, nint pHeap, MaBpf2Ptr pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, (void*)pHeap, (MaBpf2*)pBpF);
+				MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, (void*)pHeap, (MaBpf2*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2InitPreallocated(MaBpf2ConfigPtr pConfig, void* pHeap, ref MaBpf2 pBpF)
+		public static MaResult Bpf2InitPreallocated(MaBpf2ConfigPtr pConfig, void* pHeap, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)pConfig, pHeap, (MaBpf2*)ppBpF);
+				MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)pConfig, pHeap, (MaBpf2*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2InitPreallocated(in MaBpf2Config pConfig, void* pHeap, ref MaBpf2 pBpF)
+		public static MaResult Bpf2InitPreallocated(in MaBpf2Config pConfig, void* pHeap, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
 				fixed (MaBpf2* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, pHeap, (MaBpf2*)ppBpF);
+					MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, pHeap, (MaBpf2*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpf2InitPreallocated(MaBpf2ConfigPtr pConfig, nint pHeap, ref MaBpf2 pBpF)
+		public static MaResult Bpf2InitPreallocated(MaBpf2ConfigPtr pConfig, nint pHeap, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)pConfig, (void*)pHeap, (MaBpf2*)ppBpF);
+				MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)pConfig, (void*)pHeap, (MaBpf2*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2InitPreallocated(in MaBpf2Config pConfig, nint pHeap, ref MaBpf2 pBpF)
+		public static MaResult Bpf2InitPreallocated(in MaBpf2Config pConfig, nint pHeap, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
 				fixed (MaBpf2* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, (void*)pHeap, (MaBpf2*)ppBpF);
+					MaResult ret = Bpf2InitPreallocatedNative((MaBpf2Config*)ppConfig, (void*)pHeap, (MaBpf2*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpf2InitNative(MaBpf2Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBpf2* pBpF)
+		internal static MaResult Bpf2InitNative(MaBpf2Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBpf2* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf2Config*, MaAllocationCallbacks*, MaBpf2*, MaResult>)funcTable[73])(pConfig, pAllocationCallbacks, pBpF);
@@ -4138,76 +4138,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpf2Init(MaBpf2ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2Init(MaBpf2ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpf2Ptr pBpF)
 		{
-			MaResult ret = MaBpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)pBpF);
+			MaResult ret = Bpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpf2Init(in MaBpf2Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2Init(in MaBpf2Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpf2Ptr pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)pBpF);
+				MaResult ret = Bpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2Init(MaBpf2ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2Init(MaBpf2ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpf2Ptr pBpF)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaBpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)pBpF);
+				MaResult ret = Bpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2Init(in MaBpf2Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2Init(in MaBpf2Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpf2Ptr pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaBpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)pBpF);
+					MaResult ret = Bpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)pBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpf2Init(MaBpf2ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf2 pBpF)
+		public static MaResult Bpf2Init(MaBpf2ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)ppBpF);
+				MaResult ret = Bpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2Init(in MaBpf2Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf2 pBpF)
+		public static MaResult Bpf2Init(in MaBpf2Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
 				fixed (MaBpf2* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)ppBpF);
+					MaResult ret = Bpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf2*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpf2Init(MaBpf2ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf2 pBpF)
+		public static MaResult Bpf2Init(MaBpf2ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf2 pBpF)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaBpf2* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)ppBpF);
+					MaResult ret = Bpf2InitNative((MaBpf2Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpf2Init(in MaBpf2Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf2 pBpF)
+		public static MaResult Bpf2Init(in MaBpf2Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
@@ -4215,7 +4215,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaBpf2* ppBpF = &pBpF)
 					{
-						MaResult ret = MaBpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)ppBpF);
+						MaResult ret = Bpf2InitNative((MaBpf2Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf2*)ppBpF);
 						return ret;
 					}
 				}
@@ -4223,7 +4223,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaBpf2UninitNative(MaBpf2* pBpF, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void Bpf2UninitNative(MaBpf2* pBpF, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaBpf2*, MaAllocationCallbacks*, void>)funcTable[74])(pBpF, pAllocationCallbacks);
@@ -4232,40 +4232,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaBpf2Uninit(MaBpf2Ptr pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Bpf2Uninit(MaBpf2Ptr pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaBpf2UninitNative((MaBpf2*)pBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
+			Bpf2UninitNative((MaBpf2*)pBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaBpf2Uninit(ref MaBpf2 pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void Bpf2Uninit(ref MaBpf2 pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaBpf2UninitNative((MaBpf2*)ppBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
+				Bpf2UninitNative((MaBpf2*)ppBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaBpf2Uninit(MaBpf2Ptr pBpF, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Bpf2Uninit(MaBpf2Ptr pBpF, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaBpf2UninitNative((MaBpf2*)pBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				Bpf2UninitNative((MaBpf2*)pBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaBpf2Uninit(ref MaBpf2 pBpF, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void Bpf2Uninit(ref MaBpf2 pBpF, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaBpf2UninitNative((MaBpf2*)ppBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					Bpf2UninitNative((MaBpf2*)ppBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpf2ReinitNative(MaBpf2Config* pConfig, MaBpf2* pBpF)
+		internal static MaResult Bpf2ReinitNative(MaBpf2Config* pConfig, MaBpf2* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf2Config*, MaBpf2*, MaResult>)funcTable[75])(pConfig, pBpF);
@@ -4274,44 +4274,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpf2Reinit(MaBpf2ConfigPtr pConfig, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2Reinit(MaBpf2ConfigPtr pConfig, MaBpf2Ptr pBpF)
 		{
-			MaResult ret = MaBpf2ReinitNative((MaBpf2Config*)pConfig, (MaBpf2*)pBpF);
+			MaResult ret = Bpf2ReinitNative((MaBpf2Config*)pConfig, (MaBpf2*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpf2Reinit(in MaBpf2Config pConfig, MaBpf2Ptr pBpF)
+		public static MaResult Bpf2Reinit(in MaBpf2Config pConfig, MaBpf2Ptr pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpf2ReinitNative((MaBpf2Config*)ppConfig, (MaBpf2*)pBpF);
+				MaResult ret = Bpf2ReinitNative((MaBpf2Config*)ppConfig, (MaBpf2*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2Reinit(MaBpf2ConfigPtr pConfig, ref MaBpf2 pBpF)
+		public static MaResult Bpf2Reinit(MaBpf2ConfigPtr pConfig, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2ReinitNative((MaBpf2Config*)pConfig, (MaBpf2*)ppBpF);
+				MaResult ret = Bpf2ReinitNative((MaBpf2Config*)pConfig, (MaBpf2*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2Reinit(in MaBpf2Config pConfig, ref MaBpf2 pBpF)
+		public static MaResult Bpf2Reinit(in MaBpf2Config pConfig, ref MaBpf2 pBpF)
 		{
 			fixed (MaBpf2Config* ppConfig = &pConfig)
 			{
 				fixed (MaBpf2* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpf2ReinitNative((MaBpf2Config*)ppConfig, (MaBpf2*)ppBpF);
+					MaResult ret = Bpf2ReinitNative((MaBpf2Config*)ppConfig, (MaBpf2*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpf2ProcessPcmFramesNative(MaBpf2* pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult Bpf2ProcessPcmFramesNative(MaBpf2* pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf2*, void*, void*, ulong, MaResult>)funcTable[76])(pBpF, pFramesOut, pFramesIn, frameCount);
@@ -4320,68 +4320,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(MaBpf2Ptr pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(MaBpf2Ptr pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)pBpF, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)pBpF, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(ref MaBpf2 pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(ref MaBpf2 pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(MaBpf2Ptr pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(MaBpf2Ptr pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)pBpF, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)pBpF, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(ref MaBpf2 pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(ref MaBpf2 pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(MaBpf2Ptr pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(MaBpf2Ptr pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)pBpF, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)pBpF, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(ref MaBpf2 pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(ref MaBpf2 pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(MaBpf2Ptr pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(MaBpf2Ptr pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)pBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)pBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpf2ProcessPcmFrames(ref MaBpf2 pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult Bpf2ProcessPcmFrames(ref MaBpf2 pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = Bpf2ProcessPcmFramesNative((MaBpf2*)ppBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaBpf2GetLatencyNative(MaBpf2* pBpF)
+		internal static uint Bpf2GetLatencyNative(MaBpf2* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf2*, uint>)funcTable[77])(pBpF);
@@ -4390,23 +4390,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaBpf2GetLatency(MaBpf2Ptr pBpF)
+		public static uint Bpf2GetLatency(MaBpf2Ptr pBpF)
 		{
-			uint ret = MaBpf2GetLatencyNative((MaBpf2*)pBpF);
+			uint ret = Bpf2GetLatencyNative((MaBpf2*)pBpF);
 			return ret;
 		}
 
-		public static uint MaBpf2GetLatency(in MaBpf2 pBpF)
+		public static uint Bpf2GetLatency(in MaBpf2 pBpF)
 		{
 			fixed (MaBpf2* ppBpF = &pBpF)
 			{
-				uint ret = MaBpf2GetLatencyNative((MaBpf2*)ppBpF);
+				uint ret = Bpf2GetLatencyNative((MaBpf2*)ppBpF);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaBpfConfig MaBpfConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
+		internal static MaBpfConfig BpfConfigInitNative(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, uint, MaBpfConfig>)funcTable[78])(format, channels, sampleRate, cutoffFrequency, order);
@@ -4415,14 +4415,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaBpfConfig MaBpfConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
+		public static MaBpfConfig BpfConfigInit(MaFormat format, uint channels, uint sampleRate, double cutoffFrequency, uint order)
 		{
-			MaBpfConfig ret = MaBpfConfigInitNative(format, channels, sampleRate, cutoffFrequency, order);
+			MaBpfConfig ret = BpfConfigInitNative(format, channels, sampleRate, cutoffFrequency, order);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpfGetHeapSizeNative(MaBpfConfig* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult BpfGetHeapSizeNative(MaBpfConfig* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpfConfig*, nuint*, MaResult>)funcTable[79])(pConfig, pHeapSizeInBytes);
@@ -4431,44 +4431,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpfGetHeapSize(MaBpfConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult BpfGetHeapSize(MaBpfConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaBpfGetHeapSizeNative((MaBpfConfig*)pConfig, pHeapSizeInBytes);
+			MaResult ret = BpfGetHeapSizeNative((MaBpfConfig*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaBpfGetHeapSize(in MaBpfConfig pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult BpfGetHeapSize(in MaBpfConfig pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpfGetHeapSizeNative((MaBpfConfig*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = BpfGetHeapSizeNative((MaBpfConfig*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfGetHeapSize(MaBpfConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult BpfGetHeapSize(MaBpfConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaBpfGetHeapSizeNative((MaBpfConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = BpfGetHeapSizeNative((MaBpfConfig*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfGetHeapSize(in MaBpfConfig pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult BpfGetHeapSize(in MaBpfConfig pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaBpfGetHeapSizeNative((MaBpfConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = BpfGetHeapSizeNative((MaBpfConfig*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpfInitPreallocatedNative(MaBpfConfig* pConfig, void* pHeap, MaBpf* pBpF)
+		internal static MaResult BpfInitPreallocatedNative(MaBpfConfig* pConfig, void* pHeap, MaBpf* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpfConfig*, void*, MaBpf*, MaResult>)funcTable[80])(pConfig, pHeap, pBpF);
@@ -4477,80 +4477,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpfInitPreallocated(MaBpfConfigPtr pConfig, void* pHeap, MaBpfPtr pBpF)
+		public static MaResult BpfInitPreallocated(MaBpfConfigPtr pConfig, void* pHeap, MaBpfPtr pBpF)
 		{
-			MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)pConfig, pHeap, (MaBpf*)pBpF);
+			MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)pConfig, pHeap, (MaBpf*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpfInitPreallocated(in MaBpfConfig pConfig, void* pHeap, MaBpfPtr pBpF)
+		public static MaResult BpfInitPreallocated(in MaBpfConfig pConfig, void* pHeap, MaBpfPtr pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)ppConfig, pHeap, (MaBpf*)pBpF);
+				MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)ppConfig, pHeap, (MaBpf*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfInitPreallocated(MaBpfConfigPtr pConfig, nint pHeap, MaBpfPtr pBpF)
+		public static MaResult BpfInitPreallocated(MaBpfConfigPtr pConfig, nint pHeap, MaBpfPtr pBpF)
 		{
-			MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)pConfig, (void*)pHeap, (MaBpf*)pBpF);
+			MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)pConfig, (void*)pHeap, (MaBpf*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpfInitPreallocated(in MaBpfConfig pConfig, nint pHeap, MaBpfPtr pBpF)
+		public static MaResult BpfInitPreallocated(in MaBpfConfig pConfig, nint pHeap, MaBpfPtr pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)ppConfig, (void*)pHeap, (MaBpf*)pBpF);
+				MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)ppConfig, (void*)pHeap, (MaBpf*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfInitPreallocated(MaBpfConfigPtr pConfig, void* pHeap, ref MaBpf pBpF)
+		public static MaResult BpfInitPreallocated(MaBpfConfigPtr pConfig, void* pHeap, ref MaBpf pBpF)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)pConfig, pHeap, (MaBpf*)ppBpF);
+				MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)pConfig, pHeap, (MaBpf*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfInitPreallocated(in MaBpfConfig pConfig, void* pHeap, ref MaBpf pBpF)
+		public static MaResult BpfInitPreallocated(in MaBpfConfig pConfig, void* pHeap, ref MaBpf pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBpf* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)ppConfig, pHeap, (MaBpf*)ppBpF);
+					MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)ppConfig, pHeap, (MaBpf*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpfInitPreallocated(MaBpfConfigPtr pConfig, nint pHeap, ref MaBpf pBpF)
+		public static MaResult BpfInitPreallocated(MaBpfConfigPtr pConfig, nint pHeap, ref MaBpf pBpF)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)pConfig, (void*)pHeap, (MaBpf*)ppBpF);
+				MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)pConfig, (void*)pHeap, (MaBpf*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfInitPreallocated(in MaBpfConfig pConfig, nint pHeap, ref MaBpf pBpF)
+		public static MaResult BpfInitPreallocated(in MaBpfConfig pConfig, nint pHeap, ref MaBpf pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBpf* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpfInitPreallocatedNative((MaBpfConfig*)ppConfig, (void*)pHeap, (MaBpf*)ppBpF);
+					MaResult ret = BpfInitPreallocatedNative((MaBpfConfig*)ppConfig, (void*)pHeap, (MaBpf*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpfInitNative(MaBpfConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBpf* pBpF)
+		internal static MaResult BpfInitNative(MaBpfConfig* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaBpf* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpfConfig*, MaAllocationCallbacks*, MaBpf*, MaResult>)funcTable[81])(pConfig, pAllocationCallbacks, pBpF);
@@ -4559,76 +4559,76 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpfInit(MaBpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpfPtr pBpF)
+		public static MaResult BpfInit(MaBpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpfPtr pBpF)
 		{
-			MaResult ret = MaBpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)pBpF);
+			MaResult ret = BpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpfInit(in MaBpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpfPtr pBpF)
+		public static MaResult BpfInit(in MaBpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaBpfPtr pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)pBpF);
+				MaResult ret = BpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfInit(MaBpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpfPtr pBpF)
+		public static MaResult BpfInit(MaBpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpfPtr pBpF)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaBpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)pBpF);
+				MaResult ret = BpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfInit(in MaBpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpfPtr pBpF)
+		public static MaResult BpfInit(in MaBpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaBpfPtr pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaBpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)pBpF);
+					MaResult ret = BpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)pBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpfInit(MaBpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf pBpF)
+		public static MaResult BpfInit(MaBpfConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf pBpF)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)ppBpF);
+				MaResult ret = BpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfInit(in MaBpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf pBpF)
+		public static MaResult BpfInit(in MaBpfConfig pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, ref MaBpf pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBpf* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)ppBpF);
+					MaResult ret = BpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaBpf*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpfInit(MaBpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf pBpF)
+		public static MaResult BpfInit(MaBpfConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf pBpF)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
 				fixed (MaBpf* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)ppBpF);
+					MaResult ret = BpfInitNative((MaBpfConfig*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaBpfInit(in MaBpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf pBpF)
+		public static MaResult BpfInit(in MaBpfConfig pConfig, in MaAllocationCallbacks pAllocationCallbacks, ref MaBpf pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
@@ -4636,7 +4636,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaBpf* ppBpF = &pBpF)
 					{
-						MaResult ret = MaBpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)ppBpF);
+						MaResult ret = BpfInitNative((MaBpfConfig*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaBpf*)ppBpF);
 						return ret;
 					}
 				}
@@ -4644,7 +4644,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaBpfUninitNative(MaBpf* pBpF, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static void BpfUninitNative(MaBpf* pBpF, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<MaBpf*, MaAllocationCallbacks*, void>)funcTable[82])(pBpF, pAllocationCallbacks);
@@ -4653,40 +4653,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaBpfUninit(MaBpfPtr pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void BpfUninit(MaBpfPtr pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaBpfUninitNative((MaBpf*)pBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
+			BpfUninitNative((MaBpf*)pBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
 		}
 
-		public static void MaBpfUninit(ref MaBpf pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static void BpfUninit(ref MaBpf pBpF, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaBpfUninitNative((MaBpf*)ppBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
+				BpfUninitNative((MaBpf*)ppBpF, (MaAllocationCallbacks*)pAllocationCallbacks);
 			}
 		}
 
-		public static void MaBpfUninit(MaBpfPtr pBpF, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void BpfUninit(MaBpfPtr pBpF, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaBpfUninitNative((MaBpf*)pBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				BpfUninitNative((MaBpf*)pBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
 			}
 		}
 
-		public static void MaBpfUninit(ref MaBpf pBpF, in MaAllocationCallbacks pAllocationCallbacks)
+		public static void BpfUninit(ref MaBpf pBpF, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaBpfUninitNative((MaBpf*)ppBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					BpfUninitNative((MaBpf*)ppBpF, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpfReinitNative(MaBpfConfig* pConfig, MaBpf* pBpF)
+		internal static MaResult BpfReinitNative(MaBpfConfig* pConfig, MaBpf* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpfConfig*, MaBpf*, MaResult>)funcTable[83])(pConfig, pBpF);
@@ -4695,44 +4695,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpfReinit(MaBpfConfigPtr pConfig, MaBpfPtr pBpF)
+		public static MaResult BpfReinit(MaBpfConfigPtr pConfig, MaBpfPtr pBpF)
 		{
-			MaResult ret = MaBpfReinitNative((MaBpfConfig*)pConfig, (MaBpf*)pBpF);
+			MaResult ret = BpfReinitNative((MaBpfConfig*)pConfig, (MaBpf*)pBpF);
 			return ret;
 		}
 
-		public static MaResult MaBpfReinit(in MaBpfConfig pConfig, MaBpfPtr pBpF)
+		public static MaResult BpfReinit(in MaBpfConfig pConfig, MaBpfPtr pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaBpfReinitNative((MaBpfConfig*)ppConfig, (MaBpf*)pBpF);
+				MaResult ret = BpfReinitNative((MaBpfConfig*)ppConfig, (MaBpf*)pBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfReinit(MaBpfConfigPtr pConfig, ref MaBpf pBpF)
+		public static MaResult BpfReinit(MaBpfConfigPtr pConfig, ref MaBpf pBpF)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfReinitNative((MaBpfConfig*)pConfig, (MaBpf*)ppBpF);
+				MaResult ret = BpfReinitNative((MaBpfConfig*)pConfig, (MaBpf*)ppBpF);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfReinit(in MaBpfConfig pConfig, ref MaBpf pBpF)
+		public static MaResult BpfReinit(in MaBpfConfig pConfig, ref MaBpf pBpF)
 		{
 			fixed (MaBpfConfig* ppConfig = &pConfig)
 			{
 				fixed (MaBpf* ppBpF = &pBpF)
 				{
-					MaResult ret = MaBpfReinitNative((MaBpfConfig*)ppConfig, (MaBpf*)ppBpF);
+					MaResult ret = BpfReinitNative((MaBpfConfig*)ppConfig, (MaBpf*)ppBpF);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaBpfProcessPcmFramesNative(MaBpf* pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		internal static MaResult BpfProcessPcmFramesNative(MaBpf* pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf*, void*, void*, ulong, MaResult>)funcTable[84])(pBpF, pFramesOut, pFramesIn, frameCount);
@@ -4741,68 +4741,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(MaBpfPtr pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(MaBpfPtr pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)pBpF, pFramesOut, pFramesIn, frameCount);
+			MaResult ret = BpfProcessPcmFramesNative((MaBpf*)pBpF, pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(ref MaBpf pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(ref MaBpf pBpF, void* pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)ppBpF, pFramesOut, pFramesIn, frameCount);
+				MaResult ret = BpfProcessPcmFramesNative((MaBpf*)ppBpF, pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(MaBpfPtr pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(MaBpfPtr pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)pBpF, (void*)pFramesOut, pFramesIn, frameCount);
+			MaResult ret = BpfProcessPcmFramesNative((MaBpf*)pBpF, (void*)pFramesOut, pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(ref MaBpf pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(ref MaBpf pBpF, nint pFramesOut, void* pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)ppBpF, (void*)pFramesOut, pFramesIn, frameCount);
+				MaResult ret = BpfProcessPcmFramesNative((MaBpf*)ppBpF, (void*)pFramesOut, pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(MaBpfPtr pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(MaBpfPtr pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)pBpF, pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = BpfProcessPcmFramesNative((MaBpf*)pBpF, pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(ref MaBpf pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(ref MaBpf pBpF, void* pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)ppBpF, pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = BpfProcessPcmFramesNative((MaBpf*)ppBpF, pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(MaBpfPtr pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(MaBpfPtr pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
-			MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)pBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+			MaResult ret = BpfProcessPcmFramesNative((MaBpf*)pBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 			return ret;
 		}
 
-		public static MaResult MaBpfProcessPcmFrames(ref MaBpf pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
+		public static MaResult BpfProcessPcmFrames(ref MaBpf pBpF, nint pFramesOut, nint pFramesIn, ulong frameCount)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				MaResult ret = MaBpfProcessPcmFramesNative((MaBpf*)ppBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
+				MaResult ret = BpfProcessPcmFramesNative((MaBpf*)ppBpF, (void*)pFramesOut, (void*)pFramesIn, frameCount);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint MaBpfGetLatencyNative(MaBpf* pBpF)
+		internal static uint BpfGetLatencyNative(MaBpf* pBpF)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaBpf*, uint>)funcTable[85])(pBpF);
@@ -4811,23 +4811,23 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static uint MaBpfGetLatency(MaBpfPtr pBpF)
+		public static uint BpfGetLatency(MaBpfPtr pBpF)
 		{
-			uint ret = MaBpfGetLatencyNative((MaBpf*)pBpF);
+			uint ret = BpfGetLatencyNative((MaBpf*)pBpF);
 			return ret;
 		}
 
-		public static uint MaBpfGetLatency(in MaBpf pBpF)
+		public static uint BpfGetLatency(in MaBpf pBpF)
 		{
 			fixed (MaBpf* ppBpF = &pBpF)
 			{
-				uint ret = MaBpfGetLatencyNative((MaBpf*)ppBpF);
+				uint ret = BpfGetLatencyNative((MaBpf*)ppBpF);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaNotch2Config MaNotch2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double q, double frequency)
+		internal static MaNotch2Config Notch2ConfigInitNative(MaFormat format, uint channels, uint sampleRate, double q, double frequency)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, double, double, MaNotch2Config>)funcTable[86])(format, channels, sampleRate, q, frequency);
@@ -4836,14 +4836,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaNotch2Config MaNotch2ConfigInit(MaFormat format, uint channels, uint sampleRate, double q, double frequency)
+		public static MaNotch2Config Notch2ConfigInit(MaFormat format, uint channels, uint sampleRate, double q, double frequency)
 		{
-			MaNotch2Config ret = MaNotch2ConfigInitNative(format, channels, sampleRate, q, frequency);
+			MaNotch2Config ret = Notch2ConfigInitNative(format, channels, sampleRate, q, frequency);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaNotch2GetHeapSizeNative(MaNotch2Config* pConfig, nuint* pHeapSizeInBytes)
+		internal static MaResult Notch2GetHeapSizeNative(MaNotch2Config* pConfig, nuint* pHeapSizeInBytes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaNotch2Config*, nuint*, MaResult>)funcTable[87])(pConfig, pHeapSizeInBytes);
@@ -4852,44 +4852,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaNotch2GetHeapSize(MaNotch2ConfigPtr pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Notch2GetHeapSize(MaNotch2ConfigPtr pConfig, nuint* pHeapSizeInBytes)
 		{
-			MaResult ret = MaNotch2GetHeapSizeNative((MaNotch2Config*)pConfig, pHeapSizeInBytes);
+			MaResult ret = Notch2GetHeapSizeNative((MaNotch2Config*)pConfig, pHeapSizeInBytes);
 			return ret;
 		}
 
-		public static MaResult MaNotch2GetHeapSize(in MaNotch2Config pConfig, nuint* pHeapSizeInBytes)
+		public static MaResult Notch2GetHeapSize(in MaNotch2Config pConfig, nuint* pHeapSizeInBytes)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaNotch2GetHeapSizeNative((MaNotch2Config*)ppConfig, pHeapSizeInBytes);
+				MaResult ret = Notch2GetHeapSizeNative((MaNotch2Config*)ppConfig, pHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2GetHeapSize(MaNotch2ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Notch2GetHeapSize(MaNotch2ConfigPtr pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 			{
-				MaResult ret = MaNotch2GetHeapSizeNative((MaNotch2Config*)pConfig, (nuint*)ppHeapSizeInBytes);
+				MaResult ret = Notch2GetHeapSizeNative((MaNotch2Config*)pConfig, (nuint*)ppHeapSizeInBytes);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2GetHeapSize(in MaNotch2Config pConfig, ref nuint pHeapSizeInBytes)
+		public static MaResult Notch2GetHeapSize(in MaNotch2Config pConfig, ref nuint pHeapSizeInBytes)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
 				fixed (nuint* ppHeapSizeInBytes = &pHeapSizeInBytes)
 				{
-					MaResult ret = MaNotch2GetHeapSizeNative((MaNotch2Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
+					MaResult ret = Notch2GetHeapSizeNative((MaNotch2Config*)ppConfig, (nuint*)ppHeapSizeInBytes);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaNotch2InitPreallocatedNative(MaNotch2Config* pConfig, void* pHeap, MaNotch2* pFilter)
+		internal static MaResult Notch2InitPreallocatedNative(MaNotch2Config* pConfig, void* pHeap, MaNotch2* pFilter)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaNotch2Config*, void*, MaNotch2*, MaResult>)funcTable[88])(pConfig, pHeap, pFilter);
@@ -4898,80 +4898,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaNotch2InitPreallocated(MaNotch2ConfigPtr pConfig, void* pHeap, MaNotch2Ptr pFilter)
+		public static MaResult Notch2InitPreallocated(MaNotch2ConfigPtr pConfig, void* pHeap, MaNotch2Ptr pFilter)
 		{
-			MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)pConfig, pHeap, (MaNotch2*)pFilter);
+			MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)pConfig, pHeap, (MaNotch2*)pFilter);
 			return ret;
 		}
 
-		public static MaResult MaNotch2InitPreallocated(in MaNotch2Config pConfig, void* pHeap, MaNotch2Ptr pFilter)
+		public static MaResult Notch2InitPreallocated(in MaNotch2Config pConfig, void* pHeap, MaNotch2Ptr pFilter)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)ppConfig, pHeap, (MaNotch2*)pFilter);
+				MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)ppConfig, pHeap, (MaNotch2*)pFilter);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2InitPreallocated(MaNotch2ConfigPtr pConfig, nint pHeap, MaNotch2Ptr pFilter)
+		public static MaResult Notch2InitPreallocated(MaNotch2ConfigPtr pConfig, nint pHeap, MaNotch2Ptr pFilter)
 		{
-			MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)pConfig, (void*)pHeap, (MaNotch2*)pFilter);
+			MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)pConfig, (void*)pHeap, (MaNotch2*)pFilter);
 			return ret;
 		}
 
-		public static MaResult MaNotch2InitPreallocated(in MaNotch2Config pConfig, nint pHeap, MaNotch2Ptr pFilter)
+		public static MaResult Notch2InitPreallocated(in MaNotch2Config pConfig, nint pHeap, MaNotch2Ptr pFilter)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)ppConfig, (void*)pHeap, (MaNotch2*)pFilter);
+				MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)ppConfig, (void*)pHeap, (MaNotch2*)pFilter);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2InitPreallocated(MaNotch2ConfigPtr pConfig, void* pHeap, ref MaNotch2 pFilter)
+		public static MaResult Notch2InitPreallocated(MaNotch2ConfigPtr pConfig, void* pHeap, ref MaNotch2 pFilter)
 		{
 			fixed (MaNotch2* ppFilter = &pFilter)
 			{
-				MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)pConfig, pHeap, (MaNotch2*)ppFilter);
+				MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)pConfig, pHeap, (MaNotch2*)ppFilter);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2InitPreallocated(in MaNotch2Config pConfig, void* pHeap, ref MaNotch2 pFilter)
+		public static MaResult Notch2InitPreallocated(in MaNotch2Config pConfig, void* pHeap, ref MaNotch2 pFilter)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
 				fixed (MaNotch2* ppFilter = &pFilter)
 				{
-					MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)ppConfig, pHeap, (MaNotch2*)ppFilter);
+					MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)ppConfig, pHeap, (MaNotch2*)ppFilter);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaNotch2InitPreallocated(MaNotch2ConfigPtr pConfig, nint pHeap, ref MaNotch2 pFilter)
+		public static MaResult Notch2InitPreallocated(MaNotch2ConfigPtr pConfig, nint pHeap, ref MaNotch2 pFilter)
 		{
 			fixed (MaNotch2* ppFilter = &pFilter)
 			{
-				MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)pConfig, (void*)pHeap, (MaNotch2*)ppFilter);
+				MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)pConfig, (void*)pHeap, (MaNotch2*)ppFilter);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2InitPreallocated(in MaNotch2Config pConfig, nint pHeap, ref MaNotch2 pFilter)
+		public static MaResult Notch2InitPreallocated(in MaNotch2Config pConfig, nint pHeap, ref MaNotch2 pFilter)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
 				fixed (MaNotch2* ppFilter = &pFilter)
 				{
-					MaResult ret = MaNotch2InitPreallocatedNative((MaNotch2Config*)ppConfig, (void*)pHeap, (MaNotch2*)ppFilter);
+					MaResult ret = Notch2InitPreallocatedNative((MaNotch2Config*)ppConfig, (void*)pHeap, (MaNotch2*)ppFilter);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaNotch2InitNative(MaNotch2Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaNotch2* pFilter)
+		internal static MaResult Notch2InitNative(MaNotch2Config* pConfig, MaAllocationCallbacks* pAllocationCallbacks, MaNotch2* pFilter)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaNotch2Config*, MaAllocationCallbacks*, MaNotch2*, MaResult>)funcTable[89])(pConfig, pAllocationCallbacks, pFilter);
@@ -4980,37 +4980,37 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaNotch2Init(MaNotch2ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNotch2Ptr pFilter)
+		public static MaResult Notch2Init(MaNotch2ConfigPtr pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNotch2Ptr pFilter)
 		{
-			MaResult ret = MaNotch2InitNative((MaNotch2Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNotch2*)pFilter);
+			MaResult ret = Notch2InitNative((MaNotch2Config*)pConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNotch2*)pFilter);
 			return ret;
 		}
 
-		public static MaResult MaNotch2Init(in MaNotch2Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNotch2Ptr pFilter)
+		public static MaResult Notch2Init(in MaNotch2Config pConfig, MaAllocationCallbacksPtr pAllocationCallbacks, MaNotch2Ptr pFilter)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
-				MaResult ret = MaNotch2InitNative((MaNotch2Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNotch2*)pFilter);
+				MaResult ret = Notch2InitNative((MaNotch2Config*)ppConfig, (MaAllocationCallbacks*)pAllocationCallbacks, (MaNotch2*)pFilter);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2Init(MaNotch2ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaNotch2Ptr pFilter)
+		public static MaResult Notch2Init(MaNotch2ConfigPtr pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaNotch2Ptr pFilter)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaNotch2InitNative((MaNotch2Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaNotch2*)pFilter);
+				MaResult ret = Notch2InitNative((MaNotch2Config*)pConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaNotch2*)pFilter);
 				return ret;
 			}
 		}
 
-		public static MaResult MaNotch2Init(in MaNotch2Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaNotch2Ptr pFilter)
+		public static MaResult Notch2Init(in MaNotch2Config pConfig, in MaAllocationCallbacks pAllocationCallbacks, MaNotch2Ptr pFilter)
 		{
 			fixed (MaNotch2Config* ppConfig = &pConfig)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaNotch2InitNative((MaNotch2Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaNotch2*)pFilter);
+					MaResult ret = Notch2InitNative((MaNotch2Config*)ppConfig, (MaAllocationCallbacks*)ppAllocationCallbacks, (MaNotch2*)pFilter);
 					return ret;
 				}
 			}

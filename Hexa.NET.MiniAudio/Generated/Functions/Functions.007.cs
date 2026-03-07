@@ -17,27 +17,27 @@ namespace Hexa.NET.MiniAudio
 	public unsafe partial class MiniAudio
 	{
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(float* pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesF32(float* pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (float* ppFramesIn = &pFramesIn)
 			{
-				MaCopyAndApplyVolumeFactorPcmFramesF32Native(pFramesOut, (float*)ppFramesIn, frameCount, channels, factor);
+				CopyAndApplyVolumeFactorPcmFramesF32Native(pFramesOut, (float*)ppFramesIn, frameCount, channels, factor);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFramesF32(ref float pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFramesF32(ref float pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float factor)
 		{
 			fixed (float* ppFramesOut = &pFramesOut)
 			{
 				fixed (float* ppFramesIn = &pFramesIn)
 				{
-					MaCopyAndApplyVolumeFactorPcmFramesF32Native((float*)ppFramesOut, (float*)ppFramesIn, frameCount, channels, factor);
+					CopyAndApplyVolumeFactorPcmFramesF32Native((float*)ppFramesOut, (float*)ppFramesIn, frameCount, channels, factor);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPcmFramesNative(void* pFramesOut, void* pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
+		internal static void CopyAndApplyVolumeFactorPcmFramesNative(void* pFramesOut, void* pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, void*, ulong, MaFormat, uint, float, void>)funcTable[523])(pFramesOut, pFramesIn, frameCount, format, channels, factor);
@@ -46,28 +46,28 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFrames(void* pFramesOut, void* pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFrames(void* pFramesOut, void* pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesNative(pFramesOut, pFramesIn, frameCount, format, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesNative(pFramesOut, pFramesIn, frameCount, format, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFrames(nint pFramesOut, void* pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFrames(nint pFramesOut, void* pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesNative((void*)pFramesOut, pFramesIn, frameCount, format, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesNative((void*)pFramesOut, pFramesIn, frameCount, format, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFrames(void* pFramesOut, nint pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFrames(void* pFramesOut, nint pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesNative(pFramesOut, (void*)pFramesIn, frameCount, format, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesNative(pFramesOut, (void*)pFramesIn, frameCount, format, channels, factor);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPcmFrames(nint pFramesOut, nint pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
+		public static void CopyAndApplyVolumeFactorPcmFrames(nint pFramesOut, nint pFramesIn, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
-			MaCopyAndApplyVolumeFactorPcmFramesNative((void*)pFramesOut, (void*)pFramesIn, frameCount, format, channels, factor);
+			CopyAndApplyVolumeFactorPcmFramesNative((void*)pFramesOut, (void*)pFramesIn, frameCount, format, channels, factor);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorPcmFramesU8Native(byte* pFrames, ulong frameCount, uint channels, float factor)
+		internal static void ApplyVolumeFactorPcmFramesU8Native(byte* pFrames, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, ulong, uint, float, void>)funcTable[524])(pFrames, frameCount, channels, factor);
@@ -76,21 +76,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesU8(byte* pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesU8(byte* pFrames, ulong frameCount, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesU8Native(pFrames, frameCount, channels, factor);
+			ApplyVolumeFactorPcmFramesU8Native(pFrames, frameCount, channels, factor);
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesU8(ref byte pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesU8(ref byte pFrames, ulong frameCount, uint channels, float factor)
 		{
 			fixed (byte* ppFrames = &pFrames)
 			{
-				MaApplyVolumeFactorPcmFramesU8Native((byte*)ppFrames, frameCount, channels, factor);
+				ApplyVolumeFactorPcmFramesU8Native((byte*)ppFrames, frameCount, channels, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorPcmFramesS16Native(short* pFrames, ulong frameCount, uint channels, float factor)
+		internal static void ApplyVolumeFactorPcmFramesS16Native(short* pFrames, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<short*, ulong, uint, float, void>)funcTable[525])(pFrames, frameCount, channels, factor);
@@ -99,21 +99,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesS16(short* pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesS16(short* pFrames, ulong frameCount, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesS16Native(pFrames, frameCount, channels, factor);
+			ApplyVolumeFactorPcmFramesS16Native(pFrames, frameCount, channels, factor);
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesS16(ref short pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesS16(ref short pFrames, ulong frameCount, uint channels, float factor)
 		{
 			fixed (short* ppFrames = &pFrames)
 			{
-				MaApplyVolumeFactorPcmFramesS16Native((short*)ppFrames, frameCount, channels, factor);
+				ApplyVolumeFactorPcmFramesS16Native((short*)ppFrames, frameCount, channels, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorPcmFramesS24Native(void* pFrames, ulong frameCount, uint channels, float factor)
+		internal static void ApplyVolumeFactorPcmFramesS24Native(void* pFrames, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, ulong, uint, float, void>)funcTable[526])(pFrames, frameCount, channels, factor);
@@ -122,18 +122,18 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesS24(void* pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesS24(void* pFrames, ulong frameCount, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesS24Native(pFrames, frameCount, channels, factor);
+			ApplyVolumeFactorPcmFramesS24Native(pFrames, frameCount, channels, factor);
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesS24(nint pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesS24(nint pFrames, ulong frameCount, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesS24Native((void*)pFrames, frameCount, channels, factor);
+			ApplyVolumeFactorPcmFramesS24Native((void*)pFrames, frameCount, channels, factor);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorPcmFramesS32Native(int* pFrames, ulong frameCount, uint channels, float factor)
+		internal static void ApplyVolumeFactorPcmFramesS32Native(int* pFrames, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int*, ulong, uint, float, void>)funcTable[527])(pFrames, frameCount, channels, factor);
@@ -142,21 +142,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesS32(int* pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesS32(int* pFrames, ulong frameCount, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesS32Native(pFrames, frameCount, channels, factor);
+			ApplyVolumeFactorPcmFramesS32Native(pFrames, frameCount, channels, factor);
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesS32(ref int pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesS32(ref int pFrames, ulong frameCount, uint channels, float factor)
 		{
 			fixed (int* ppFrames = &pFrames)
 			{
-				MaApplyVolumeFactorPcmFramesS32Native((int*)ppFrames, frameCount, channels, factor);
+				ApplyVolumeFactorPcmFramesS32Native((int*)ppFrames, frameCount, channels, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorPcmFramesF32Native(float* pFrames, ulong frameCount, uint channels, float factor)
+		internal static void ApplyVolumeFactorPcmFramesF32Native(float* pFrames, ulong frameCount, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<float*, ulong, uint, float, void>)funcTable[528])(pFrames, frameCount, channels, factor);
@@ -165,21 +165,21 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesF32(float* pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesF32(float* pFrames, ulong frameCount, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesF32Native(pFrames, frameCount, channels, factor);
+			ApplyVolumeFactorPcmFramesF32Native(pFrames, frameCount, channels, factor);
 		}
 
-		public static void MaApplyVolumeFactorPcmFramesF32(ref float pFrames, ulong frameCount, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFramesF32(ref float pFrames, ulong frameCount, uint channels, float factor)
 		{
 			fixed (float* ppFrames = &pFrames)
 			{
-				MaApplyVolumeFactorPcmFramesF32Native((float*)ppFrames, frameCount, channels, factor);
+				ApplyVolumeFactorPcmFramesF32Native((float*)ppFrames, frameCount, channels, factor);
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaApplyVolumeFactorPcmFramesNative(void* pFrames, ulong frameCount, MaFormat format, uint channels, float factor)
+		internal static void ApplyVolumeFactorPcmFramesNative(void* pFrames, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, ulong, MaFormat, uint, float, void>)funcTable[529])(pFrames, frameCount, format, channels, factor);
@@ -188,18 +188,18 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaApplyVolumeFactorPcmFrames(void* pFrames, ulong frameCount, MaFormat format, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFrames(void* pFrames, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesNative(pFrames, frameCount, format, channels, factor);
+			ApplyVolumeFactorPcmFramesNative(pFrames, frameCount, format, channels, factor);
 		}
 
-		public static void MaApplyVolumeFactorPcmFrames(nint pFrames, ulong frameCount, MaFormat format, uint channels, float factor)
+		public static void ApplyVolumeFactorPcmFrames(nint pFrames, ulong frameCount, MaFormat format, uint channels, float factor)
 		{
-			MaApplyVolumeFactorPcmFramesNative((void*)pFrames, frameCount, format, channels, factor);
+			ApplyVolumeFactorPcmFramesNative((void*)pFrames, frameCount, format, channels, factor);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeFactorPerChannelF32Native(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
+		internal static void CopyAndApplyVolumeFactorPerChannelF32Native(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<float*, float*, ulong, uint, float*, void>)funcTable[530])(pFramesOut, pFramesIn, frameCount, channels, pChannelGains);
@@ -208,69 +208,69 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
 		{
-			MaCopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, pFramesIn, frameCount, channels, pChannelGains);
+			CopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, pFramesIn, frameCount, channels, pChannelGains);
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
 		{
 			fixed (float* ppFramesOut = &pFramesOut)
 			{
-				MaCopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, pChannelGains);
+				CopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, pChannelGains);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
 		{
 			fixed (float* ppFramesIn = &pFramesIn)
 			{
-				MaCopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, (float*)ppFramesIn, frameCount, channels, pChannelGains);
+				CopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, (float*)ppFramesIn, frameCount, channels, pChannelGains);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, in float pFramesIn, ulong frameCount, uint channels, float* pChannelGains)
 		{
 			fixed (float* ppFramesOut = &pFramesOut)
 			{
 				fixed (float* ppFramesIn = &pFramesIn)
 				{
-					MaCopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, (float*)ppFramesIn, frameCount, channels, pChannelGains);
+					CopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, (float*)ppFramesIn, frameCount, channels, pChannelGains);
 				}
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, float* pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
 		{
 			fixed (float* ppChannelGains = &pChannelGains)
 			{
-				MaCopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, pFramesIn, frameCount, channels, (float*)ppChannelGains);
+				CopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, pFramesIn, frameCount, channels, (float*)ppChannelGains);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, float* pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
 		{
 			fixed (float* ppFramesOut = &pFramesOut)
 			{
 				fixed (float* ppChannelGains = &pChannelGains)
 				{
-					MaCopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, (float*)ppChannelGains);
+					CopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, pFramesIn, frameCount, channels, (float*)ppChannelGains);
 				}
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, in float pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(float* pFramesOut, in float pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
 		{
 			fixed (float* ppFramesIn = &pFramesIn)
 			{
 				fixed (float* ppChannelGains = &pChannelGains)
 				{
-					MaCopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, (float*)ppFramesIn, frameCount, channels, (float*)ppChannelGains);
+					CopyAndApplyVolumeFactorPerChannelF32Native(pFramesOut, (float*)ppFramesIn, frameCount, channels, (float*)ppChannelGains);
 				}
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, in float pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
+		public static void CopyAndApplyVolumeFactorPerChannelF32(ref float pFramesOut, in float pFramesIn, ulong frameCount, uint channels, ref float pChannelGains)
 		{
 			fixed (float* ppFramesOut = &pFramesOut)
 			{
@@ -278,14 +278,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (float* ppChannelGains = &pChannelGains)
 					{
-						MaCopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, (float*)ppFramesIn, frameCount, channels, (float*)ppChannelGains);
+						CopyAndApplyVolumeFactorPerChannelF32Native((float*)ppFramesOut, (float*)ppFramesIn, frameCount, channels, (float*)ppChannelGains);
 					}
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeAndClipSamplesU8Native(byte* pDst, short* pSrc, ulong count, float volume)
+		internal static void CopyAndApplyVolumeAndClipSamplesU8Native(byte* pDst, short* pSrc, ulong count, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, short*, ulong, float, void>)funcTable[531])(pDst, pSrc, count, volume);
@@ -294,40 +294,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesU8(byte* pDst, short* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesU8(byte* pDst, short* pSrc, ulong count, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipSamplesU8Native(pDst, pSrc, count, volume);
+			CopyAndApplyVolumeAndClipSamplesU8Native(pDst, pSrc, count, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesU8(ref byte pDst, short* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesU8(ref byte pDst, short* pSrc, ulong count, float volume)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesU8Native((byte*)ppDst, pSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesU8Native((byte*)ppDst, pSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesU8(byte* pDst, in short pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesU8(byte* pDst, in short pSrc, ulong count, float volume)
 		{
 			fixed (short* ppSrc = &pSrc)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesU8Native(pDst, (short*)ppSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesU8Native(pDst, (short*)ppSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesU8(ref byte pDst, in short pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesU8(ref byte pDst, in short pSrc, ulong count, float volume)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
 				fixed (short* ppSrc = &pSrc)
 				{
-					MaCopyAndApplyVolumeAndClipSamplesU8Native((byte*)ppDst, (short*)ppSrc, count, volume);
+					CopyAndApplyVolumeAndClipSamplesU8Native((byte*)ppDst, (short*)ppSrc, count, volume);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeAndClipSamplesS16Native(short* pDst, int* pSrc, ulong count, float volume)
+		internal static void CopyAndApplyVolumeAndClipSamplesS16Native(short* pDst, int* pSrc, ulong count, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<short*, int*, ulong, float, void>)funcTable[532])(pDst, pSrc, count, volume);
@@ -336,40 +336,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS16(short* pDst, int* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS16(short* pDst, int* pSrc, ulong count, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipSamplesS16Native(pDst, pSrc, count, volume);
+			CopyAndApplyVolumeAndClipSamplesS16Native(pDst, pSrc, count, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS16(ref short pDst, int* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS16(ref short pDst, int* pSrc, ulong count, float volume)
 		{
 			fixed (short* ppDst = &pDst)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesS16Native((short*)ppDst, pSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesS16Native((short*)ppDst, pSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS16(short* pDst, in int pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS16(short* pDst, in int pSrc, ulong count, float volume)
 		{
 			fixed (int* ppSrc = &pSrc)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesS16Native(pDst, (int*)ppSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesS16Native(pDst, (int*)ppSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS16(ref short pDst, in int pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS16(ref short pDst, in int pSrc, ulong count, float volume)
 		{
 			fixed (short* ppDst = &pDst)
 			{
 				fixed (int* ppSrc = &pSrc)
 				{
-					MaCopyAndApplyVolumeAndClipSamplesS16Native((short*)ppDst, (int*)ppSrc, count, volume);
+					CopyAndApplyVolumeAndClipSamplesS16Native((short*)ppDst, (int*)ppSrc, count, volume);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeAndClipSamplesS24Native(byte* pDst, long* pSrc, ulong count, float volume)
+		internal static void CopyAndApplyVolumeAndClipSamplesS24Native(byte* pDst, long* pSrc, ulong count, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<byte*, long*, ulong, float, void>)funcTable[533])(pDst, pSrc, count, volume);
@@ -378,40 +378,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS24(byte* pDst, long* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS24(byte* pDst, long* pSrc, ulong count, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipSamplesS24Native(pDst, pSrc, count, volume);
+			CopyAndApplyVolumeAndClipSamplesS24Native(pDst, pSrc, count, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS24(ref byte pDst, long* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS24(ref byte pDst, long* pSrc, ulong count, float volume)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesS24Native((byte*)ppDst, pSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesS24Native((byte*)ppDst, pSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS24(byte* pDst, in long pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS24(byte* pDst, in long pSrc, ulong count, float volume)
 		{
 			fixed (long* ppSrc = &pSrc)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesS24Native(pDst, (long*)ppSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesS24Native(pDst, (long*)ppSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS24(ref byte pDst, in long pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS24(ref byte pDst, in long pSrc, ulong count, float volume)
 		{
 			fixed (byte* ppDst = &pDst)
 			{
 				fixed (long* ppSrc = &pSrc)
 				{
-					MaCopyAndApplyVolumeAndClipSamplesS24Native((byte*)ppDst, (long*)ppSrc, count, volume);
+					CopyAndApplyVolumeAndClipSamplesS24Native((byte*)ppDst, (long*)ppSrc, count, volume);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeAndClipSamplesS32Native(int* pDst, long* pSrc, ulong count, float volume)
+		internal static void CopyAndApplyVolumeAndClipSamplesS32Native(int* pDst, long* pSrc, ulong count, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int*, long*, ulong, float, void>)funcTable[534])(pDst, pSrc, count, volume);
@@ -420,40 +420,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS32(int* pDst, long* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS32(int* pDst, long* pSrc, ulong count, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipSamplesS32Native(pDst, pSrc, count, volume);
+			CopyAndApplyVolumeAndClipSamplesS32Native(pDst, pSrc, count, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS32(ref int pDst, long* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS32(ref int pDst, long* pSrc, ulong count, float volume)
 		{
 			fixed (int* ppDst = &pDst)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesS32Native((int*)ppDst, pSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesS32Native((int*)ppDst, pSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS32(int* pDst, in long pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS32(int* pDst, in long pSrc, ulong count, float volume)
 		{
 			fixed (long* ppSrc = &pSrc)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesS32Native(pDst, (long*)ppSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesS32Native(pDst, (long*)ppSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesS32(ref int pDst, in long pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesS32(ref int pDst, in long pSrc, ulong count, float volume)
 		{
 			fixed (int* ppDst = &pDst)
 			{
 				fixed (long* ppSrc = &pSrc)
 				{
-					MaCopyAndApplyVolumeAndClipSamplesS32Native((int*)ppDst, (long*)ppSrc, count, volume);
+					CopyAndApplyVolumeAndClipSamplesS32Native((int*)ppDst, (long*)ppSrc, count, volume);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeAndClipSamplesF32Native(float* pDst, float* pSrc, ulong count, float volume)
+		internal static void CopyAndApplyVolumeAndClipSamplesF32Native(float* pDst, float* pSrc, ulong count, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<float*, float*, ulong, float, void>)funcTable[535])(pDst, pSrc, count, volume);
@@ -462,40 +462,40 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesF32(float* pDst, float* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesF32(float* pDst, float* pSrc, ulong count, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipSamplesF32Native(pDst, pSrc, count, volume);
+			CopyAndApplyVolumeAndClipSamplesF32Native(pDst, pSrc, count, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesF32(ref float pDst, float* pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesF32(ref float pDst, float* pSrc, ulong count, float volume)
 		{
 			fixed (float* ppDst = &pDst)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesF32Native((float*)ppDst, pSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesF32Native((float*)ppDst, pSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesF32(float* pDst, in float pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesF32(float* pDst, in float pSrc, ulong count, float volume)
 		{
 			fixed (float* ppSrc = &pSrc)
 			{
-				MaCopyAndApplyVolumeAndClipSamplesF32Native(pDst, (float*)ppSrc, count, volume);
+				CopyAndApplyVolumeAndClipSamplesF32Native(pDst, (float*)ppSrc, count, volume);
 			}
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipSamplesF32(ref float pDst, in float pSrc, ulong count, float volume)
+		public static void CopyAndApplyVolumeAndClipSamplesF32(ref float pDst, in float pSrc, ulong count, float volume)
 		{
 			fixed (float* ppDst = &pDst)
 			{
 				fixed (float* ppSrc = &pSrc)
 				{
-					MaCopyAndApplyVolumeAndClipSamplesF32Native((float*)ppDst, (float*)ppSrc, count, volume);
+					CopyAndApplyVolumeAndClipSamplesF32Native((float*)ppDst, (float*)ppSrc, count, volume);
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaCopyAndApplyVolumeAndClipPcmFramesNative(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
+		internal static void CopyAndApplyVolumeAndClipPcmFramesNative(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void*, void*, ulong, MaFormat, uint, float, void>)funcTable[536])(pDst, pSrc, frameCount, format, channels, volume);
@@ -504,31 +504,31 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipPcmFrames(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
+		public static void CopyAndApplyVolumeAndClipPcmFrames(void* pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipPcmFramesNative(pDst, pSrc, frameCount, format, channels, volume);
+			CopyAndApplyVolumeAndClipPcmFramesNative(pDst, pSrc, frameCount, format, channels, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipPcmFrames(nint pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
+		public static void CopyAndApplyVolumeAndClipPcmFrames(nint pDst, void* pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipPcmFramesNative((void*)pDst, pSrc, frameCount, format, channels, volume);
+			CopyAndApplyVolumeAndClipPcmFramesNative((void*)pDst, pSrc, frameCount, format, channels, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipPcmFrames(void* pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
+		public static void CopyAndApplyVolumeAndClipPcmFrames(void* pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipPcmFramesNative(pDst, (void*)pSrc, frameCount, format, channels, volume);
+			CopyAndApplyVolumeAndClipPcmFramesNative(pDst, (void*)pSrc, frameCount, format, channels, volume);
 		}
 
-		public static void MaCopyAndApplyVolumeAndClipPcmFrames(nint pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
+		public static void CopyAndApplyVolumeAndClipPcmFrames(nint pDst, nint pSrc, ulong frameCount, MaFormat format, uint channels, float volume)
 		{
-			MaCopyAndApplyVolumeAndClipPcmFramesNative((void*)pDst, (void*)pSrc, frameCount, format, channels, volume);
+			CopyAndApplyVolumeAndClipPcmFramesNative((void*)pDst, (void*)pSrc, frameCount, format, channels, volume);
 		}
 
 		/// <summary>
 		/// Helper for converting a linear factor to gain in decibels.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaVolumeLinearToDbNative(float factor)
+		internal static float VolumeLinearToDbNative(float factor)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<float, float>)funcTable[537])(factor);
@@ -540,9 +540,9 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Helper for converting a linear factor to gain in decibels.<br/>
 		/// </summary>
-		public static float MaVolumeLinearToDb(float factor)
+		public static float VolumeLinearToDb(float factor)
 		{
-			float ret = MaVolumeLinearToDbNative(factor);
+			float ret = VolumeLinearToDbNative(factor);
 			return ret;
 		}
 
@@ -550,7 +550,7 @@ namespace Hexa.NET.MiniAudio
 		/// Helper for converting gain in decibels to a linear factor.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float MaVolumeDbToLinearNative(float gain)
+		internal static float VolumeDbToLinearNative(float gain)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<float, float>)funcTable[538])(gain);
@@ -562,9 +562,9 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Helper for converting gain in decibels to a linear factor.<br/>
 		/// </summary>
-		public static float MaVolumeDbToLinear(float gain)
+		public static float VolumeDbToLinear(float gain)
 		{
-			float ret = MaVolumeDbToLinearNative(gain);
+			float ret = VolumeDbToLinearNative(gain);
 			return ret;
 		}
 
@@ -573,7 +573,7 @@ namespace Hexa.NET.MiniAudio
 		/// This will run on an optimized path when the volume is equal to 1.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaMixPcmFramesF32Native(float* pDst, float* pSrc, ulong frameCount, uint channels, float volume)
+		internal static MaResult MixPcmFramesF32Native(float* pDst, float* pSrc, ulong frameCount, uint channels, float volume)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<float*, float*, ulong, uint, float, MaResult>)funcTable[539])(pDst, pSrc, frameCount, channels, volume);
@@ -586,9 +586,9 @@ namespace Hexa.NET.MiniAudio
 		/// Mixes the specified number of frames in floating point format with a volume factor.<br/>
 		/// This will run on an optimized path when the volume is equal to 1.<br/>
 		/// </summary>
-		public static MaResult MaMixPcmFramesF32(float* pDst, float* pSrc, ulong frameCount, uint channels, float volume)
+		public static MaResult MixPcmFramesF32(float* pDst, float* pSrc, ulong frameCount, uint channels, float volume)
 		{
-			MaResult ret = MaMixPcmFramesF32Native(pDst, pSrc, frameCount, channels, volume);
+			MaResult ret = MixPcmFramesF32Native(pDst, pSrc, frameCount, channels, volume);
 			return ret;
 		}
 
@@ -596,11 +596,11 @@ namespace Hexa.NET.MiniAudio
 		/// Mixes the specified number of frames in floating point format with a volume factor.<br/>
 		/// This will run on an optimized path when the volume is equal to 1.<br/>
 		/// </summary>
-		public static MaResult MaMixPcmFramesF32(ref float pDst, float* pSrc, ulong frameCount, uint channels, float volume)
+		public static MaResult MixPcmFramesF32(ref float pDst, float* pSrc, ulong frameCount, uint channels, float volume)
 		{
 			fixed (float* ppDst = &pDst)
 			{
-				MaResult ret = MaMixPcmFramesF32Native((float*)ppDst, pSrc, frameCount, channels, volume);
+				MaResult ret = MixPcmFramesF32Native((float*)ppDst, pSrc, frameCount, channels, volume);
 				return ret;
 			}
 		}
@@ -609,11 +609,11 @@ namespace Hexa.NET.MiniAudio
 		/// Mixes the specified number of frames in floating point format with a volume factor.<br/>
 		/// This will run on an optimized path when the volume is equal to 1.<br/>
 		/// </summary>
-		public static MaResult MaMixPcmFramesF32(float* pDst, in float pSrc, ulong frameCount, uint channels, float volume)
+		public static MaResult MixPcmFramesF32(float* pDst, in float pSrc, ulong frameCount, uint channels, float volume)
 		{
 			fixed (float* ppSrc = &pSrc)
 			{
-				MaResult ret = MaMixPcmFramesF32Native(pDst, (float*)ppSrc, frameCount, channels, volume);
+				MaResult ret = MixPcmFramesF32Native(pDst, (float*)ppSrc, frameCount, channels, volume);
 				return ret;
 			}
 		}
@@ -622,20 +622,20 @@ namespace Hexa.NET.MiniAudio
 		/// Mixes the specified number of frames in floating point format with a volume factor.<br/>
 		/// This will run on an optimized path when the volume is equal to 1.<br/>
 		/// </summary>
-		public static MaResult MaMixPcmFramesF32(ref float pDst, in float pSrc, ulong frameCount, uint channels, float volume)
+		public static MaResult MixPcmFramesF32(ref float pDst, in float pSrc, ulong frameCount, uint channels, float volume)
 		{
 			fixed (float* ppDst = &pDst)
 			{
 				fixed (float* ppSrc = &pSrc)
 				{
-					MaResult ret = MaMixPcmFramesF32Native((float*)ppDst, (float*)ppSrc, frameCount, channels, volume);
+					MaResult ret = MixPcmFramesF32Native((float*)ppDst, (float*)ppSrc, frameCount, channels, volume);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsOpenNative(void* pVFs, byte* pFilePath, uint openMode, void** pFile)
+		internal static MaResult VfsOpenNative(void* pVFs, byte* pFilePath, uint openMode, void** pFile)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, byte*, uint, void**, MaResult>)funcTable[540])(pVFs, pFilePath, openMode, pFile);
@@ -644,37 +644,37 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, byte* pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(void* pVFs, byte* pFilePath, uint openMode, void** pFile)
 		{
-			MaResult ret = MaVfsOpenNative(pVFs, pFilePath, openMode, pFile);
+			MaResult ret = VfsOpenNative(pVFs, pFilePath, openMode, pFile);
 			return ret;
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, byte* pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(nint pVFs, byte* pFilePath, uint openMode, void** pFile)
 		{
-			MaResult ret = MaVfsOpenNative((void*)pVFs, pFilePath, openMode, pFile);
+			MaResult ret = VfsOpenNative((void*)pVFs, pFilePath, openMode, pFile);
 			return ret;
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, in byte pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(void* pVFs, in byte pFilePath, uint openMode, void** pFile)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaVfsOpenNative(pVFs, (byte*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenNative(pVFs, (byte*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(void* pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, void** pFile)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenNative(pVFs, (byte*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenNative(pVFs, (byte*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, string pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(void* pVFs, string pFilePath, uint openMode, void** pFile)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -693,7 +693,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaVfsOpenNative(pVFs, pStr0, openMode, pFile);
+			MaResult ret = VfsOpenNative(pVFs, pStr0, openMode, pFile);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -701,25 +701,25 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, in byte pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(nint pVFs, in byte pFilePath, uint openMode, void** pFile)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaVfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(nint pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, void** pFile)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, string pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpen(nint pVFs, string pFilePath, uint openMode, void** pFile)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -738,7 +738,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaVfsOpenNative((void*)pVFs, pStr0, openMode, pFile);
+			MaResult ret = VfsOpenNative((void*)pVFs, pStr0, openMode, pFile);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -746,49 +746,49 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, byte* pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(void* pVFs, byte* pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (nint* ppFile = &pFile)
 			{
-				MaResult ret = MaVfsOpenNative(pVFs, pFilePath, openMode, (void**)ppFile);
+				MaResult ret = VfsOpenNative(pVFs, pFilePath, openMode, (void**)ppFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, byte* pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(nint pVFs, byte* pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (nint* ppFile = &pFile)
 			{
-				MaResult ret = MaVfsOpenNative((void*)pVFs, pFilePath, openMode, (void**)ppFile);
+				MaResult ret = VfsOpenNative((void*)pVFs, pFilePath, openMode, (void**)ppFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, in byte pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(void* pVFs, in byte pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenNative(pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenNative(pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(void* pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenNative(pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenNative(pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpen(void* pVFs, string pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(void* pVFs, string pFilePath, uint openMode, ref nint pFile)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -809,7 +809,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (nint* ppFile = &pFile)
 			{
-				MaResult ret = MaVfsOpenNative(pVFs, pStr0, openMode, (void**)ppFile);
+				MaResult ret = VfsOpenNative(pVFs, pStr0, openMode, (void**)ppFile);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -818,31 +818,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, in byte pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(nint pVFs, in byte pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(nint pVFs, ReadOnlySpan<byte> pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenNative((void*)pVFs, (byte*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpen(nint pVFs, string pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpen(nint pVFs, string pFilePath, uint openMode, ref nint pFile)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -863,7 +863,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (nint* ppFile = &pFile)
 			{
-				MaResult ret = MaVfsOpenNative((void*)pVFs, pStr0, openMode, (void**)ppFile);
+				MaResult ret = VfsOpenNative((void*)pVFs, pStr0, openMode, (void**)ppFile);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -873,7 +873,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsOpenWNative(void* pVFs, char* pFilePath, uint openMode, void** pFile)
+		internal static MaResult VfsOpenWNative(void* pVFs, char* pFilePath, uint openMode, void** pFile)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, char*, uint, void**, MaResult>)funcTable[541])(pVFs, pFilePath, openMode, pFile);
@@ -882,164 +882,164 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, char* pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(void* pVFs, char* pFilePath, uint openMode, void** pFile)
 		{
-			MaResult ret = MaVfsOpenWNative(pVFs, pFilePath, openMode, pFile);
+			MaResult ret = VfsOpenWNative(pVFs, pFilePath, openMode, pFile);
 			return ret;
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, char* pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(nint pVFs, char* pFilePath, uint openMode, void** pFile)
 		{
-			MaResult ret = MaVfsOpenWNative((void*)pVFs, pFilePath, openMode, pFile);
+			MaResult ret = VfsOpenWNative((void*)pVFs, pFilePath, openMode, pFile);
 			return ret;
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, in char pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(void* pVFs, in char pFilePath, uint openMode, void** pFile)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaVfsOpenWNative(pVFs, (char*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenWNative(pVFs, (char*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, ReadOnlySpan<char> pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(void* pVFs, ReadOnlySpan<char> pFilePath, uint openMode, void** pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenWNative(pVFs, (char*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenWNative(pVFs, (char*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, string pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(void* pVFs, string pFilePath, uint openMode, void** pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenWNative(pVFs, ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenWNative(pVFs, ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, in char pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(nint pVFs, in char pFilePath, uint openMode, void** pFile)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaVfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, ReadOnlySpan<char> pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(nint pVFs, ReadOnlySpan<char> pFilePath, uint openMode, void** pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, string pFilePath, uint openMode, void** pFile)
+		public static MaResult VfsOpenW(nint pVFs, string pFilePath, uint openMode, void** pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenWNative((void*)pVFs, ppFilePath, openMode, pFile);
+				MaResult ret = VfsOpenWNative((void*)pVFs, ppFilePath, openMode, pFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, char* pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(void* pVFs, char* pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (nint* ppFile = &pFile)
 			{
-				MaResult ret = MaVfsOpenWNative(pVFs, pFilePath, openMode, (void**)ppFile);
+				MaResult ret = VfsOpenWNative(pVFs, pFilePath, openMode, (void**)ppFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, char* pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(nint pVFs, char* pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (nint* ppFile = &pFile)
 			{
-				MaResult ret = MaVfsOpenWNative((void*)pVFs, pFilePath, openMode, (void**)ppFile);
+				MaResult ret = VfsOpenWNative((void*)pVFs, pFilePath, openMode, (void**)ppFile);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, in char pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(void* pVFs, in char pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenWNative(pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenWNative(pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, ReadOnlySpan<char> pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(void* pVFs, ReadOnlySpan<char> pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenWNative(pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenWNative(pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenW(void* pVFs, string pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(void* pVFs, string pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenWNative(pVFs, ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenWNative(pVFs, ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, in char pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(nint pVFs, in char pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, ReadOnlySpan<char> pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(nint pVFs, ReadOnlySpan<char> pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenWNative((void*)pVFs, (char*)ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenW(nint pVFs, string pFilePath, uint openMode, ref nint pFile)
+		public static MaResult VfsOpenW(nint pVFs, string pFilePath, uint openMode, ref nint pFile)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (nint* ppFile = &pFile)
 				{
-					MaResult ret = MaVfsOpenWNative((void*)pVFs, ppFilePath, openMode, (void**)ppFile);
+					MaResult ret = VfsOpenWNative((void*)pVFs, ppFilePath, openMode, (void**)ppFile);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsCloseNative(void* pVFs, void* file)
+		internal static MaResult VfsCloseNative(void* pVFs, void* file)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, void*, MaResult>)funcTable[542])(pVFs, file);
@@ -1048,32 +1048,32 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsClose(void* pVFs, void* file)
+		public static MaResult VfsClose(void* pVFs, void* file)
 		{
-			MaResult ret = MaVfsCloseNative(pVFs, file);
+			MaResult ret = VfsCloseNative(pVFs, file);
 			return ret;
 		}
 
-		public static MaResult MaVfsClose(nint pVFs, void* file)
+		public static MaResult VfsClose(nint pVFs, void* file)
 		{
-			MaResult ret = MaVfsCloseNative((void*)pVFs, file);
+			MaResult ret = VfsCloseNative((void*)pVFs, file);
 			return ret;
 		}
 
-		public static MaResult MaVfsClose(void* pVFs, nint file)
+		public static MaResult VfsClose(void* pVFs, nint file)
 		{
-			MaResult ret = MaVfsCloseNative(pVFs, (void*)file);
+			MaResult ret = VfsCloseNative(pVFs, (void*)file);
 			return ret;
 		}
 
-		public static MaResult MaVfsClose(nint pVFs, nint file)
+		public static MaResult VfsClose(nint pVFs, nint file)
 		{
-			MaResult ret = MaVfsCloseNative((void*)pVFs, (void*)file);
+			MaResult ret = VfsCloseNative((void*)pVFs, (void*)file);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsReadNative(void* pVFs, void* file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
+		internal static MaResult VfsReadNative(void* pVFs, void* file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, void*, void*, nuint, nuint*, MaResult>)funcTable[543])(pVFs, file, pDst, sizeInBytes, pBytesRead);
@@ -1082,128 +1082,128 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, void* file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(void* pVFs, void* file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative(pVFs, file, pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative(pVFs, file, pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, void* file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(nint pVFs, void* file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative((void*)pVFs, file, pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative((void*)pVFs, file, pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, nint file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(void* pVFs, nint file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative(pVFs, (void*)file, pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative(pVFs, (void*)file, pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, nint file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(nint pVFs, nint file, void* pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative((void*)pVFs, (void*)file, pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative((void*)pVFs, (void*)file, pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, void* file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(void* pVFs, void* file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative(pVFs, file, (void*)pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative(pVFs, file, (void*)pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, void* file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(nint pVFs, void* file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative((void*)pVFs, file, (void*)pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative((void*)pVFs, file, (void*)pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, nint file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(void* pVFs, nint file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative(pVFs, (void*)file, (void*)pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative(pVFs, (void*)file, (void*)pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, nint file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
+		public static MaResult VfsRead(nint pVFs, nint file, nint pDst, nuint sizeInBytes, nuint* pBytesRead)
 		{
-			MaResult ret = MaVfsReadNative((void*)pVFs, (void*)file, (void*)pDst, sizeInBytes, pBytesRead);
+			MaResult ret = VfsReadNative((void*)pVFs, (void*)file, (void*)pDst, sizeInBytes, pBytesRead);
 			return ret;
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, void* file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(void* pVFs, void* file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative(pVFs, file, pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative(pVFs, file, pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, void* file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(nint pVFs, void* file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative((void*)pVFs, file, pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative((void*)pVFs, file, pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, nint file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(void* pVFs, nint file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative(pVFs, (void*)file, pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative(pVFs, (void*)file, pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, nint file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(nint pVFs, nint file, void* pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative((void*)pVFs, (void*)file, pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative((void*)pVFs, (void*)file, pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, void* file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(void* pVFs, void* file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative(pVFs, file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative(pVFs, file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, void* file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(nint pVFs, void* file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative((void*)pVFs, file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative((void*)pVFs, file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsRead(void* pVFs, nint file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(void* pVFs, nint file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative(pVFs, (void*)file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative(pVFs, (void*)file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsRead(nint pVFs, nint file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
+		public static MaResult VfsRead(nint pVFs, nint file, nint pDst, nuint sizeInBytes, ref nuint pBytesRead)
 		{
 			fixed (nuint* ppBytesRead = &pBytesRead)
 			{
-				MaResult ret = MaVfsReadNative((void*)pVFs, (void*)file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
+				MaResult ret = VfsReadNative((void*)pVFs, (void*)file, (void*)pDst, sizeInBytes, (nuint*)ppBytesRead);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsWriteNative(void* pVFs, void* file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		internal static MaResult VfsWriteNative(void* pVFs, void* file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, void*, void*, nuint, nuint*, MaResult>)funcTable[544])(pVFs, file, pSrc, sizeInBytes, pBytesWritten);
@@ -1212,128 +1212,128 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, void* file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, void* file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative(pVFs, file, pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative(pVFs, file, pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, void* file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, void* file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative((void*)pVFs, file, pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative((void*)pVFs, file, pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, nint file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, nint file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative(pVFs, (void*)file, pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative(pVFs, (void*)file, pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, nint file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, nint file, void* pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative((void*)pVFs, (void*)file, pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative((void*)pVFs, (void*)file, pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, void* file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, void* file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative(pVFs, file, (void*)pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative(pVFs, file, (void*)pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, void* file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, void* file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative((void*)pVFs, file, (void*)pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative((void*)pVFs, file, (void*)pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, nint file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, nint file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative(pVFs, (void*)file, (void*)pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative(pVFs, (void*)file, (void*)pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, nint file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, nint file, nint pSrc, nuint sizeInBytes, nuint* pBytesWritten)
 		{
-			MaResult ret = MaVfsWriteNative((void*)pVFs, (void*)file, (void*)pSrc, sizeInBytes, pBytesWritten);
+			MaResult ret = VfsWriteNative((void*)pVFs, (void*)file, (void*)pSrc, sizeInBytes, pBytesWritten);
 			return ret;
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, void* file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, void* file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative(pVFs, file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative(pVFs, file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, void* file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, void* file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative((void*)pVFs, file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative((void*)pVFs, file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, nint file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, nint file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative(pVFs, (void*)file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative(pVFs, (void*)file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, nint file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, nint file, void* pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative((void*)pVFs, (void*)file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative((void*)pVFs, (void*)file, pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, void* file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, void* file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative(pVFs, file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative(pVFs, file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, void* file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, void* file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative((void*)pVFs, file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative((void*)pVFs, file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsWrite(void* pVFs, nint file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(void* pVFs, nint file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative(pVFs, (void*)file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative(pVFs, (void*)file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsWrite(nint pVFs, nint file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
+		public static MaResult VfsWrite(nint pVFs, nint file, nint pSrc, nuint sizeInBytes, ref nuint pBytesWritten)
 		{
 			fixed (nuint* ppBytesWritten = &pBytesWritten)
 			{
-				MaResult ret = MaVfsWriteNative((void*)pVFs, (void*)file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
+				MaResult ret = VfsWriteNative((void*)pVFs, (void*)file, (void*)pSrc, sizeInBytes, (nuint*)ppBytesWritten);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsSeekNative(void* pVFs, void* file, long offset, MaSeekOrigin origin)
+		internal static MaResult VfsSeekNative(void* pVFs, void* file, long offset, MaSeekOrigin origin)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, void*, long, MaSeekOrigin, MaResult>)funcTable[545])(pVFs, file, offset, origin);
@@ -1342,32 +1342,32 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsSeek(void* pVFs, void* file, long offset, MaSeekOrigin origin)
+		public static MaResult VfsSeek(void* pVFs, void* file, long offset, MaSeekOrigin origin)
 		{
-			MaResult ret = MaVfsSeekNative(pVFs, file, offset, origin);
+			MaResult ret = VfsSeekNative(pVFs, file, offset, origin);
 			return ret;
 		}
 
-		public static MaResult MaVfsSeek(nint pVFs, void* file, long offset, MaSeekOrigin origin)
+		public static MaResult VfsSeek(nint pVFs, void* file, long offset, MaSeekOrigin origin)
 		{
-			MaResult ret = MaVfsSeekNative((void*)pVFs, file, offset, origin);
+			MaResult ret = VfsSeekNative((void*)pVFs, file, offset, origin);
 			return ret;
 		}
 
-		public static MaResult MaVfsSeek(void* pVFs, nint file, long offset, MaSeekOrigin origin)
+		public static MaResult VfsSeek(void* pVFs, nint file, long offset, MaSeekOrigin origin)
 		{
-			MaResult ret = MaVfsSeekNative(pVFs, (void*)file, offset, origin);
+			MaResult ret = VfsSeekNative(pVFs, (void*)file, offset, origin);
 			return ret;
 		}
 
-		public static MaResult MaVfsSeek(nint pVFs, nint file, long offset, MaSeekOrigin origin)
+		public static MaResult VfsSeek(nint pVFs, nint file, long offset, MaSeekOrigin origin)
 		{
-			MaResult ret = MaVfsSeekNative((void*)pVFs, (void*)file, offset, origin);
+			MaResult ret = VfsSeekNative((void*)pVFs, (void*)file, offset, origin);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsTellNative(void* pVFs, void* file, long* pCursor)
+		internal static MaResult VfsTellNative(void* pVFs, void* file, long* pCursor)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, void*, long*, MaResult>)funcTable[546])(pVFs, file, pCursor);
@@ -1376,68 +1376,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsTell(void* pVFs, void* file, long* pCursor)
+		public static MaResult VfsTell(void* pVFs, void* file, long* pCursor)
 		{
-			MaResult ret = MaVfsTellNative(pVFs, file, pCursor);
+			MaResult ret = VfsTellNative(pVFs, file, pCursor);
 			return ret;
 		}
 
-		public static MaResult MaVfsTell(nint pVFs, void* file, long* pCursor)
+		public static MaResult VfsTell(nint pVFs, void* file, long* pCursor)
 		{
-			MaResult ret = MaVfsTellNative((void*)pVFs, file, pCursor);
+			MaResult ret = VfsTellNative((void*)pVFs, file, pCursor);
 			return ret;
 		}
 
-		public static MaResult MaVfsTell(void* pVFs, nint file, long* pCursor)
+		public static MaResult VfsTell(void* pVFs, nint file, long* pCursor)
 		{
-			MaResult ret = MaVfsTellNative(pVFs, (void*)file, pCursor);
+			MaResult ret = VfsTellNative(pVFs, (void*)file, pCursor);
 			return ret;
 		}
 
-		public static MaResult MaVfsTell(nint pVFs, nint file, long* pCursor)
+		public static MaResult VfsTell(nint pVFs, nint file, long* pCursor)
 		{
-			MaResult ret = MaVfsTellNative((void*)pVFs, (void*)file, pCursor);
+			MaResult ret = VfsTellNative((void*)pVFs, (void*)file, pCursor);
 			return ret;
 		}
 
-		public static MaResult MaVfsTell(void* pVFs, void* file, ref long pCursor)
+		public static MaResult VfsTell(void* pVFs, void* file, ref long pCursor)
 		{
 			fixed (long* ppCursor = &pCursor)
 			{
-				MaResult ret = MaVfsTellNative(pVFs, file, (long*)ppCursor);
+				MaResult ret = VfsTellNative(pVFs, file, (long*)ppCursor);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsTell(nint pVFs, void* file, ref long pCursor)
+		public static MaResult VfsTell(nint pVFs, void* file, ref long pCursor)
 		{
 			fixed (long* ppCursor = &pCursor)
 			{
-				MaResult ret = MaVfsTellNative((void*)pVFs, file, (long*)ppCursor);
+				MaResult ret = VfsTellNative((void*)pVFs, file, (long*)ppCursor);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsTell(void* pVFs, nint file, ref long pCursor)
+		public static MaResult VfsTell(void* pVFs, nint file, ref long pCursor)
 		{
 			fixed (long* ppCursor = &pCursor)
 			{
-				MaResult ret = MaVfsTellNative(pVFs, (void*)file, (long*)ppCursor);
+				MaResult ret = VfsTellNative(pVFs, (void*)file, (long*)ppCursor);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsTell(nint pVFs, nint file, ref long pCursor)
+		public static MaResult VfsTell(nint pVFs, nint file, ref long pCursor)
 		{
 			fixed (long* ppCursor = &pCursor)
 			{
-				MaResult ret = MaVfsTellNative((void*)pVFs, (void*)file, (long*)ppCursor);
+				MaResult ret = VfsTellNative((void*)pVFs, (void*)file, (long*)ppCursor);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsInfoNative(void* pVFs, void* file, MaFileInfo* pInfo)
+		internal static MaResult VfsInfoNative(void* pVFs, void* file, MaFileInfo* pInfo)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, void*, MaFileInfo*, MaResult>)funcTable[547])(pVFs, file, pInfo);
@@ -1446,68 +1446,68 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsInfo(void* pVFs, void* file, MaFileInfoPtr pInfo)
+		public static MaResult VfsInfo(void* pVFs, void* file, MaFileInfoPtr pInfo)
 		{
-			MaResult ret = MaVfsInfoNative(pVFs, file, (MaFileInfo*)pInfo);
+			MaResult ret = VfsInfoNative(pVFs, file, (MaFileInfo*)pInfo);
 			return ret;
 		}
 
-		public static MaResult MaVfsInfo(nint pVFs, void* file, MaFileInfoPtr pInfo)
+		public static MaResult VfsInfo(nint pVFs, void* file, MaFileInfoPtr pInfo)
 		{
-			MaResult ret = MaVfsInfoNative((void*)pVFs, file, (MaFileInfo*)pInfo);
+			MaResult ret = VfsInfoNative((void*)pVFs, file, (MaFileInfo*)pInfo);
 			return ret;
 		}
 
-		public static MaResult MaVfsInfo(void* pVFs, nint file, MaFileInfoPtr pInfo)
+		public static MaResult VfsInfo(void* pVFs, nint file, MaFileInfoPtr pInfo)
 		{
-			MaResult ret = MaVfsInfoNative(pVFs, (void*)file, (MaFileInfo*)pInfo);
+			MaResult ret = VfsInfoNative(pVFs, (void*)file, (MaFileInfo*)pInfo);
 			return ret;
 		}
 
-		public static MaResult MaVfsInfo(nint pVFs, nint file, MaFileInfoPtr pInfo)
+		public static MaResult VfsInfo(nint pVFs, nint file, MaFileInfoPtr pInfo)
 		{
-			MaResult ret = MaVfsInfoNative((void*)pVFs, (void*)file, (MaFileInfo*)pInfo);
+			MaResult ret = VfsInfoNative((void*)pVFs, (void*)file, (MaFileInfo*)pInfo);
 			return ret;
 		}
 
-		public static MaResult MaVfsInfo(void* pVFs, void* file, ref MaFileInfo pInfo)
+		public static MaResult VfsInfo(void* pVFs, void* file, ref MaFileInfo pInfo)
 		{
 			fixed (MaFileInfo* ppInfo = &pInfo)
 			{
-				MaResult ret = MaVfsInfoNative(pVFs, file, (MaFileInfo*)ppInfo);
+				MaResult ret = VfsInfoNative(pVFs, file, (MaFileInfo*)ppInfo);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsInfo(nint pVFs, void* file, ref MaFileInfo pInfo)
+		public static MaResult VfsInfo(nint pVFs, void* file, ref MaFileInfo pInfo)
 		{
 			fixed (MaFileInfo* ppInfo = &pInfo)
 			{
-				MaResult ret = MaVfsInfoNative((void*)pVFs, file, (MaFileInfo*)ppInfo);
+				MaResult ret = VfsInfoNative((void*)pVFs, file, (MaFileInfo*)ppInfo);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsInfo(void* pVFs, nint file, ref MaFileInfo pInfo)
+		public static MaResult VfsInfo(void* pVFs, nint file, ref MaFileInfo pInfo)
 		{
 			fixed (MaFileInfo* ppInfo = &pInfo)
 			{
-				MaResult ret = MaVfsInfoNative(pVFs, (void*)file, (MaFileInfo*)ppInfo);
+				MaResult ret = VfsInfoNative(pVFs, (void*)file, (MaFileInfo*)ppInfo);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsInfo(nint pVFs, nint file, ref MaFileInfo pInfo)
+		public static MaResult VfsInfo(nint pVFs, nint file, ref MaFileInfo pInfo)
 		{
 			fixed (MaFileInfo* ppInfo = &pInfo)
 			{
-				MaResult ret = MaVfsInfoNative((void*)pVFs, (void*)file, (MaFileInfo*)ppInfo);
+				MaResult ret = VfsInfoNative((void*)pVFs, (void*)file, (MaFileInfo*)ppInfo);
 				return ret;
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaVfsOpenAndReadFileNative(void* pVFs, byte* pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static MaResult VfsOpenAndReadFileNative(void* pVFs, byte* pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, byte*, void**, nuint*, MaAllocationCallbacks*, MaResult>)funcTable[548])(pVFs, pFilePath, ppData, pSize, pAllocationCallbacks);
@@ -1516,37 +1516,37 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+			MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 			return ret;
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+			MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 			return ret;
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1565,7 +1565,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+			MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1573,25 +1573,25 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1610,7 +1610,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+			MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1618,49 +1618,49 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (nint* pppData = &ppData)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (nint* pppData = &ppData)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (nint* pppData = &ppData)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (nint* pppData = &ppData)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1681,7 +1681,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (nint* pppData = &ppData)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1690,31 +1690,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (nint* pppData = &ppData)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (nint* pppData = &ppData)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, nuint* pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1735,7 +1735,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (nint* pppData = &ppData)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1744,49 +1744,49 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (nuint* ppSize = &pSize)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (nuint* ppSize = &pSize)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1807,7 +1807,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (nuint* ppSize = &pSize)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1816,31 +1816,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1861,7 +1861,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (nuint* ppSize = &pSize)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1870,31 +1870,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (nint* pppData = &ppData)
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (nint* pppData = &ppData)
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -1902,14 +1902,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (nuint* ppSize = &pSize)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -1917,14 +1917,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (nuint* ppSize = &pSize)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1947,7 +1947,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1957,7 +1957,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -1965,14 +1965,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (nuint* ppSize = &pSize)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -1980,14 +1980,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (nuint* ppSize = &pSize)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, ref nuint pSize, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2010,7 +2010,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (nuint* ppSize = &pSize)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)pAllocationCallbacks);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2020,103 +2020,49 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pFilePath != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pFilePath);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-			{
-				MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
-		{
-			fixed (byte* ppFilePath = &pFilePath)
-			{
-				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
-		{
-			fixed (byte* ppFilePath = pFilePath)
-			{
-				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
-				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
-					return ret;
-				}
-			}
-		}
-
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2137,7 +2083,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2146,31 +2092,85 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
-			fixed (nint* pppData = &ppData)
+			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
-			fixed (nint* pppData = &ppData)
+			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pFilePath != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(pFilePath);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+			{
+				MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		{
+			fixed (nint* pppData = &ppData)
+			{
+				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+				{
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		{
+			fixed (nint* pppData = &ppData)
+			{
+				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
+				{
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					return ret;
+				}
+			}
+		}
+
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -2178,14 +2178,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -2193,14 +2193,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2223,7 +2223,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2233,7 +2233,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -2241,14 +2241,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -2256,14 +2256,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, nuint* pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2286,7 +2286,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, pSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2296,31 +2296,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (nuint* ppSize = &pSize)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (nuint* ppSize = &pSize)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -2328,14 +2328,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -2343,14 +2343,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2373,7 +2373,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2383,7 +2383,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -2391,14 +2391,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -2406,14 +2406,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, void** ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2436,7 +2436,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, ppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2446,7 +2446,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (nint* pppData = &ppData)
 			{
@@ -2454,14 +2454,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, byte* pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (nint* pppData = &ppData)
 			{
@@ -2469,14 +2469,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -2486,7 +2486,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 						{
-							MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+							MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 							return ret;
 						}
 					}
@@ -2494,7 +2494,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -2504,7 +2504,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 						{
-							MaResult ret = MaVfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+							MaResult ret = VfsOpenAndReadFileNative(pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 							return ret;
 						}
 					}
@@ -2512,7 +2512,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(void* pVFs, string pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2537,7 +2537,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative(pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -2548,7 +2548,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, in byte pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -2558,7 +2558,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 						{
-							MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+							MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 							return ret;
 						}
 					}
@@ -2566,7 +2566,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, ReadOnlySpan<byte> pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -2576,7 +2576,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 						{
-							MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+							MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, (byte*)ppFilePath, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 							return ret;
 						}
 					}
@@ -2584,7 +2584,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaVfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult VfsOpenAndReadFile(nint pVFs, string pFilePath, ref nint ppData, ref nuint pSize, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2609,7 +2609,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 					{
-						MaResult ret = MaVfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
+						MaResult ret = VfsOpenAndReadFileNative((void*)pVFs, pStr0, (void**)pppData, (nuint*)ppSize, (MaAllocationCallbacks*)ppAllocationCallbacks);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -2621,7 +2621,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDefaultVfsInitNative(MaDefaultVfs* pVFs, MaAllocationCallbacks* pAllocationCallbacks)
+		internal static MaResult DefaultVfsInitNative(MaDefaultVfs* pVFs, MaAllocationCallbacks* pAllocationCallbacks)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDefaultVfs*, MaAllocationCallbacks*, MaResult>)funcTable[549])(pVFs, pAllocationCallbacks);
@@ -2630,44 +2630,44 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaDefaultVfsInit(MaDefaultVfsPtr pVFs, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult DefaultVfsInit(MaDefaultVfsPtr pVFs, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
-			MaResult ret = MaDefaultVfsInitNative((MaDefaultVfs*)pVFs, (MaAllocationCallbacks*)pAllocationCallbacks);
+			MaResult ret = DefaultVfsInitNative((MaDefaultVfs*)pVFs, (MaAllocationCallbacks*)pAllocationCallbacks);
 			return ret;
 		}
 
-		public static MaResult MaDefaultVfsInit(ref MaDefaultVfs pVFs, MaAllocationCallbacksPtr pAllocationCallbacks)
+		public static MaResult DefaultVfsInit(ref MaDefaultVfs pVFs, MaAllocationCallbacksPtr pAllocationCallbacks)
 		{
 			fixed (MaDefaultVfs* ppVFs = &pVFs)
 			{
-				MaResult ret = MaDefaultVfsInitNative((MaDefaultVfs*)ppVFs, (MaAllocationCallbacks*)pAllocationCallbacks);
+				MaResult ret = DefaultVfsInitNative((MaDefaultVfs*)ppVFs, (MaAllocationCallbacks*)pAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDefaultVfsInit(MaDefaultVfsPtr pVFs, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult DefaultVfsInit(MaDefaultVfsPtr pVFs, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 			{
-				MaResult ret = MaDefaultVfsInitNative((MaDefaultVfs*)pVFs, (MaAllocationCallbacks*)ppAllocationCallbacks);
+				MaResult ret = DefaultVfsInitNative((MaDefaultVfs*)pVFs, (MaAllocationCallbacks*)ppAllocationCallbacks);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDefaultVfsInit(ref MaDefaultVfs pVFs, in MaAllocationCallbacks pAllocationCallbacks)
+		public static MaResult DefaultVfsInit(ref MaDefaultVfs pVFs, in MaAllocationCallbacks pAllocationCallbacks)
 		{
 			fixed (MaDefaultVfs* ppVFs = &pVFs)
 			{
 				fixed (MaAllocationCallbacks* ppAllocationCallbacks = &pAllocationCallbacks)
 				{
-					MaResult ret = MaDefaultVfsInitNative((MaDefaultVfs*)ppVFs, (MaAllocationCallbacks*)ppAllocationCallbacks);
+					MaResult ret = DefaultVfsInitNative((MaDefaultVfs*)ppVFs, (MaAllocationCallbacks*)ppAllocationCallbacks);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaDecodingBackendConfig MaDecodingBackendConfigInitNative(MaFormat preferredFormat, uint seekPointCount)
+		internal static MaDecodingBackendConfig DecodingBackendConfigInitNative(MaFormat preferredFormat, uint seekPointCount)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, MaDecodingBackendConfig>)funcTable[550])(preferredFormat, seekPointCount);
@@ -2676,14 +2676,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaDecodingBackendConfig MaDecodingBackendConfigInit(MaFormat preferredFormat, uint seekPointCount)
+		public static MaDecodingBackendConfig DecodingBackendConfigInit(MaFormat preferredFormat, uint seekPointCount)
 		{
-			MaDecodingBackendConfig ret = MaDecodingBackendConfigInitNative(preferredFormat, seekPointCount);
+			MaDecodingBackendConfig ret = DecodingBackendConfigInitNative(preferredFormat, seekPointCount);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaDecoderConfig MaDecoderConfigInitNative(MaFormat outputFormat, uint outputChannels, uint outputSampleRate)
+		internal static MaDecoderConfig DecoderConfigInitNative(MaFormat outputFormat, uint outputChannels, uint outputSampleRate)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaFormat, uint, uint, MaDecoderConfig>)funcTable[551])(outputFormat, outputChannels, outputSampleRate);
@@ -2692,14 +2692,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaDecoderConfig MaDecoderConfigInit(MaFormat outputFormat, uint outputChannels, uint outputSampleRate)
+		public static MaDecoderConfig DecoderConfigInit(MaFormat outputFormat, uint outputChannels, uint outputSampleRate)
 		{
-			MaDecoderConfig ret = MaDecoderConfigInitNative(outputFormat, outputChannels, outputSampleRate);
+			MaDecoderConfig ret = DecoderConfigInitNative(outputFormat, outputChannels, outputSampleRate);
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaDecoderConfig MaDecoderConfigInitDefaultNative()
+		internal static MaDecoderConfig DecoderConfigInitDefaultNative()
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDecoderConfig>)funcTable[552])();
@@ -2708,14 +2708,14 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaDecoderConfig MaDecoderConfigInitDefault()
+		public static MaDecoderConfig DecoderConfigInitDefault()
 		{
-			MaDecoderConfig ret = MaDecoderConfigInitDefaultNative();
+			MaDecoderConfig ret = DecoderConfigInitDefaultNative();
 			return ret;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderInitNative(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
+		internal static MaResult DecoderInitNative(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>, void*, MaDecoderConfig*, MaDecoder*, MaResult>)funcTable[553])(onRead, onSeek, pUserData, pConfig, pDecoder);
@@ -2724,296 +2724,296 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative(onRead, onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, void* pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative(onRead, onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), onSeek, (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative(onRead, (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInit(MaDecoderReadProc onRead, MaDecoderSeekProc onSeek, nint pUserData, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitNative((delegate*<MaDecoder*, void*, nuint, nuint*, MaResult>)Utils.GetFunctionPointerForDelegate(onRead), (delegate*<MaDecoder*, long, MaSeekOrigin, MaResult>)Utils.GetFunctionPointerForDelegate(onSeek), (void*)pUserData, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderInitMemoryNative(void* pData, nuint dataSize, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
+		internal static MaResult DecoderInitMemoryNative(void* pData, nuint dataSize, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, nuint, MaDecoderConfig*, MaDecoder*, MaResult>)funcTable[554])(pData, dataSize, pConfig, pDecoder);
@@ -3022,80 +3022,80 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaDecoderInitMemory(void* pData, nuint dataSize, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitMemory(void* pData, nuint dataSize, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitMemory(nint pData, nuint dataSize, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitMemory(nint pData, nuint dataSize, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitMemory(void* pData, nuint dataSize, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitMemory(void* pData, nuint dataSize, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitMemory(nint pData, nuint dataSize, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitMemory(nint pData, nuint dataSize, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitMemory(void* pData, nuint dataSize, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitMemory(void* pData, nuint dataSize, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitMemory(nint pData, nuint dataSize, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitMemory(nint pData, nuint dataSize, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitMemory(void* pData, nuint dataSize, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitMemory(void* pData, nuint dataSize, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitMemoryNative(pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitMemory(nint pData, nuint dataSize, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitMemory(nint pData, nuint dataSize, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitMemoryNative((void*)pData, dataSize, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderInitVfsNative(void* pVFs, byte* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
+		internal static MaResult DecoderInitVfsNative(void* pVFs, byte* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, byte*, MaDecoderConfig*, MaDecoder*, MaResult>)funcTable[555])(pVFs, pFilePath, pConfig, pDecoder);
@@ -3104,37 +3104,37 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3153,7 +3153,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaDecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -3161,25 +3161,25 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3198,7 +3198,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -3206,49 +3206,49 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, byte* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, byte* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, byte* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, byte* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, in byte pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, in byte pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3269,7 +3269,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3278,31 +3278,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, in byte pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, in byte pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3323,7 +3323,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3332,49 +3332,49 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, byte* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3395,7 +3395,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3404,31 +3404,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, in byte pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3449,7 +3449,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3458,31 +3458,31 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, byte* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, byte* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, byte* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, byte* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, in byte pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, in byte pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -3490,14 +3490,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -3505,14 +3505,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsNative(pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3535,7 +3535,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative(pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3545,7 +3545,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, in byte pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, in byte pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -3553,14 +3553,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -3568,14 +3568,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsNative((void*)pVFs, (byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfs(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfs(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3598,7 +3598,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsNative((void*)pVFs, pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3609,7 +3609,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderInitVfsWNative(void* pVFs, char* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
+		internal static MaResult DecoderInitVfsWNative(void* pVFs, char* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, char*, MaDecoderConfig*, MaDecoder*, MaResult>)funcTable[556])(pVFs, pFilePath, pConfig, pDecoder);
@@ -3618,277 +3618,277 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, char* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, char* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, char* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, char* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, in char pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, in char pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, in char pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, in char pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, char* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, in char pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, char* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, char* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative(pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, char* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, char* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitVfsWNative((void*)pVFs, pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, in char pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, in char pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
@@ -3896,14 +3896,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -3911,14 +3911,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsWNative(pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(void* pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -3926,14 +3926,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsWNative(pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, in char pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, in char pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
@@ -3941,14 +3941,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -3956,14 +3956,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsWNative((void*)pVFs, (char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitVfsW(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitVfsW(nint pVFs, string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -3971,7 +3971,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitVfsWNative((void*)pVFs, ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
@@ -3979,7 +3979,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderInitFileNative(byte* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
+		internal static MaResult DecoderInitFileNative(byte* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte*, MaDecoderConfig*, MaDecoder*, MaResult>)funcTable[557])(pFilePath, pConfig, pDecoder);
@@ -3988,31 +3988,31 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaDecoderInitFile(byte* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(byte* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitFileNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitFileNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitFile(in byte pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(in byte pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4031,7 +4031,7 @@ namespace Hexa.NET.MiniAudio
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFilePath, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			MaResult ret = MaDecoderInitFileNative(pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitFileNative(pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -4039,40 +4039,40 @@ namespace Hexa.NET.MiniAudio
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitFile(byte* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(byte* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitFileNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(in byte pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(in byte pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFile(string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4093,7 +4093,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitFileNative(pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileNative(pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4102,40 +4102,40 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(byte* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(byte* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitFileNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitFileNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(in byte pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(in byte pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(ReadOnlySpan<byte> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4156,7 +4156,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitFileNative(pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitFileNative(pStr0, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4165,19 +4165,19 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(byte* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(byte* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(in byte pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(in byte pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = &pFilePath)
 			{
@@ -4185,14 +4185,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(ReadOnlySpan<byte> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (byte* ppFilePath = pFilePath)
 			{
@@ -4200,14 +4200,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitFileNative((byte*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFile(string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFile(string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4230,7 +4230,7 @@ namespace Hexa.NET.MiniAudio
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileNative(pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileNative(pStr0, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4241,7 +4241,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderInitFileWNative(char* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
+		internal static MaResult DecoderInitFileWNative(char* pFilePath, MaDecoderConfig* pConfig, MaDecoder* pDecoder)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<char*, MaDecoderConfig*, MaDecoder*, MaResult>)funcTable[558])(pFilePath, pConfig, pDecoder);
@@ -4250,142 +4250,142 @@ namespace Hexa.NET.MiniAudio
 			#endif
 		}
 
-		public static MaResult MaDecoderInitFileW(char* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(char* pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderInitFileWNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+			MaResult ret = DecoderInitFileWNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 			return ret;
 		}
 
-		public static MaResult MaDecoderInitFileW(in char pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(in char pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
-				MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(string pFilePath, MaDecoderConfigPtr pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
-				MaResult ret = MaDecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(char* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(char* pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
-				MaResult ret = MaDecoderInitFileWNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+				MaResult ret = DecoderInitFileWNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(in char pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(in char pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
+		public static MaResult DecoderInitFileW(string pFilePath, in MaDecoderConfig pConfig, MaDecoderPtr pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoderConfig* ppConfig = &pConfig)
 				{
-					MaResult ret = MaDecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
+					MaResult ret = DecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)pDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(char* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(char* pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderInitFileWNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+				MaResult ret = DecoderInitFileWNative(pFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(in char pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(in char pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(ReadOnlySpan<char> pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(string pFilePath, MaDecoderConfigPtr pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)pConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(char* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(char* pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (MaDecoder* ppDecoder = &pDecoder)
 				{
-					MaResult ret = MaDecoderInitFileWNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+					MaResult ret = DecoderInitFileWNative(pFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 					return ret;
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(in char pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(in char pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = &pFilePath)
 			{
@@ -4393,14 +4393,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(ReadOnlySpan<char> pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -4408,14 +4408,14 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitFileWNative((char*)ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
 			}
 		}
 
-		public static MaResult MaDecoderInitFileW(string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
+		public static MaResult DecoderInitFileW(string pFilePath, in MaDecoderConfig pConfig, ref MaDecoder pDecoder)
 		{
 			fixed (char* ppFilePath = pFilePath)
 			{
@@ -4423,7 +4423,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (MaDecoder* ppDecoder = &pDecoder)
 					{
-						MaResult ret = MaDecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
+						MaResult ret = DecoderInitFileWNative(ppFilePath, (MaDecoderConfig*)ppConfig, (MaDecoder*)ppDecoder);
 						return ret;
 					}
 				}
@@ -4434,7 +4434,7 @@ namespace Hexa.NET.MiniAudio
 		/// Uninitializes a decoder.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderUninitNative(MaDecoder* pDecoder)
+		internal static MaResult DecoderUninitNative(MaDecoder* pDecoder)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDecoder*, MaResult>)funcTable[559])(pDecoder);
@@ -4446,20 +4446,20 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Uninitializes a decoder.<br/>
 		/// </summary>
-		public static MaResult MaDecoderUninit(MaDecoderPtr pDecoder)
+		public static MaResult DecoderUninit(MaDecoderPtr pDecoder)
 		{
-			MaResult ret = MaDecoderUninitNative((MaDecoder*)pDecoder);
+			MaResult ret = DecoderUninitNative((MaDecoder*)pDecoder);
 			return ret;
 		}
 
 		/// <summary>
 		/// Uninitializes a decoder.<br/>
 		/// </summary>
-		public static MaResult MaDecoderUninit(ref MaDecoder pDecoder)
+		public static MaResult DecoderUninit(ref MaDecoder pDecoder)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderUninitNative((MaDecoder*)ppDecoder);
+				MaResult ret = DecoderUninitNative((MaDecoder*)ppDecoder);
 				return ret;
 			}
 		}
@@ -4469,7 +4469,7 @@ namespace Hexa.NET.MiniAudio
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderReadPcmFramesNative(MaDecoder* pDecoder, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
+		internal static MaResult DecoderReadPcmFramesNative(MaDecoder* pDecoder, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDecoder*, void*, ulong, ulong*, MaResult>)funcTable[560])(pDecoder, pFramesOut, frameCount, pFramesRead);
@@ -4482,9 +4482,9 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(MaDecoderPtr pDecoder, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
+		public static MaResult DecoderReadPcmFrames(MaDecoderPtr pDecoder, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
 		{
-			MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)pDecoder, pFramesOut, frameCount, pFramesRead);
+			MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)pDecoder, pFramesOut, frameCount, pFramesRead);
 			return ret;
 		}
 
@@ -4492,11 +4492,11 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(ref MaDecoder pDecoder, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
+		public static MaResult DecoderReadPcmFrames(ref MaDecoder pDecoder, void* pFramesOut, ulong frameCount, ulong* pFramesRead)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)ppDecoder, pFramesOut, frameCount, pFramesRead);
+				MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)ppDecoder, pFramesOut, frameCount, pFramesRead);
 				return ret;
 			}
 		}
@@ -4505,9 +4505,9 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(MaDecoderPtr pDecoder, nint pFramesOut, ulong frameCount, ulong* pFramesRead)
+		public static MaResult DecoderReadPcmFrames(MaDecoderPtr pDecoder, nint pFramesOut, ulong frameCount, ulong* pFramesRead)
 		{
-			MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)pDecoder, (void*)pFramesOut, frameCount, pFramesRead);
+			MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)pDecoder, (void*)pFramesOut, frameCount, pFramesRead);
 			return ret;
 		}
 
@@ -4515,11 +4515,11 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(ref MaDecoder pDecoder, nint pFramesOut, ulong frameCount, ulong* pFramesRead)
+		public static MaResult DecoderReadPcmFrames(ref MaDecoder pDecoder, nint pFramesOut, ulong frameCount, ulong* pFramesRead)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)ppDecoder, (void*)pFramesOut, frameCount, pFramesRead);
+				MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)ppDecoder, (void*)pFramesOut, frameCount, pFramesRead);
 				return ret;
 			}
 		}
@@ -4528,11 +4528,11 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(MaDecoderPtr pDecoder, void* pFramesOut, ulong frameCount, ref ulong pFramesRead)
+		public static MaResult DecoderReadPcmFrames(MaDecoderPtr pDecoder, void* pFramesOut, ulong frameCount, ref ulong pFramesRead)
 		{
 			fixed (ulong* ppFramesRead = &pFramesRead)
 			{
-				MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)pDecoder, pFramesOut, frameCount, (ulong*)ppFramesRead);
+				MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)pDecoder, pFramesOut, frameCount, (ulong*)ppFramesRead);
 				return ret;
 			}
 		}
@@ -4541,13 +4541,13 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(ref MaDecoder pDecoder, void* pFramesOut, ulong frameCount, ref ulong pFramesRead)
+		public static MaResult DecoderReadPcmFrames(ref MaDecoder pDecoder, void* pFramesOut, ulong frameCount, ref ulong pFramesRead)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (ulong* ppFramesRead = &pFramesRead)
 				{
-					MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)ppDecoder, pFramesOut, frameCount, (ulong*)ppFramesRead);
+					MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)ppDecoder, pFramesOut, frameCount, (ulong*)ppFramesRead);
 					return ret;
 				}
 			}
@@ -4557,11 +4557,11 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(MaDecoderPtr pDecoder, nint pFramesOut, ulong frameCount, ref ulong pFramesRead)
+		public static MaResult DecoderReadPcmFrames(MaDecoderPtr pDecoder, nint pFramesOut, ulong frameCount, ref ulong pFramesRead)
 		{
 			fixed (ulong* ppFramesRead = &pFramesRead)
 			{
-				MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)pDecoder, (void*)pFramesOut, frameCount, (ulong*)ppFramesRead);
+				MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)pDecoder, (void*)pFramesOut, frameCount, (ulong*)ppFramesRead);
 				return ret;
 			}
 		}
@@ -4570,13 +4570,13 @@ namespace Hexa.NET.MiniAudio
 		/// Reads PCM frames from the given decoder.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderReadPcmFrames(ref MaDecoder pDecoder, nint pFramesOut, ulong frameCount, ref ulong pFramesRead)
+		public static MaResult DecoderReadPcmFrames(ref MaDecoder pDecoder, nint pFramesOut, ulong frameCount, ref ulong pFramesRead)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (ulong* ppFramesRead = &pFramesRead)
 				{
-					MaResult ret = MaDecoderReadPcmFramesNative((MaDecoder*)ppDecoder, (void*)pFramesOut, frameCount, (ulong*)ppFramesRead);
+					MaResult ret = DecoderReadPcmFramesNative((MaDecoder*)ppDecoder, (void*)pFramesOut, frameCount, (ulong*)ppFramesRead);
 					return ret;
 				}
 			}
@@ -4587,7 +4587,7 @@ namespace Hexa.NET.MiniAudio
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderSeekToPcmFrameNative(MaDecoder* pDecoder, ulong frameIndex)
+		internal static MaResult DecoderSeekToPcmFrameNative(MaDecoder* pDecoder, ulong frameIndex)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDecoder*, ulong, MaResult>)funcTable[561])(pDecoder, frameIndex);
@@ -4600,9 +4600,9 @@ namespace Hexa.NET.MiniAudio
 		/// Seeks to a PCM frame based on its absolute index.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderSeekToPcmFrame(MaDecoderPtr pDecoder, ulong frameIndex)
+		public static MaResult DecoderSeekToPcmFrame(MaDecoderPtr pDecoder, ulong frameIndex)
 		{
-			MaResult ret = MaDecoderSeekToPcmFrameNative((MaDecoder*)pDecoder, frameIndex);
+			MaResult ret = DecoderSeekToPcmFrameNative((MaDecoder*)pDecoder, frameIndex);
 			return ret;
 		}
 
@@ -4610,11 +4610,11 @@ namespace Hexa.NET.MiniAudio
 		/// Seeks to a PCM frame based on its absolute index.<br/>
 		/// This is not thread safe without your own synchronization.<br/>
 		/// </summary>
-		public static MaResult MaDecoderSeekToPcmFrame(ref MaDecoder pDecoder, ulong frameIndex)
+		public static MaResult DecoderSeekToPcmFrame(ref MaDecoder pDecoder, ulong frameIndex)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderSeekToPcmFrameNative((MaDecoder*)ppDecoder, frameIndex);
+				MaResult ret = DecoderSeekToPcmFrameNative((MaDecoder*)ppDecoder, frameIndex);
 				return ret;
 			}
 		}
@@ -4623,7 +4623,7 @@ namespace Hexa.NET.MiniAudio
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static MaResult MaDecoderGetDataFormatNative(MaDecoder* pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		internal static MaResult DecoderGetDataFormatNative(MaDecoder* pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<MaDecoder*, MaFormat*, uint*, uint*, byte*, nuint, MaResult>)funcTable[562])(pDecoder, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
@@ -4635,20 +4635,20 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
-			MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+			MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 			return ret;
 		}
 
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
-				MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
@@ -4656,11 +4656,11 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
-				MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
@@ -4668,13 +4668,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (MaFormat* ppFormat = &pFormat)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4683,11 +4683,11 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppChannels = &pChannels)
 			{
-				MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
@@ -4695,13 +4695,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (uint* ppChannels = &pChannels)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4710,13 +4710,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
 				fixed (uint* ppChannels = &pChannels)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4725,7 +4725,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
@@ -4733,7 +4733,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppChannels = &pChannels)
 					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
@@ -4743,11 +4743,11 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppSampleRate = &pSampleRate)
 			{
-				MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+				MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 				return ret;
 			}
 		}
@@ -4755,13 +4755,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (uint* ppSampleRate = &pSampleRate)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4770,13 +4770,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
 				fixed (uint* ppSampleRate = &pSampleRate)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4785,7 +4785,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
@@ -4793,7 +4793,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppSampleRate = &pSampleRate)
 					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
@@ -4803,13 +4803,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppChannels = &pChannels)
 			{
 				fixed (uint* ppSampleRate = &pSampleRate)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4818,7 +4818,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
@@ -4826,7 +4826,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppSampleRate = &pSampleRate)
 					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
@@ -4836,7 +4836,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
@@ -4844,7 +4844,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (uint* ppSampleRate = &pSampleRate)
 					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+						MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 						return ret;
 					}
 				}
@@ -4854,7 +4854,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, ref uint pSampleRate, byte* pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
@@ -4864,7 +4864,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (uint* ppSampleRate = &pSampleRate)
 						{
-							MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
+							MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, (uint*)ppSampleRate, pChannelMap, channelMapCap);
 							return ret;
 						}
 					}
@@ -4875,11 +4875,11 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (byte* ppChannelMap = &pChannelMap)
 			{
-				MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+				MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 				return ret;
 			}
 		}
@@ -4887,13 +4887,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4902,13 +4902,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4917,7 +4917,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, uint* pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
@@ -4925,7 +4925,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, pChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
@@ -4935,13 +4935,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppChannels = &pChannels)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}
@@ -4950,7 +4950,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, MaFormat* pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
@@ -4958,7 +4958,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, pFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
@@ -4968,7 +4968,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaFormat* ppFormat = &pFormat)
 			{
@@ -4976,7 +4976,7 @@ namespace Hexa.NET.MiniAudio
 				{
 					fixed (byte* ppChannelMap = &pChannelMap)
 					{
-						MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+						MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 						return ret;
 					}
 				}
@@ -4986,7 +4986,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(ref MaDecoder pDecoder, ref MaFormat pFormat, ref uint pChannels, uint* pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (MaDecoder* ppDecoder = &pDecoder)
 			{
@@ -4996,7 +4996,7 @@ namespace Hexa.NET.MiniAudio
 					{
 						fixed (byte* ppChannelMap = &pChannelMap)
 						{
-							MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
+							MaResult ret = DecoderGetDataFormatNative((MaDecoder*)ppDecoder, (MaFormat*)ppFormat, (uint*)ppChannels, pSampleRate, (byte*)ppChannelMap, channelMapCap);
 							return ret;
 						}
 					}
@@ -5007,13 +5007,13 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Retrieves the decoder's output data format.<br/>
 		/// </summary>
-		public static MaResult MaDecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
+		public static MaResult DecoderGetDataFormat(MaDecoderPtr pDecoder, MaFormat* pFormat, uint* pChannels, ref uint pSampleRate, ref byte pChannelMap, nuint channelMapCap)
 		{
 			fixed (uint* ppSampleRate = &pSampleRate)
 			{
 				fixed (byte* ppChannelMap = &pChannelMap)
 				{
-					MaResult ret = MaDecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
+					MaResult ret = DecoderGetDataFormatNative((MaDecoder*)pDecoder, pFormat, pChannels, (uint*)ppSampleRate, (byte*)ppChannelMap, channelMapCap);
 					return ret;
 				}
 			}

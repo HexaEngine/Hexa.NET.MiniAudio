@@ -28,6 +28,10 @@ jobs:
       macos-deps: "pkg-config libvorbis opus opusfile"
       android-deps: "build-essential cmake ninja-build"
 
+      use-vcpkg: true
+      vcpkg-packages-windows: "libvorbis opus opusfile"
+      vcpkg-triplet-windows: "{arch}-windows-static"
+
   create-pr:
     uses: JunaMeinhold/cmake-actions/.github/workflows/create-pr.yml@v1.x.x
     needs: [build]

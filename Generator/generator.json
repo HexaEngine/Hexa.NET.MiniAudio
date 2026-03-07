@@ -1,0 +1,12 @@
+{
+  "Namespace": "Hexa.NET.MiniAudio",
+  "ApiName": "MiniAudio",
+  "LibName": "MiniAudio",
+  "GenerateConstructorsForStructs": true,
+  "GeneratePlaceholderComments": false,
+  "GenerateMetadata": false,
+  "WrapPointersAsHandle": true,
+  "ImportType": "FunctionTable",
+  "TypeMappings": {
+  }
+}

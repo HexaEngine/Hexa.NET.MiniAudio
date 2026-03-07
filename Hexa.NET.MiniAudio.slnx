@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Generator/Generator.csproj" />
+  <Project Path="Hexa.NET.MiniAudio/Hexa.NET.MiniAudio.csproj" />
+</Solution>

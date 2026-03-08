@@ -33,7 +33,6 @@ if (result != MaResult.Success)
 Console.WriteLine("Playing example.mp3... Press any key to stop.");
 while (MiniAudio.SoundIsPlaying(sound) != 0)
 {
-    
     Thread.Sleep(100);
     if (Console.KeyAvailable)
     {
@@ -45,4 +44,3 @@ while (MiniAudio.SoundIsPlaying(sound) != 0)
 MiniAudio.SoundUninit(ref sound);
 MiniAudio.EngineUninit(ref engine);
 Console.WriteLine("Playback finished.");
-

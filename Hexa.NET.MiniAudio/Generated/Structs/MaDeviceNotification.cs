@@ -19,14 +19,14 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaDeviceNotification
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct DataUnion
+		public partial struct DataAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct StartedUnion
+			public partial struct StartedAnonymous
 			{
 				public int Unused;
 
-				public unsafe StartedUnion(int unused = default)
+				public unsafe StartedAnonymous(int unused = default)
 				{
 					Unused = unused;
 				}
@@ -35,11 +35,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct StoppedUnion
+			public partial struct StoppedAnonymous
 			{
 				public int Unused;
 
-				public unsafe StoppedUnion(int unused = default)
+				public unsafe StoppedAnonymous(int unused = default)
 				{
 					Unused = unused;
 				}
@@ -48,11 +48,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct ReroutedUnion
+			public partial struct ReroutedAnonymous
 			{
 				public int Unused;
 
-				public unsafe ReroutedUnion(int unused = default)
+				public unsafe ReroutedAnonymous(int unused = default)
 				{
 					Unused = unused;
 				}
@@ -61,11 +61,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct InterruptionUnion
+			public partial struct InterruptionAnonymous
 			{
 				public int Unused;
 
-				public unsafe InterruptionUnion(int unused = default)
+				public unsafe InterruptionAnonymous(int unused = default)
 				{
 					Unused = unused;
 				}
@@ -74,15 +74,15 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public StartedUnion Started;
+			public StartedAnonymous Started;
 			[FieldOffset(0)]
-			public StoppedUnion Stopped;
+			public StoppedAnonymous Stopped;
 			[FieldOffset(0)]
-			public ReroutedUnion Rerouted;
+			public ReroutedAnonymous Rerouted;
 			[FieldOffset(0)]
-			public InterruptionUnion Interruption;
+			public InterruptionAnonymous Interruption;
 
-			public unsafe DataUnion(StartedUnion started = default, StoppedUnion stopped = default, ReroutedUnion rerouted = default, InterruptionUnion interruption = default)
+			public unsafe DataAnonymous(StartedAnonymous started = default, StoppedAnonymous stopped = default, ReroutedAnonymous rerouted = default, InterruptionAnonymous interruption = default)
 			{
 				Started = started;
 				Stopped = stopped;
@@ -95,9 +95,9 @@ namespace Hexa.NET.MiniAudio
 
 		public unsafe MaDevice* PDevice;
 		public MaDeviceNotificationType Type;
-		public DataUnion Union;
+		public DataAnonymous Union;
 
-		public unsafe MaDeviceNotification(MaDevicePtr pDevice = default, MaDeviceNotificationType type = default, DataUnion union = default)
+		public unsafe MaDeviceNotification(MaDevicePtr pDevice = default, MaDeviceNotificationType type = default, DataAnonymous union = default)
 		{
 			PDevice = pDevice;
 			Type = type;

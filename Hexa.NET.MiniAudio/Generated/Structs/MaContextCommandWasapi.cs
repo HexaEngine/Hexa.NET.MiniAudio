@@ -22,14 +22,14 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaContextCommandWasapi
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct DataUnion
+		public partial struct DataAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct QuitUnion
+			public partial struct QuitAnonymous
 			{
 				public int Unused;
 
-				public unsafe QuitUnion(int unused = default)
+				public unsafe QuitAnonymous(int unused = default)
 				{
 					Unused = unused;
 				}
@@ -38,7 +38,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct CreateAudioClientUnion
+			public partial struct CreateAudioClientAnonymous
 			{
 				public MaDeviceType DeviceType;
 				public unsafe void* PAudioClient;
@@ -49,7 +49,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe MaResult* PResult;
 
 
-				public unsafe CreateAudioClientUnion(MaDeviceType deviceType = default, void* pAudioClient = default, void** ppAudioClientService = default, MaResult* pResult = default)
+				public unsafe CreateAudioClientAnonymous(MaDeviceType deviceType = default, void* pAudioClient = default, void** ppAudioClientService = default, MaResult* pResult = default)
 				{
 					DeviceType = deviceType;
 					PAudioClient = pAudioClient;
@@ -61,12 +61,12 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct ReleaseAudioClientUnion
+			public partial struct ReleaseAudioClientAnonymous
 			{
 				public unsafe MaDevice* PDevice;
 				public MaDeviceType DeviceType;
 
-				public unsafe ReleaseAudioClientUnion(MaDevicePtr pDevice = default, MaDeviceType deviceType = default)
+				public unsafe ReleaseAudioClientAnonymous(MaDevicePtr pDevice = default, MaDeviceType deviceType = default)
 				{
 					PDevice = pDevice;
 					DeviceType = deviceType;
@@ -76,13 +76,13 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public QuitUnion Quit;
+			public QuitAnonymous Quit;
 			[FieldOffset(0)]
-			public CreateAudioClientUnion CreateAudioClient;
+			public CreateAudioClientAnonymous CreateAudioClient;
 			[FieldOffset(0)]
-			public ReleaseAudioClientUnion ReleaseAudioClient;
+			public ReleaseAudioClientAnonymous ReleaseAudioClient;
 
-			public unsafe DataUnion(QuitUnion quit = default, CreateAudioClientUnion createAudioClient = default, ReleaseAudioClientUnion releaseAudioClient = default)
+			public unsafe DataAnonymous(QuitAnonymous quit = default, CreateAudioClientAnonymous createAudioClient = default, ReleaseAudioClientAnonymous releaseAudioClient = default)
 			{
 				Quit = quit;
 				CreateAudioClient = createAudioClient;
@@ -98,9 +98,9 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public unsafe void** PEvent;
 
-		public DataUnion Union;
+		public DataAnonymous Union;
 
-		public unsafe MaContextCommandWasapi(int code = default, void** pEvent = default, DataUnion union = default)
+		public unsafe MaContextCommandWasapi(int code = default, void** pEvent = default, DataAnonymous union = default)
 		{
 			Code = code;
 			PEvent = pEvent;

@@ -16,6 +16,176 @@ using HexaGen.Runtime;
 namespace Hexa.NET.MiniAudio
 {
 	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextInit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_context_config const *")] MaContextConfig* pConfig, [NativeName(NativeNameType.Param, "pCallbacks")] [NativeName(NativeNameType.Type, "ma_backend_callbacks *")] MaBackendCallbacks* pCallbacks);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextInit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_context_config const *")] nint pConfig, [NativeName(NativeNameType.Param, "pCallbacks")] [NativeName(NativeNameType.Type, "ma_backend_callbacks *")] nint pCallbacks);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextUninit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextUninit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextEnumerateDevices([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "callback")] [NativeName(NativeNameType.Type, "ma_enum_devices_callback_proc")] delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextEnumerateDevices([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "callback")] [NativeName(NativeNameType.Type, "ma_enum_devices_callback_proc")] nint callback, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextGetDeviceInfo([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pDeviceID")] [NativeName(NativeNameType.Type, "ma_device_id const *")] MaDeviceId* pDeviceID, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] MaDeviceInfo* pDeviceInfo);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnContextGetDeviceInfo([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pDeviceID")] [NativeName(NativeNameType.Type, "ma_device_id const *")] nint pDeviceID, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] nint pDeviceInfo);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceInit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_device_config const *")] MaDeviceConfig* pConfig, [NativeName(NativeNameType.Param, "pDescriptorPlayback")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] MaDeviceDescriptor* pDescriptorPlayback, [NativeName(NativeNameType.Param, "pDescriptorCapture")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] MaDeviceDescriptor* pDescriptorCapture);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceInit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_device_config const *")] nint pConfig, [NativeName(NativeNameType.Param, "pDescriptorPlayback")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] nint pDescriptorPlayback, [NativeName(NativeNameType.Param, "pDescriptorCapture")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] nint pDescriptorCapture);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceUninit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceUninit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceStart([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceStart([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceStop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceStop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceRead([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void *")] void* pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pFramesRead);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceRead([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void *")] nint pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pFramesRead);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceWrite([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void const *")] void* pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesWritten")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pFramesWritten);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceWrite([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void const *")] nint pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesWritten")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pFramesWritten);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceDataLoop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceDataLoop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceDataLoopWakeup([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceDataLoopWakeup([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceGetInfo([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType type, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] MaDeviceInfo* pDeviceInfo);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnDeviceGetInfo([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType type, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] nint pDeviceInfo);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void OnLog([NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData, [NativeName(NativeNameType.Param, "level")] [NativeName(NativeNameType.Type, "ma_uint32")] uint level, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "char const *")] byte* pMessage);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void OnLog([NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData, [NativeName(NativeNameType.Param, "level")] [NativeName(NativeNameType.Type, "ma_uint32")] uint level, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "char const *")] nint pMessage);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void* OnMalloc([NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate nint OnMalloc([NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void* OnRealloc([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] void* p, [NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate nint OnRealloc([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] nint p, [NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void OnFree([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] void* p, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void OnFree([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] nint p, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
 	/// <summary>
 	/// Set once at initialization time and should not be changed after. <br/>
 	/// </summary>
@@ -64,42 +234,78 @@ namespace Hexa.NET.MiniAudio
 	#endif
 
 	#if NET5_0_OR_GREATER
+	/// <summary>
+	/// Will be used when pNext is NULL. If both are NULL, no next will be used. <br/>
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void* OnMalloc([NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+	public unsafe delegate void* OnGetNext([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource);
 
 	#else
+	/// <summary>
+	/// Will be used when pNext is NULL. If both are NULL, no next will be used. <br/>
+	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate nint OnMalloc([NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+	public unsafe delegate nint OnGetNext([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void* OnRealloc([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] void* p, [NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+	public unsafe delegate MaResult OnRead([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pFramesOut")] [NativeName(NativeNameType.Type, "void *")] void* pFramesOut, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint64 *")] ulong* pFramesRead);
 
 	#else
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate nint OnRealloc([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] nint p, [NativeName(NativeNameType.Param, "sz")] [NativeName(NativeNameType.Type, "size_t")] nuint sz, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+	public unsafe delegate MaResult OnRead([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pFramesOut")] [NativeName(NativeNameType.Type, "void *")] nint pFramesOut, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint64 *")] nint pFramesRead);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void OnFree([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] void* p, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+	public unsafe delegate MaResult OnSeek([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "frameIndex")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameIndex);
 
 	#else
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void OnFree([NativeName(NativeNameType.Param, "p")] [NativeName(NativeNameType.Type, "void *")] nint p, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+	public unsafe delegate MaResult OnSeek([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "frameIndex")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameIndex);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void OnLog([NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData, [NativeName(NativeNameType.Param, "level")] [NativeName(NativeNameType.Type, "ma_uint32")] uint level, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "char const *")] byte* pMessage);
+	public unsafe delegate MaResult OnGetDataFormat([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pFormat")] [NativeName(NativeNameType.Type, "ma_format *")] MaFormat* pFormat, [NativeName(NativeNameType.Param, "pChannels")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pChannels, [NativeName(NativeNameType.Param, "pSampleRate")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pSampleRate, [NativeName(NativeNameType.Param, "pChannelMap")] [NativeName(NativeNameType.Type, "ma_channel *")] byte* pChannelMap, [NativeName(NativeNameType.Param, "channelMapCap")] [NativeName(NativeNameType.Type, "size_t")] nuint channelMapCap);
 
 	#else
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void OnLog([NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData, [NativeName(NativeNameType.Param, "level")] [NativeName(NativeNameType.Type, "ma_uint32")] uint level, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "char const *")] nint pMessage);
+	public unsafe delegate MaResult OnGetDataFormat([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pFormat")] [NativeName(NativeNameType.Type, "ma_format *")] nint pFormat, [NativeName(NativeNameType.Param, "pChannels")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pChannels, [NativeName(NativeNameType.Param, "pSampleRate")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pSampleRate, [NativeName(NativeNameType.Param, "pChannelMap")] [NativeName(NativeNameType.Type, "ma_channel *")] nint pChannelMap, [NativeName(NativeNameType.Param, "channelMapCap")] [NativeName(NativeNameType.Type, "size_t")] nuint channelMapCap);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnGetCursor([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pCursor")] [NativeName(NativeNameType.Type, "ma_uint64 *")] ulong* pCursor);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnGetCursor([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pCursor")] [NativeName(NativeNameType.Type, "ma_uint64 *")] nint pCursor);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnGetLength([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pLength")] [NativeName(NativeNameType.Type, "ma_uint64 *")] ulong* pLength);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnGetLength([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pLength")] [NativeName(NativeNameType.Type, "ma_uint64 *")] nint pLength);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnSetLooping([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "isLooping")] [NativeName(NativeNameType.Type, "ma_bool32")] uint isLooping);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate MaResult OnSetLooping([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "isLooping")] [NativeName(NativeNameType.Type, "ma_bool32")] uint isLooping);
 
 	#endif
 
@@ -235,102 +441,6 @@ namespace Hexa.NET.MiniAudio
 
 	#if NET5_0_OR_GREATER
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnRead([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pFramesOut")] [NativeName(NativeNameType.Type, "void *")] void* pFramesOut, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint64 *")] ulong* pFramesRead);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnRead([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pFramesOut")] [NativeName(NativeNameType.Type, "void *")] nint pFramesOut, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint64 *")] nint pFramesRead);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnSeek([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "frameIndex")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameIndex);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnSeek([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "frameIndex")] [NativeName(NativeNameType.Type, "ma_uint64")] ulong frameIndex);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnGetDataFormat([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pFormat")] [NativeName(NativeNameType.Type, "ma_format *")] MaFormat* pFormat, [NativeName(NativeNameType.Param, "pChannels")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pChannels, [NativeName(NativeNameType.Param, "pSampleRate")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pSampleRate, [NativeName(NativeNameType.Param, "pChannelMap")] [NativeName(NativeNameType.Type, "ma_channel *")] byte* pChannelMap, [NativeName(NativeNameType.Param, "channelMapCap")] [NativeName(NativeNameType.Type, "size_t")] nuint channelMapCap);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnGetDataFormat([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pFormat")] [NativeName(NativeNameType.Type, "ma_format *")] nint pFormat, [NativeName(NativeNameType.Param, "pChannels")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pChannels, [NativeName(NativeNameType.Param, "pSampleRate")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pSampleRate, [NativeName(NativeNameType.Param, "pChannelMap")] [NativeName(NativeNameType.Type, "ma_channel *")] nint pChannelMap, [NativeName(NativeNameType.Param, "channelMapCap")] [NativeName(NativeNameType.Type, "size_t")] nuint channelMapCap);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnGetCursor([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pCursor")] [NativeName(NativeNameType.Type, "ma_uint64 *")] ulong* pCursor);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnGetCursor([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pCursor")] [NativeName(NativeNameType.Type, "ma_uint64 *")] nint pCursor);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnGetLength([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "pLength")] [NativeName(NativeNameType.Type, "ma_uint64 *")] ulong* pLength);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnGetLength([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "pLength")] [NativeName(NativeNameType.Type, "ma_uint64 *")] nint pLength);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnSetLooping([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource, [NativeName(NativeNameType.Param, "isLooping")] [NativeName(NativeNameType.Type, "ma_bool32")] uint isLooping);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnSetLooping([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource, [NativeName(NativeNameType.Param, "isLooping")] [NativeName(NativeNameType.Type, "ma_bool32")] uint isLooping);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	/// <summary>
-	/// Will be used when pNext is NULL. If both are NULL, no next will be used. <br/>
-	/// </summary>
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void* OnGetNext([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource);
-
-	#else
-	/// <summary>
-	/// Will be used when pNext is NULL. If both are NULL, no next will be used. <br/>
-	/// </summary>
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate nint OnGetNext([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void OnSignal([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_async_notification *")] void* pNotification);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void OnSignal([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_async_notification *")] nint pNotification);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult Proc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] MaJob* pJob);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult Proc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] nint pJob);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void DataCallback([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "void *")] void* pOutput, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "void const *")] void* pInput, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount);
 
 	#else
@@ -361,131 +471,21 @@ namespace Hexa.NET.MiniAudio
 
 	#if NET5_0_OR_GREATER
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextInit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_context_config const *")] MaContextConfig* pConfig, [NativeName(NativeNameType.Param, "pCallbacks")] [NativeName(NativeNameType.Type, "ma_backend_callbacks *")] MaBackendCallbacks* pCallbacks);
+	public unsafe delegate void OnSignal([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_async_notification *")] void* pNotification);
 
 	#else
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextInit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_context_config const *")] nint pConfig, [NativeName(NativeNameType.Param, "pCallbacks")] [NativeName(NativeNameType.Type, "ma_backend_callbacks *")] nint pCallbacks);
+	public unsafe delegate void OnSignal([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_async_notification *")] nint pNotification);
 
 	#endif
 
 	#if NET5_0_OR_GREATER
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextUninit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext);
+	public unsafe delegate MaResult Proc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] MaJob* pJob);
 
 	#else
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextUninit([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextEnumerateDevices([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "callback")] [NativeName(NativeNameType.Type, "ma_enum_devices_callback_proc")] delegate*<MaContext*, MaDeviceType, MaDeviceInfo*, void*, uint> callback, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextEnumerateDevices([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "callback")] [NativeName(NativeNameType.Type, "ma_enum_devices_callback_proc")] nint callback, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextGetDeviceInfo([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pDeviceID")] [NativeName(NativeNameType.Type, "ma_device_id const *")] MaDeviceId* pDeviceID, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] MaDeviceInfo* pDeviceInfo);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnContextGetDeviceInfo([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pDeviceID")] [NativeName(NativeNameType.Type, "ma_device_id const *")] nint pDeviceID, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] nint pDeviceInfo);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceInit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_device_config const *")] MaDeviceConfig* pConfig, [NativeName(NativeNameType.Param, "pDescriptorPlayback")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] MaDeviceDescriptor* pDescriptorPlayback, [NativeName(NativeNameType.Param, "pDescriptorCapture")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] MaDeviceDescriptor* pDescriptorCapture);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceInit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "ma_device_config const *")] nint pConfig, [NativeName(NativeNameType.Param, "pDescriptorPlayback")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] nint pDescriptorPlayback, [NativeName(NativeNameType.Param, "pDescriptorCapture")] [NativeName(NativeNameType.Type, "ma_device_descriptor *")] nint pDescriptorCapture);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceUninit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceUninit([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceStart([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceStart([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceStop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceStop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceRead([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void *")] void* pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pFramesRead);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceRead([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void *")] nint pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesRead")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pFramesRead);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceWrite([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void const *")] void* pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesWritten")] [NativeName(NativeNameType.Type, "ma_uint32 *")] uint* pFramesWritten);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceWrite([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "pFrames")] [NativeName(NativeNameType.Type, "void const *")] nint pFrames, [NativeName(NativeNameType.Param, "frameCount")] [NativeName(NativeNameType.Type, "ma_uint32")] uint frameCount, [NativeName(NativeNameType.Param, "pFramesWritten")] [NativeName(NativeNameType.Type, "ma_uint32 *")] nint pFramesWritten);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceDataLoop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceDataLoop([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceDataLoopWakeup([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceDataLoopWakeup([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceGetInfo([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] MaDevice* pDevice, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType type, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] MaDeviceInfo* pDeviceInfo);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult OnDeviceGetInfo([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "ma_device *")] nint pDevice, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType type, [NativeName(NativeNameType.Param, "pDeviceInfo")] [NativeName(NativeNameType.Type, "ma_device_info *")] nint pDeviceInfo);
+	public unsafe delegate MaResult Proc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] nint pJob);
 
 	#endif
 
@@ -666,100 +666,42 @@ namespace Hexa.NET.MiniAudio
 	#endif
 
 	#if NET5_0_OR_GREATER
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void* MaDataSourceGetNextProc([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource);
-
-	#else
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate nint MaDataSourceGetNextProc([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
 	/// <summary>
-	/// Callback for processing a job. Each job type will have their own processing callback which will be<br/>
-	/// called by ma_job_process().<br/>
-	/// </summary>
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult MaJobProc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] MaJob* pJob);
-
-	#else
-	/// <summary>
-	/// Callback for processing a job. Each job type will have their own processing callback which will be<br/>
-	/// called by ma_job_process().<br/>
-	/// </summary>
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate MaResult MaJobProc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] nint pJob);
-
-	#endif
-
-	#if NET5_0_OR_GREATER
-	/// <summary>
-	/// The notification callback for when the application should be notified of a change to the device.<br/>
-	/// This callback is used for notifying the application of changes such as when the device has started,<br/>
-	/// stopped, rerouted or an interruption has occurred. Note that not all backends will post all<br/>
-	/// notification types. For example, some backends will perform automatic stream routing without any<br/>
-	/// kind of notification to the host program which means miniaudio will never know about it and will<br/>
-	/// never be able to fire the rerouted notification. You should keep this in mind when designing your<br/>
-	/// program.<br/>
-	/// The stopped notification will *not* get fired when a device is rerouted.<br/>
+	/// The callback for handling device enumeration. This is fired from `ma_context_enumerate_devices()`.<br/>
 	/// Parameters<br/>
 	/// ----------<br/>
-	/// pNotification (in)<br/>
-	/// A pointer to a structure containing information about the event. Use the `pDevice` member of<br/>
-	/// this object to retrieve the relevant device. The `type` member can be used to discriminate<br/>
-	/// against each of the notification types.<br/>
-	/// Remarks<br/>
-	/// -------<br/>
-	/// Do not restart or uninitialize the device from the callback.<br/>
-	/// Not all notifications will be triggered by all backends, however the started and stopped events<br/>
-	/// should be reliable for all backends. Some backends do not have a good way to detect device<br/>
-	/// stoppages due to unplugging the device which may result in the stopped callback not getting<br/>
-	/// fired. This has been observed with at least one BSD variant.<br/>
-	/// The rerouted notification is fired *after* the reroute has occurred. The stopped notification will<br/>
-	/// not* get fired when a device is rerouted. The following backends are known to do automatic stream<br/>
-	/// rerouting, but do not have a way to be notified of the change:<br/>
-	/// DirectSound<br/>
-	/// The interruption notifications are used on mobile platforms for detecting when audio is interrupted<br/>
-	/// due to things like an incoming phone call. Currently this is only implemented on iOS. None of the<br/>
-	/// Android backends will report this notification.<br/>
+	/// pContext (in)<br/>
+	/// A pointer to the context performing the enumeration.<br/>
+	/// deviceType (in)<br/>
+	/// The type of the device being enumerated. This will always be either `ma_device_type_playback` or `ma_device_type_capture`.<br/>
+	/// pInfo (in)<br/>
+	/// A pointer to a `ma_device_info` containing the ID and name of the enumerated device. Note that this will not include detailed information about the device,<br/>
+	/// only basic information (ID and name). The reason for this is that it would otherwise require opening the backend device to probe for the information which<br/>
+	/// is too inefficient.<br/>
+	/// pUserData (in)<br/>
+	/// The user data pointer passed into `ma_context_enumerate_devices()`.<br/>
 	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void MaDeviceNotificationProc([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_device_notification const *")] MaDeviceNotification* pNotification);
+	public unsafe delegate uint MaEnumDevicesCallbackProc([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "ma_device_info const *")] MaDeviceInfo* pInfo, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
 
 	#else
 	/// <summary>
-	/// The notification callback for when the application should be notified of a change to the device.<br/>
-	/// This callback is used for notifying the application of changes such as when the device has started,<br/>
-	/// stopped, rerouted or an interruption has occurred. Note that not all backends will post all<br/>
-	/// notification types. For example, some backends will perform automatic stream routing without any<br/>
-	/// kind of notification to the host program which means miniaudio will never know about it and will<br/>
-	/// never be able to fire the rerouted notification. You should keep this in mind when designing your<br/>
-	/// program.<br/>
-	/// The stopped notification will *not* get fired when a device is rerouted.<br/>
+	/// The callback for handling device enumeration. This is fired from `ma_context_enumerate_devices()`.<br/>
 	/// Parameters<br/>
 	/// ----------<br/>
-	/// pNotification (in)<br/>
-	/// A pointer to a structure containing information about the event. Use the `pDevice` member of<br/>
-	/// this object to retrieve the relevant device. The `type` member can be used to discriminate<br/>
-	/// against each of the notification types.<br/>
-	/// Remarks<br/>
-	/// -------<br/>
-	/// Do not restart or uninitialize the device from the callback.<br/>
-	/// Not all notifications will be triggered by all backends, however the started and stopped events<br/>
-	/// should be reliable for all backends. Some backends do not have a good way to detect device<br/>
-	/// stoppages due to unplugging the device which may result in the stopped callback not getting<br/>
-	/// fired. This has been observed with at least one BSD variant.<br/>
-	/// The rerouted notification is fired *after* the reroute has occurred. The stopped notification will<br/>
-	/// not* get fired when a device is rerouted. The following backends are known to do automatic stream<br/>
-	/// rerouting, but do not have a way to be notified of the change:<br/>
-	/// DirectSound<br/>
-	/// The interruption notifications are used on mobile platforms for detecting when audio is interrupted<br/>
-	/// due to things like an incoming phone call. Currently this is only implemented on iOS. None of the<br/>
-	/// Android backends will report this notification.<br/>
+	/// pContext (in)<br/>
+	/// A pointer to the context performing the enumeration.<br/>
+	/// deviceType (in)<br/>
+	/// The type of the device being enumerated. This will always be either `ma_device_type_playback` or `ma_device_type_capture`.<br/>
+	/// pInfo (in)<br/>
+	/// A pointer to a `ma_device_info` containing the ID and name of the enumerated device. Note that this will not include detailed information about the device,<br/>
+	/// only basic information (ID and name). The reason for this is that it would otherwise require opening the backend device to probe for the information which<br/>
+	/// is too inefficient.<br/>
+	/// pUserData (in)<br/>
+	/// The user data pointer passed into `ma_context_enumerate_devices()`.<br/>
 	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate void MaDeviceNotificationProc([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_device_notification const *")] nint pNotification);
+	public unsafe delegate uint MaEnumDevicesCallbackProc([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "ma_device_info const *")] nint pInfo, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
 
 	#endif
 
@@ -835,6 +777,76 @@ namespace Hexa.NET.MiniAudio
 
 	#if NET5_0_OR_GREATER
 	/// <summary>
+	/// The notification callback for when the application should be notified of a change to the device.<br/>
+	/// This callback is used for notifying the application of changes such as when the device has started,<br/>
+	/// stopped, rerouted or an interruption has occurred. Note that not all backends will post all<br/>
+	/// notification types. For example, some backends will perform automatic stream routing without any<br/>
+	/// kind of notification to the host program which means miniaudio will never know about it and will<br/>
+	/// never be able to fire the rerouted notification. You should keep this in mind when designing your<br/>
+	/// program.<br/>
+	/// The stopped notification will *not* get fired when a device is rerouted.<br/>
+	/// Parameters<br/>
+	/// ----------<br/>
+	/// pNotification (in)<br/>
+	/// A pointer to a structure containing information about the event. Use the `pDevice` member of<br/>
+	/// this object to retrieve the relevant device. The `type` member can be used to discriminate<br/>
+	/// against each of the notification types.<br/>
+	/// Remarks<br/>
+	/// -------<br/>
+	/// Do not restart or uninitialize the device from the callback.<br/>
+	/// Not all notifications will be triggered by all backends, however the started and stopped events<br/>
+	/// should be reliable for all backends. Some backends do not have a good way to detect device<br/>
+	/// stoppages due to unplugging the device which may result in the stopped callback not getting<br/>
+	/// fired. This has been observed with at least one BSD variant.<br/>
+	/// The rerouted notification is fired *after* the reroute has occurred. The stopped notification will<br/>
+	/// not* get fired when a device is rerouted. The following backends are known to do automatic stream<br/>
+	/// rerouting, but do not have a way to be notified of the change:<br/>
+	/// DirectSound<br/>
+	/// The interruption notifications are used on mobile platforms for detecting when audio is interrupted<br/>
+	/// due to things like an incoming phone call. Currently this is only implemented on iOS. None of the<br/>
+	/// Android backends will report this notification.<br/>
+	/// </summary>
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void MaDeviceNotificationProc([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_device_notification const *")] MaDeviceNotification* pNotification);
+
+	#else
+	/// <summary>
+	/// The notification callback for when the application should be notified of a change to the device.<br/>
+	/// This callback is used for notifying the application of changes such as when the device has started,<br/>
+	/// stopped, rerouted or an interruption has occurred. Note that not all backends will post all<br/>
+	/// notification types. For example, some backends will perform automatic stream routing without any<br/>
+	/// kind of notification to the host program which means miniaudio will never know about it and will<br/>
+	/// never be able to fire the rerouted notification. You should keep this in mind when designing your<br/>
+	/// program.<br/>
+	/// The stopped notification will *not* get fired when a device is rerouted.<br/>
+	/// Parameters<br/>
+	/// ----------<br/>
+	/// pNotification (in)<br/>
+	/// A pointer to a structure containing information about the event. Use the `pDevice` member of<br/>
+	/// this object to retrieve the relevant device. The `type` member can be used to discriminate<br/>
+	/// against each of the notification types.<br/>
+	/// Remarks<br/>
+	/// -------<br/>
+	/// Do not restart or uninitialize the device from the callback.<br/>
+	/// Not all notifications will be triggered by all backends, however the started and stopped events<br/>
+	/// should be reliable for all backends. Some backends do not have a good way to detect device<br/>
+	/// stoppages due to unplugging the device which may result in the stopped callback not getting<br/>
+	/// fired. This has been observed with at least one BSD variant.<br/>
+	/// The rerouted notification is fired *after* the reroute has occurred. The stopped notification will<br/>
+	/// not* get fired when a device is rerouted. The following backends are known to do automatic stream<br/>
+	/// rerouting, but do not have a way to be notified of the change:<br/>
+	/// DirectSound<br/>
+	/// The interruption notifications are used on mobile platforms for detecting when audio is interrupted<br/>
+	/// due to things like an incoming phone call. Currently this is only implemented on iOS. None of the<br/>
+	/// Android backends will report this notification.<br/>
+	/// </summary>
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void MaDeviceNotificationProc([NativeName(NativeNameType.Param, "pNotification")] [NativeName(NativeNameType.Type, "ma_device_notification const *")] nint pNotification);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
+	/// <summary>
 	/// DEPRECATED. Use ma_device_notification_proc instead.<br/>
 	/// The callback for when the device has been stopped.<br/>
 	/// This will be called when the device is stopped explicitly with `ma_device_stop()` and also called implicitly when the device is stopped through external forces<br/>
@@ -870,42 +882,30 @@ namespace Hexa.NET.MiniAudio
 	#endif
 
 	#if NET5_0_OR_GREATER
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate void* MaDataSourceGetNextProc([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] void* pDataSource);
+
+	#else
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public unsafe delegate nint MaDataSourceGetNextProc([NativeName(NativeNameType.Param, "pDataSource")] [NativeName(NativeNameType.Type, "ma_data_source *")] nint pDataSource);
+
+	#endif
+
+	#if NET5_0_OR_GREATER
 	/// <summary>
-	/// The callback for handling device enumeration. This is fired from `ma_context_enumerate_devices()`.<br/>
-	/// Parameters<br/>
-	/// ----------<br/>
-	/// pContext (in)<br/>
-	/// A pointer to the context performing the enumeration.<br/>
-	/// deviceType (in)<br/>
-	/// The type of the device being enumerated. This will always be either `ma_device_type_playback` or `ma_device_type_capture`.<br/>
-	/// pInfo (in)<br/>
-	/// A pointer to a `ma_device_info` containing the ID and name of the enumerated device. Note that this will not include detailed information about the device,<br/>
-	/// only basic information (ID and name). The reason for this is that it would otherwise require opening the backend device to probe for the information which<br/>
-	/// is too inefficient.<br/>
-	/// pUserData (in)<br/>
-	/// The user data pointer passed into `ma_context_enumerate_devices()`.<br/>
+	/// Callback for processing a job. Each job type will have their own processing callback which will be<br/>
+	/// called by ma_job_process().<br/>
 	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate uint MaEnumDevicesCallbackProc([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] MaContext* pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "ma_device_info const *")] MaDeviceInfo* pInfo, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] void* pUserData);
+	public unsafe delegate MaResult MaJobProc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] MaJob* pJob);
 
 	#else
 	/// <summary>
-	/// The callback for handling device enumeration. This is fired from `ma_context_enumerate_devices()`.<br/>
-	/// Parameters<br/>
-	/// ----------<br/>
-	/// pContext (in)<br/>
-	/// A pointer to the context performing the enumeration.<br/>
-	/// deviceType (in)<br/>
-	/// The type of the device being enumerated. This will always be either `ma_device_type_playback` or `ma_device_type_capture`.<br/>
-	/// pInfo (in)<br/>
-	/// A pointer to a `ma_device_info` containing the ID and name of the enumerated device. Note that this will not include detailed information about the device,<br/>
-	/// only basic information (ID and name). The reason for this is that it would otherwise require opening the backend device to probe for the information which<br/>
-	/// is too inefficient.<br/>
-	/// pUserData (in)<br/>
-	/// The user data pointer passed into `ma_context_enumerate_devices()`.<br/>
+	/// Callback for processing a job. Each job type will have their own processing callback which will be<br/>
+	/// called by ma_job_process().<br/>
 	/// </summary>
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate uint MaEnumDevicesCallbackProc([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ma_context *")] nint pContext, [NativeName(NativeNameType.Param, "deviceType")] [NativeName(NativeNameType.Type, "ma_device_type")] MaDeviceType deviceType, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "ma_device_info const *")] nint pInfo, [NativeName(NativeNameType.Param, "pUserData")] [NativeName(NativeNameType.Type, "void *")] nint pUserData);
+	public unsafe delegate MaResult MaJobProc([NativeName(NativeNameType.Param, "pJob")] [NativeName(NativeNameType.Type, "ma_job *")] nint pJob);
 
 	#endif
 

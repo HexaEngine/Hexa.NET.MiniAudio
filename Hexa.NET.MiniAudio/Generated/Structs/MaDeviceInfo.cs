@@ -19,7 +19,7 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaDeviceInfo
 	{
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct MaDeviceInfoUnion
+		public partial struct NativeDataFormat
 		{
 			/// <summary>
 			/// Sample format. If set to ma_format_unknown, all sample formats are supported. <br/>
@@ -42,7 +42,7 @@ namespace Hexa.NET.MiniAudio
 			public uint Flags;
 
 
-			public unsafe MaDeviceInfoUnion(MaFormat format = default, uint channels = default, uint sampleRate = default, uint flags = default)
+			public unsafe NativeDataFormat(MaFormat format = default, uint channels = default, uint sampleRate = default, uint flags = default)
 			{
 				Format = format;
 				Channels = channels;
@@ -323,73 +323,73 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// ma_format_count * ma_standard_sample_rate_count * MA_MAX_CHANNELS<br/>
 		/// </summary>
-		public NativeDataFormats NativeDataFormats_0;
-		public NativeDataFormats NativeDataFormats_1;
-		public NativeDataFormats NativeDataFormats_2;
-		public NativeDataFormats NativeDataFormats_3;
-		public NativeDataFormats NativeDataFormats_4;
-		public NativeDataFormats NativeDataFormats_5;
-		public NativeDataFormats NativeDataFormats_6;
-		public NativeDataFormats NativeDataFormats_7;
-		public NativeDataFormats NativeDataFormats_8;
-		public NativeDataFormats NativeDataFormats_9;
-		public NativeDataFormats NativeDataFormats_10;
-		public NativeDataFormats NativeDataFormats_11;
-		public NativeDataFormats NativeDataFormats_12;
-		public NativeDataFormats NativeDataFormats_13;
-		public NativeDataFormats NativeDataFormats_14;
-		public NativeDataFormats NativeDataFormats_15;
-		public NativeDataFormats NativeDataFormats_16;
-		public NativeDataFormats NativeDataFormats_17;
-		public NativeDataFormats NativeDataFormats_18;
-		public NativeDataFormats NativeDataFormats_19;
-		public NativeDataFormats NativeDataFormats_20;
-		public NativeDataFormats NativeDataFormats_21;
-		public NativeDataFormats NativeDataFormats_22;
-		public NativeDataFormats NativeDataFormats_23;
-		public NativeDataFormats NativeDataFormats_24;
-		public NativeDataFormats NativeDataFormats_25;
-		public NativeDataFormats NativeDataFormats_26;
-		public NativeDataFormats NativeDataFormats_27;
-		public NativeDataFormats NativeDataFormats_28;
-		public NativeDataFormats NativeDataFormats_29;
-		public NativeDataFormats NativeDataFormats_30;
-		public NativeDataFormats NativeDataFormats_31;
-		public NativeDataFormats NativeDataFormats_32;
-		public NativeDataFormats NativeDataFormats_33;
-		public NativeDataFormats NativeDataFormats_34;
-		public NativeDataFormats NativeDataFormats_35;
-		public NativeDataFormats NativeDataFormats_36;
-		public NativeDataFormats NativeDataFormats_37;
-		public NativeDataFormats NativeDataFormats_38;
-		public NativeDataFormats NativeDataFormats_39;
-		public NativeDataFormats NativeDataFormats_40;
-		public NativeDataFormats NativeDataFormats_41;
-		public NativeDataFormats NativeDataFormats_42;
-		public NativeDataFormats NativeDataFormats_43;
-		public NativeDataFormats NativeDataFormats_44;
-		public NativeDataFormats NativeDataFormats_45;
-		public NativeDataFormats NativeDataFormats_46;
-		public NativeDataFormats NativeDataFormats_47;
-		public NativeDataFormats NativeDataFormats_48;
-		public NativeDataFormats NativeDataFormats_49;
-		public NativeDataFormats NativeDataFormats_50;
-		public NativeDataFormats NativeDataFormats_51;
-		public NativeDataFormats NativeDataFormats_52;
-		public NativeDataFormats NativeDataFormats_53;
-		public NativeDataFormats NativeDataFormats_54;
-		public NativeDataFormats NativeDataFormats_55;
-		public NativeDataFormats NativeDataFormats_56;
-		public NativeDataFormats NativeDataFormats_57;
-		public NativeDataFormats NativeDataFormats_58;
-		public NativeDataFormats NativeDataFormats_59;
-		public NativeDataFormats NativeDataFormats_60;
-		public NativeDataFormats NativeDataFormats_61;
-		public NativeDataFormats NativeDataFormats_62;
-		public NativeDataFormats NativeDataFormats_63;
+		public NativeDataFormat NativeDataFormats_0;
+		public NativeDataFormat NativeDataFormats_1;
+		public NativeDataFormat NativeDataFormats_2;
+		public NativeDataFormat NativeDataFormats_3;
+		public NativeDataFormat NativeDataFormats_4;
+		public NativeDataFormat NativeDataFormats_5;
+		public NativeDataFormat NativeDataFormats_6;
+		public NativeDataFormat NativeDataFormats_7;
+		public NativeDataFormat NativeDataFormats_8;
+		public NativeDataFormat NativeDataFormats_9;
+		public NativeDataFormat NativeDataFormats_10;
+		public NativeDataFormat NativeDataFormats_11;
+		public NativeDataFormat NativeDataFormats_12;
+		public NativeDataFormat NativeDataFormats_13;
+		public NativeDataFormat NativeDataFormats_14;
+		public NativeDataFormat NativeDataFormats_15;
+		public NativeDataFormat NativeDataFormats_16;
+		public NativeDataFormat NativeDataFormats_17;
+		public NativeDataFormat NativeDataFormats_18;
+		public NativeDataFormat NativeDataFormats_19;
+		public NativeDataFormat NativeDataFormats_20;
+		public NativeDataFormat NativeDataFormats_21;
+		public NativeDataFormat NativeDataFormats_22;
+		public NativeDataFormat NativeDataFormats_23;
+		public NativeDataFormat NativeDataFormats_24;
+		public NativeDataFormat NativeDataFormats_25;
+		public NativeDataFormat NativeDataFormats_26;
+		public NativeDataFormat NativeDataFormats_27;
+		public NativeDataFormat NativeDataFormats_28;
+		public NativeDataFormat NativeDataFormats_29;
+		public NativeDataFormat NativeDataFormats_30;
+		public NativeDataFormat NativeDataFormats_31;
+		public NativeDataFormat NativeDataFormats_32;
+		public NativeDataFormat NativeDataFormats_33;
+		public NativeDataFormat NativeDataFormats_34;
+		public NativeDataFormat NativeDataFormats_35;
+		public NativeDataFormat NativeDataFormats_36;
+		public NativeDataFormat NativeDataFormats_37;
+		public NativeDataFormat NativeDataFormats_38;
+		public NativeDataFormat NativeDataFormats_39;
+		public NativeDataFormat NativeDataFormats_40;
+		public NativeDataFormat NativeDataFormats_41;
+		public NativeDataFormat NativeDataFormats_42;
+		public NativeDataFormat NativeDataFormats_43;
+		public NativeDataFormat NativeDataFormats_44;
+		public NativeDataFormat NativeDataFormats_45;
+		public NativeDataFormat NativeDataFormats_46;
+		public NativeDataFormat NativeDataFormats_47;
+		public NativeDataFormat NativeDataFormats_48;
+		public NativeDataFormat NativeDataFormats_49;
+		public NativeDataFormat NativeDataFormats_50;
+		public NativeDataFormat NativeDataFormats_51;
+		public NativeDataFormat NativeDataFormats_52;
+		public NativeDataFormat NativeDataFormats_53;
+		public NativeDataFormat NativeDataFormats_54;
+		public NativeDataFormat NativeDataFormats_55;
+		public NativeDataFormat NativeDataFormats_56;
+		public NativeDataFormat NativeDataFormats_57;
+		public NativeDataFormat NativeDataFormats_58;
+		public NativeDataFormat NativeDataFormats_59;
+		public NativeDataFormat NativeDataFormats_60;
+		public NativeDataFormat NativeDataFormats_61;
+		public NativeDataFormat NativeDataFormats_62;
+		public NativeDataFormat NativeDataFormats_63;
 
 
-		public unsafe MaDeviceInfo(MaDeviceId id = default, byte* name = default, uint isDefault = default, uint nativeDataFormatCount = default, NativeDataFormats* nativeDataFormats = default)
+		public unsafe MaDeviceInfo(MaDeviceId id = default, byte* name = default, uint isDefault = default, uint nativeDataFormatCount = default, NativeDataFormat* nativeDataFormats = default)
 		{
 			Id = id;
 			if (name != default(byte*))
@@ -653,7 +653,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			IsDefault = isDefault;
 			NativeDataFormatCount = nativeDataFormatCount;
-			if (nativeDataFormats != default(NativeDataFormats*))
+			if (nativeDataFormats != default(NativeDataFormat*))
 			{
 				NativeDataFormats_0 = nativeDataFormats[0];
 				NativeDataFormats_1 = nativeDataFormats[1];
@@ -722,7 +722,7 @@ namespace Hexa.NET.MiniAudio
 			}
 		}
 
-		public unsafe MaDeviceInfo(MaDeviceId id = default, Span<byte> name = default, uint isDefault = default, uint nativeDataFormatCount = default, Span<NativeDataFormats> nativeDataFormats = default)
+		public unsafe MaDeviceInfo(MaDeviceId id = default, Span<byte> name = default, uint isDefault = default, uint nativeDataFormatCount = default, Span<NativeDataFormat> nativeDataFormats = default)
 		{
 			Id = id;
 			if (name != default(Span<byte>))
@@ -986,7 +986,7 @@ namespace Hexa.NET.MiniAudio
 			}
 			IsDefault = isDefault;
 			NativeDataFormatCount = nativeDataFormatCount;
-			if (nativeDataFormats != default(Span<NativeDataFormats>))
+			if (nativeDataFormats != default(Span<NativeDataFormat>))
 			{
 				NativeDataFormats_0 = nativeDataFormats[0];
 				NativeDataFormats_1 = nativeDataFormats[1];
@@ -1059,14 +1059,14 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// ma_format_count * ma_standard_sample_rate_count * MA_MAX_CHANNELS<br/>
 		/// </summary>
-		public unsafe Span<NativeDataFormats> NativeDataFormats
+		public unsafe Span<NativeDataFormat> NativeDataFormats
 		
 		{
 			get
 			{
-				fixed (NativeDataFormats* p = &this.NativeDataFormats_0)
+				fixed (NativeDataFormat* p = &this.NativeDataFormats_0)
 				{
-					return new Span<NativeDataFormats>(p, 64);
+					return new Span<NativeDataFormat>(p, 64);
 				}
 			}
 		}
@@ -1170,12 +1170,12 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// ma_format_count * ma_standard_sample_rate_count * MA_MAX_CHANNELS<br/>
 		/// </summary>
-		public unsafe Span<NativeDataFormats> NativeDataFormats
+		public unsafe Span<MaDeviceInfo.NativeDataFormat> NativeDataFormats
 		
 		{
 			get
 			{
-				return new Span<NativeDataFormats>(&Handle->NativeDataFormats_0, 64);
+				return new Span<MaDeviceInfo.NativeDataFormat>(&Handle->NativeDataFormats_0, 64);
 			}
 		}
 	}

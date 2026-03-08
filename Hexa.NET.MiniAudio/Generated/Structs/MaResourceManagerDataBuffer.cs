@@ -19,7 +19,7 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaResourceManagerDataBuffer
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct ConnectorUnion
+		public partial struct ConnectorAnonymous
 		{
 			/// <summary>
 			/// Supply type is ma_resource_manager_data_supply_type_encoded <br/>
@@ -40,7 +40,7 @@ namespace Hexa.NET.MiniAudio
 			public MaPagedAudioBuffer PagedBuffer;
 
 
-			public unsafe ConnectorUnion(MaDecoder decoder = default, MaAudioBuffer buffer = default, MaPagedAudioBuffer pagedBuffer = default)
+			public unsafe ConnectorAnonymous(MaDecoder decoder = default, MaAudioBuffer buffer = default, MaPagedAudioBuffer pagedBuffer = default)
 			{
 				Decoder = decoder;
 				Buffer = buffer;
@@ -108,10 +108,10 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Connects this object to the node's data supply. <br/>
 		/// </summary>
-		public ConnectorUnion Union;
+		public ConnectorAnonymous Union;
 
 
-		public unsafe MaResourceManagerDataBuffer(MaDataSourceBase ds = default, MaResourceManagerPtr pResourceManager = default, MaResourceManagerDataBufferNodePtr pNode = default, uint flags = default, uint executionCounter = default, uint executionPointer = default, ulong seekTargetInPCMFrames = default, uint seekToCursorOnNextRead = default, MaResult result = default, uint isLooping = default, MaAtomicBool32 isConnectorInitialized = default, ConnectorUnion union = default)
+		public unsafe MaResourceManagerDataBuffer(MaDataSourceBase ds = default, MaResourceManagerPtr pResourceManager = default, MaResourceManagerDataBufferNodePtr pNode = default, uint flags = default, uint executionCounter = default, uint executionPointer = default, ulong seekTargetInPCMFrames = default, uint seekToCursorOnNextRead = default, MaResult result = default, uint isLooping = default, MaAtomicBool32 isConnectorInitialized = default, ConnectorAnonymous union = default)
 		{
 			Ds = ds;
 			PResourceManager = pResourceManager;
@@ -215,7 +215,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Connects this object to the node's data supply. <br/>
 		/// </summary>
-		public ref MaResourceManagerDataBuffer.ConnectorUnion Union => ref Unsafe.AsRef<MaResourceManagerDataBuffer.ConnectorUnion>(&Handle->Union);
+		public ref MaResourceManagerDataBuffer.ConnectorAnonymous Union => ref Unsafe.AsRef<MaResourceManagerDataBuffer.ConnectorAnonymous>(&Handle->Union);
 	}
 
 }

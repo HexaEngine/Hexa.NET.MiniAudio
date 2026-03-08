@@ -19,16 +19,16 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaNoise
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct StateUnion
+		public partial struct StateAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct PinkUnion
+			public partial struct PinkAnonymous
 			{
 				public unsafe double** Bin;
 				public unsafe double* Accumulation;
 				public unsafe uint* Counter;
 
-				public unsafe PinkUnion(double** bin = default, double* accumulation = default, uint* counter = default)
+				public unsafe PinkAnonymous(double** bin = default, double* accumulation = default, uint* counter = default)
 				{
 					Bin = bin;
 					Accumulation = accumulation;
@@ -39,11 +39,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct BrownianUnion
+			public partial struct BrownianAnonymous
 			{
 				public unsafe double* Accumulation;
 
-				public unsafe BrownianUnion(double* accumulation = default)
+				public unsafe BrownianAnonymous(double* accumulation = default)
 				{
 					Accumulation = accumulation;
 				}
@@ -52,11 +52,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public PinkUnion Pink;
+			public PinkAnonymous Pink;
 			[FieldOffset(0)]
-			public BrownianUnion Brownian;
+			public BrownianAnonymous Brownian;
 
-			public unsafe StateUnion(PinkUnion pink = default, BrownianUnion brownian = default)
+			public unsafe StateAnonymous(PinkAnonymous pink = default, BrownianAnonymous brownian = default)
 			{
 				Pink = pink;
 				Brownian = brownian;
@@ -68,7 +68,7 @@ namespace Hexa.NET.MiniAudio
 		public MaDataSourceBase Ds;
 		public MaNoiseConfig Config;
 		public MaLcg Lcg;
-		public StateUnion Union;
+		public StateAnonymous Union;
 		/// <summary>
 		/// Memory management. <br/>
 		/// </summary>
@@ -76,7 +76,7 @@ namespace Hexa.NET.MiniAudio
 
 		public uint OwnsHeap;
 
-		public unsafe MaNoise(MaDataSourceBase ds = default, MaNoiseConfig config = default, MaLcg lcg = default, StateUnion union = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaNoise(MaDataSourceBase ds = default, MaNoiseConfig config = default, MaLcg lcg = default, StateAnonymous union = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			Ds = ds;
 			Config = config;
@@ -130,7 +130,7 @@ namespace Hexa.NET.MiniAudio
 		public ref MaDataSourceBase Ds => ref Unsafe.AsRef<MaDataSourceBase>(&Handle->Ds);
 		public ref MaNoiseConfig Config => ref Unsafe.AsRef<MaNoiseConfig>(&Handle->Config);
 		public ref MaLcg Lcg => ref Unsafe.AsRef<MaLcg>(&Handle->Lcg);
-		public ref MaNoise.StateUnion Union => ref Unsafe.AsRef<MaNoise.StateUnion>(&Handle->Union);
+		public ref MaNoise.StateAnonymous Union => ref Unsafe.AsRef<MaNoise.StateAnonymous>(&Handle->Union);
 		/// <summary>
 		/// Memory management. <br/>
 		/// </summary>

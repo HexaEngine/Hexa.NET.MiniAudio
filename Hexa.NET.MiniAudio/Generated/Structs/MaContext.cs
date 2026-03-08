@@ -19,10 +19,10 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaContext
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct MaContextUnion14
+		public partial struct MaContextAnonymous14
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct WasapiUnion
+			public partial struct WasapiAnonymous
 			{
 				public unsafe void* CommandThread;
 				public unsafe void* CommandLock;
@@ -39,7 +39,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe void* HMMDevapi;
 				public unsafe void* ActivateAudioInterfaceAsync;
 
-				public unsafe WasapiUnion(void* commandThread = default, void* commandLock = default, void* commandSem = default, uint commandIndex = default, uint commandCount = default, MaContextCommandWasapi* commands = default, void* hAvrt = default, void* avSetMmThreadCharacteristicsA = default, void* avRevertMmThreadcharacteristics = default, void* hMMDevapi = default, void* activateAudioInterfaceAsync = default)
+				public unsafe WasapiAnonymous(void* commandThread = default, void* commandLock = default, void* commandSem = default, uint commandIndex = default, uint commandCount = default, MaContextCommandWasapi* commands = default, void* hAvrt = default, void* avSetMmThreadCharacteristicsA = default, void* avRevertMmThreadcharacteristics = default, void* hMMDevapi = default, void* activateAudioInterfaceAsync = default)
 				{
 					CommandThread = commandThread;
 					CommandLock = commandLock;
@@ -60,7 +60,7 @@ namespace Hexa.NET.MiniAudio
 					ActivateAudioInterfaceAsync = activateAudioInterfaceAsync;
 				}
 
-				public unsafe WasapiUnion(void* commandThread = default, void* commandLock = default, void* commandSem = default, uint commandIndex = default, uint commandCount = default, Span<MaContextCommandWasapi> commands = default, void* hAvrt = default, void* avSetMmThreadCharacteristicsA = default, void* avRevertMmThreadcharacteristics = default, void* hMMDevapi = default, void* activateAudioInterfaceAsync = default)
+				public unsafe WasapiAnonymous(void* commandThread = default, void* commandLock = default, void* commandSem = default, uint commandIndex = default, uint commandCount = default, Span<MaContextCommandWasapi> commands = default, void* hAvrt = default, void* avSetMmThreadCharacteristicsA = default, void* avRevertMmThreadcharacteristics = default, void* hMMDevapi = default, void* activateAudioInterfaceAsync = default)
 				{
 					CommandThread = commandThread;
 					CommandLock = commandLock;
@@ -96,7 +96,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct DsoundUnion
+			public partial struct DsoundAnonymous
 			{
 				/// <summary>
 				/// Can be null. <br/>
@@ -109,7 +109,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe void* DirectSoundCaptureCreate;
 				public unsafe void* DirectSoundCaptureEnumerateA;
 
-				public unsafe DsoundUnion(void* hWnd = default, void* hDSoundDLL = default, void* directSoundCreate = default, void* directSoundEnumerateA = default, void* directSoundCaptureCreate = default, void* directSoundCaptureEnumerateA = default)
+				public unsafe DsoundAnonymous(void* hWnd = default, void* hDSoundDLL = default, void* directSoundCreate = default, void* directSoundEnumerateA = default, void* directSoundCaptureCreate = default, void* directSoundCaptureEnumerateA = default)
 				{
 					HWnd = hWnd;
 					HDSoundDLL = hDSoundDLL;
@@ -123,7 +123,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct WinmmUnion
+			public partial struct WinmmAnonymous
 			{
 				public unsafe void* HWinMM;
 				public unsafe void* WaveOutGetNumDevs;
@@ -144,7 +144,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe void* WaveInStart;
 				public unsafe void* WaveInReset;
 
-				public unsafe WinmmUnion(void* hWinMM = default, void* waveOutGetNumDevs = default, void* waveOutGetDevCapsA = default, void* waveOutOpen = default, void* waveOutClose = default, void* waveOutPrepareHeader = default, void* waveOutUnprepareHeader = default, void* waveOutWrite = default, void* waveOutReset = default, void* waveInGetNumDevs = default, void* waveInGetDevCapsA = default, void* waveInOpen = default, void* waveInClose = default, void* waveInPrepareHeader = default, void* waveInUnprepareHeader = default, void* waveInAddBuffer = default, void* waveInStart = default, void* waveInReset = default)
+				public unsafe WinmmAnonymous(void* hWinMM = default, void* waveOutGetNumDevs = default, void* waveOutGetDevCapsA = default, void* waveOutOpen = default, void* waveOutClose = default, void* waveOutPrepareHeader = default, void* waveOutUnprepareHeader = default, void* waveOutWrite = default, void* waveOutReset = default, void* waveInGetNumDevs = default, void* waveInGetDevCapsA = default, void* waveInOpen = default, void* waveInClose = default, void* waveInPrepareHeader = default, void* waveInUnprepareHeader = default, void* waveInAddBuffer = default, void* waveInStart = default, void* waveInReset = default)
 				{
 					HWinMM = hWinMM;
 					WaveOutGetNumDevs = waveOutGetNumDevs;
@@ -170,7 +170,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct JackUnion
+			public partial struct JackAnonymous
 			{
 				public unsafe void* JackSO;
 				public unsafe void* JackClientOpen;
@@ -192,7 +192,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe byte* PClientName;
 				public uint TryStartServer;
 
-				public unsafe JackUnion(void* jackSO = default, void* jackClientOpen = default, void* jackClientClose = default, void* jackClientNameSize = default, void* jackSetProcessCallback = default, void* jackSetBufferSizeCallback = default, void* jackOnShutdown = default, void* jackGetSampleRate = default, void* jackGetBufferSize = default, void* jackGetPorts = default, void* jackActivate = default, void* jackDeactivate = default, void* jackConnect = default, void* jackPortRegister = default, void* jackPortName = default, void* jackPortGetBuffer = default, void* jackFree = default, byte* pClientName = default, uint tryStartServer = default)
+				public unsafe JackAnonymous(void* jackSO = default, void* jackClientOpen = default, void* jackClientClose = default, void* jackClientNameSize = default, void* jackSetProcessCallback = default, void* jackSetBufferSizeCallback = default, void* jackOnShutdown = default, void* jackGetSampleRate = default, void* jackGetBufferSize = default, void* jackGetPorts = default, void* jackActivate = default, void* jackDeactivate = default, void* jackConnect = default, void* jackPortRegister = default, void* jackPortName = default, void* jackPortGetBuffer = default, void* jackFree = default, byte* pClientName = default, uint tryStartServer = default)
 				{
 					JackSO = jackSO;
 					JackClientOpen = jackClientOpen;
@@ -219,11 +219,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct NullBackendUnion
+			public partial struct NullBackendAnonymous
 			{
 				public int Unused;
 
-				public unsafe NullBackendUnion(int unused = default)
+				public unsafe NullBackendAnonymous(int unused = default)
 				{
 					Unused = unused;
 				}
@@ -232,17 +232,17 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public WasapiUnion Wasapi;
+			public WasapiAnonymous Wasapi;
 			[FieldOffset(0)]
-			public DsoundUnion Dsound;
+			public DsoundAnonymous Dsound;
 			[FieldOffset(0)]
-			public WinmmUnion Winmm;
+			public WinmmAnonymous Winmm;
 			[FieldOffset(0)]
-			public JackUnion Jack;
+			public JackAnonymous Jack;
 			[FieldOffset(0)]
-			public NullBackendUnion NullBackend;
+			public NullBackendAnonymous NullBackend;
 
-			public unsafe MaContextUnion14(WasapiUnion wasapi = default, DsoundUnion dsound = default, WinmmUnion winmm = default, JackUnion jack = default, NullBackendUnion nullBackend = default)
+			public unsafe MaContextAnonymous14(WasapiAnonymous wasapi = default, DsoundAnonymous dsound = default, WinmmAnonymous winmm = default, JackAnonymous jack = default, NullBackendAnonymous nullBackend = default)
 			{
 				Wasapi = wasapi;
 				Dsound = dsound;
@@ -255,10 +255,10 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct MaContextUnion15
+		public partial struct MaContextAnonymous15
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct Win32Union
+			public partial struct Win32Anonymous
 			{
 				/// <summary>
 				/// HMODULE<br/>
@@ -293,7 +293,7 @@ namespace Hexa.NET.MiniAudio
 				public int CoInitializeResult;
 
 
-				public unsafe Win32Union(void* hOle32DLL = default, void* coInitialize = default, void* coInitializeEx = default, void* coUninitialize = default, void* coCreateInstance = default, void* coTaskMemFree = default, void* propVariantClear = default, void* stringFromGuid2 = default, void* hUser32DLL = default, void* getForegroundWindow = default, void* getDesktopWindow = default, void* hAdvapi32DLL = default, void* regOpenKeyExA = default, void* regCloseKey = default, void* regQueryValueExA = default, int coInitializeResult = default)
+				public unsafe Win32Anonymous(void* hOle32DLL = default, void* coInitialize = default, void* coInitializeEx = default, void* coUninitialize = default, void* coCreateInstance = default, void* coTaskMemFree = default, void* propVariantClear = default, void* stringFromGuid2 = default, void* hUser32DLL = default, void* getForegroundWindow = default, void* getDesktopWindow = default, void* hAdvapi32DLL = default, void* regOpenKeyExA = default, void* regCloseKey = default, void* regQueryValueExA = default, int coInitializeResult = default)
 				{
 					HOle32DLL = hOle32DLL;
 					CoInitialize = coInitialize;
@@ -317,11 +317,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public Win32Union Win32;
+			public Win32Anonymous Win32;
 			[FieldOffset(0)]
 			public int Unused;
 
-			public unsafe MaContextUnion15(Win32Union win32 = default, int unused = default)
+			public unsafe MaContextAnonymous15(Win32Anonymous win32 = default, int unused = default)
 			{
 				Win32 = win32;
 				Unused = unused;
@@ -370,10 +370,10 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public unsafe MaDeviceInfo* PDeviceInfos;
 
-		public MaContextUnion14 Union0;
-		public MaContextUnion15 Union1;
+		public MaContextAnonymous14 Union0;
+		public MaContextAnonymous15 Union1;
 
-		public unsafe MaContext(MaBackendCallbacks callbacks = default, MaBackend backend = default, MaLog* pLog = default, MaLog log = default, MaThreadPriority threadPriority = default, nuint threadStackSize = default, void* pUserData = default, MaAllocationCallbacks allocationCallbacks = default, void* deviceEnumLock = default, void* deviceInfoLock = default, uint deviceInfoCapacity = default, uint playbackDeviceInfoCount = default, uint captureDeviceInfoCount = default, MaDeviceInfo* pDeviceInfos = default, MaContextUnion14 union0 = default, MaContextUnion15 union1 = default)
+		public unsafe MaContext(MaBackendCallbacks callbacks = default, MaBackend backend = default, MaLog* pLog = default, MaLog log = default, MaThreadPriority threadPriority = default, nuint threadStackSize = default, void* pUserData = default, MaAllocationCallbacks allocationCallbacks = default, void* deviceEnumLock = default, void* deviceInfoLock = default, uint deviceInfoCapacity = default, uint playbackDeviceInfoCount = default, uint captureDeviceInfoCount = default, MaDeviceInfo* pDeviceInfos = default, MaContextAnonymous14 union0 = default, MaContextAnonymous15 union1 = default)
 		{
 			Callbacks = callbacks;
 			Backend = backend;
@@ -468,8 +468,8 @@ namespace Hexa.NET.MiniAudio
 		/// Playback devices first, then capture. <br/>
 		/// </summary>
 		public ref MaDeviceInfoPtr PDeviceInfos => ref Unsafe.AsRef<MaDeviceInfoPtr>(&Handle->PDeviceInfos);
-		public ref MaContext.MaContextUnion14 Union0 => ref Unsafe.AsRef<MaContext.MaContextUnion14>(&Handle->Union0);
-		public ref MaContext.MaContextUnion15 Union1 => ref Unsafe.AsRef<MaContext.MaContextUnion15>(&Handle->Union1);
+		public ref MaContext.MaContextAnonymous14 Union0 => ref Unsafe.AsRef<MaContext.MaContextAnonymous14>(&Handle->Union0);
+		public ref MaContext.MaContextAnonymous15 Union1 => ref Unsafe.AsRef<MaContext.MaContextAnonymous15>(&Handle->Union1);
 	}
 
 }

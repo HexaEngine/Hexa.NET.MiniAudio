@@ -80,7 +80,7 @@ namespace Hexa.NET.MiniAudio
 		public uint OwnsHeap;
 
 
-		public unsafe MaNodeBase(MaNodeGraphPtr pNodeGraph = default, MaNodeVtablePtr vtable = default, uint inputBusCount = default, uint outputBusCount = default, MaNodeInputBusPtr pInputBuses = default, MaNodeOutputBusPtr pOutputBuses = default, float* pCachedData = default, ushort cachedDataCapInFramesPerBus = default, ushort cachedFrameCountOut = default, ushort cachedFrameCountIn = default, ushort consumedFrameCountIn = default, MaNodeState state = default, ulong* stateTimes = default, ulong localTime = default, MaNodeInputBusPtr inputBuses = default, MaNodeOutputBusPtr outputBuses = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaNodeBase(MaNodeGraphPtr pNodeGraph = default, MaNodeVtable* vtable = default, uint inputBusCount = default, uint outputBusCount = default, MaNodeInputBus* pInputBuses = default, MaNodeOutputBus* pOutputBuses = default, float* pCachedData = default, ushort cachedDataCapInFramesPerBus = default, ushort cachedFrameCountOut = default, ushort cachedFrameCountIn = default, ushort consumedFrameCountIn = default, MaNodeState state = default, ulong* stateTimes = default, ulong localTime = default, MaNodeInputBus* inputBuses = default, MaNodeOutputBus* outputBuses = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			PNodeGraph = pNodeGraph;
 			Vtable = vtable;
@@ -100,12 +100,12 @@ namespace Hexa.NET.MiniAudio
 				StateTimes_1 = stateTimes[1];
 			}
 			LocalTime = localTime;
-			if (inputBuses != default(MaNodeInputBusPtr))
+			if (inputBuses != default(MaNodeInputBus*))
 			{
 				InputBuses_0 = inputBuses[0];
 				InputBuses_1 = inputBuses[1];
 			}
-			if (outputBuses != default(MaNodeOutputBusPtr))
+			if (outputBuses != default(MaNodeOutputBus*))
 			{
 				OutputBuses_0 = outputBuses[0];
 				OutputBuses_1 = outputBuses[1];
@@ -114,7 +114,7 @@ namespace Hexa.NET.MiniAudio
 			OwnsHeap = ownsHeap;
 		}
 
-		public unsafe MaNodeBase(MaNodeGraphPtr pNodeGraph = default, MaNodeVtablePtr vtable = default, uint inputBusCount = default, uint outputBusCount = default, MaNodeInputBusPtr pInputBuses = default, MaNodeOutputBusPtr pOutputBuses = default, float* pCachedData = default, ushort cachedDataCapInFramesPerBus = default, ushort cachedFrameCountOut = default, ushort cachedFrameCountIn = default, ushort consumedFrameCountIn = default, MaNodeState state = default, Span<ulong> stateTimes = default, ulong localTime = default, Span<MaNodeInputBus> inputBuses = default, Span<MaNodeOutputBus> outputBuses = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaNodeBase(MaNodeGraphPtr pNodeGraph = default, MaNodeVtable* vtable = default, uint inputBusCount = default, uint outputBusCount = default, MaNodeInputBus* pInputBuses = default, MaNodeOutputBus* pOutputBuses = default, float* pCachedData = default, ushort cachedDataCapInFramesPerBus = default, ushort cachedFrameCountOut = default, ushort cachedFrameCountIn = default, ushort consumedFrameCountIn = default, MaNodeState state = default, Span<ulong> stateTimes = default, ulong localTime = default, Span<MaNodeInputBus> inputBuses = default, Span<MaNodeOutputBus> outputBuses = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			PNodeGraph = pNodeGraph;
 			Vtable = vtable;

@@ -19,14 +19,14 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaChannelConverter
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct WeightsUnion
+		public partial struct WeightsAnonymous
 		{
 			[FieldOffset(0)]
 			public unsafe float** F32;
 			[FieldOffset(0)]
 			public unsafe int** S16;
 
-			public unsafe WeightsUnion(float** f32 = default, int** s16 = default)
+			public unsafe WeightsAnonymous(float** f32 = default, int** s16 = default)
 			{
 				F32 = f32;
 				S16 = s16;
@@ -50,7 +50,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// [in][out] <br/>
 		/// </summary>
-		public WeightsUnion Union;
+		public WeightsAnonymous Union;
 
 		/// <summary>
 		/// Memory management. <br/>
@@ -59,7 +59,7 @@ namespace Hexa.NET.MiniAudio
 
 		public uint OwnsHeap;
 
-		public unsafe MaChannelConverter(MaFormat format = default, uint channelsIn = default, uint channelsOut = default, MaChannelMixMode mixingMode = default, MaChannelConversionPath conversionPath = default, byte* pChannelMapIn = default, byte* pChannelMapOut = default, byte* pShuffleTable = default, WeightsUnion union = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaChannelConverter(MaFormat format = default, uint channelsIn = default, uint channelsOut = default, MaChannelMixMode mixingMode = default, MaChannelConversionPath conversionPath = default, byte* pChannelMapIn = default, byte* pChannelMapOut = default, byte* pShuffleTable = default, WeightsAnonymous union = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			Format = format;
 			ChannelsIn = channelsIn;
@@ -129,7 +129,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// [in][out] <br/>
 		/// </summary>
-		public ref MaChannelConverter.WeightsUnion Union => ref Unsafe.AsRef<MaChannelConverter.WeightsUnion>(&Handle->Union);
+		public ref MaChannelConverter.WeightsAnonymous Union => ref Unsafe.AsRef<MaChannelConverter.WeightsAnonymous>(&Handle->Union);
 		/// <summary>
 		/// Memory management. <br/>
 		/// </summary>

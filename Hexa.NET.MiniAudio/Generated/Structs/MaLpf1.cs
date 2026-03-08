@@ -29,7 +29,7 @@ namespace Hexa.NET.MiniAudio
 
 		public uint OwnsHeap;
 
-		public unsafe MaLpf1(MaFormat format = default, uint channels = default, MaBiquadCoefficient a = default, MaBiquadCoefficientPtr pr1 = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaLpf1(MaFormat format = default, uint channels = default, MaBiquadCoefficient a = default, MaBiquadCoefficient* pr1 = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			Format = format;
 			Channels = channels;

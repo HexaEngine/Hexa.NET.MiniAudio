@@ -32,7 +32,7 @@ namespace Hexa.NET.MiniAudio
 
 		public uint OwnsHeap;
 
-		public unsafe MaLpf(MaFormat format = default, uint channels = default, uint sampleRate = default, uint lpf1Count = default, uint lpf2Count = default, MaLpf1Ptr plPf1 = default, MaLpf2Ptr plPf2 = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaLpf(MaFormat format = default, uint channels = default, uint sampleRate = default, uint lpf1Count = default, uint lpf2Count = default, MaLpf1* plPf1 = default, MaLpf2* plPf2 = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			Format = format;
 			Channels = channels;

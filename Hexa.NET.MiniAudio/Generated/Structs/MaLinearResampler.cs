@@ -19,14 +19,14 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaLinearResampler
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct X0Union
+		public partial struct X0Anonymous
 		{
 			[FieldOffset(0)]
 			public unsafe float* F32;
 			[FieldOffset(0)]
 			public unsafe short* S16;
 
-			public unsafe X0Union(float* f32 = default, short* s16 = default)
+			public unsafe X0Anonymous(float* f32 = default, short* s16 = default)
 			{
 				F32 = f32;
 				S16 = s16;
@@ -36,14 +36,14 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct X1Union
+		public partial struct X1Anonymous
 		{
 			[FieldOffset(0)]
 			public unsafe float* F32;
 			[FieldOffset(0)]
 			public unsafe short* S16;
 
-			public unsafe X1Union(float* f32 = default, short* s16 = default)
+			public unsafe X1Anonymous(float* f32 = default, short* s16 = default)
 			{
 				F32 = f32;
 				S16 = s16;
@@ -60,12 +60,12 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// The previous input frame. <br/>
 		/// </summary>
-		public X0Union Union0;
+		public X0Anonymous Union0;
 
 		/// <summary>
 		/// The next input frame. <br/>
 		/// </summary>
-		public X1Union Union1;
+		public X1Anonymous Union1;
 
 		public MaLpf Lpf;
 		/// <summary>
@@ -75,7 +75,7 @@ namespace Hexa.NET.MiniAudio
 
 		public uint OwnsHeap;
 
-		public unsafe MaLinearResampler(MaLinearResamplerConfig config = default, uint inAdvanceInt = default, uint inAdvanceFrac = default, uint inTimeInt = default, uint inTimeFrac = default, X0Union union0 = default, X1Union union1 = default, MaLpf lpf = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaLinearResampler(MaLinearResamplerConfig config = default, uint inAdvanceInt = default, uint inAdvanceFrac = default, uint inTimeInt = default, uint inTimeFrac = default, X0Anonymous union0 = default, X1Anonymous union1 = default, MaLpf lpf = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			Config = config;
 			InAdvanceInt = inAdvanceInt;
@@ -138,11 +138,11 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// The previous input frame. <br/>
 		/// </summary>
-		public ref MaLinearResampler.X0Union Union0 => ref Unsafe.AsRef<MaLinearResampler.X0Union>(&Handle->Union0);
+		public ref MaLinearResampler.X0Anonymous Union0 => ref Unsafe.AsRef<MaLinearResampler.X0Anonymous>(&Handle->Union0);
 		/// <summary>
 		/// The next input frame. <br/>
 		/// </summary>
-		public ref MaLinearResampler.X1Union Union1 => ref Unsafe.AsRef<MaLinearResampler.X1Union>(&Handle->Union1);
+		public ref MaLinearResampler.X1Anonymous Union1 => ref Unsafe.AsRef<MaLinearResampler.X1Anonymous>(&Handle->Union1);
 		public ref MaLpf Lpf => ref Unsafe.AsRef<MaLpf>(&Handle->Lpf);
 		/// <summary>
 		/// Memory management. <br/>

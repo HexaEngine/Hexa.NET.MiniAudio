@@ -51,7 +51,7 @@ namespace Hexa.NET.MiniAudio
 		public unsafe void* OnGetNext;
 		public uint IsLooping;
 
-		public unsafe MaDataSourceBase(MaDataSourceVtablePtr vtable = default, ulong rangeBegInFrames = default, ulong rangeEndInFrames = default, ulong loopBegInFrames = default, ulong loopEndInFrames = default, void* pCurrent = default, void* pNext = default, delegate*<void*, void*> onGetNext = default, uint isLooping = default)
+		public unsafe MaDataSourceBase(MaDataSourceVtable* vtable = default, ulong rangeBegInFrames = default, ulong rangeEndInFrames = default, ulong loopBegInFrames = default, ulong loopEndInFrames = default, void* pCurrent = default, void* pNext = default, delegate*<void*, void*> onGetNext = default, uint isLooping = default)
 		{
 			Vtable = vtable;
 			RangeBegInFrames = rangeBegInFrames;

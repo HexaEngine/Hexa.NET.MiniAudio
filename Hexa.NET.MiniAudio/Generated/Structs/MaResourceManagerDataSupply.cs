@@ -19,15 +19,15 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaResourceManagerDataSupply
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct BackendUnion
+		public partial struct BackendAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct EncodedUnion
+			public partial struct EncodedAnonymous
 			{
 				public unsafe void* PData;
 				public nuint SizeInBytes;
 
-				public unsafe EncodedUnion(void* pData = default, nuint sizeInBytes = default)
+				public unsafe EncodedAnonymous(void* pData = default, nuint sizeInBytes = default)
 				{
 					PData = pData;
 					SizeInBytes = sizeInBytes;
@@ -37,7 +37,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct DecodedUnion
+			public partial struct DecodedAnonymous
 			{
 				public unsafe void* PData;
 				public ulong TotalFrameCount;
@@ -46,7 +46,7 @@ namespace Hexa.NET.MiniAudio
 				public uint Channels;
 				public uint SampleRate;
 
-				public unsafe DecodedUnion(void* pData = default, ulong totalFrameCount = default, ulong decodedFrameCount = default, MaFormat format = default, uint channels = default, uint sampleRate = default)
+				public unsafe DecodedAnonymous(void* pData = default, ulong totalFrameCount = default, ulong decodedFrameCount = default, MaFormat format = default, uint channels = default, uint sampleRate = default)
 				{
 					PData = pData;
 					TotalFrameCount = totalFrameCount;
@@ -60,13 +60,13 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct DecodedPagedUnion
+			public partial struct DecodedPagedAnonymous
 			{
 				public MaPagedAudioBufferData Data;
 				public ulong DecodedFrameCount;
 				public uint SampleRate;
 
-				public unsafe DecodedPagedUnion(MaPagedAudioBufferData data = default, ulong decodedFrameCount = default, uint sampleRate = default)
+				public unsafe DecodedPagedAnonymous(MaPagedAudioBufferData data = default, ulong decodedFrameCount = default, uint sampleRate = default)
 				{
 					Data = data;
 					DecodedFrameCount = decodedFrameCount;
@@ -77,13 +77,13 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public EncodedUnion Encoded;
+			public EncodedAnonymous Encoded;
 			[FieldOffset(0)]
-			public DecodedUnion Decoded;
+			public DecodedAnonymous Decoded;
 			[FieldOffset(0)]
-			public DecodedPagedUnion DecodedPaged;
+			public DecodedPagedAnonymous DecodedPaged;
 
-			public unsafe BackendUnion(EncodedUnion encoded = default, DecodedUnion decoded = default, DecodedPagedUnion decodedPaged = default)
+			public unsafe BackendAnonymous(EncodedAnonymous encoded = default, DecodedAnonymous decoded = default, DecodedPagedAnonymous decodedPaged = default)
 			{
 				Encoded = encoded;
 				Decoded = decoded;
@@ -98,9 +98,9 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public MaResourceManagerDataSupplyType Type;
 
-		public BackendUnion Union;
+		public BackendAnonymous Union;
 
-		public unsafe MaResourceManagerDataSupply(MaResourceManagerDataSupplyType type = default, BackendUnion union = default)
+		public unsafe MaResourceManagerDataSupply(MaResourceManagerDataSupplyType type = default, BackendAnonymous union = default)
 		{
 			Type = type;
 			Union = union;

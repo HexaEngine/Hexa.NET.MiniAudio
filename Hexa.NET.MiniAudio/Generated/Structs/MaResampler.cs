@@ -19,12 +19,12 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaResampler
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct StateUnion
+		public partial struct StateAnonymous
 		{
 			[FieldOffset(0)]
 			public MaLinearResampler Linear;
 
-			public unsafe StateUnion(MaLinearResampler linear = default)
+			public unsafe StateAnonymous(MaLinearResampler linear = default)
 			{
 				Linear = linear;
 			}
@@ -42,7 +42,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// State for stock resamplers so we can avoid a malloc. For stock resamplers, pBackend will point here. <br/>
 		/// </summary>
-		public StateUnion Union;
+		public StateAnonymous Union;
 
 		/// <summary>
 		/// Memory management. <br/>
@@ -51,7 +51,7 @@ namespace Hexa.NET.MiniAudio
 
 		public uint OwnsHeap;
 
-		public unsafe MaResampler(void* pBackend = default, MaResamplingBackendVtablePtr pBackendVTable = default, void* pBackendUserData = default, MaFormat format = default, uint channels = default, uint sampleRateIn = default, uint sampleRateOut = default, StateUnion union = default, void* pHeap = default, uint ownsHeap = default)
+		public unsafe MaResampler(void* pBackend = default, MaResamplingBackendVtablePtr pBackendVTable = default, void* pBackendUserData = default, MaFormat format = default, uint channels = default, uint sampleRateIn = default, uint sampleRateOut = default, StateAnonymous union = default, void* pHeap = default, uint ownsHeap = default)
 		{
 			PBackend = pBackend;
 			PBackendVTable = pBackendVTable;
@@ -116,7 +116,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// State for stock resamplers so we can avoid a malloc. For stock resamplers, pBackend will point here. <br/>
 		/// </summary>
-		public ref MaResampler.StateUnion Union => ref Unsafe.AsRef<MaResampler.StateUnion>(&Handle->Union);
+		public ref MaResampler.StateAnonymous Union => ref Unsafe.AsRef<MaResampler.StateAnonymous>(&Handle->Union);
 		/// <summary>
 		/// Memory management. <br/>
 		/// </summary>

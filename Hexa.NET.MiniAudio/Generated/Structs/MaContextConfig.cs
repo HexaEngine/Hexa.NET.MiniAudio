@@ -19,7 +19,7 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaContextConfig
 	{
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct DsoundUnion
+		public partial struct DsoundAnonymous
 		{
 			/// <summary>
 			/// HWND. Optional window handle to pass into SetCooperativeLevel(). Will default to the foreground window, and if that fails, the desktop window. <br/>
@@ -27,7 +27,7 @@ namespace Hexa.NET.MiniAudio
 			public unsafe void* HWnd;
 
 
-			public unsafe DsoundUnion(void* hWnd = default)
+			public unsafe DsoundAnonymous(void* hWnd = default)
 			{
 				HWnd = hWnd;
 			}
@@ -36,11 +36,11 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct AlsaUnion
+		public partial struct AlsaAnonymous
 		{
 			public uint UseVerboseDeviceEnumeration;
 
-			public unsafe AlsaUnion(uint useVerboseDeviceEnumeration = default)
+			public unsafe AlsaAnonymous(uint useVerboseDeviceEnumeration = default)
 			{
 				UseVerboseDeviceEnumeration = useVerboseDeviceEnumeration;
 			}
@@ -49,7 +49,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct PulseUnion
+		public partial struct PulseAnonymous
 		{
 			public unsafe byte* PApplicationName;
 			public unsafe byte* PServerName;
@@ -59,7 +59,7 @@ namespace Hexa.NET.MiniAudio
 			public uint TryAutoSpawn;
 
 
-			public unsafe PulseUnion(byte* pApplicationName = default, byte* pServerName = default, uint tryAutoSpawn = default)
+			public unsafe PulseAnonymous(byte* pApplicationName = default, byte* pServerName = default, uint tryAutoSpawn = default)
 			{
 				PApplicationName = pApplicationName;
 				PServerName = pServerName;
@@ -70,7 +70,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct CoreaudioUnion
+		public partial struct CoreaudioAnonymous
 		{
 			public MaIosSessionCategory SessionCategory;
 			public uint SessionCategoryOptions;
@@ -85,7 +85,7 @@ namespace Hexa.NET.MiniAudio
 			public uint NoAudioSessionDeactivate;
 
 
-			public unsafe CoreaudioUnion(MaIosSessionCategory sessionCategory = default, uint sessionCategoryOptions = default, uint noAudioSessionActivate = default, uint noAudioSessionDeactivate = default)
+			public unsafe CoreaudioAnonymous(MaIosSessionCategory sessionCategory = default, uint sessionCategoryOptions = default, uint noAudioSessionActivate = default, uint noAudioSessionDeactivate = default)
 			{
 				SessionCategory = sessionCategory;
 				SessionCategoryOptions = sessionCategoryOptions;
@@ -97,12 +97,12 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct JackUnion
+		public partial struct JackAnonymous
 		{
 			public unsafe byte* PClientName;
 			public uint TryStartServer;
 
-			public unsafe JackUnion(byte* pClientName = default, uint tryStartServer = default)
+			public unsafe JackAnonymous(byte* pClientName = default, uint tryStartServer = default)
 			{
 				PClientName = pClientName;
 				TryStartServer = tryStartServer;
@@ -116,14 +116,14 @@ namespace Hexa.NET.MiniAudio
 		public nuint ThreadStackSize;
 		public unsafe void* PUserData;
 		public MaAllocationCallbacks AllocationCallbacks;
-		public DsoundUnion Dsound;
-		public AlsaUnion Alsa;
-		public PulseUnion Pulse;
-		public CoreaudioUnion Coreaudio;
-		public JackUnion Jack;
+		public DsoundAnonymous Dsound;
+		public AlsaAnonymous Alsa;
+		public PulseAnonymous Pulse;
+		public CoreaudioAnonymous Coreaudio;
+		public JackAnonymous Jack;
 		public MaBackendCallbacks Custom;
 
-		public unsafe MaContextConfig(MaLogPtr pLog = default, MaThreadPriority threadPriority = default, nuint threadStackSize = default, void* pUserData = default, MaAllocationCallbacks allocationCallbacks = default, DsoundUnion dsound = default, AlsaUnion alsa = default, PulseUnion pulse = default, CoreaudioUnion coreaudio = default, JackUnion jack = default, MaBackendCallbacks custom = default)
+		public unsafe MaContextConfig(MaLog* pLog = default, MaThreadPriority threadPriority = default, nuint threadStackSize = default, void* pUserData = default, MaAllocationCallbacks allocationCallbacks = default, DsoundAnonymous dsound = default, AlsaAnonymous alsa = default, PulseAnonymous pulse = default, CoreaudioAnonymous coreaudio = default, JackAnonymous jack = default, MaBackendCallbacks custom = default)
 		{
 			PLog = pLog;
 			ThreadPriority = threadPriority;
@@ -184,11 +184,11 @@ namespace Hexa.NET.MiniAudio
 		public ref nuint ThreadStackSize => ref Unsafe.AsRef<nuint>(&Handle->ThreadStackSize);
 		public void* PUserData { get => Handle->PUserData; set => Handle->PUserData = value; }
 		public ref MaAllocationCallbacks AllocationCallbacks => ref Unsafe.AsRef<MaAllocationCallbacks>(&Handle->AllocationCallbacks);
-		public ref MaContextConfig.DsoundUnion Dsound => ref Unsafe.AsRef<MaContextConfig.DsoundUnion>(&Handle->Dsound);
-		public ref MaContextConfig.AlsaUnion Alsa => ref Unsafe.AsRef<MaContextConfig.AlsaUnion>(&Handle->Alsa);
-		public ref MaContextConfig.PulseUnion Pulse => ref Unsafe.AsRef<MaContextConfig.PulseUnion>(&Handle->Pulse);
-		public ref MaContextConfig.CoreaudioUnion Coreaudio => ref Unsafe.AsRef<MaContextConfig.CoreaudioUnion>(&Handle->Coreaudio);
-		public ref MaContextConfig.JackUnion Jack => ref Unsafe.AsRef<MaContextConfig.JackUnion>(&Handle->Jack);
+		public ref MaContextConfig.DsoundAnonymous Dsound => ref Unsafe.AsRef<MaContextConfig.DsoundAnonymous>(&Handle->Dsound);
+		public ref MaContextConfig.AlsaAnonymous Alsa => ref Unsafe.AsRef<MaContextConfig.AlsaAnonymous>(&Handle->Alsa);
+		public ref MaContextConfig.PulseAnonymous Pulse => ref Unsafe.AsRef<MaContextConfig.PulseAnonymous>(&Handle->Pulse);
+		public ref MaContextConfig.CoreaudioAnonymous Coreaudio => ref Unsafe.AsRef<MaContextConfig.CoreaudioAnonymous>(&Handle->Coreaudio);
+		public ref MaContextConfig.JackAnonymous Jack => ref Unsafe.AsRef<MaContextConfig.JackAnonymous>(&Handle->Jack);
 		public ref MaBackendCallbacks Custom => ref Unsafe.AsRef<MaBackendCallbacks>(&Handle->Custom);
 	}
 

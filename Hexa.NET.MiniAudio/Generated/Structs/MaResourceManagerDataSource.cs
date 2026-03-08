@@ -19,14 +19,14 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaResourceManagerDataSource
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct BackendUnion
+		public partial struct BackendAnonymous
 		{
 			[FieldOffset(0)]
 			public MaResourceManagerDataBuffer Buffer;
 			[FieldOffset(0)]
 			public MaResourceManagerDataStream Stream;
 
-			public unsafe BackendUnion(MaResourceManagerDataBuffer buffer = default, MaResourceManagerDataStream stream = default)
+			public unsafe BackendAnonymous(MaResourceManagerDataBuffer buffer = default, MaResourceManagerDataStream stream = default)
 			{
 				Buffer = buffer;
 				Stream = stream;
@@ -38,7 +38,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Must be the first item because we need the first item to be the data source callbacks for the buffer or stream. <br/>
 		/// </summary>
-		public BackendUnion Union;
+		public BackendAnonymous Union;
 
 		/// <summary>
 		/// The flags that were passed in to ma_resource_manager_data_source_init(). <br/>
@@ -56,7 +56,7 @@ namespace Hexa.NET.MiniAudio
 		public uint ExecutionPointer;
 
 
-		public unsafe MaResourceManagerDataSource(BackendUnion union = default, uint flags = default, uint executionCounter = default, uint executionPointer = default)
+		public unsafe MaResourceManagerDataSource(BackendAnonymous union = default, uint flags = default, uint executionCounter = default, uint executionPointer = default)
 		{
 			Union = union;
 			Flags = flags;
@@ -108,7 +108,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// Must be the first item because we need the first item to be the data source callbacks for the buffer or stream. <br/>
 		/// </summary>
-		public ref MaResourceManagerDataSource.BackendUnion Union => ref Unsafe.AsRef<MaResourceManagerDataSource.BackendUnion>(&Handle->Union);
+		public ref MaResourceManagerDataSource.BackendAnonymous Union => ref Unsafe.AsRef<MaResourceManagerDataSource.BackendAnonymous>(&Handle->Union);
 		/// <summary>
 		/// The flags that were passed in to ma_resource_manager_data_source_init(). <br/>
 		/// </summary>

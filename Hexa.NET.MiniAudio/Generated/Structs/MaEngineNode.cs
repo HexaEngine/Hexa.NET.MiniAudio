@@ -22,7 +22,7 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaEngineNode
 	{
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct FadeSettingsUnion
+		public partial struct FadeSettingsAnonymous
 		{
 			public MaAtomicFloat VolumeBeg;
 			public MaAtomicFloat VolumeEnd;
@@ -41,7 +41,7 @@ namespace Hexa.NET.MiniAudio
 			public MaAtomicUint64 AbsoluteGlobalTimeInFrames;
 
 
-			public unsafe FadeSettingsUnion(MaAtomicFloat volumeBeg = default, MaAtomicFloat volumeEnd = default, MaAtomicUint64 fadeLengthInFrames = default, MaAtomicUint64 absoluteGlobalTimeInFrames = default)
+			public unsafe FadeSettingsAnonymous(MaAtomicFloat volumeBeg = default, MaAtomicFloat volumeEnd = default, MaAtomicUint64 fadeLengthInFrames = default, MaAtomicUint64 absoluteGlobalTimeInFrames = default)
 			{
 				VolumeBeg = volumeBeg;
 				VolumeEnd = volumeEnd;
@@ -113,7 +113,7 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public uint PinnedListenerIndex;
 
-		public FadeSettingsUnion FadeSettings;
+		public FadeSettingsAnonymous FadeSettings;
 		/// <summary>
 		/// Memory management. <br/>
 		/// </summary>
@@ -121,7 +121,7 @@ namespace Hexa.NET.MiniAudio
 
 		public unsafe void* PHeap;
 
-		public unsafe MaEngineNode(MaNodeBase baseNode = default, MaEnginePtr pEngine = default, uint sampleRate = default, uint volumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, MaFader fader = default, MaResampler resampler = default, MaSpatializer spatializer = default, MaPanner panner = default, MaGainer volumeGainer = default, MaAtomicFloat volume = default, float pitch = default, float oldPitch = default, float oldDopplerPitch = default, uint isPitchDisabled = default, uint isSpatializationDisabled = default, uint pinnedListenerIndex = default, FadeSettingsUnion fadeSettings = default, byte ownsHeap = default, void* pHeap = default)
+		public unsafe MaEngineNode(MaNodeBase baseNode = default, MaEnginePtr pEngine = default, uint sampleRate = default, uint volumeSmoothTimeInPCMFrames = default, MaMonoExpansionMode monoExpansionMode = default, MaFader fader = default, MaResampler resampler = default, MaSpatializer spatializer = default, MaPanner panner = default, MaGainer volumeGainer = default, MaAtomicFloat volume = default, float pitch = default, float oldPitch = default, float oldDopplerPitch = default, uint isPitchDisabled = default, uint isSpatializationDisabled = default, uint pinnedListenerIndex = default, FadeSettingsAnonymous fadeSettings = default, byte ownsHeap = default, void* pHeap = default)
 		{
 			BaseNode = baseNode;
 			PEngine = pEngine;
@@ -239,7 +239,7 @@ namespace Hexa.NET.MiniAudio
 		/// The index of the listener this node should always use for spatialization. If set to MA_LISTENER_INDEX_CLOSEST the engine will use the closest listener. <br/>
 		/// </summary>
 		public ref uint PinnedListenerIndex => ref Unsafe.AsRef<uint>(&Handle->PinnedListenerIndex);
-		public ref MaEngineNode.FadeSettingsUnion FadeSettings => ref Unsafe.AsRef<MaEngineNode.FadeSettingsUnion>(&Handle->FadeSettings);
+		public ref MaEngineNode.FadeSettingsAnonymous FadeSettings => ref Unsafe.AsRef<MaEngineNode.FadeSettingsAnonymous>(&Handle->FadeSettings);
 		/// <summary>
 		/// Memory management. <br/>
 		/// </summary>

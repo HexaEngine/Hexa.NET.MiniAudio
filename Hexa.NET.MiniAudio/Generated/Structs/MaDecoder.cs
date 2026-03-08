@@ -19,15 +19,15 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaDecoder
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct DataUnion
+		public partial struct DataAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct VfsUnion
+			public partial struct VfsAnonymous
 			{
 				public unsafe void* PVFS;
 				public unsafe void* File;
 
-				public unsafe VfsUnion(void* pVFs = default, void* file = default)
+				public unsafe VfsAnonymous(void* pVFs = default, void* file = default)
 				{
 					PVFS = pVFs;
 					File = file;
@@ -37,13 +37,13 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct MemoryUnion
+			public partial struct MemoryAnonymous
 			{
 				public unsafe byte* PData;
 				public nuint DataSize;
 				public nuint CurrentReadPos;
 
-				public unsafe MemoryUnion(byte* pData = default, nuint dataSize = default, nuint currentReadPos = default)
+				public unsafe MemoryAnonymous(byte* pData = default, nuint dataSize = default, nuint currentReadPos = default)
 				{
 					PData = pData;
 					DataSize = dataSize;
@@ -54,15 +54,15 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public VfsUnion Vfs;
+			public VfsAnonymous Vfs;
 			/// <summary>
 			/// Only used for decoders that were opened against a block of memory. <br/>
 			/// </summary>
 			[FieldOffset(0)]
-			public MemoryUnion Memory;
+			public MemoryAnonymous Memory;
 
 
-			public unsafe DataUnion(VfsUnion vfs = default, MemoryUnion memory = default)
+			public unsafe DataAnonymous(VfsAnonymous vfs = default, MemoryAnonymous memory = default)
 			{
 				Vfs = vfs;
 				Memory = memory;
@@ -121,9 +121,9 @@ namespace Hexa.NET.MiniAudio
 		public ulong InputCacheRemaining;
 
 		public MaAllocationCallbacks AllocationCallbacks;
-		public DataUnion Union;
+		public DataAnonymous Union;
 
-		public unsafe MaDecoder(MaDataSourceBase ds = default, void* pBackend = default, MaDecodingBackendVtable* pBackendVTable = default, void* pBackendUserData = default, delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead = default, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek = default, delegate*<MaDecoder*, long*, MaResult> onTell = default, void* pUserData = default, ulong readPointerInPCMFrames = default, MaFormat outputFormat = default, uint outputChannels = default, uint outputSampleRate = default, MaDataConverter converter = default, void* pInputCache = default, ulong inputCacheCap = default, ulong inputCacheConsumed = default, ulong inputCacheRemaining = default, MaAllocationCallbacks allocationCallbacks = default, DataUnion union = default)
+		public unsafe MaDecoder(MaDataSourceBase ds = default, void* pBackend = default, MaDecodingBackendVtable* pBackendVTable = default, void* pBackendUserData = default, delegate*<MaDecoder*, void*, nuint, nuint*, MaResult> onRead = default, delegate*<MaDecoder*, long, MaSeekOrigin, MaResult> onSeek = default, delegate*<MaDecoder*, long*, MaResult> onTell = default, void* pUserData = default, ulong readPointerInPCMFrames = default, MaFormat outputFormat = default, uint outputChannels = default, uint outputSampleRate = default, MaDataConverter converter = default, void* pInputCache = default, ulong inputCacheCap = default, ulong inputCacheConsumed = default, ulong inputCacheRemaining = default, MaAllocationCallbacks allocationCallbacks = default, DataAnonymous union = default)
 		{
 			Ds = ds;
 			PBackend = pBackend;
@@ -229,7 +229,7 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public ref ulong InputCacheRemaining => ref Unsafe.AsRef<ulong>(&Handle->InputCacheRemaining);
 		public ref MaAllocationCallbacks AllocationCallbacks => ref Unsafe.AsRef<MaAllocationCallbacks>(&Handle->AllocationCallbacks);
-		public ref MaDecoder.DataUnion Union => ref Unsafe.AsRef<MaDecoder.DataUnion>(&Handle->Union);
+		public ref MaDecoder.DataAnonymous Union => ref Unsafe.AsRef<MaDecoder.DataAnonymous>(&Handle->Union);
 	}
 
 }

@@ -19,15 +19,15 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaEncoder
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct DataUnion
+		public partial struct DataAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct VfsUnion
+			public partial struct VfsAnonymous
 			{
 				public unsafe void* PVFS;
 				public unsafe void* File;
 
-				public unsafe VfsUnion(void* pVFs = default, void* file = default)
+				public unsafe VfsAnonymous(void* pVFs = default, void* file = default)
 				{
 					PVFS = pVFs;
 					File = file;
@@ -37,9 +37,9 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public VfsUnion Vfs;
+			public VfsAnonymous Vfs;
 
-			public unsafe DataUnion(VfsUnion vfs = default)
+			public unsafe DataAnonymous(VfsAnonymous vfs = default)
 			{
 				Vfs = vfs;
 			}
@@ -55,9 +55,9 @@ namespace Hexa.NET.MiniAudio
 		public unsafe void* OnWritePCMFrames;
 		public unsafe void* PUserData;
 		public unsafe void* PInternalEncoder;
-		public DataUnion Union;
+		public DataAnonymous Union;
 
-		public unsafe MaEncoder(MaEncoderConfig config = default, delegate*<MaEncoder*, void*, nuint, nuint*, MaResult> onWrite = default, delegate*<MaEncoder*, long, MaSeekOrigin, MaResult> onSeek = default, delegate*<MaEncoder*, MaResult> onInit = default, delegate*<MaEncoder*, void> onUninit = default, delegate*<MaEncoder*, void*, ulong, ulong*, MaResult> onWritePCMFrames = default, void* pUserData = default, void* pInternalEncoder = default, DataUnion union = default)
+		public unsafe MaEncoder(MaEncoderConfig config = default, delegate*<MaEncoder*, void*, nuint, nuint*, MaResult> onWrite = default, delegate*<MaEncoder*, long, MaSeekOrigin, MaResult> onSeek = default, delegate*<MaEncoder*, MaResult> onInit = default, delegate*<MaEncoder*, void> onUninit = default, delegate*<MaEncoder*, void*, ulong, ulong*, MaResult> onWritePCMFrames = default, void* pUserData = default, void* pInternalEncoder = default, DataAnonymous union = default)
 		{
 			Config = config;
 			OnWrite = (delegate*<MaEncoder*, void*, nuint, nuint*, MaResult>)onWrite;
@@ -119,7 +119,7 @@ namespace Hexa.NET.MiniAudio
 		public void* OnWritePCMFrames { get => Handle->OnWritePCMFrames; set => Handle->OnWritePCMFrames = value; }
 		public void* PUserData { get => Handle->PUserData; set => Handle->PUserData = value; }
 		public void* PInternalEncoder { get => Handle->PInternalEncoder; set => Handle->PInternalEncoder = value; }
-		public ref MaEncoder.DataUnion Union => ref Unsafe.AsRef<MaEncoder.DataUnion>(&Handle->Union);
+		public ref MaEncoder.DataAnonymous Union => ref Unsafe.AsRef<MaEncoder.DataAnonymous>(&Handle->Union);
 	}
 
 }

@@ -19,14 +19,14 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaDevice
 	{
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct ResamplingUnion
+		public partial struct ResamplingAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct LinearUnion
+			public partial struct LinearAnonymous
 			{
 				public uint LpfOrder;
 
-				public unsafe LinearUnion(uint lpfOrder = default)
+				public unsafe LinearAnonymous(uint lpfOrder = default)
 				{
 					LpfOrder = lpfOrder;
 				}
@@ -37,9 +37,9 @@ namespace Hexa.NET.MiniAudio
 			public MaResampleAlgorithm Algorithm;
 			public unsafe MaResamplingBackendVtable* PBackendVTable;
 			public unsafe void* PBackendUserData;
-			public LinearUnion Linear;
+			public LinearAnonymous Linear;
 
-			public unsafe ResamplingUnion(MaResampleAlgorithm algorithm = default, MaResamplingBackendVtable* pBackendVTable = default, void* pBackendUserData = default, LinearUnion linear = default)
+			public unsafe ResamplingAnonymous(MaResampleAlgorithm algorithm = default, MaResamplingBackendVtable* pBackendVTable = default, void* pBackendUserData = default, LinearAnonymous linear = default)
 			{
 				Algorithm = algorithm;
 				PBackendVTable = pBackendVTable;
@@ -51,7 +51,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct PlaybackUnion
+		public partial struct PlaybackAnonymous
 		{
 			/// <summary>
 			/// Set to NULL if using default ID, otherwise set to the address of "id". <br/>
@@ -866,7 +866,7 @@ namespace Hexa.NET.MiniAudio
 			public ulong InputCacheConsumed;
 			public ulong InputCacheRemaining;
 
-			public unsafe PlaybackUnion(MaDeviceId* piD = default, MaDeviceId id = default, byte* name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, byte* channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, byte* internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default, void* pInputCache = default, ulong inputCacheCap = default, ulong inputCacheConsumed = default, ulong inputCacheRemaining = default)
+			public unsafe PlaybackAnonymous(MaDeviceIdPtr piD = default, MaDeviceId id = default, byte* name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, byte* channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, byte* internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default, void* pInputCache = default, ulong inputCacheCap = default, ulong inputCacheConsumed = default, ulong inputCacheRemaining = default)
 			{
 				PID = piD;
 				Id = id;
@@ -1663,7 +1663,7 @@ namespace Hexa.NET.MiniAudio
 				InputCacheRemaining = inputCacheRemaining;
 			}
 
-			public unsafe PlaybackUnion(MaDeviceId* piD = default, MaDeviceId id = default, Span<byte> name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, Span<byte> channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, Span<byte> internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default, void* pInputCache = default, ulong inputCacheCap = default, ulong inputCacheConsumed = default, ulong inputCacheRemaining = default)
+			public unsafe PlaybackAnonymous(MaDeviceIdPtr piD = default, MaDeviceId id = default, Span<byte> name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, Span<byte> channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, Span<byte> internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default, void* pInputCache = default, ulong inputCacheCap = default, ulong inputCacheConsumed = default, ulong inputCacheRemaining = default)
 			{
 				PID = piD;
 				Id = id;
@@ -2464,7 +2464,7 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct CaptureUnion
+		public partial struct CaptureAnonymous
 		{
 			/// <summary>
 			/// Set to NULL if using default ID, otherwise set to the address of "id". <br/>
@@ -3271,7 +3271,7 @@ namespace Hexa.NET.MiniAudio
 			public uint IntermediaryBufferLen;
 
 
-			public unsafe CaptureUnion(MaDeviceId* piD = default, MaDeviceId id = default, byte* name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, byte* channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, byte* internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default)
+			public unsafe CaptureAnonymous(MaDeviceIdPtr piD = default, MaDeviceId id = default, byte* name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, byte* channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, byte* internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default)
 			{
 				PID = piD;
 				Id = id;
@@ -4064,7 +4064,7 @@ namespace Hexa.NET.MiniAudio
 				IntermediaryBufferLen = intermediaryBufferLen;
 			}
 
-			public unsafe CaptureUnion(MaDeviceId* piD = default, MaDeviceId id = default, Span<byte> name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, Span<byte> channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, Span<byte> internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default)
+			public unsafe CaptureAnonymous(MaDeviceIdPtr piD = default, MaDeviceId id = default, Span<byte> name = default, MaShareMode shareMode = default, MaFormat format = default, uint channels = default, Span<byte> channelMap = default, MaFormat internalFormat = default, uint internalChannels = default, uint internalSampleRate = default, Span<byte> internalChannelMap = default, uint internalPeriodSizeInFrames = default, uint internalPeriods = default, MaChannelMixMode channelMixMode = default, uint calculateLFEFromSpatialChannels = default, MaDataConverter converter = default, void* pIntermediaryBuffer = default, uint intermediaryBufferCap = default, uint intermediaryBufferLen = default)
 			{
 				PID = piD;
 				Id = id;
@@ -4861,10 +4861,10 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct MaDeviceUnion24
+		public partial struct MaDeviceAnonymous24
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct WasapiUnion
+			public partial struct WasapiAnonymous
 			{
 				/// <summary>
 				/// IAudioClient*<br/>
@@ -4951,7 +4951,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe void* HAvrtHandle;
 				public unsafe void* RerouteLock;
 
-				public unsafe WasapiUnion(void* pAudioClientPlayback = default, void* pAudioClientCapture = default, void* pRenderClient = default, void* pCaptureClient = default, void* pDeviceEnumerator = default, MaIMMNotificationClient notificationClient = default, void* hEventPlayback = default, void* hEventCapture = default, uint actualBufferSizeInFramesPlayback = default, uint actualBufferSizeInFramesCapture = default, uint originalPeriodSizeInFrames = default, uint originalPeriodSizeInMilliseconds = default, uint originalPeriods = default, MaPerformanceProfile originalPerformanceProfile = default, uint periodSizeInFramesPlayback = default, uint periodSizeInFramesCapture = default, void* pMappedBufferCapture = default, uint mappedBufferCaptureCap = default, uint mappedBufferCaptureLen = default, void* pMappedBufferPlayback = default, uint mappedBufferPlaybackCap = default, uint mappedBufferPlaybackLen = default, MaAtomicBool32 isStartedCapture = default, MaAtomicBool32 isStartedPlayback = default, uint loopbackProcessID = default, byte loopbackProcessExclude = default, byte noAutoConvertSRC = default, byte noDefaultQualitySRC = default, byte noHardwareOffloading = default, byte allowCaptureAutoStreamRouting = default, byte allowPlaybackAutoStreamRouting = default, byte isDetachedPlayback = default, byte isDetachedCapture = default, MaWasapiUsage usage = default, void* hAvrtHandle = default, void* rerouteLock = default)
+				public unsafe WasapiAnonymous(void* pAudioClientPlayback = default, void* pAudioClientCapture = default, void* pRenderClient = default, void* pCaptureClient = default, void* pDeviceEnumerator = default, MaIMMNotificationClient notificationClient = default, void* hEventPlayback = default, void* hEventCapture = default, uint actualBufferSizeInFramesPlayback = default, uint actualBufferSizeInFramesCapture = default, uint originalPeriodSizeInFrames = default, uint originalPeriodSizeInMilliseconds = default, uint originalPeriods = default, MaPerformanceProfile originalPerformanceProfile = default, uint periodSizeInFramesPlayback = default, uint periodSizeInFramesCapture = default, void* pMappedBufferCapture = default, uint mappedBufferCaptureCap = default, uint mappedBufferCaptureLen = default, void* pMappedBufferPlayback = default, uint mappedBufferPlaybackCap = default, uint mappedBufferPlaybackLen = default, MaAtomicBool32 isStartedCapture = default, MaAtomicBool32 isStartedPlayback = default, uint loopbackProcessID = default, byte loopbackProcessExclude = default, byte noAutoConvertSRC = default, byte noDefaultQualitySRC = default, byte noHardwareOffloading = default, byte allowCaptureAutoStreamRouting = default, byte allowPlaybackAutoStreamRouting = default, byte isDetachedPlayback = default, byte isDetachedCapture = default, MaWasapiUsage usage = default, void* hAvrtHandle = default, void* rerouteLock = default)
 				{
 					PAudioClientPlayback = pAudioClientPlayback;
 					PAudioClientCapture = pAudioClientCapture;
@@ -4995,7 +4995,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct DsoundUnion
+			public partial struct DsoundAnonymous
 			{
 				/// <summary>
 				/// LPDIRECTSOUND<br/>
@@ -5023,7 +5023,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe void* PCaptureBuffer;
 
 
-				public unsafe DsoundUnion(void* pPlayback = default, void* pPlaybackPrimaryBuffer = default, void* pPlaybackBuffer = default, void* pCapture = default, void* pCaptureBuffer = default)
+				public unsafe DsoundAnonymous(void* pPlayback = default, void* pPlaybackPrimaryBuffer = default, void* pPlaybackBuffer = default, void* pCapture = default, void* pCaptureBuffer = default)
 				{
 					PPlayback = pPlayback;
 					PPlaybackPrimaryBuffer = pPlaybackPrimaryBuffer;
@@ -5036,7 +5036,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct WinmmUnion
+			public partial struct WinmmAnonymous
 			{
 				/// <summary>
 				/// HWAVEOUT<br/>
@@ -5097,7 +5097,7 @@ namespace Hexa.NET.MiniAudio
 				public unsafe byte* PHeapData;
 
 
-				public unsafe WinmmUnion(void* hDevicePlayback = default, void* hDeviceCapture = default, void* hEventPlayback = default, void* hEventCapture = default, uint fragmentSizeInFrames = default, uint iNextHeaderPlayback = default, uint iNextHeaderCapture = default, uint headerFramesConsumedPlayback = default, uint headerFramesConsumedCapture = default, byte* pWAVEHDRPlayback = default, byte* pWAVEHDRCapture = default, byte* pIntermediaryBufferPlayback = default, byte* pIntermediaryBufferCapture = default, byte* pHeapData = default)
+				public unsafe WinmmAnonymous(void* hDevicePlayback = default, void* hDeviceCapture = default, void* hEventPlayback = default, void* hEventCapture = default, uint fragmentSizeInFrames = default, uint iNextHeaderPlayback = default, uint iNextHeaderCapture = default, uint headerFramesConsumedPlayback = default, uint headerFramesConsumedCapture = default, byte* pWAVEHDRPlayback = default, byte* pWAVEHDRCapture = default, byte* pIntermediaryBufferPlayback = default, byte* pIntermediaryBufferCapture = default, byte* pHeapData = default)
 				{
 					HDevicePlayback = hDevicePlayback;
 					HDeviceCapture = hDeviceCapture;
@@ -5119,7 +5119,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct JackUnion
+			public partial struct JackAnonymous
 			{
 				/// <summary>
 				/// jack_client_t*<br/>
@@ -5143,7 +5143,7 @@ namespace Hexa.NET.MiniAudio
 
 				public unsafe float* PIntermediaryBufferCapture;
 
-				public unsafe JackUnion(void* pClient = default, void** ppPortsPlayback = default, void** ppPortsCapture = default, float* pIntermediaryBufferPlayback = default, float* pIntermediaryBufferCapture = default)
+				public unsafe JackAnonymous(void* pClient = default, void** ppPortsPlayback = default, void** ppPortsCapture = default, float* pIntermediaryBufferPlayback = default, float* pIntermediaryBufferCapture = default)
 				{
 					PClient = pClient;
 					PpPortsPlayback = ppPortsPlayback;
@@ -5156,7 +5156,7 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct NullDeviceUnion
+			public partial struct NullDeviceAnonymous
 			{
 				public unsafe void* DeviceThread;
 				public unsafe void* OperationEvent;
@@ -5176,7 +5176,7 @@ namespace Hexa.NET.MiniAudio
 				public MaAtomicBool32 IsStarted;
 
 
-				public unsafe NullDeviceUnion(void* deviceThread = default, void* operationEvent = default, void* operationCompletionEvent = default, void* operationSemaphore = default, uint operation = default, MaResult operationResult = default, MaTimer timer = default, double priorRunTime = default, uint currentPeriodFramesRemainingPlayback = default, uint currentPeriodFramesRemainingCapture = default, ulong lastProcessedFramePlayback = default, ulong lastProcessedFrameCapture = default, MaAtomicBool32 isStarted = default)
+				public unsafe NullDeviceAnonymous(void* deviceThread = default, void* operationEvent = default, void* operationCompletionEvent = default, void* operationSemaphore = default, uint operation = default, MaResult operationResult = default, MaTimer timer = default, double priorRunTime = default, uint currentPeriodFramesRemainingPlayback = default, uint currentPeriodFramesRemainingCapture = default, ulong lastProcessedFramePlayback = default, ulong lastProcessedFrameCapture = default, MaAtomicBool32 isStarted = default)
 				{
 					DeviceThread = deviceThread;
 					OperationEvent = operationEvent;
@@ -5197,17 +5197,17 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public WasapiUnion Wasapi;
+			public WasapiAnonymous Wasapi;
 			[FieldOffset(0)]
-			public DsoundUnion Dsound;
+			public DsoundAnonymous Dsound;
 			[FieldOffset(0)]
-			public WinmmUnion Winmm;
+			public WinmmAnonymous Winmm;
 			[FieldOffset(0)]
-			public JackUnion Jack;
+			public JackAnonymous Jack;
 			[FieldOffset(0)]
-			public NullDeviceUnion NullDevice;
+			public NullDeviceAnonymous NullDevice;
 
-			public unsafe MaDeviceUnion24(WasapiUnion wasapi = default, DsoundUnion dsound = default, WinmmUnion winmm = default, JackUnion jack = default, NullDeviceUnion nullDevice = default)
+			public unsafe MaDeviceAnonymous24(WasapiAnonymous wasapi = default, DsoundAnonymous dsound = default, WinmmAnonymous winmm = default, JackAnonymous jack = default, NullDeviceAnonymous nullDevice = default)
 			{
 				Wasapi = wasapi;
 				Dsound = dsound;
@@ -5273,12 +5273,12 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public MaDuplexRb DuplexRB;
 
-		public ResamplingUnion Resampling;
-		public PlaybackUnion Playback;
-		public CaptureUnion Capture;
-		public MaDeviceUnion24 Union3;
+		public ResamplingAnonymous Resampling;
+		public PlaybackAnonymous Playback;
+		public CaptureAnonymous Capture;
+		public MaDeviceAnonymous24 Union3;
 
-		public unsafe MaDevice(MaContextPtr pContext = default, MaDeviceType type = default, uint sampleRate = default, MaAtomicDeviceState state = default, delegate*<MaDevice*, void*, void*, uint, void> onData = default, delegate*<MaDeviceNotification*, void> onNotification = default, delegate*<MaDevice*, void> onStop = default, void* pUserData = default, void* startStopLock = default, void* wakeupEvent = default, void* startEvent = default, void* stopEvent = default, void* thread = default, MaResult workResult = default, byte isOwnerOfContext = default, byte noPreSilencedOutputBuffer = default, byte noClip = default, byte noDisableDenormals = default, byte noFixedSizedCallback = default, MaAtomicFloat masterVolumeFactor = default, MaDuplexRb duplexRB = default, ResamplingUnion resampling = default, PlaybackUnion playback = default, CaptureUnion capture = default, MaDeviceUnion24 union3 = default)
+		public unsafe MaDevice(MaContextPtr pContext = default, MaDeviceType type = default, uint sampleRate = default, MaAtomicDeviceState state = default, delegate*<MaDevice*, void*, void*, uint, void> onData = default, delegate*<MaDeviceNotification*, void> onNotification = default, delegate*<MaDevice*, void> onStop = default, void* pUserData = default, void* startStopLock = default, void* wakeupEvent = default, void* startEvent = default, void* stopEvent = default, void* thread = default, MaResult workResult = default, byte isOwnerOfContext = default, byte noPreSilencedOutputBuffer = default, byte noClip = default, byte noDisableDenormals = default, byte noFixedSizedCallback = default, MaAtomicFloat masterVolumeFactor = default, MaDuplexRb duplexRB = default, ResamplingAnonymous resampling = default, PlaybackAnonymous playback = default, CaptureAnonymous capture = default, MaDeviceAnonymous24 union3 = default)
 		{
 			PContext = pContext;
 			Type = type;
@@ -5396,10 +5396,10 @@ namespace Hexa.NET.MiniAudio
 		/// Intermediary buffer for duplex device on asynchronous backends. <br/>
 		/// </summary>
 		public ref MaDuplexRb DuplexRB => ref Unsafe.AsRef<MaDuplexRb>(&Handle->DuplexRB);
-		public ref MaDevice.ResamplingUnion Resampling => ref Unsafe.AsRef<MaDevice.ResamplingUnion>(&Handle->Resampling);
-		public ref MaDevice.PlaybackUnion Playback => ref Unsafe.AsRef<MaDevice.PlaybackUnion>(&Handle->Playback);
-		public ref MaDevice.CaptureUnion Capture => ref Unsafe.AsRef<MaDevice.CaptureUnion>(&Handle->Capture);
-		public ref MaDevice.MaDeviceUnion24 Union3 => ref Unsafe.AsRef<MaDevice.MaDeviceUnion24>(&Handle->Union3);
+		public ref MaDevice.ResamplingAnonymous Resampling => ref Unsafe.AsRef<MaDevice.ResamplingAnonymous>(&Handle->Resampling);
+		public ref MaDevice.PlaybackAnonymous Playback => ref Unsafe.AsRef<MaDevice.PlaybackAnonymous>(&Handle->Playback);
+		public ref MaDevice.CaptureAnonymous Capture => ref Unsafe.AsRef<MaDevice.CaptureAnonymous>(&Handle->Capture);
+		public ref MaDevice.MaDeviceAnonymous24 Union3 => ref Unsafe.AsRef<MaDevice.MaDeviceAnonymous24>(&Handle->Union3);
 	}
 
 }

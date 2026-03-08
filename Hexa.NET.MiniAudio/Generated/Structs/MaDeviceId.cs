@@ -19,526 +19,526 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaDeviceId
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct CustomUnion
+		public partial struct CustomAnonymous
 		{
 			[FieldOffset(0)]
 			public int I;
 			[FieldOffset(0)]
 			public byte S_0;
-			[FieldOffset(256)]
+			[FieldOffset(1)]
 			public byte S_1;
-			[FieldOffset(512)]
+			[FieldOffset(2)]
 			public byte S_2;
-			[FieldOffset(768)]
+			[FieldOffset(3)]
 			public byte S_3;
-			[FieldOffset(1024)]
+			[FieldOffset(4)]
 			public byte S_4;
-			[FieldOffset(1280)]
+			[FieldOffset(5)]
 			public byte S_5;
-			[FieldOffset(1536)]
+			[FieldOffset(6)]
 			public byte S_6;
-			[FieldOffset(1792)]
+			[FieldOffset(7)]
 			public byte S_7;
-			[FieldOffset(2048)]
+			[FieldOffset(8)]
 			public byte S_8;
-			[FieldOffset(2304)]
+			[FieldOffset(9)]
 			public byte S_9;
-			[FieldOffset(2560)]
+			[FieldOffset(10)]
 			public byte S_10;
-			[FieldOffset(2816)]
+			[FieldOffset(11)]
 			public byte S_11;
-			[FieldOffset(3072)]
+			[FieldOffset(12)]
 			public byte S_12;
-			[FieldOffset(3328)]
+			[FieldOffset(13)]
 			public byte S_13;
-			[FieldOffset(3584)]
+			[FieldOffset(14)]
 			public byte S_14;
-			[FieldOffset(3840)]
+			[FieldOffset(15)]
 			public byte S_15;
-			[FieldOffset(4096)]
+			[FieldOffset(16)]
 			public byte S_16;
-			[FieldOffset(4352)]
+			[FieldOffset(17)]
 			public byte S_17;
-			[FieldOffset(4608)]
+			[FieldOffset(18)]
 			public byte S_18;
-			[FieldOffset(4864)]
+			[FieldOffset(19)]
 			public byte S_19;
-			[FieldOffset(5120)]
+			[FieldOffset(20)]
 			public byte S_20;
-			[FieldOffset(5376)]
+			[FieldOffset(21)]
 			public byte S_21;
-			[FieldOffset(5632)]
+			[FieldOffset(22)]
 			public byte S_22;
-			[FieldOffset(5888)]
+			[FieldOffset(23)]
 			public byte S_23;
-			[FieldOffset(6144)]
+			[FieldOffset(24)]
 			public byte S_24;
-			[FieldOffset(6400)]
+			[FieldOffset(25)]
 			public byte S_25;
-			[FieldOffset(6656)]
+			[FieldOffset(26)]
 			public byte S_26;
-			[FieldOffset(6912)]
+			[FieldOffset(27)]
 			public byte S_27;
-			[FieldOffset(7168)]
+			[FieldOffset(28)]
 			public byte S_28;
-			[FieldOffset(7424)]
+			[FieldOffset(29)]
 			public byte S_29;
-			[FieldOffset(7680)]
+			[FieldOffset(30)]
 			public byte S_30;
-			[FieldOffset(7936)]
+			[FieldOffset(31)]
 			public byte S_31;
-			[FieldOffset(8192)]
+			[FieldOffset(32)]
 			public byte S_32;
-			[FieldOffset(8448)]
+			[FieldOffset(33)]
 			public byte S_33;
-			[FieldOffset(8704)]
+			[FieldOffset(34)]
 			public byte S_34;
-			[FieldOffset(8960)]
+			[FieldOffset(35)]
 			public byte S_35;
-			[FieldOffset(9216)]
+			[FieldOffset(36)]
 			public byte S_36;
-			[FieldOffset(9472)]
+			[FieldOffset(37)]
 			public byte S_37;
-			[FieldOffset(9728)]
+			[FieldOffset(38)]
 			public byte S_38;
-			[FieldOffset(9984)]
+			[FieldOffset(39)]
 			public byte S_39;
-			[FieldOffset(10240)]
+			[FieldOffset(40)]
 			public byte S_40;
-			[FieldOffset(10496)]
+			[FieldOffset(41)]
 			public byte S_41;
-			[FieldOffset(10752)]
+			[FieldOffset(42)]
 			public byte S_42;
-			[FieldOffset(11008)]
+			[FieldOffset(43)]
 			public byte S_43;
-			[FieldOffset(11264)]
+			[FieldOffset(44)]
 			public byte S_44;
-			[FieldOffset(11520)]
+			[FieldOffset(45)]
 			public byte S_45;
-			[FieldOffset(11776)]
+			[FieldOffset(46)]
 			public byte S_46;
-			[FieldOffset(12032)]
+			[FieldOffset(47)]
 			public byte S_47;
-			[FieldOffset(12288)]
+			[FieldOffset(48)]
 			public byte S_48;
-			[FieldOffset(12544)]
+			[FieldOffset(49)]
 			public byte S_49;
-			[FieldOffset(12800)]
+			[FieldOffset(50)]
 			public byte S_50;
-			[FieldOffset(13056)]
+			[FieldOffset(51)]
 			public byte S_51;
-			[FieldOffset(13312)]
+			[FieldOffset(52)]
 			public byte S_52;
-			[FieldOffset(13568)]
+			[FieldOffset(53)]
 			public byte S_53;
-			[FieldOffset(13824)]
+			[FieldOffset(54)]
 			public byte S_54;
-			[FieldOffset(14080)]
+			[FieldOffset(55)]
 			public byte S_55;
-			[FieldOffset(14336)]
+			[FieldOffset(56)]
 			public byte S_56;
-			[FieldOffset(14592)]
+			[FieldOffset(57)]
 			public byte S_57;
-			[FieldOffset(14848)]
+			[FieldOffset(58)]
 			public byte S_58;
-			[FieldOffset(15104)]
+			[FieldOffset(59)]
 			public byte S_59;
-			[FieldOffset(15360)]
+			[FieldOffset(60)]
 			public byte S_60;
-			[FieldOffset(15616)]
+			[FieldOffset(61)]
 			public byte S_61;
-			[FieldOffset(15872)]
+			[FieldOffset(62)]
 			public byte S_62;
-			[FieldOffset(16128)]
+			[FieldOffset(63)]
 			public byte S_63;
-			[FieldOffset(16384)]
+			[FieldOffset(64)]
 			public byte S_64;
-			[FieldOffset(16640)]
+			[FieldOffset(65)]
 			public byte S_65;
-			[FieldOffset(16896)]
+			[FieldOffset(66)]
 			public byte S_66;
-			[FieldOffset(17152)]
+			[FieldOffset(67)]
 			public byte S_67;
-			[FieldOffset(17408)]
+			[FieldOffset(68)]
 			public byte S_68;
-			[FieldOffset(17664)]
+			[FieldOffset(69)]
 			public byte S_69;
-			[FieldOffset(17920)]
+			[FieldOffset(70)]
 			public byte S_70;
-			[FieldOffset(18176)]
+			[FieldOffset(71)]
 			public byte S_71;
-			[FieldOffset(18432)]
+			[FieldOffset(72)]
 			public byte S_72;
-			[FieldOffset(18688)]
+			[FieldOffset(73)]
 			public byte S_73;
-			[FieldOffset(18944)]
+			[FieldOffset(74)]
 			public byte S_74;
-			[FieldOffset(19200)]
+			[FieldOffset(75)]
 			public byte S_75;
-			[FieldOffset(19456)]
+			[FieldOffset(76)]
 			public byte S_76;
-			[FieldOffset(19712)]
+			[FieldOffset(77)]
 			public byte S_77;
-			[FieldOffset(19968)]
+			[FieldOffset(78)]
 			public byte S_78;
-			[FieldOffset(20224)]
+			[FieldOffset(79)]
 			public byte S_79;
-			[FieldOffset(20480)]
+			[FieldOffset(80)]
 			public byte S_80;
-			[FieldOffset(20736)]
+			[FieldOffset(81)]
 			public byte S_81;
-			[FieldOffset(20992)]
+			[FieldOffset(82)]
 			public byte S_82;
-			[FieldOffset(21248)]
+			[FieldOffset(83)]
 			public byte S_83;
-			[FieldOffset(21504)]
+			[FieldOffset(84)]
 			public byte S_84;
-			[FieldOffset(21760)]
+			[FieldOffset(85)]
 			public byte S_85;
-			[FieldOffset(22016)]
+			[FieldOffset(86)]
 			public byte S_86;
-			[FieldOffset(22272)]
+			[FieldOffset(87)]
 			public byte S_87;
-			[FieldOffset(22528)]
+			[FieldOffset(88)]
 			public byte S_88;
-			[FieldOffset(22784)]
+			[FieldOffset(89)]
 			public byte S_89;
-			[FieldOffset(23040)]
+			[FieldOffset(90)]
 			public byte S_90;
-			[FieldOffset(23296)]
+			[FieldOffset(91)]
 			public byte S_91;
-			[FieldOffset(23552)]
+			[FieldOffset(92)]
 			public byte S_92;
-			[FieldOffset(23808)]
+			[FieldOffset(93)]
 			public byte S_93;
-			[FieldOffset(24064)]
+			[FieldOffset(94)]
 			public byte S_94;
-			[FieldOffset(24320)]
+			[FieldOffset(95)]
 			public byte S_95;
-			[FieldOffset(24576)]
+			[FieldOffset(96)]
 			public byte S_96;
-			[FieldOffset(24832)]
+			[FieldOffset(97)]
 			public byte S_97;
-			[FieldOffset(25088)]
+			[FieldOffset(98)]
 			public byte S_98;
-			[FieldOffset(25344)]
+			[FieldOffset(99)]
 			public byte S_99;
-			[FieldOffset(25600)]
+			[FieldOffset(100)]
 			public byte S_100;
-			[FieldOffset(25856)]
+			[FieldOffset(101)]
 			public byte S_101;
-			[FieldOffset(26112)]
+			[FieldOffset(102)]
 			public byte S_102;
-			[FieldOffset(26368)]
+			[FieldOffset(103)]
 			public byte S_103;
-			[FieldOffset(26624)]
+			[FieldOffset(104)]
 			public byte S_104;
-			[FieldOffset(26880)]
+			[FieldOffset(105)]
 			public byte S_105;
-			[FieldOffset(27136)]
+			[FieldOffset(106)]
 			public byte S_106;
-			[FieldOffset(27392)]
+			[FieldOffset(107)]
 			public byte S_107;
-			[FieldOffset(27648)]
+			[FieldOffset(108)]
 			public byte S_108;
-			[FieldOffset(27904)]
+			[FieldOffset(109)]
 			public byte S_109;
-			[FieldOffset(28160)]
+			[FieldOffset(110)]
 			public byte S_110;
-			[FieldOffset(28416)]
+			[FieldOffset(111)]
 			public byte S_111;
-			[FieldOffset(28672)]
+			[FieldOffset(112)]
 			public byte S_112;
-			[FieldOffset(28928)]
+			[FieldOffset(113)]
 			public byte S_113;
-			[FieldOffset(29184)]
+			[FieldOffset(114)]
 			public byte S_114;
-			[FieldOffset(29440)]
+			[FieldOffset(115)]
 			public byte S_115;
-			[FieldOffset(29696)]
+			[FieldOffset(116)]
 			public byte S_116;
-			[FieldOffset(29952)]
+			[FieldOffset(117)]
 			public byte S_117;
-			[FieldOffset(30208)]
+			[FieldOffset(118)]
 			public byte S_118;
-			[FieldOffset(30464)]
+			[FieldOffset(119)]
 			public byte S_119;
-			[FieldOffset(30720)]
+			[FieldOffset(120)]
 			public byte S_120;
-			[FieldOffset(30976)]
+			[FieldOffset(121)]
 			public byte S_121;
-			[FieldOffset(31232)]
+			[FieldOffset(122)]
 			public byte S_122;
-			[FieldOffset(31488)]
+			[FieldOffset(123)]
 			public byte S_123;
-			[FieldOffset(31744)]
+			[FieldOffset(124)]
 			public byte S_124;
-			[FieldOffset(32000)]
+			[FieldOffset(125)]
 			public byte S_125;
-			[FieldOffset(32256)]
+			[FieldOffset(126)]
 			public byte S_126;
-			[FieldOffset(32512)]
+			[FieldOffset(127)]
 			public byte S_127;
-			[FieldOffset(32768)]
+			[FieldOffset(128)]
 			public byte S_128;
-			[FieldOffset(33024)]
+			[FieldOffset(129)]
 			public byte S_129;
-			[FieldOffset(33280)]
+			[FieldOffset(130)]
 			public byte S_130;
-			[FieldOffset(33536)]
+			[FieldOffset(131)]
 			public byte S_131;
-			[FieldOffset(33792)]
+			[FieldOffset(132)]
 			public byte S_132;
-			[FieldOffset(34048)]
+			[FieldOffset(133)]
 			public byte S_133;
-			[FieldOffset(34304)]
+			[FieldOffset(134)]
 			public byte S_134;
-			[FieldOffset(34560)]
+			[FieldOffset(135)]
 			public byte S_135;
-			[FieldOffset(34816)]
+			[FieldOffset(136)]
 			public byte S_136;
-			[FieldOffset(35072)]
+			[FieldOffset(137)]
 			public byte S_137;
-			[FieldOffset(35328)]
+			[FieldOffset(138)]
 			public byte S_138;
-			[FieldOffset(35584)]
+			[FieldOffset(139)]
 			public byte S_139;
-			[FieldOffset(35840)]
+			[FieldOffset(140)]
 			public byte S_140;
-			[FieldOffset(36096)]
+			[FieldOffset(141)]
 			public byte S_141;
-			[FieldOffset(36352)]
+			[FieldOffset(142)]
 			public byte S_142;
-			[FieldOffset(36608)]
+			[FieldOffset(143)]
 			public byte S_143;
-			[FieldOffset(36864)]
+			[FieldOffset(144)]
 			public byte S_144;
-			[FieldOffset(37120)]
+			[FieldOffset(145)]
 			public byte S_145;
-			[FieldOffset(37376)]
+			[FieldOffset(146)]
 			public byte S_146;
-			[FieldOffset(37632)]
+			[FieldOffset(147)]
 			public byte S_147;
-			[FieldOffset(37888)]
+			[FieldOffset(148)]
 			public byte S_148;
-			[FieldOffset(38144)]
+			[FieldOffset(149)]
 			public byte S_149;
-			[FieldOffset(38400)]
+			[FieldOffset(150)]
 			public byte S_150;
-			[FieldOffset(38656)]
+			[FieldOffset(151)]
 			public byte S_151;
-			[FieldOffset(38912)]
+			[FieldOffset(152)]
 			public byte S_152;
-			[FieldOffset(39168)]
+			[FieldOffset(153)]
 			public byte S_153;
-			[FieldOffset(39424)]
+			[FieldOffset(154)]
 			public byte S_154;
-			[FieldOffset(39680)]
+			[FieldOffset(155)]
 			public byte S_155;
-			[FieldOffset(39936)]
+			[FieldOffset(156)]
 			public byte S_156;
-			[FieldOffset(40192)]
+			[FieldOffset(157)]
 			public byte S_157;
-			[FieldOffset(40448)]
+			[FieldOffset(158)]
 			public byte S_158;
-			[FieldOffset(40704)]
+			[FieldOffset(159)]
 			public byte S_159;
-			[FieldOffset(40960)]
+			[FieldOffset(160)]
 			public byte S_160;
-			[FieldOffset(41216)]
+			[FieldOffset(161)]
 			public byte S_161;
-			[FieldOffset(41472)]
+			[FieldOffset(162)]
 			public byte S_162;
-			[FieldOffset(41728)]
+			[FieldOffset(163)]
 			public byte S_163;
-			[FieldOffset(41984)]
+			[FieldOffset(164)]
 			public byte S_164;
-			[FieldOffset(42240)]
+			[FieldOffset(165)]
 			public byte S_165;
-			[FieldOffset(42496)]
+			[FieldOffset(166)]
 			public byte S_166;
-			[FieldOffset(42752)]
+			[FieldOffset(167)]
 			public byte S_167;
-			[FieldOffset(43008)]
+			[FieldOffset(168)]
 			public byte S_168;
-			[FieldOffset(43264)]
+			[FieldOffset(169)]
 			public byte S_169;
-			[FieldOffset(43520)]
+			[FieldOffset(170)]
 			public byte S_170;
-			[FieldOffset(43776)]
+			[FieldOffset(171)]
 			public byte S_171;
-			[FieldOffset(44032)]
+			[FieldOffset(172)]
 			public byte S_172;
-			[FieldOffset(44288)]
+			[FieldOffset(173)]
 			public byte S_173;
-			[FieldOffset(44544)]
+			[FieldOffset(174)]
 			public byte S_174;
-			[FieldOffset(44800)]
+			[FieldOffset(175)]
 			public byte S_175;
-			[FieldOffset(45056)]
+			[FieldOffset(176)]
 			public byte S_176;
-			[FieldOffset(45312)]
+			[FieldOffset(177)]
 			public byte S_177;
-			[FieldOffset(45568)]
+			[FieldOffset(178)]
 			public byte S_178;
-			[FieldOffset(45824)]
+			[FieldOffset(179)]
 			public byte S_179;
-			[FieldOffset(46080)]
+			[FieldOffset(180)]
 			public byte S_180;
-			[FieldOffset(46336)]
+			[FieldOffset(181)]
 			public byte S_181;
-			[FieldOffset(46592)]
+			[FieldOffset(182)]
 			public byte S_182;
-			[FieldOffset(46848)]
+			[FieldOffset(183)]
 			public byte S_183;
-			[FieldOffset(47104)]
+			[FieldOffset(184)]
 			public byte S_184;
-			[FieldOffset(47360)]
+			[FieldOffset(185)]
 			public byte S_185;
-			[FieldOffset(47616)]
+			[FieldOffset(186)]
 			public byte S_186;
-			[FieldOffset(47872)]
+			[FieldOffset(187)]
 			public byte S_187;
-			[FieldOffset(48128)]
+			[FieldOffset(188)]
 			public byte S_188;
-			[FieldOffset(48384)]
+			[FieldOffset(189)]
 			public byte S_189;
-			[FieldOffset(48640)]
+			[FieldOffset(190)]
 			public byte S_190;
-			[FieldOffset(48896)]
+			[FieldOffset(191)]
 			public byte S_191;
-			[FieldOffset(49152)]
+			[FieldOffset(192)]
 			public byte S_192;
-			[FieldOffset(49408)]
+			[FieldOffset(193)]
 			public byte S_193;
-			[FieldOffset(49664)]
+			[FieldOffset(194)]
 			public byte S_194;
-			[FieldOffset(49920)]
+			[FieldOffset(195)]
 			public byte S_195;
-			[FieldOffset(50176)]
+			[FieldOffset(196)]
 			public byte S_196;
-			[FieldOffset(50432)]
+			[FieldOffset(197)]
 			public byte S_197;
-			[FieldOffset(50688)]
+			[FieldOffset(198)]
 			public byte S_198;
-			[FieldOffset(50944)]
+			[FieldOffset(199)]
 			public byte S_199;
-			[FieldOffset(51200)]
+			[FieldOffset(200)]
 			public byte S_200;
-			[FieldOffset(51456)]
+			[FieldOffset(201)]
 			public byte S_201;
-			[FieldOffset(51712)]
+			[FieldOffset(202)]
 			public byte S_202;
-			[FieldOffset(51968)]
+			[FieldOffset(203)]
 			public byte S_203;
-			[FieldOffset(52224)]
+			[FieldOffset(204)]
 			public byte S_204;
-			[FieldOffset(52480)]
+			[FieldOffset(205)]
 			public byte S_205;
-			[FieldOffset(52736)]
+			[FieldOffset(206)]
 			public byte S_206;
-			[FieldOffset(52992)]
+			[FieldOffset(207)]
 			public byte S_207;
-			[FieldOffset(53248)]
+			[FieldOffset(208)]
 			public byte S_208;
-			[FieldOffset(53504)]
+			[FieldOffset(209)]
 			public byte S_209;
-			[FieldOffset(53760)]
+			[FieldOffset(210)]
 			public byte S_210;
-			[FieldOffset(54016)]
+			[FieldOffset(211)]
 			public byte S_211;
-			[FieldOffset(54272)]
+			[FieldOffset(212)]
 			public byte S_212;
-			[FieldOffset(54528)]
+			[FieldOffset(213)]
 			public byte S_213;
-			[FieldOffset(54784)]
+			[FieldOffset(214)]
 			public byte S_214;
-			[FieldOffset(55040)]
+			[FieldOffset(215)]
 			public byte S_215;
-			[FieldOffset(55296)]
+			[FieldOffset(216)]
 			public byte S_216;
-			[FieldOffset(55552)]
+			[FieldOffset(217)]
 			public byte S_217;
-			[FieldOffset(55808)]
+			[FieldOffset(218)]
 			public byte S_218;
-			[FieldOffset(56064)]
+			[FieldOffset(219)]
 			public byte S_219;
-			[FieldOffset(56320)]
+			[FieldOffset(220)]
 			public byte S_220;
-			[FieldOffset(56576)]
+			[FieldOffset(221)]
 			public byte S_221;
-			[FieldOffset(56832)]
+			[FieldOffset(222)]
 			public byte S_222;
-			[FieldOffset(57088)]
+			[FieldOffset(223)]
 			public byte S_223;
-			[FieldOffset(57344)]
+			[FieldOffset(224)]
 			public byte S_224;
-			[FieldOffset(57600)]
+			[FieldOffset(225)]
 			public byte S_225;
-			[FieldOffset(57856)]
+			[FieldOffset(226)]
 			public byte S_226;
-			[FieldOffset(58112)]
+			[FieldOffset(227)]
 			public byte S_227;
-			[FieldOffset(58368)]
+			[FieldOffset(228)]
 			public byte S_228;
-			[FieldOffset(58624)]
+			[FieldOffset(229)]
 			public byte S_229;
-			[FieldOffset(58880)]
+			[FieldOffset(230)]
 			public byte S_230;
-			[FieldOffset(59136)]
+			[FieldOffset(231)]
 			public byte S_231;
-			[FieldOffset(59392)]
+			[FieldOffset(232)]
 			public byte S_232;
-			[FieldOffset(59648)]
+			[FieldOffset(233)]
 			public byte S_233;
-			[FieldOffset(59904)]
+			[FieldOffset(234)]
 			public byte S_234;
-			[FieldOffset(60160)]
+			[FieldOffset(235)]
 			public byte S_235;
-			[FieldOffset(60416)]
+			[FieldOffset(236)]
 			public byte S_236;
-			[FieldOffset(60672)]
+			[FieldOffset(237)]
 			public byte S_237;
-			[FieldOffset(60928)]
+			[FieldOffset(238)]
 			public byte S_238;
-			[FieldOffset(61184)]
+			[FieldOffset(239)]
 			public byte S_239;
-			[FieldOffset(61440)]
+			[FieldOffset(240)]
 			public byte S_240;
-			[FieldOffset(61696)]
+			[FieldOffset(241)]
 			public byte S_241;
-			[FieldOffset(61952)]
+			[FieldOffset(242)]
 			public byte S_242;
-			[FieldOffset(62208)]
+			[FieldOffset(243)]
 			public byte S_243;
-			[FieldOffset(62464)]
+			[FieldOffset(244)]
 			public byte S_244;
-			[FieldOffset(62720)]
+			[FieldOffset(245)]
 			public byte S_245;
-			[FieldOffset(62976)]
+			[FieldOffset(246)]
 			public byte S_246;
-			[FieldOffset(63232)]
+			[FieldOffset(247)]
 			public byte S_247;
-			[FieldOffset(63488)]
+			[FieldOffset(248)]
 			public byte S_248;
-			[FieldOffset(63744)]
+			[FieldOffset(249)]
 			public byte S_249;
-			[FieldOffset(64000)]
+			[FieldOffset(250)]
 			public byte S_250;
-			[FieldOffset(64256)]
+			[FieldOffset(251)]
 			public byte S_251;
-			[FieldOffset(64512)]
+			[FieldOffset(252)]
 			public byte S_252;
-			[FieldOffset(64768)]
+			[FieldOffset(253)]
 			public byte S_253;
-			[FieldOffset(65024)]
+			[FieldOffset(254)]
 			public byte S_254;
-			[FieldOffset(65280)]
+			[FieldOffset(255)]
 			public byte S_255;
 			[FieldOffset(0)]
 			public unsafe void* P;
 
-			public unsafe CustomUnion(int i = default, byte* s = default, void* p = default)
+			public unsafe CustomAnonymous(int i = default, byte* s = default, void* p = default)
 			{
 				I = i;
 				if (s != default(byte*))
@@ -803,7 +803,7 @@ namespace Hexa.NET.MiniAudio
 				P = p;
 			}
 
-			public unsafe CustomUnion(int i = default, Span<byte> s = default, void* p = default)
+			public unsafe CustomAnonymous(int i = default, Span<byte> s = default, void* p = default)
 			{
 				I = i;
 				if (s != default(Span<byte>))
@@ -1076,131 +1076,131 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public char Wasapi_0;
-		[FieldOffset(128)]
+		[FieldOffset(2)]
 		public char Wasapi_1;
-		[FieldOffset(256)]
+		[FieldOffset(4)]
 		public char Wasapi_2;
-		[FieldOffset(384)]
+		[FieldOffset(6)]
 		public char Wasapi_3;
-		[FieldOffset(512)]
+		[FieldOffset(8)]
 		public char Wasapi_4;
-		[FieldOffset(640)]
+		[FieldOffset(10)]
 		public char Wasapi_5;
-		[FieldOffset(768)]
+		[FieldOffset(12)]
 		public char Wasapi_6;
-		[FieldOffset(896)]
+		[FieldOffset(14)]
 		public char Wasapi_7;
-		[FieldOffset(1024)]
+		[FieldOffset(16)]
 		public char Wasapi_8;
-		[FieldOffset(1152)]
+		[FieldOffset(18)]
 		public char Wasapi_9;
-		[FieldOffset(1280)]
+		[FieldOffset(20)]
 		public char Wasapi_10;
-		[FieldOffset(1408)]
+		[FieldOffset(22)]
 		public char Wasapi_11;
-		[FieldOffset(1536)]
+		[FieldOffset(24)]
 		public char Wasapi_12;
-		[FieldOffset(1664)]
+		[FieldOffset(26)]
 		public char Wasapi_13;
-		[FieldOffset(1792)]
+		[FieldOffset(28)]
 		public char Wasapi_14;
-		[FieldOffset(1920)]
+		[FieldOffset(30)]
 		public char Wasapi_15;
-		[FieldOffset(2048)]
+		[FieldOffset(32)]
 		public char Wasapi_16;
-		[FieldOffset(2176)]
+		[FieldOffset(34)]
 		public char Wasapi_17;
-		[FieldOffset(2304)]
+		[FieldOffset(36)]
 		public char Wasapi_18;
-		[FieldOffset(2432)]
+		[FieldOffset(38)]
 		public char Wasapi_19;
-		[FieldOffset(2560)]
+		[FieldOffset(40)]
 		public char Wasapi_20;
-		[FieldOffset(2688)]
+		[FieldOffset(42)]
 		public char Wasapi_21;
-		[FieldOffset(2816)]
+		[FieldOffset(44)]
 		public char Wasapi_22;
-		[FieldOffset(2944)]
+		[FieldOffset(46)]
 		public char Wasapi_23;
-		[FieldOffset(3072)]
+		[FieldOffset(48)]
 		public char Wasapi_24;
-		[FieldOffset(3200)]
+		[FieldOffset(50)]
 		public char Wasapi_25;
-		[FieldOffset(3328)]
+		[FieldOffset(52)]
 		public char Wasapi_26;
-		[FieldOffset(3456)]
+		[FieldOffset(54)]
 		public char Wasapi_27;
-		[FieldOffset(3584)]
+		[FieldOffset(56)]
 		public char Wasapi_28;
-		[FieldOffset(3712)]
+		[FieldOffset(58)]
 		public char Wasapi_29;
-		[FieldOffset(3840)]
+		[FieldOffset(60)]
 		public char Wasapi_30;
-		[FieldOffset(3968)]
+		[FieldOffset(62)]
 		public char Wasapi_31;
-		[FieldOffset(4096)]
+		[FieldOffset(64)]
 		public char Wasapi_32;
-		[FieldOffset(4224)]
+		[FieldOffset(66)]
 		public char Wasapi_33;
-		[FieldOffset(4352)]
+		[FieldOffset(68)]
 		public char Wasapi_34;
-		[FieldOffset(4480)]
+		[FieldOffset(70)]
 		public char Wasapi_35;
-		[FieldOffset(4608)]
+		[FieldOffset(72)]
 		public char Wasapi_36;
-		[FieldOffset(4736)]
+		[FieldOffset(74)]
 		public char Wasapi_37;
-		[FieldOffset(4864)]
+		[FieldOffset(76)]
 		public char Wasapi_38;
-		[FieldOffset(4992)]
+		[FieldOffset(78)]
 		public char Wasapi_39;
-		[FieldOffset(5120)]
+		[FieldOffset(80)]
 		public char Wasapi_40;
-		[FieldOffset(5248)]
+		[FieldOffset(82)]
 		public char Wasapi_41;
-		[FieldOffset(5376)]
+		[FieldOffset(84)]
 		public char Wasapi_42;
-		[FieldOffset(5504)]
+		[FieldOffset(86)]
 		public char Wasapi_43;
-		[FieldOffset(5632)]
+		[FieldOffset(88)]
 		public char Wasapi_44;
-		[FieldOffset(5760)]
+		[FieldOffset(90)]
 		public char Wasapi_45;
-		[FieldOffset(5888)]
+		[FieldOffset(92)]
 		public char Wasapi_46;
-		[FieldOffset(6016)]
+		[FieldOffset(94)]
 		public char Wasapi_47;
-		[FieldOffset(6144)]
+		[FieldOffset(96)]
 		public char Wasapi_48;
-		[FieldOffset(6272)]
+		[FieldOffset(98)]
 		public char Wasapi_49;
-		[FieldOffset(6400)]
+		[FieldOffset(100)]
 		public char Wasapi_50;
-		[FieldOffset(6528)]
+		[FieldOffset(102)]
 		public char Wasapi_51;
-		[FieldOffset(6656)]
+		[FieldOffset(104)]
 		public char Wasapi_52;
-		[FieldOffset(6784)]
+		[FieldOffset(106)]
 		public char Wasapi_53;
-		[FieldOffset(6912)]
+		[FieldOffset(108)]
 		public char Wasapi_54;
-		[FieldOffset(7040)]
+		[FieldOffset(110)]
 		public char Wasapi_55;
-		[FieldOffset(7168)]
+		[FieldOffset(112)]
 		public char Wasapi_56;
-		[FieldOffset(7296)]
+		[FieldOffset(114)]
 		public char Wasapi_57;
-		[FieldOffset(7424)]
+		[FieldOffset(116)]
 		public char Wasapi_58;
-		[FieldOffset(7552)]
+		[FieldOffset(118)]
 		public char Wasapi_59;
-		[FieldOffset(7680)]
+		[FieldOffset(120)]
 		public char Wasapi_60;
-		[FieldOffset(7808)]
+		[FieldOffset(122)]
 		public char Wasapi_61;
-		[FieldOffset(7936)]
+		[FieldOffset(124)]
 		public char Wasapi_62;
-		[FieldOffset(8064)]
+		[FieldOffset(126)]
 		public char Wasapi_63;
 
 		/// <summary>
@@ -1208,35 +1208,35 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Dsound_0;
-		[FieldOffset(16)]
+		[FieldOffset(1)]
 		public byte Dsound_1;
-		[FieldOffset(32)]
+		[FieldOffset(2)]
 		public byte Dsound_2;
-		[FieldOffset(48)]
+		[FieldOffset(3)]
 		public byte Dsound_3;
-		[FieldOffset(64)]
+		[FieldOffset(4)]
 		public byte Dsound_4;
-		[FieldOffset(80)]
+		[FieldOffset(5)]
 		public byte Dsound_5;
-		[FieldOffset(96)]
+		[FieldOffset(6)]
 		public byte Dsound_6;
-		[FieldOffset(112)]
+		[FieldOffset(7)]
 		public byte Dsound_7;
-		[FieldOffset(128)]
+		[FieldOffset(8)]
 		public byte Dsound_8;
-		[FieldOffset(144)]
+		[FieldOffset(9)]
 		public byte Dsound_9;
-		[FieldOffset(160)]
+		[FieldOffset(10)]
 		public byte Dsound_10;
-		[FieldOffset(176)]
+		[FieldOffset(11)]
 		public byte Dsound_11;
-		[FieldOffset(192)]
+		[FieldOffset(12)]
 		public byte Dsound_12;
-		[FieldOffset(208)]
+		[FieldOffset(13)]
 		public byte Dsound_13;
-		[FieldOffset(224)]
+		[FieldOffset(14)]
 		public byte Dsound_14;
-		[FieldOffset(240)]
+		[FieldOffset(15)]
 		public byte Dsound_15;
 
 		/// <summary>
@@ -1250,515 +1250,515 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Alsa_0;
-		[FieldOffset(256)]
+		[FieldOffset(1)]
 		public byte Alsa_1;
-		[FieldOffset(512)]
+		[FieldOffset(2)]
 		public byte Alsa_2;
-		[FieldOffset(768)]
+		[FieldOffset(3)]
 		public byte Alsa_3;
-		[FieldOffset(1024)]
+		[FieldOffset(4)]
 		public byte Alsa_4;
-		[FieldOffset(1280)]
+		[FieldOffset(5)]
 		public byte Alsa_5;
-		[FieldOffset(1536)]
+		[FieldOffset(6)]
 		public byte Alsa_6;
-		[FieldOffset(1792)]
+		[FieldOffset(7)]
 		public byte Alsa_7;
-		[FieldOffset(2048)]
+		[FieldOffset(8)]
 		public byte Alsa_8;
-		[FieldOffset(2304)]
+		[FieldOffset(9)]
 		public byte Alsa_9;
-		[FieldOffset(2560)]
+		[FieldOffset(10)]
 		public byte Alsa_10;
-		[FieldOffset(2816)]
+		[FieldOffset(11)]
 		public byte Alsa_11;
-		[FieldOffset(3072)]
+		[FieldOffset(12)]
 		public byte Alsa_12;
-		[FieldOffset(3328)]
+		[FieldOffset(13)]
 		public byte Alsa_13;
-		[FieldOffset(3584)]
+		[FieldOffset(14)]
 		public byte Alsa_14;
-		[FieldOffset(3840)]
+		[FieldOffset(15)]
 		public byte Alsa_15;
-		[FieldOffset(4096)]
+		[FieldOffset(16)]
 		public byte Alsa_16;
-		[FieldOffset(4352)]
+		[FieldOffset(17)]
 		public byte Alsa_17;
-		[FieldOffset(4608)]
+		[FieldOffset(18)]
 		public byte Alsa_18;
-		[FieldOffset(4864)]
+		[FieldOffset(19)]
 		public byte Alsa_19;
-		[FieldOffset(5120)]
+		[FieldOffset(20)]
 		public byte Alsa_20;
-		[FieldOffset(5376)]
+		[FieldOffset(21)]
 		public byte Alsa_21;
-		[FieldOffset(5632)]
+		[FieldOffset(22)]
 		public byte Alsa_22;
-		[FieldOffset(5888)]
+		[FieldOffset(23)]
 		public byte Alsa_23;
-		[FieldOffset(6144)]
+		[FieldOffset(24)]
 		public byte Alsa_24;
-		[FieldOffset(6400)]
+		[FieldOffset(25)]
 		public byte Alsa_25;
-		[FieldOffset(6656)]
+		[FieldOffset(26)]
 		public byte Alsa_26;
-		[FieldOffset(6912)]
+		[FieldOffset(27)]
 		public byte Alsa_27;
-		[FieldOffset(7168)]
+		[FieldOffset(28)]
 		public byte Alsa_28;
-		[FieldOffset(7424)]
+		[FieldOffset(29)]
 		public byte Alsa_29;
-		[FieldOffset(7680)]
+		[FieldOffset(30)]
 		public byte Alsa_30;
-		[FieldOffset(7936)]
+		[FieldOffset(31)]
 		public byte Alsa_31;
-		[FieldOffset(8192)]
+		[FieldOffset(32)]
 		public byte Alsa_32;
-		[FieldOffset(8448)]
+		[FieldOffset(33)]
 		public byte Alsa_33;
-		[FieldOffset(8704)]
+		[FieldOffset(34)]
 		public byte Alsa_34;
-		[FieldOffset(8960)]
+		[FieldOffset(35)]
 		public byte Alsa_35;
-		[FieldOffset(9216)]
+		[FieldOffset(36)]
 		public byte Alsa_36;
-		[FieldOffset(9472)]
+		[FieldOffset(37)]
 		public byte Alsa_37;
-		[FieldOffset(9728)]
+		[FieldOffset(38)]
 		public byte Alsa_38;
-		[FieldOffset(9984)]
+		[FieldOffset(39)]
 		public byte Alsa_39;
-		[FieldOffset(10240)]
+		[FieldOffset(40)]
 		public byte Alsa_40;
-		[FieldOffset(10496)]
+		[FieldOffset(41)]
 		public byte Alsa_41;
-		[FieldOffset(10752)]
+		[FieldOffset(42)]
 		public byte Alsa_42;
-		[FieldOffset(11008)]
+		[FieldOffset(43)]
 		public byte Alsa_43;
-		[FieldOffset(11264)]
+		[FieldOffset(44)]
 		public byte Alsa_44;
-		[FieldOffset(11520)]
+		[FieldOffset(45)]
 		public byte Alsa_45;
-		[FieldOffset(11776)]
+		[FieldOffset(46)]
 		public byte Alsa_46;
-		[FieldOffset(12032)]
+		[FieldOffset(47)]
 		public byte Alsa_47;
-		[FieldOffset(12288)]
+		[FieldOffset(48)]
 		public byte Alsa_48;
-		[FieldOffset(12544)]
+		[FieldOffset(49)]
 		public byte Alsa_49;
-		[FieldOffset(12800)]
+		[FieldOffset(50)]
 		public byte Alsa_50;
-		[FieldOffset(13056)]
+		[FieldOffset(51)]
 		public byte Alsa_51;
-		[FieldOffset(13312)]
+		[FieldOffset(52)]
 		public byte Alsa_52;
-		[FieldOffset(13568)]
+		[FieldOffset(53)]
 		public byte Alsa_53;
-		[FieldOffset(13824)]
+		[FieldOffset(54)]
 		public byte Alsa_54;
-		[FieldOffset(14080)]
+		[FieldOffset(55)]
 		public byte Alsa_55;
-		[FieldOffset(14336)]
+		[FieldOffset(56)]
 		public byte Alsa_56;
-		[FieldOffset(14592)]
+		[FieldOffset(57)]
 		public byte Alsa_57;
-		[FieldOffset(14848)]
+		[FieldOffset(58)]
 		public byte Alsa_58;
-		[FieldOffset(15104)]
+		[FieldOffset(59)]
 		public byte Alsa_59;
-		[FieldOffset(15360)]
+		[FieldOffset(60)]
 		public byte Alsa_60;
-		[FieldOffset(15616)]
+		[FieldOffset(61)]
 		public byte Alsa_61;
-		[FieldOffset(15872)]
+		[FieldOffset(62)]
 		public byte Alsa_62;
-		[FieldOffset(16128)]
+		[FieldOffset(63)]
 		public byte Alsa_63;
-		[FieldOffset(16384)]
+		[FieldOffset(64)]
 		public byte Alsa_64;
-		[FieldOffset(16640)]
+		[FieldOffset(65)]
 		public byte Alsa_65;
-		[FieldOffset(16896)]
+		[FieldOffset(66)]
 		public byte Alsa_66;
-		[FieldOffset(17152)]
+		[FieldOffset(67)]
 		public byte Alsa_67;
-		[FieldOffset(17408)]
+		[FieldOffset(68)]
 		public byte Alsa_68;
-		[FieldOffset(17664)]
+		[FieldOffset(69)]
 		public byte Alsa_69;
-		[FieldOffset(17920)]
+		[FieldOffset(70)]
 		public byte Alsa_70;
-		[FieldOffset(18176)]
+		[FieldOffset(71)]
 		public byte Alsa_71;
-		[FieldOffset(18432)]
+		[FieldOffset(72)]
 		public byte Alsa_72;
-		[FieldOffset(18688)]
+		[FieldOffset(73)]
 		public byte Alsa_73;
-		[FieldOffset(18944)]
+		[FieldOffset(74)]
 		public byte Alsa_74;
-		[FieldOffset(19200)]
+		[FieldOffset(75)]
 		public byte Alsa_75;
-		[FieldOffset(19456)]
+		[FieldOffset(76)]
 		public byte Alsa_76;
-		[FieldOffset(19712)]
+		[FieldOffset(77)]
 		public byte Alsa_77;
-		[FieldOffset(19968)]
+		[FieldOffset(78)]
 		public byte Alsa_78;
-		[FieldOffset(20224)]
+		[FieldOffset(79)]
 		public byte Alsa_79;
-		[FieldOffset(20480)]
+		[FieldOffset(80)]
 		public byte Alsa_80;
-		[FieldOffset(20736)]
+		[FieldOffset(81)]
 		public byte Alsa_81;
-		[FieldOffset(20992)]
+		[FieldOffset(82)]
 		public byte Alsa_82;
-		[FieldOffset(21248)]
+		[FieldOffset(83)]
 		public byte Alsa_83;
-		[FieldOffset(21504)]
+		[FieldOffset(84)]
 		public byte Alsa_84;
-		[FieldOffset(21760)]
+		[FieldOffset(85)]
 		public byte Alsa_85;
-		[FieldOffset(22016)]
+		[FieldOffset(86)]
 		public byte Alsa_86;
-		[FieldOffset(22272)]
+		[FieldOffset(87)]
 		public byte Alsa_87;
-		[FieldOffset(22528)]
+		[FieldOffset(88)]
 		public byte Alsa_88;
-		[FieldOffset(22784)]
+		[FieldOffset(89)]
 		public byte Alsa_89;
-		[FieldOffset(23040)]
+		[FieldOffset(90)]
 		public byte Alsa_90;
-		[FieldOffset(23296)]
+		[FieldOffset(91)]
 		public byte Alsa_91;
-		[FieldOffset(23552)]
+		[FieldOffset(92)]
 		public byte Alsa_92;
-		[FieldOffset(23808)]
+		[FieldOffset(93)]
 		public byte Alsa_93;
-		[FieldOffset(24064)]
+		[FieldOffset(94)]
 		public byte Alsa_94;
-		[FieldOffset(24320)]
+		[FieldOffset(95)]
 		public byte Alsa_95;
-		[FieldOffset(24576)]
+		[FieldOffset(96)]
 		public byte Alsa_96;
-		[FieldOffset(24832)]
+		[FieldOffset(97)]
 		public byte Alsa_97;
-		[FieldOffset(25088)]
+		[FieldOffset(98)]
 		public byte Alsa_98;
-		[FieldOffset(25344)]
+		[FieldOffset(99)]
 		public byte Alsa_99;
-		[FieldOffset(25600)]
+		[FieldOffset(100)]
 		public byte Alsa_100;
-		[FieldOffset(25856)]
+		[FieldOffset(101)]
 		public byte Alsa_101;
-		[FieldOffset(26112)]
+		[FieldOffset(102)]
 		public byte Alsa_102;
-		[FieldOffset(26368)]
+		[FieldOffset(103)]
 		public byte Alsa_103;
-		[FieldOffset(26624)]
+		[FieldOffset(104)]
 		public byte Alsa_104;
-		[FieldOffset(26880)]
+		[FieldOffset(105)]
 		public byte Alsa_105;
-		[FieldOffset(27136)]
+		[FieldOffset(106)]
 		public byte Alsa_106;
-		[FieldOffset(27392)]
+		[FieldOffset(107)]
 		public byte Alsa_107;
-		[FieldOffset(27648)]
+		[FieldOffset(108)]
 		public byte Alsa_108;
-		[FieldOffset(27904)]
+		[FieldOffset(109)]
 		public byte Alsa_109;
-		[FieldOffset(28160)]
+		[FieldOffset(110)]
 		public byte Alsa_110;
-		[FieldOffset(28416)]
+		[FieldOffset(111)]
 		public byte Alsa_111;
-		[FieldOffset(28672)]
+		[FieldOffset(112)]
 		public byte Alsa_112;
-		[FieldOffset(28928)]
+		[FieldOffset(113)]
 		public byte Alsa_113;
-		[FieldOffset(29184)]
+		[FieldOffset(114)]
 		public byte Alsa_114;
-		[FieldOffset(29440)]
+		[FieldOffset(115)]
 		public byte Alsa_115;
-		[FieldOffset(29696)]
+		[FieldOffset(116)]
 		public byte Alsa_116;
-		[FieldOffset(29952)]
+		[FieldOffset(117)]
 		public byte Alsa_117;
-		[FieldOffset(30208)]
+		[FieldOffset(118)]
 		public byte Alsa_118;
-		[FieldOffset(30464)]
+		[FieldOffset(119)]
 		public byte Alsa_119;
-		[FieldOffset(30720)]
+		[FieldOffset(120)]
 		public byte Alsa_120;
-		[FieldOffset(30976)]
+		[FieldOffset(121)]
 		public byte Alsa_121;
-		[FieldOffset(31232)]
+		[FieldOffset(122)]
 		public byte Alsa_122;
-		[FieldOffset(31488)]
+		[FieldOffset(123)]
 		public byte Alsa_123;
-		[FieldOffset(31744)]
+		[FieldOffset(124)]
 		public byte Alsa_124;
-		[FieldOffset(32000)]
+		[FieldOffset(125)]
 		public byte Alsa_125;
-		[FieldOffset(32256)]
+		[FieldOffset(126)]
 		public byte Alsa_126;
-		[FieldOffset(32512)]
+		[FieldOffset(127)]
 		public byte Alsa_127;
-		[FieldOffset(32768)]
+		[FieldOffset(128)]
 		public byte Alsa_128;
-		[FieldOffset(33024)]
+		[FieldOffset(129)]
 		public byte Alsa_129;
-		[FieldOffset(33280)]
+		[FieldOffset(130)]
 		public byte Alsa_130;
-		[FieldOffset(33536)]
+		[FieldOffset(131)]
 		public byte Alsa_131;
-		[FieldOffset(33792)]
+		[FieldOffset(132)]
 		public byte Alsa_132;
-		[FieldOffset(34048)]
+		[FieldOffset(133)]
 		public byte Alsa_133;
-		[FieldOffset(34304)]
+		[FieldOffset(134)]
 		public byte Alsa_134;
-		[FieldOffset(34560)]
+		[FieldOffset(135)]
 		public byte Alsa_135;
-		[FieldOffset(34816)]
+		[FieldOffset(136)]
 		public byte Alsa_136;
-		[FieldOffset(35072)]
+		[FieldOffset(137)]
 		public byte Alsa_137;
-		[FieldOffset(35328)]
+		[FieldOffset(138)]
 		public byte Alsa_138;
-		[FieldOffset(35584)]
+		[FieldOffset(139)]
 		public byte Alsa_139;
-		[FieldOffset(35840)]
+		[FieldOffset(140)]
 		public byte Alsa_140;
-		[FieldOffset(36096)]
+		[FieldOffset(141)]
 		public byte Alsa_141;
-		[FieldOffset(36352)]
+		[FieldOffset(142)]
 		public byte Alsa_142;
-		[FieldOffset(36608)]
+		[FieldOffset(143)]
 		public byte Alsa_143;
-		[FieldOffset(36864)]
+		[FieldOffset(144)]
 		public byte Alsa_144;
-		[FieldOffset(37120)]
+		[FieldOffset(145)]
 		public byte Alsa_145;
-		[FieldOffset(37376)]
+		[FieldOffset(146)]
 		public byte Alsa_146;
-		[FieldOffset(37632)]
+		[FieldOffset(147)]
 		public byte Alsa_147;
-		[FieldOffset(37888)]
+		[FieldOffset(148)]
 		public byte Alsa_148;
-		[FieldOffset(38144)]
+		[FieldOffset(149)]
 		public byte Alsa_149;
-		[FieldOffset(38400)]
+		[FieldOffset(150)]
 		public byte Alsa_150;
-		[FieldOffset(38656)]
+		[FieldOffset(151)]
 		public byte Alsa_151;
-		[FieldOffset(38912)]
+		[FieldOffset(152)]
 		public byte Alsa_152;
-		[FieldOffset(39168)]
+		[FieldOffset(153)]
 		public byte Alsa_153;
-		[FieldOffset(39424)]
+		[FieldOffset(154)]
 		public byte Alsa_154;
-		[FieldOffset(39680)]
+		[FieldOffset(155)]
 		public byte Alsa_155;
-		[FieldOffset(39936)]
+		[FieldOffset(156)]
 		public byte Alsa_156;
-		[FieldOffset(40192)]
+		[FieldOffset(157)]
 		public byte Alsa_157;
-		[FieldOffset(40448)]
+		[FieldOffset(158)]
 		public byte Alsa_158;
-		[FieldOffset(40704)]
+		[FieldOffset(159)]
 		public byte Alsa_159;
-		[FieldOffset(40960)]
+		[FieldOffset(160)]
 		public byte Alsa_160;
-		[FieldOffset(41216)]
+		[FieldOffset(161)]
 		public byte Alsa_161;
-		[FieldOffset(41472)]
+		[FieldOffset(162)]
 		public byte Alsa_162;
-		[FieldOffset(41728)]
+		[FieldOffset(163)]
 		public byte Alsa_163;
-		[FieldOffset(41984)]
+		[FieldOffset(164)]
 		public byte Alsa_164;
-		[FieldOffset(42240)]
+		[FieldOffset(165)]
 		public byte Alsa_165;
-		[FieldOffset(42496)]
+		[FieldOffset(166)]
 		public byte Alsa_166;
-		[FieldOffset(42752)]
+		[FieldOffset(167)]
 		public byte Alsa_167;
-		[FieldOffset(43008)]
+		[FieldOffset(168)]
 		public byte Alsa_168;
-		[FieldOffset(43264)]
+		[FieldOffset(169)]
 		public byte Alsa_169;
-		[FieldOffset(43520)]
+		[FieldOffset(170)]
 		public byte Alsa_170;
-		[FieldOffset(43776)]
+		[FieldOffset(171)]
 		public byte Alsa_171;
-		[FieldOffset(44032)]
+		[FieldOffset(172)]
 		public byte Alsa_172;
-		[FieldOffset(44288)]
+		[FieldOffset(173)]
 		public byte Alsa_173;
-		[FieldOffset(44544)]
+		[FieldOffset(174)]
 		public byte Alsa_174;
-		[FieldOffset(44800)]
+		[FieldOffset(175)]
 		public byte Alsa_175;
-		[FieldOffset(45056)]
+		[FieldOffset(176)]
 		public byte Alsa_176;
-		[FieldOffset(45312)]
+		[FieldOffset(177)]
 		public byte Alsa_177;
-		[FieldOffset(45568)]
+		[FieldOffset(178)]
 		public byte Alsa_178;
-		[FieldOffset(45824)]
+		[FieldOffset(179)]
 		public byte Alsa_179;
-		[FieldOffset(46080)]
+		[FieldOffset(180)]
 		public byte Alsa_180;
-		[FieldOffset(46336)]
+		[FieldOffset(181)]
 		public byte Alsa_181;
-		[FieldOffset(46592)]
+		[FieldOffset(182)]
 		public byte Alsa_182;
-		[FieldOffset(46848)]
+		[FieldOffset(183)]
 		public byte Alsa_183;
-		[FieldOffset(47104)]
+		[FieldOffset(184)]
 		public byte Alsa_184;
-		[FieldOffset(47360)]
+		[FieldOffset(185)]
 		public byte Alsa_185;
-		[FieldOffset(47616)]
+		[FieldOffset(186)]
 		public byte Alsa_186;
-		[FieldOffset(47872)]
+		[FieldOffset(187)]
 		public byte Alsa_187;
-		[FieldOffset(48128)]
+		[FieldOffset(188)]
 		public byte Alsa_188;
-		[FieldOffset(48384)]
+		[FieldOffset(189)]
 		public byte Alsa_189;
-		[FieldOffset(48640)]
+		[FieldOffset(190)]
 		public byte Alsa_190;
-		[FieldOffset(48896)]
+		[FieldOffset(191)]
 		public byte Alsa_191;
-		[FieldOffset(49152)]
+		[FieldOffset(192)]
 		public byte Alsa_192;
-		[FieldOffset(49408)]
+		[FieldOffset(193)]
 		public byte Alsa_193;
-		[FieldOffset(49664)]
+		[FieldOffset(194)]
 		public byte Alsa_194;
-		[FieldOffset(49920)]
+		[FieldOffset(195)]
 		public byte Alsa_195;
-		[FieldOffset(50176)]
+		[FieldOffset(196)]
 		public byte Alsa_196;
-		[FieldOffset(50432)]
+		[FieldOffset(197)]
 		public byte Alsa_197;
-		[FieldOffset(50688)]
+		[FieldOffset(198)]
 		public byte Alsa_198;
-		[FieldOffset(50944)]
+		[FieldOffset(199)]
 		public byte Alsa_199;
-		[FieldOffset(51200)]
+		[FieldOffset(200)]
 		public byte Alsa_200;
-		[FieldOffset(51456)]
+		[FieldOffset(201)]
 		public byte Alsa_201;
-		[FieldOffset(51712)]
+		[FieldOffset(202)]
 		public byte Alsa_202;
-		[FieldOffset(51968)]
+		[FieldOffset(203)]
 		public byte Alsa_203;
-		[FieldOffset(52224)]
+		[FieldOffset(204)]
 		public byte Alsa_204;
-		[FieldOffset(52480)]
+		[FieldOffset(205)]
 		public byte Alsa_205;
-		[FieldOffset(52736)]
+		[FieldOffset(206)]
 		public byte Alsa_206;
-		[FieldOffset(52992)]
+		[FieldOffset(207)]
 		public byte Alsa_207;
-		[FieldOffset(53248)]
+		[FieldOffset(208)]
 		public byte Alsa_208;
-		[FieldOffset(53504)]
+		[FieldOffset(209)]
 		public byte Alsa_209;
-		[FieldOffset(53760)]
+		[FieldOffset(210)]
 		public byte Alsa_210;
-		[FieldOffset(54016)]
+		[FieldOffset(211)]
 		public byte Alsa_211;
-		[FieldOffset(54272)]
+		[FieldOffset(212)]
 		public byte Alsa_212;
-		[FieldOffset(54528)]
+		[FieldOffset(213)]
 		public byte Alsa_213;
-		[FieldOffset(54784)]
+		[FieldOffset(214)]
 		public byte Alsa_214;
-		[FieldOffset(55040)]
+		[FieldOffset(215)]
 		public byte Alsa_215;
-		[FieldOffset(55296)]
+		[FieldOffset(216)]
 		public byte Alsa_216;
-		[FieldOffset(55552)]
+		[FieldOffset(217)]
 		public byte Alsa_217;
-		[FieldOffset(55808)]
+		[FieldOffset(218)]
 		public byte Alsa_218;
-		[FieldOffset(56064)]
+		[FieldOffset(219)]
 		public byte Alsa_219;
-		[FieldOffset(56320)]
+		[FieldOffset(220)]
 		public byte Alsa_220;
-		[FieldOffset(56576)]
+		[FieldOffset(221)]
 		public byte Alsa_221;
-		[FieldOffset(56832)]
+		[FieldOffset(222)]
 		public byte Alsa_222;
-		[FieldOffset(57088)]
+		[FieldOffset(223)]
 		public byte Alsa_223;
-		[FieldOffset(57344)]
+		[FieldOffset(224)]
 		public byte Alsa_224;
-		[FieldOffset(57600)]
+		[FieldOffset(225)]
 		public byte Alsa_225;
-		[FieldOffset(57856)]
+		[FieldOffset(226)]
 		public byte Alsa_226;
-		[FieldOffset(58112)]
+		[FieldOffset(227)]
 		public byte Alsa_227;
-		[FieldOffset(58368)]
+		[FieldOffset(228)]
 		public byte Alsa_228;
-		[FieldOffset(58624)]
+		[FieldOffset(229)]
 		public byte Alsa_229;
-		[FieldOffset(58880)]
+		[FieldOffset(230)]
 		public byte Alsa_230;
-		[FieldOffset(59136)]
+		[FieldOffset(231)]
 		public byte Alsa_231;
-		[FieldOffset(59392)]
+		[FieldOffset(232)]
 		public byte Alsa_232;
-		[FieldOffset(59648)]
+		[FieldOffset(233)]
 		public byte Alsa_233;
-		[FieldOffset(59904)]
+		[FieldOffset(234)]
 		public byte Alsa_234;
-		[FieldOffset(60160)]
+		[FieldOffset(235)]
 		public byte Alsa_235;
-		[FieldOffset(60416)]
+		[FieldOffset(236)]
 		public byte Alsa_236;
-		[FieldOffset(60672)]
+		[FieldOffset(237)]
 		public byte Alsa_237;
-		[FieldOffset(60928)]
+		[FieldOffset(238)]
 		public byte Alsa_238;
-		[FieldOffset(61184)]
+		[FieldOffset(239)]
 		public byte Alsa_239;
-		[FieldOffset(61440)]
+		[FieldOffset(240)]
 		public byte Alsa_240;
-		[FieldOffset(61696)]
+		[FieldOffset(241)]
 		public byte Alsa_241;
-		[FieldOffset(61952)]
+		[FieldOffset(242)]
 		public byte Alsa_242;
-		[FieldOffset(62208)]
+		[FieldOffset(243)]
 		public byte Alsa_243;
-		[FieldOffset(62464)]
+		[FieldOffset(244)]
 		public byte Alsa_244;
-		[FieldOffset(62720)]
+		[FieldOffset(245)]
 		public byte Alsa_245;
-		[FieldOffset(62976)]
+		[FieldOffset(246)]
 		public byte Alsa_246;
-		[FieldOffset(63232)]
+		[FieldOffset(247)]
 		public byte Alsa_247;
-		[FieldOffset(63488)]
+		[FieldOffset(248)]
 		public byte Alsa_248;
-		[FieldOffset(63744)]
+		[FieldOffset(249)]
 		public byte Alsa_249;
-		[FieldOffset(64000)]
+		[FieldOffset(250)]
 		public byte Alsa_250;
-		[FieldOffset(64256)]
+		[FieldOffset(251)]
 		public byte Alsa_251;
-		[FieldOffset(64512)]
+		[FieldOffset(252)]
 		public byte Alsa_252;
-		[FieldOffset(64768)]
+		[FieldOffset(253)]
 		public byte Alsa_253;
-		[FieldOffset(65024)]
+		[FieldOffset(254)]
 		public byte Alsa_254;
-		[FieldOffset(65280)]
+		[FieldOffset(255)]
 		public byte Alsa_255;
 
 		/// <summary>
@@ -1766,515 +1766,515 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Pulse_0;
-		[FieldOffset(256)]
+		[FieldOffset(1)]
 		public byte Pulse_1;
-		[FieldOffset(512)]
+		[FieldOffset(2)]
 		public byte Pulse_2;
-		[FieldOffset(768)]
+		[FieldOffset(3)]
 		public byte Pulse_3;
-		[FieldOffset(1024)]
+		[FieldOffset(4)]
 		public byte Pulse_4;
-		[FieldOffset(1280)]
+		[FieldOffset(5)]
 		public byte Pulse_5;
-		[FieldOffset(1536)]
+		[FieldOffset(6)]
 		public byte Pulse_6;
-		[FieldOffset(1792)]
+		[FieldOffset(7)]
 		public byte Pulse_7;
-		[FieldOffset(2048)]
+		[FieldOffset(8)]
 		public byte Pulse_8;
-		[FieldOffset(2304)]
+		[FieldOffset(9)]
 		public byte Pulse_9;
-		[FieldOffset(2560)]
+		[FieldOffset(10)]
 		public byte Pulse_10;
-		[FieldOffset(2816)]
+		[FieldOffset(11)]
 		public byte Pulse_11;
-		[FieldOffset(3072)]
+		[FieldOffset(12)]
 		public byte Pulse_12;
-		[FieldOffset(3328)]
+		[FieldOffset(13)]
 		public byte Pulse_13;
-		[FieldOffset(3584)]
+		[FieldOffset(14)]
 		public byte Pulse_14;
-		[FieldOffset(3840)]
+		[FieldOffset(15)]
 		public byte Pulse_15;
-		[FieldOffset(4096)]
+		[FieldOffset(16)]
 		public byte Pulse_16;
-		[FieldOffset(4352)]
+		[FieldOffset(17)]
 		public byte Pulse_17;
-		[FieldOffset(4608)]
+		[FieldOffset(18)]
 		public byte Pulse_18;
-		[FieldOffset(4864)]
+		[FieldOffset(19)]
 		public byte Pulse_19;
-		[FieldOffset(5120)]
+		[FieldOffset(20)]
 		public byte Pulse_20;
-		[FieldOffset(5376)]
+		[FieldOffset(21)]
 		public byte Pulse_21;
-		[FieldOffset(5632)]
+		[FieldOffset(22)]
 		public byte Pulse_22;
-		[FieldOffset(5888)]
+		[FieldOffset(23)]
 		public byte Pulse_23;
-		[FieldOffset(6144)]
+		[FieldOffset(24)]
 		public byte Pulse_24;
-		[FieldOffset(6400)]
+		[FieldOffset(25)]
 		public byte Pulse_25;
-		[FieldOffset(6656)]
+		[FieldOffset(26)]
 		public byte Pulse_26;
-		[FieldOffset(6912)]
+		[FieldOffset(27)]
 		public byte Pulse_27;
-		[FieldOffset(7168)]
+		[FieldOffset(28)]
 		public byte Pulse_28;
-		[FieldOffset(7424)]
+		[FieldOffset(29)]
 		public byte Pulse_29;
-		[FieldOffset(7680)]
+		[FieldOffset(30)]
 		public byte Pulse_30;
-		[FieldOffset(7936)]
+		[FieldOffset(31)]
 		public byte Pulse_31;
-		[FieldOffset(8192)]
+		[FieldOffset(32)]
 		public byte Pulse_32;
-		[FieldOffset(8448)]
+		[FieldOffset(33)]
 		public byte Pulse_33;
-		[FieldOffset(8704)]
+		[FieldOffset(34)]
 		public byte Pulse_34;
-		[FieldOffset(8960)]
+		[FieldOffset(35)]
 		public byte Pulse_35;
-		[FieldOffset(9216)]
+		[FieldOffset(36)]
 		public byte Pulse_36;
-		[FieldOffset(9472)]
+		[FieldOffset(37)]
 		public byte Pulse_37;
-		[FieldOffset(9728)]
+		[FieldOffset(38)]
 		public byte Pulse_38;
-		[FieldOffset(9984)]
+		[FieldOffset(39)]
 		public byte Pulse_39;
-		[FieldOffset(10240)]
+		[FieldOffset(40)]
 		public byte Pulse_40;
-		[FieldOffset(10496)]
+		[FieldOffset(41)]
 		public byte Pulse_41;
-		[FieldOffset(10752)]
+		[FieldOffset(42)]
 		public byte Pulse_42;
-		[FieldOffset(11008)]
+		[FieldOffset(43)]
 		public byte Pulse_43;
-		[FieldOffset(11264)]
+		[FieldOffset(44)]
 		public byte Pulse_44;
-		[FieldOffset(11520)]
+		[FieldOffset(45)]
 		public byte Pulse_45;
-		[FieldOffset(11776)]
+		[FieldOffset(46)]
 		public byte Pulse_46;
-		[FieldOffset(12032)]
+		[FieldOffset(47)]
 		public byte Pulse_47;
-		[FieldOffset(12288)]
+		[FieldOffset(48)]
 		public byte Pulse_48;
-		[FieldOffset(12544)]
+		[FieldOffset(49)]
 		public byte Pulse_49;
-		[FieldOffset(12800)]
+		[FieldOffset(50)]
 		public byte Pulse_50;
-		[FieldOffset(13056)]
+		[FieldOffset(51)]
 		public byte Pulse_51;
-		[FieldOffset(13312)]
+		[FieldOffset(52)]
 		public byte Pulse_52;
-		[FieldOffset(13568)]
+		[FieldOffset(53)]
 		public byte Pulse_53;
-		[FieldOffset(13824)]
+		[FieldOffset(54)]
 		public byte Pulse_54;
-		[FieldOffset(14080)]
+		[FieldOffset(55)]
 		public byte Pulse_55;
-		[FieldOffset(14336)]
+		[FieldOffset(56)]
 		public byte Pulse_56;
-		[FieldOffset(14592)]
+		[FieldOffset(57)]
 		public byte Pulse_57;
-		[FieldOffset(14848)]
+		[FieldOffset(58)]
 		public byte Pulse_58;
-		[FieldOffset(15104)]
+		[FieldOffset(59)]
 		public byte Pulse_59;
-		[FieldOffset(15360)]
+		[FieldOffset(60)]
 		public byte Pulse_60;
-		[FieldOffset(15616)]
+		[FieldOffset(61)]
 		public byte Pulse_61;
-		[FieldOffset(15872)]
+		[FieldOffset(62)]
 		public byte Pulse_62;
-		[FieldOffset(16128)]
+		[FieldOffset(63)]
 		public byte Pulse_63;
-		[FieldOffset(16384)]
+		[FieldOffset(64)]
 		public byte Pulse_64;
-		[FieldOffset(16640)]
+		[FieldOffset(65)]
 		public byte Pulse_65;
-		[FieldOffset(16896)]
+		[FieldOffset(66)]
 		public byte Pulse_66;
-		[FieldOffset(17152)]
+		[FieldOffset(67)]
 		public byte Pulse_67;
-		[FieldOffset(17408)]
+		[FieldOffset(68)]
 		public byte Pulse_68;
-		[FieldOffset(17664)]
+		[FieldOffset(69)]
 		public byte Pulse_69;
-		[FieldOffset(17920)]
+		[FieldOffset(70)]
 		public byte Pulse_70;
-		[FieldOffset(18176)]
+		[FieldOffset(71)]
 		public byte Pulse_71;
-		[FieldOffset(18432)]
+		[FieldOffset(72)]
 		public byte Pulse_72;
-		[FieldOffset(18688)]
+		[FieldOffset(73)]
 		public byte Pulse_73;
-		[FieldOffset(18944)]
+		[FieldOffset(74)]
 		public byte Pulse_74;
-		[FieldOffset(19200)]
+		[FieldOffset(75)]
 		public byte Pulse_75;
-		[FieldOffset(19456)]
+		[FieldOffset(76)]
 		public byte Pulse_76;
-		[FieldOffset(19712)]
+		[FieldOffset(77)]
 		public byte Pulse_77;
-		[FieldOffset(19968)]
+		[FieldOffset(78)]
 		public byte Pulse_78;
-		[FieldOffset(20224)]
+		[FieldOffset(79)]
 		public byte Pulse_79;
-		[FieldOffset(20480)]
+		[FieldOffset(80)]
 		public byte Pulse_80;
-		[FieldOffset(20736)]
+		[FieldOffset(81)]
 		public byte Pulse_81;
-		[FieldOffset(20992)]
+		[FieldOffset(82)]
 		public byte Pulse_82;
-		[FieldOffset(21248)]
+		[FieldOffset(83)]
 		public byte Pulse_83;
-		[FieldOffset(21504)]
+		[FieldOffset(84)]
 		public byte Pulse_84;
-		[FieldOffset(21760)]
+		[FieldOffset(85)]
 		public byte Pulse_85;
-		[FieldOffset(22016)]
+		[FieldOffset(86)]
 		public byte Pulse_86;
-		[FieldOffset(22272)]
+		[FieldOffset(87)]
 		public byte Pulse_87;
-		[FieldOffset(22528)]
+		[FieldOffset(88)]
 		public byte Pulse_88;
-		[FieldOffset(22784)]
+		[FieldOffset(89)]
 		public byte Pulse_89;
-		[FieldOffset(23040)]
+		[FieldOffset(90)]
 		public byte Pulse_90;
-		[FieldOffset(23296)]
+		[FieldOffset(91)]
 		public byte Pulse_91;
-		[FieldOffset(23552)]
+		[FieldOffset(92)]
 		public byte Pulse_92;
-		[FieldOffset(23808)]
+		[FieldOffset(93)]
 		public byte Pulse_93;
-		[FieldOffset(24064)]
+		[FieldOffset(94)]
 		public byte Pulse_94;
-		[FieldOffset(24320)]
+		[FieldOffset(95)]
 		public byte Pulse_95;
-		[FieldOffset(24576)]
+		[FieldOffset(96)]
 		public byte Pulse_96;
-		[FieldOffset(24832)]
+		[FieldOffset(97)]
 		public byte Pulse_97;
-		[FieldOffset(25088)]
+		[FieldOffset(98)]
 		public byte Pulse_98;
-		[FieldOffset(25344)]
+		[FieldOffset(99)]
 		public byte Pulse_99;
-		[FieldOffset(25600)]
+		[FieldOffset(100)]
 		public byte Pulse_100;
-		[FieldOffset(25856)]
+		[FieldOffset(101)]
 		public byte Pulse_101;
-		[FieldOffset(26112)]
+		[FieldOffset(102)]
 		public byte Pulse_102;
-		[FieldOffset(26368)]
+		[FieldOffset(103)]
 		public byte Pulse_103;
-		[FieldOffset(26624)]
+		[FieldOffset(104)]
 		public byte Pulse_104;
-		[FieldOffset(26880)]
+		[FieldOffset(105)]
 		public byte Pulse_105;
-		[FieldOffset(27136)]
+		[FieldOffset(106)]
 		public byte Pulse_106;
-		[FieldOffset(27392)]
+		[FieldOffset(107)]
 		public byte Pulse_107;
-		[FieldOffset(27648)]
+		[FieldOffset(108)]
 		public byte Pulse_108;
-		[FieldOffset(27904)]
+		[FieldOffset(109)]
 		public byte Pulse_109;
-		[FieldOffset(28160)]
+		[FieldOffset(110)]
 		public byte Pulse_110;
-		[FieldOffset(28416)]
+		[FieldOffset(111)]
 		public byte Pulse_111;
-		[FieldOffset(28672)]
+		[FieldOffset(112)]
 		public byte Pulse_112;
-		[FieldOffset(28928)]
+		[FieldOffset(113)]
 		public byte Pulse_113;
-		[FieldOffset(29184)]
+		[FieldOffset(114)]
 		public byte Pulse_114;
-		[FieldOffset(29440)]
+		[FieldOffset(115)]
 		public byte Pulse_115;
-		[FieldOffset(29696)]
+		[FieldOffset(116)]
 		public byte Pulse_116;
-		[FieldOffset(29952)]
+		[FieldOffset(117)]
 		public byte Pulse_117;
-		[FieldOffset(30208)]
+		[FieldOffset(118)]
 		public byte Pulse_118;
-		[FieldOffset(30464)]
+		[FieldOffset(119)]
 		public byte Pulse_119;
-		[FieldOffset(30720)]
+		[FieldOffset(120)]
 		public byte Pulse_120;
-		[FieldOffset(30976)]
+		[FieldOffset(121)]
 		public byte Pulse_121;
-		[FieldOffset(31232)]
+		[FieldOffset(122)]
 		public byte Pulse_122;
-		[FieldOffset(31488)]
+		[FieldOffset(123)]
 		public byte Pulse_123;
-		[FieldOffset(31744)]
+		[FieldOffset(124)]
 		public byte Pulse_124;
-		[FieldOffset(32000)]
+		[FieldOffset(125)]
 		public byte Pulse_125;
-		[FieldOffset(32256)]
+		[FieldOffset(126)]
 		public byte Pulse_126;
-		[FieldOffset(32512)]
+		[FieldOffset(127)]
 		public byte Pulse_127;
-		[FieldOffset(32768)]
+		[FieldOffset(128)]
 		public byte Pulse_128;
-		[FieldOffset(33024)]
+		[FieldOffset(129)]
 		public byte Pulse_129;
-		[FieldOffset(33280)]
+		[FieldOffset(130)]
 		public byte Pulse_130;
-		[FieldOffset(33536)]
+		[FieldOffset(131)]
 		public byte Pulse_131;
-		[FieldOffset(33792)]
+		[FieldOffset(132)]
 		public byte Pulse_132;
-		[FieldOffset(34048)]
+		[FieldOffset(133)]
 		public byte Pulse_133;
-		[FieldOffset(34304)]
+		[FieldOffset(134)]
 		public byte Pulse_134;
-		[FieldOffset(34560)]
+		[FieldOffset(135)]
 		public byte Pulse_135;
-		[FieldOffset(34816)]
+		[FieldOffset(136)]
 		public byte Pulse_136;
-		[FieldOffset(35072)]
+		[FieldOffset(137)]
 		public byte Pulse_137;
-		[FieldOffset(35328)]
+		[FieldOffset(138)]
 		public byte Pulse_138;
-		[FieldOffset(35584)]
+		[FieldOffset(139)]
 		public byte Pulse_139;
-		[FieldOffset(35840)]
+		[FieldOffset(140)]
 		public byte Pulse_140;
-		[FieldOffset(36096)]
+		[FieldOffset(141)]
 		public byte Pulse_141;
-		[FieldOffset(36352)]
+		[FieldOffset(142)]
 		public byte Pulse_142;
-		[FieldOffset(36608)]
+		[FieldOffset(143)]
 		public byte Pulse_143;
-		[FieldOffset(36864)]
+		[FieldOffset(144)]
 		public byte Pulse_144;
-		[FieldOffset(37120)]
+		[FieldOffset(145)]
 		public byte Pulse_145;
-		[FieldOffset(37376)]
+		[FieldOffset(146)]
 		public byte Pulse_146;
-		[FieldOffset(37632)]
+		[FieldOffset(147)]
 		public byte Pulse_147;
-		[FieldOffset(37888)]
+		[FieldOffset(148)]
 		public byte Pulse_148;
-		[FieldOffset(38144)]
+		[FieldOffset(149)]
 		public byte Pulse_149;
-		[FieldOffset(38400)]
+		[FieldOffset(150)]
 		public byte Pulse_150;
-		[FieldOffset(38656)]
+		[FieldOffset(151)]
 		public byte Pulse_151;
-		[FieldOffset(38912)]
+		[FieldOffset(152)]
 		public byte Pulse_152;
-		[FieldOffset(39168)]
+		[FieldOffset(153)]
 		public byte Pulse_153;
-		[FieldOffset(39424)]
+		[FieldOffset(154)]
 		public byte Pulse_154;
-		[FieldOffset(39680)]
+		[FieldOffset(155)]
 		public byte Pulse_155;
-		[FieldOffset(39936)]
+		[FieldOffset(156)]
 		public byte Pulse_156;
-		[FieldOffset(40192)]
+		[FieldOffset(157)]
 		public byte Pulse_157;
-		[FieldOffset(40448)]
+		[FieldOffset(158)]
 		public byte Pulse_158;
-		[FieldOffset(40704)]
+		[FieldOffset(159)]
 		public byte Pulse_159;
-		[FieldOffset(40960)]
+		[FieldOffset(160)]
 		public byte Pulse_160;
-		[FieldOffset(41216)]
+		[FieldOffset(161)]
 		public byte Pulse_161;
-		[FieldOffset(41472)]
+		[FieldOffset(162)]
 		public byte Pulse_162;
-		[FieldOffset(41728)]
+		[FieldOffset(163)]
 		public byte Pulse_163;
-		[FieldOffset(41984)]
+		[FieldOffset(164)]
 		public byte Pulse_164;
-		[FieldOffset(42240)]
+		[FieldOffset(165)]
 		public byte Pulse_165;
-		[FieldOffset(42496)]
+		[FieldOffset(166)]
 		public byte Pulse_166;
-		[FieldOffset(42752)]
+		[FieldOffset(167)]
 		public byte Pulse_167;
-		[FieldOffset(43008)]
+		[FieldOffset(168)]
 		public byte Pulse_168;
-		[FieldOffset(43264)]
+		[FieldOffset(169)]
 		public byte Pulse_169;
-		[FieldOffset(43520)]
+		[FieldOffset(170)]
 		public byte Pulse_170;
-		[FieldOffset(43776)]
+		[FieldOffset(171)]
 		public byte Pulse_171;
-		[FieldOffset(44032)]
+		[FieldOffset(172)]
 		public byte Pulse_172;
-		[FieldOffset(44288)]
+		[FieldOffset(173)]
 		public byte Pulse_173;
-		[FieldOffset(44544)]
+		[FieldOffset(174)]
 		public byte Pulse_174;
-		[FieldOffset(44800)]
+		[FieldOffset(175)]
 		public byte Pulse_175;
-		[FieldOffset(45056)]
+		[FieldOffset(176)]
 		public byte Pulse_176;
-		[FieldOffset(45312)]
+		[FieldOffset(177)]
 		public byte Pulse_177;
-		[FieldOffset(45568)]
+		[FieldOffset(178)]
 		public byte Pulse_178;
-		[FieldOffset(45824)]
+		[FieldOffset(179)]
 		public byte Pulse_179;
-		[FieldOffset(46080)]
+		[FieldOffset(180)]
 		public byte Pulse_180;
-		[FieldOffset(46336)]
+		[FieldOffset(181)]
 		public byte Pulse_181;
-		[FieldOffset(46592)]
+		[FieldOffset(182)]
 		public byte Pulse_182;
-		[FieldOffset(46848)]
+		[FieldOffset(183)]
 		public byte Pulse_183;
-		[FieldOffset(47104)]
+		[FieldOffset(184)]
 		public byte Pulse_184;
-		[FieldOffset(47360)]
+		[FieldOffset(185)]
 		public byte Pulse_185;
-		[FieldOffset(47616)]
+		[FieldOffset(186)]
 		public byte Pulse_186;
-		[FieldOffset(47872)]
+		[FieldOffset(187)]
 		public byte Pulse_187;
-		[FieldOffset(48128)]
+		[FieldOffset(188)]
 		public byte Pulse_188;
-		[FieldOffset(48384)]
+		[FieldOffset(189)]
 		public byte Pulse_189;
-		[FieldOffset(48640)]
+		[FieldOffset(190)]
 		public byte Pulse_190;
-		[FieldOffset(48896)]
+		[FieldOffset(191)]
 		public byte Pulse_191;
-		[FieldOffset(49152)]
+		[FieldOffset(192)]
 		public byte Pulse_192;
-		[FieldOffset(49408)]
+		[FieldOffset(193)]
 		public byte Pulse_193;
-		[FieldOffset(49664)]
+		[FieldOffset(194)]
 		public byte Pulse_194;
-		[FieldOffset(49920)]
+		[FieldOffset(195)]
 		public byte Pulse_195;
-		[FieldOffset(50176)]
+		[FieldOffset(196)]
 		public byte Pulse_196;
-		[FieldOffset(50432)]
+		[FieldOffset(197)]
 		public byte Pulse_197;
-		[FieldOffset(50688)]
+		[FieldOffset(198)]
 		public byte Pulse_198;
-		[FieldOffset(50944)]
+		[FieldOffset(199)]
 		public byte Pulse_199;
-		[FieldOffset(51200)]
+		[FieldOffset(200)]
 		public byte Pulse_200;
-		[FieldOffset(51456)]
+		[FieldOffset(201)]
 		public byte Pulse_201;
-		[FieldOffset(51712)]
+		[FieldOffset(202)]
 		public byte Pulse_202;
-		[FieldOffset(51968)]
+		[FieldOffset(203)]
 		public byte Pulse_203;
-		[FieldOffset(52224)]
+		[FieldOffset(204)]
 		public byte Pulse_204;
-		[FieldOffset(52480)]
+		[FieldOffset(205)]
 		public byte Pulse_205;
-		[FieldOffset(52736)]
+		[FieldOffset(206)]
 		public byte Pulse_206;
-		[FieldOffset(52992)]
+		[FieldOffset(207)]
 		public byte Pulse_207;
-		[FieldOffset(53248)]
+		[FieldOffset(208)]
 		public byte Pulse_208;
-		[FieldOffset(53504)]
+		[FieldOffset(209)]
 		public byte Pulse_209;
-		[FieldOffset(53760)]
+		[FieldOffset(210)]
 		public byte Pulse_210;
-		[FieldOffset(54016)]
+		[FieldOffset(211)]
 		public byte Pulse_211;
-		[FieldOffset(54272)]
+		[FieldOffset(212)]
 		public byte Pulse_212;
-		[FieldOffset(54528)]
+		[FieldOffset(213)]
 		public byte Pulse_213;
-		[FieldOffset(54784)]
+		[FieldOffset(214)]
 		public byte Pulse_214;
-		[FieldOffset(55040)]
+		[FieldOffset(215)]
 		public byte Pulse_215;
-		[FieldOffset(55296)]
+		[FieldOffset(216)]
 		public byte Pulse_216;
-		[FieldOffset(55552)]
+		[FieldOffset(217)]
 		public byte Pulse_217;
-		[FieldOffset(55808)]
+		[FieldOffset(218)]
 		public byte Pulse_218;
-		[FieldOffset(56064)]
+		[FieldOffset(219)]
 		public byte Pulse_219;
-		[FieldOffset(56320)]
+		[FieldOffset(220)]
 		public byte Pulse_220;
-		[FieldOffset(56576)]
+		[FieldOffset(221)]
 		public byte Pulse_221;
-		[FieldOffset(56832)]
+		[FieldOffset(222)]
 		public byte Pulse_222;
-		[FieldOffset(57088)]
+		[FieldOffset(223)]
 		public byte Pulse_223;
-		[FieldOffset(57344)]
+		[FieldOffset(224)]
 		public byte Pulse_224;
-		[FieldOffset(57600)]
+		[FieldOffset(225)]
 		public byte Pulse_225;
-		[FieldOffset(57856)]
+		[FieldOffset(226)]
 		public byte Pulse_226;
-		[FieldOffset(58112)]
+		[FieldOffset(227)]
 		public byte Pulse_227;
-		[FieldOffset(58368)]
+		[FieldOffset(228)]
 		public byte Pulse_228;
-		[FieldOffset(58624)]
+		[FieldOffset(229)]
 		public byte Pulse_229;
-		[FieldOffset(58880)]
+		[FieldOffset(230)]
 		public byte Pulse_230;
-		[FieldOffset(59136)]
+		[FieldOffset(231)]
 		public byte Pulse_231;
-		[FieldOffset(59392)]
+		[FieldOffset(232)]
 		public byte Pulse_232;
-		[FieldOffset(59648)]
+		[FieldOffset(233)]
 		public byte Pulse_233;
-		[FieldOffset(59904)]
+		[FieldOffset(234)]
 		public byte Pulse_234;
-		[FieldOffset(60160)]
+		[FieldOffset(235)]
 		public byte Pulse_235;
-		[FieldOffset(60416)]
+		[FieldOffset(236)]
 		public byte Pulse_236;
-		[FieldOffset(60672)]
+		[FieldOffset(237)]
 		public byte Pulse_237;
-		[FieldOffset(60928)]
+		[FieldOffset(238)]
 		public byte Pulse_238;
-		[FieldOffset(61184)]
+		[FieldOffset(239)]
 		public byte Pulse_239;
-		[FieldOffset(61440)]
+		[FieldOffset(240)]
 		public byte Pulse_240;
-		[FieldOffset(61696)]
+		[FieldOffset(241)]
 		public byte Pulse_241;
-		[FieldOffset(61952)]
+		[FieldOffset(242)]
 		public byte Pulse_242;
-		[FieldOffset(62208)]
+		[FieldOffset(243)]
 		public byte Pulse_243;
-		[FieldOffset(62464)]
+		[FieldOffset(244)]
 		public byte Pulse_244;
-		[FieldOffset(62720)]
+		[FieldOffset(245)]
 		public byte Pulse_245;
-		[FieldOffset(62976)]
+		[FieldOffset(246)]
 		public byte Pulse_246;
-		[FieldOffset(63232)]
+		[FieldOffset(247)]
 		public byte Pulse_247;
-		[FieldOffset(63488)]
+		[FieldOffset(248)]
 		public byte Pulse_248;
-		[FieldOffset(63744)]
+		[FieldOffset(249)]
 		public byte Pulse_249;
-		[FieldOffset(64000)]
+		[FieldOffset(250)]
 		public byte Pulse_250;
-		[FieldOffset(64256)]
+		[FieldOffset(251)]
 		public byte Pulse_251;
-		[FieldOffset(64512)]
+		[FieldOffset(252)]
 		public byte Pulse_252;
-		[FieldOffset(64768)]
+		[FieldOffset(253)]
 		public byte Pulse_253;
-		[FieldOffset(65024)]
+		[FieldOffset(254)]
 		public byte Pulse_254;
-		[FieldOffset(65280)]
+		[FieldOffset(255)]
 		public byte Pulse_255;
 
 		/// <summary>
@@ -2288,515 +2288,515 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Coreaudio_0;
-		[FieldOffset(256)]
+		[FieldOffset(1)]
 		public byte Coreaudio_1;
-		[FieldOffset(512)]
+		[FieldOffset(2)]
 		public byte Coreaudio_2;
-		[FieldOffset(768)]
+		[FieldOffset(3)]
 		public byte Coreaudio_3;
-		[FieldOffset(1024)]
+		[FieldOffset(4)]
 		public byte Coreaudio_4;
-		[FieldOffset(1280)]
+		[FieldOffset(5)]
 		public byte Coreaudio_5;
-		[FieldOffset(1536)]
+		[FieldOffset(6)]
 		public byte Coreaudio_6;
-		[FieldOffset(1792)]
+		[FieldOffset(7)]
 		public byte Coreaudio_7;
-		[FieldOffset(2048)]
+		[FieldOffset(8)]
 		public byte Coreaudio_8;
-		[FieldOffset(2304)]
+		[FieldOffset(9)]
 		public byte Coreaudio_9;
-		[FieldOffset(2560)]
+		[FieldOffset(10)]
 		public byte Coreaudio_10;
-		[FieldOffset(2816)]
+		[FieldOffset(11)]
 		public byte Coreaudio_11;
-		[FieldOffset(3072)]
+		[FieldOffset(12)]
 		public byte Coreaudio_12;
-		[FieldOffset(3328)]
+		[FieldOffset(13)]
 		public byte Coreaudio_13;
-		[FieldOffset(3584)]
+		[FieldOffset(14)]
 		public byte Coreaudio_14;
-		[FieldOffset(3840)]
+		[FieldOffset(15)]
 		public byte Coreaudio_15;
-		[FieldOffset(4096)]
+		[FieldOffset(16)]
 		public byte Coreaudio_16;
-		[FieldOffset(4352)]
+		[FieldOffset(17)]
 		public byte Coreaudio_17;
-		[FieldOffset(4608)]
+		[FieldOffset(18)]
 		public byte Coreaudio_18;
-		[FieldOffset(4864)]
+		[FieldOffset(19)]
 		public byte Coreaudio_19;
-		[FieldOffset(5120)]
+		[FieldOffset(20)]
 		public byte Coreaudio_20;
-		[FieldOffset(5376)]
+		[FieldOffset(21)]
 		public byte Coreaudio_21;
-		[FieldOffset(5632)]
+		[FieldOffset(22)]
 		public byte Coreaudio_22;
-		[FieldOffset(5888)]
+		[FieldOffset(23)]
 		public byte Coreaudio_23;
-		[FieldOffset(6144)]
+		[FieldOffset(24)]
 		public byte Coreaudio_24;
-		[FieldOffset(6400)]
+		[FieldOffset(25)]
 		public byte Coreaudio_25;
-		[FieldOffset(6656)]
+		[FieldOffset(26)]
 		public byte Coreaudio_26;
-		[FieldOffset(6912)]
+		[FieldOffset(27)]
 		public byte Coreaudio_27;
-		[FieldOffset(7168)]
+		[FieldOffset(28)]
 		public byte Coreaudio_28;
-		[FieldOffset(7424)]
+		[FieldOffset(29)]
 		public byte Coreaudio_29;
-		[FieldOffset(7680)]
+		[FieldOffset(30)]
 		public byte Coreaudio_30;
-		[FieldOffset(7936)]
+		[FieldOffset(31)]
 		public byte Coreaudio_31;
-		[FieldOffset(8192)]
+		[FieldOffset(32)]
 		public byte Coreaudio_32;
-		[FieldOffset(8448)]
+		[FieldOffset(33)]
 		public byte Coreaudio_33;
-		[FieldOffset(8704)]
+		[FieldOffset(34)]
 		public byte Coreaudio_34;
-		[FieldOffset(8960)]
+		[FieldOffset(35)]
 		public byte Coreaudio_35;
-		[FieldOffset(9216)]
+		[FieldOffset(36)]
 		public byte Coreaudio_36;
-		[FieldOffset(9472)]
+		[FieldOffset(37)]
 		public byte Coreaudio_37;
-		[FieldOffset(9728)]
+		[FieldOffset(38)]
 		public byte Coreaudio_38;
-		[FieldOffset(9984)]
+		[FieldOffset(39)]
 		public byte Coreaudio_39;
-		[FieldOffset(10240)]
+		[FieldOffset(40)]
 		public byte Coreaudio_40;
-		[FieldOffset(10496)]
+		[FieldOffset(41)]
 		public byte Coreaudio_41;
-		[FieldOffset(10752)]
+		[FieldOffset(42)]
 		public byte Coreaudio_42;
-		[FieldOffset(11008)]
+		[FieldOffset(43)]
 		public byte Coreaudio_43;
-		[FieldOffset(11264)]
+		[FieldOffset(44)]
 		public byte Coreaudio_44;
-		[FieldOffset(11520)]
+		[FieldOffset(45)]
 		public byte Coreaudio_45;
-		[FieldOffset(11776)]
+		[FieldOffset(46)]
 		public byte Coreaudio_46;
-		[FieldOffset(12032)]
+		[FieldOffset(47)]
 		public byte Coreaudio_47;
-		[FieldOffset(12288)]
+		[FieldOffset(48)]
 		public byte Coreaudio_48;
-		[FieldOffset(12544)]
+		[FieldOffset(49)]
 		public byte Coreaudio_49;
-		[FieldOffset(12800)]
+		[FieldOffset(50)]
 		public byte Coreaudio_50;
-		[FieldOffset(13056)]
+		[FieldOffset(51)]
 		public byte Coreaudio_51;
-		[FieldOffset(13312)]
+		[FieldOffset(52)]
 		public byte Coreaudio_52;
-		[FieldOffset(13568)]
+		[FieldOffset(53)]
 		public byte Coreaudio_53;
-		[FieldOffset(13824)]
+		[FieldOffset(54)]
 		public byte Coreaudio_54;
-		[FieldOffset(14080)]
+		[FieldOffset(55)]
 		public byte Coreaudio_55;
-		[FieldOffset(14336)]
+		[FieldOffset(56)]
 		public byte Coreaudio_56;
-		[FieldOffset(14592)]
+		[FieldOffset(57)]
 		public byte Coreaudio_57;
-		[FieldOffset(14848)]
+		[FieldOffset(58)]
 		public byte Coreaudio_58;
-		[FieldOffset(15104)]
+		[FieldOffset(59)]
 		public byte Coreaudio_59;
-		[FieldOffset(15360)]
+		[FieldOffset(60)]
 		public byte Coreaudio_60;
-		[FieldOffset(15616)]
+		[FieldOffset(61)]
 		public byte Coreaudio_61;
-		[FieldOffset(15872)]
+		[FieldOffset(62)]
 		public byte Coreaudio_62;
-		[FieldOffset(16128)]
+		[FieldOffset(63)]
 		public byte Coreaudio_63;
-		[FieldOffset(16384)]
+		[FieldOffset(64)]
 		public byte Coreaudio_64;
-		[FieldOffset(16640)]
+		[FieldOffset(65)]
 		public byte Coreaudio_65;
-		[FieldOffset(16896)]
+		[FieldOffset(66)]
 		public byte Coreaudio_66;
-		[FieldOffset(17152)]
+		[FieldOffset(67)]
 		public byte Coreaudio_67;
-		[FieldOffset(17408)]
+		[FieldOffset(68)]
 		public byte Coreaudio_68;
-		[FieldOffset(17664)]
+		[FieldOffset(69)]
 		public byte Coreaudio_69;
-		[FieldOffset(17920)]
+		[FieldOffset(70)]
 		public byte Coreaudio_70;
-		[FieldOffset(18176)]
+		[FieldOffset(71)]
 		public byte Coreaudio_71;
-		[FieldOffset(18432)]
+		[FieldOffset(72)]
 		public byte Coreaudio_72;
-		[FieldOffset(18688)]
+		[FieldOffset(73)]
 		public byte Coreaudio_73;
-		[FieldOffset(18944)]
+		[FieldOffset(74)]
 		public byte Coreaudio_74;
-		[FieldOffset(19200)]
+		[FieldOffset(75)]
 		public byte Coreaudio_75;
-		[FieldOffset(19456)]
+		[FieldOffset(76)]
 		public byte Coreaudio_76;
-		[FieldOffset(19712)]
+		[FieldOffset(77)]
 		public byte Coreaudio_77;
-		[FieldOffset(19968)]
+		[FieldOffset(78)]
 		public byte Coreaudio_78;
-		[FieldOffset(20224)]
+		[FieldOffset(79)]
 		public byte Coreaudio_79;
-		[FieldOffset(20480)]
+		[FieldOffset(80)]
 		public byte Coreaudio_80;
-		[FieldOffset(20736)]
+		[FieldOffset(81)]
 		public byte Coreaudio_81;
-		[FieldOffset(20992)]
+		[FieldOffset(82)]
 		public byte Coreaudio_82;
-		[FieldOffset(21248)]
+		[FieldOffset(83)]
 		public byte Coreaudio_83;
-		[FieldOffset(21504)]
+		[FieldOffset(84)]
 		public byte Coreaudio_84;
-		[FieldOffset(21760)]
+		[FieldOffset(85)]
 		public byte Coreaudio_85;
-		[FieldOffset(22016)]
+		[FieldOffset(86)]
 		public byte Coreaudio_86;
-		[FieldOffset(22272)]
+		[FieldOffset(87)]
 		public byte Coreaudio_87;
-		[FieldOffset(22528)]
+		[FieldOffset(88)]
 		public byte Coreaudio_88;
-		[FieldOffset(22784)]
+		[FieldOffset(89)]
 		public byte Coreaudio_89;
-		[FieldOffset(23040)]
+		[FieldOffset(90)]
 		public byte Coreaudio_90;
-		[FieldOffset(23296)]
+		[FieldOffset(91)]
 		public byte Coreaudio_91;
-		[FieldOffset(23552)]
+		[FieldOffset(92)]
 		public byte Coreaudio_92;
-		[FieldOffset(23808)]
+		[FieldOffset(93)]
 		public byte Coreaudio_93;
-		[FieldOffset(24064)]
+		[FieldOffset(94)]
 		public byte Coreaudio_94;
-		[FieldOffset(24320)]
+		[FieldOffset(95)]
 		public byte Coreaudio_95;
-		[FieldOffset(24576)]
+		[FieldOffset(96)]
 		public byte Coreaudio_96;
-		[FieldOffset(24832)]
+		[FieldOffset(97)]
 		public byte Coreaudio_97;
-		[FieldOffset(25088)]
+		[FieldOffset(98)]
 		public byte Coreaudio_98;
-		[FieldOffset(25344)]
+		[FieldOffset(99)]
 		public byte Coreaudio_99;
-		[FieldOffset(25600)]
+		[FieldOffset(100)]
 		public byte Coreaudio_100;
-		[FieldOffset(25856)]
+		[FieldOffset(101)]
 		public byte Coreaudio_101;
-		[FieldOffset(26112)]
+		[FieldOffset(102)]
 		public byte Coreaudio_102;
-		[FieldOffset(26368)]
+		[FieldOffset(103)]
 		public byte Coreaudio_103;
-		[FieldOffset(26624)]
+		[FieldOffset(104)]
 		public byte Coreaudio_104;
-		[FieldOffset(26880)]
+		[FieldOffset(105)]
 		public byte Coreaudio_105;
-		[FieldOffset(27136)]
+		[FieldOffset(106)]
 		public byte Coreaudio_106;
-		[FieldOffset(27392)]
+		[FieldOffset(107)]
 		public byte Coreaudio_107;
-		[FieldOffset(27648)]
+		[FieldOffset(108)]
 		public byte Coreaudio_108;
-		[FieldOffset(27904)]
+		[FieldOffset(109)]
 		public byte Coreaudio_109;
-		[FieldOffset(28160)]
+		[FieldOffset(110)]
 		public byte Coreaudio_110;
-		[FieldOffset(28416)]
+		[FieldOffset(111)]
 		public byte Coreaudio_111;
-		[FieldOffset(28672)]
+		[FieldOffset(112)]
 		public byte Coreaudio_112;
-		[FieldOffset(28928)]
+		[FieldOffset(113)]
 		public byte Coreaudio_113;
-		[FieldOffset(29184)]
+		[FieldOffset(114)]
 		public byte Coreaudio_114;
-		[FieldOffset(29440)]
+		[FieldOffset(115)]
 		public byte Coreaudio_115;
-		[FieldOffset(29696)]
+		[FieldOffset(116)]
 		public byte Coreaudio_116;
-		[FieldOffset(29952)]
+		[FieldOffset(117)]
 		public byte Coreaudio_117;
-		[FieldOffset(30208)]
+		[FieldOffset(118)]
 		public byte Coreaudio_118;
-		[FieldOffset(30464)]
+		[FieldOffset(119)]
 		public byte Coreaudio_119;
-		[FieldOffset(30720)]
+		[FieldOffset(120)]
 		public byte Coreaudio_120;
-		[FieldOffset(30976)]
+		[FieldOffset(121)]
 		public byte Coreaudio_121;
-		[FieldOffset(31232)]
+		[FieldOffset(122)]
 		public byte Coreaudio_122;
-		[FieldOffset(31488)]
+		[FieldOffset(123)]
 		public byte Coreaudio_123;
-		[FieldOffset(31744)]
+		[FieldOffset(124)]
 		public byte Coreaudio_124;
-		[FieldOffset(32000)]
+		[FieldOffset(125)]
 		public byte Coreaudio_125;
-		[FieldOffset(32256)]
+		[FieldOffset(126)]
 		public byte Coreaudio_126;
-		[FieldOffset(32512)]
+		[FieldOffset(127)]
 		public byte Coreaudio_127;
-		[FieldOffset(32768)]
+		[FieldOffset(128)]
 		public byte Coreaudio_128;
-		[FieldOffset(33024)]
+		[FieldOffset(129)]
 		public byte Coreaudio_129;
-		[FieldOffset(33280)]
+		[FieldOffset(130)]
 		public byte Coreaudio_130;
-		[FieldOffset(33536)]
+		[FieldOffset(131)]
 		public byte Coreaudio_131;
-		[FieldOffset(33792)]
+		[FieldOffset(132)]
 		public byte Coreaudio_132;
-		[FieldOffset(34048)]
+		[FieldOffset(133)]
 		public byte Coreaudio_133;
-		[FieldOffset(34304)]
+		[FieldOffset(134)]
 		public byte Coreaudio_134;
-		[FieldOffset(34560)]
+		[FieldOffset(135)]
 		public byte Coreaudio_135;
-		[FieldOffset(34816)]
+		[FieldOffset(136)]
 		public byte Coreaudio_136;
-		[FieldOffset(35072)]
+		[FieldOffset(137)]
 		public byte Coreaudio_137;
-		[FieldOffset(35328)]
+		[FieldOffset(138)]
 		public byte Coreaudio_138;
-		[FieldOffset(35584)]
+		[FieldOffset(139)]
 		public byte Coreaudio_139;
-		[FieldOffset(35840)]
+		[FieldOffset(140)]
 		public byte Coreaudio_140;
-		[FieldOffset(36096)]
+		[FieldOffset(141)]
 		public byte Coreaudio_141;
-		[FieldOffset(36352)]
+		[FieldOffset(142)]
 		public byte Coreaudio_142;
-		[FieldOffset(36608)]
+		[FieldOffset(143)]
 		public byte Coreaudio_143;
-		[FieldOffset(36864)]
+		[FieldOffset(144)]
 		public byte Coreaudio_144;
-		[FieldOffset(37120)]
+		[FieldOffset(145)]
 		public byte Coreaudio_145;
-		[FieldOffset(37376)]
+		[FieldOffset(146)]
 		public byte Coreaudio_146;
-		[FieldOffset(37632)]
+		[FieldOffset(147)]
 		public byte Coreaudio_147;
-		[FieldOffset(37888)]
+		[FieldOffset(148)]
 		public byte Coreaudio_148;
-		[FieldOffset(38144)]
+		[FieldOffset(149)]
 		public byte Coreaudio_149;
-		[FieldOffset(38400)]
+		[FieldOffset(150)]
 		public byte Coreaudio_150;
-		[FieldOffset(38656)]
+		[FieldOffset(151)]
 		public byte Coreaudio_151;
-		[FieldOffset(38912)]
+		[FieldOffset(152)]
 		public byte Coreaudio_152;
-		[FieldOffset(39168)]
+		[FieldOffset(153)]
 		public byte Coreaudio_153;
-		[FieldOffset(39424)]
+		[FieldOffset(154)]
 		public byte Coreaudio_154;
-		[FieldOffset(39680)]
+		[FieldOffset(155)]
 		public byte Coreaudio_155;
-		[FieldOffset(39936)]
+		[FieldOffset(156)]
 		public byte Coreaudio_156;
-		[FieldOffset(40192)]
+		[FieldOffset(157)]
 		public byte Coreaudio_157;
-		[FieldOffset(40448)]
+		[FieldOffset(158)]
 		public byte Coreaudio_158;
-		[FieldOffset(40704)]
+		[FieldOffset(159)]
 		public byte Coreaudio_159;
-		[FieldOffset(40960)]
+		[FieldOffset(160)]
 		public byte Coreaudio_160;
-		[FieldOffset(41216)]
+		[FieldOffset(161)]
 		public byte Coreaudio_161;
-		[FieldOffset(41472)]
+		[FieldOffset(162)]
 		public byte Coreaudio_162;
-		[FieldOffset(41728)]
+		[FieldOffset(163)]
 		public byte Coreaudio_163;
-		[FieldOffset(41984)]
+		[FieldOffset(164)]
 		public byte Coreaudio_164;
-		[FieldOffset(42240)]
+		[FieldOffset(165)]
 		public byte Coreaudio_165;
-		[FieldOffset(42496)]
+		[FieldOffset(166)]
 		public byte Coreaudio_166;
-		[FieldOffset(42752)]
+		[FieldOffset(167)]
 		public byte Coreaudio_167;
-		[FieldOffset(43008)]
+		[FieldOffset(168)]
 		public byte Coreaudio_168;
-		[FieldOffset(43264)]
+		[FieldOffset(169)]
 		public byte Coreaudio_169;
-		[FieldOffset(43520)]
+		[FieldOffset(170)]
 		public byte Coreaudio_170;
-		[FieldOffset(43776)]
+		[FieldOffset(171)]
 		public byte Coreaudio_171;
-		[FieldOffset(44032)]
+		[FieldOffset(172)]
 		public byte Coreaudio_172;
-		[FieldOffset(44288)]
+		[FieldOffset(173)]
 		public byte Coreaudio_173;
-		[FieldOffset(44544)]
+		[FieldOffset(174)]
 		public byte Coreaudio_174;
-		[FieldOffset(44800)]
+		[FieldOffset(175)]
 		public byte Coreaudio_175;
-		[FieldOffset(45056)]
+		[FieldOffset(176)]
 		public byte Coreaudio_176;
-		[FieldOffset(45312)]
+		[FieldOffset(177)]
 		public byte Coreaudio_177;
-		[FieldOffset(45568)]
+		[FieldOffset(178)]
 		public byte Coreaudio_178;
-		[FieldOffset(45824)]
+		[FieldOffset(179)]
 		public byte Coreaudio_179;
-		[FieldOffset(46080)]
+		[FieldOffset(180)]
 		public byte Coreaudio_180;
-		[FieldOffset(46336)]
+		[FieldOffset(181)]
 		public byte Coreaudio_181;
-		[FieldOffset(46592)]
+		[FieldOffset(182)]
 		public byte Coreaudio_182;
-		[FieldOffset(46848)]
+		[FieldOffset(183)]
 		public byte Coreaudio_183;
-		[FieldOffset(47104)]
+		[FieldOffset(184)]
 		public byte Coreaudio_184;
-		[FieldOffset(47360)]
+		[FieldOffset(185)]
 		public byte Coreaudio_185;
-		[FieldOffset(47616)]
+		[FieldOffset(186)]
 		public byte Coreaudio_186;
-		[FieldOffset(47872)]
+		[FieldOffset(187)]
 		public byte Coreaudio_187;
-		[FieldOffset(48128)]
+		[FieldOffset(188)]
 		public byte Coreaudio_188;
-		[FieldOffset(48384)]
+		[FieldOffset(189)]
 		public byte Coreaudio_189;
-		[FieldOffset(48640)]
+		[FieldOffset(190)]
 		public byte Coreaudio_190;
-		[FieldOffset(48896)]
+		[FieldOffset(191)]
 		public byte Coreaudio_191;
-		[FieldOffset(49152)]
+		[FieldOffset(192)]
 		public byte Coreaudio_192;
-		[FieldOffset(49408)]
+		[FieldOffset(193)]
 		public byte Coreaudio_193;
-		[FieldOffset(49664)]
+		[FieldOffset(194)]
 		public byte Coreaudio_194;
-		[FieldOffset(49920)]
+		[FieldOffset(195)]
 		public byte Coreaudio_195;
-		[FieldOffset(50176)]
+		[FieldOffset(196)]
 		public byte Coreaudio_196;
-		[FieldOffset(50432)]
+		[FieldOffset(197)]
 		public byte Coreaudio_197;
-		[FieldOffset(50688)]
+		[FieldOffset(198)]
 		public byte Coreaudio_198;
-		[FieldOffset(50944)]
+		[FieldOffset(199)]
 		public byte Coreaudio_199;
-		[FieldOffset(51200)]
+		[FieldOffset(200)]
 		public byte Coreaudio_200;
-		[FieldOffset(51456)]
+		[FieldOffset(201)]
 		public byte Coreaudio_201;
-		[FieldOffset(51712)]
+		[FieldOffset(202)]
 		public byte Coreaudio_202;
-		[FieldOffset(51968)]
+		[FieldOffset(203)]
 		public byte Coreaudio_203;
-		[FieldOffset(52224)]
+		[FieldOffset(204)]
 		public byte Coreaudio_204;
-		[FieldOffset(52480)]
+		[FieldOffset(205)]
 		public byte Coreaudio_205;
-		[FieldOffset(52736)]
+		[FieldOffset(206)]
 		public byte Coreaudio_206;
-		[FieldOffset(52992)]
+		[FieldOffset(207)]
 		public byte Coreaudio_207;
-		[FieldOffset(53248)]
+		[FieldOffset(208)]
 		public byte Coreaudio_208;
-		[FieldOffset(53504)]
+		[FieldOffset(209)]
 		public byte Coreaudio_209;
-		[FieldOffset(53760)]
+		[FieldOffset(210)]
 		public byte Coreaudio_210;
-		[FieldOffset(54016)]
+		[FieldOffset(211)]
 		public byte Coreaudio_211;
-		[FieldOffset(54272)]
+		[FieldOffset(212)]
 		public byte Coreaudio_212;
-		[FieldOffset(54528)]
+		[FieldOffset(213)]
 		public byte Coreaudio_213;
-		[FieldOffset(54784)]
+		[FieldOffset(214)]
 		public byte Coreaudio_214;
-		[FieldOffset(55040)]
+		[FieldOffset(215)]
 		public byte Coreaudio_215;
-		[FieldOffset(55296)]
+		[FieldOffset(216)]
 		public byte Coreaudio_216;
-		[FieldOffset(55552)]
+		[FieldOffset(217)]
 		public byte Coreaudio_217;
-		[FieldOffset(55808)]
+		[FieldOffset(218)]
 		public byte Coreaudio_218;
-		[FieldOffset(56064)]
+		[FieldOffset(219)]
 		public byte Coreaudio_219;
-		[FieldOffset(56320)]
+		[FieldOffset(220)]
 		public byte Coreaudio_220;
-		[FieldOffset(56576)]
+		[FieldOffset(221)]
 		public byte Coreaudio_221;
-		[FieldOffset(56832)]
+		[FieldOffset(222)]
 		public byte Coreaudio_222;
-		[FieldOffset(57088)]
+		[FieldOffset(223)]
 		public byte Coreaudio_223;
-		[FieldOffset(57344)]
+		[FieldOffset(224)]
 		public byte Coreaudio_224;
-		[FieldOffset(57600)]
+		[FieldOffset(225)]
 		public byte Coreaudio_225;
-		[FieldOffset(57856)]
+		[FieldOffset(226)]
 		public byte Coreaudio_226;
-		[FieldOffset(58112)]
+		[FieldOffset(227)]
 		public byte Coreaudio_227;
-		[FieldOffset(58368)]
+		[FieldOffset(228)]
 		public byte Coreaudio_228;
-		[FieldOffset(58624)]
+		[FieldOffset(229)]
 		public byte Coreaudio_229;
-		[FieldOffset(58880)]
+		[FieldOffset(230)]
 		public byte Coreaudio_230;
-		[FieldOffset(59136)]
+		[FieldOffset(231)]
 		public byte Coreaudio_231;
-		[FieldOffset(59392)]
+		[FieldOffset(232)]
 		public byte Coreaudio_232;
-		[FieldOffset(59648)]
+		[FieldOffset(233)]
 		public byte Coreaudio_233;
-		[FieldOffset(59904)]
+		[FieldOffset(234)]
 		public byte Coreaudio_234;
-		[FieldOffset(60160)]
+		[FieldOffset(235)]
 		public byte Coreaudio_235;
-		[FieldOffset(60416)]
+		[FieldOffset(236)]
 		public byte Coreaudio_236;
-		[FieldOffset(60672)]
+		[FieldOffset(237)]
 		public byte Coreaudio_237;
-		[FieldOffset(60928)]
+		[FieldOffset(238)]
 		public byte Coreaudio_238;
-		[FieldOffset(61184)]
+		[FieldOffset(239)]
 		public byte Coreaudio_239;
-		[FieldOffset(61440)]
+		[FieldOffset(240)]
 		public byte Coreaudio_240;
-		[FieldOffset(61696)]
+		[FieldOffset(241)]
 		public byte Coreaudio_241;
-		[FieldOffset(61952)]
+		[FieldOffset(242)]
 		public byte Coreaudio_242;
-		[FieldOffset(62208)]
+		[FieldOffset(243)]
 		public byte Coreaudio_243;
-		[FieldOffset(62464)]
+		[FieldOffset(244)]
 		public byte Coreaudio_244;
-		[FieldOffset(62720)]
+		[FieldOffset(245)]
 		public byte Coreaudio_245;
-		[FieldOffset(62976)]
+		[FieldOffset(246)]
 		public byte Coreaudio_246;
-		[FieldOffset(63232)]
+		[FieldOffset(247)]
 		public byte Coreaudio_247;
-		[FieldOffset(63488)]
+		[FieldOffset(248)]
 		public byte Coreaudio_248;
-		[FieldOffset(63744)]
+		[FieldOffset(249)]
 		public byte Coreaudio_249;
-		[FieldOffset(64000)]
+		[FieldOffset(250)]
 		public byte Coreaudio_250;
-		[FieldOffset(64256)]
+		[FieldOffset(251)]
 		public byte Coreaudio_251;
-		[FieldOffset(64512)]
+		[FieldOffset(252)]
 		public byte Coreaudio_252;
-		[FieldOffset(64768)]
+		[FieldOffset(253)]
 		public byte Coreaudio_253;
-		[FieldOffset(65024)]
+		[FieldOffset(254)]
 		public byte Coreaudio_254;
-		[FieldOffset(65280)]
+		[FieldOffset(255)]
 		public byte Coreaudio_255;
 
 		/// <summary>
@@ -2804,515 +2804,515 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Sndio_0;
-		[FieldOffset(256)]
+		[FieldOffset(1)]
 		public byte Sndio_1;
-		[FieldOffset(512)]
+		[FieldOffset(2)]
 		public byte Sndio_2;
-		[FieldOffset(768)]
+		[FieldOffset(3)]
 		public byte Sndio_3;
-		[FieldOffset(1024)]
+		[FieldOffset(4)]
 		public byte Sndio_4;
-		[FieldOffset(1280)]
+		[FieldOffset(5)]
 		public byte Sndio_5;
-		[FieldOffset(1536)]
+		[FieldOffset(6)]
 		public byte Sndio_6;
-		[FieldOffset(1792)]
+		[FieldOffset(7)]
 		public byte Sndio_7;
-		[FieldOffset(2048)]
+		[FieldOffset(8)]
 		public byte Sndio_8;
-		[FieldOffset(2304)]
+		[FieldOffset(9)]
 		public byte Sndio_9;
-		[FieldOffset(2560)]
+		[FieldOffset(10)]
 		public byte Sndio_10;
-		[FieldOffset(2816)]
+		[FieldOffset(11)]
 		public byte Sndio_11;
-		[FieldOffset(3072)]
+		[FieldOffset(12)]
 		public byte Sndio_12;
-		[FieldOffset(3328)]
+		[FieldOffset(13)]
 		public byte Sndio_13;
-		[FieldOffset(3584)]
+		[FieldOffset(14)]
 		public byte Sndio_14;
-		[FieldOffset(3840)]
+		[FieldOffset(15)]
 		public byte Sndio_15;
-		[FieldOffset(4096)]
+		[FieldOffset(16)]
 		public byte Sndio_16;
-		[FieldOffset(4352)]
+		[FieldOffset(17)]
 		public byte Sndio_17;
-		[FieldOffset(4608)]
+		[FieldOffset(18)]
 		public byte Sndio_18;
-		[FieldOffset(4864)]
+		[FieldOffset(19)]
 		public byte Sndio_19;
-		[FieldOffset(5120)]
+		[FieldOffset(20)]
 		public byte Sndio_20;
-		[FieldOffset(5376)]
+		[FieldOffset(21)]
 		public byte Sndio_21;
-		[FieldOffset(5632)]
+		[FieldOffset(22)]
 		public byte Sndio_22;
-		[FieldOffset(5888)]
+		[FieldOffset(23)]
 		public byte Sndio_23;
-		[FieldOffset(6144)]
+		[FieldOffset(24)]
 		public byte Sndio_24;
-		[FieldOffset(6400)]
+		[FieldOffset(25)]
 		public byte Sndio_25;
-		[FieldOffset(6656)]
+		[FieldOffset(26)]
 		public byte Sndio_26;
-		[FieldOffset(6912)]
+		[FieldOffset(27)]
 		public byte Sndio_27;
-		[FieldOffset(7168)]
+		[FieldOffset(28)]
 		public byte Sndio_28;
-		[FieldOffset(7424)]
+		[FieldOffset(29)]
 		public byte Sndio_29;
-		[FieldOffset(7680)]
+		[FieldOffset(30)]
 		public byte Sndio_30;
-		[FieldOffset(7936)]
+		[FieldOffset(31)]
 		public byte Sndio_31;
-		[FieldOffset(8192)]
+		[FieldOffset(32)]
 		public byte Sndio_32;
-		[FieldOffset(8448)]
+		[FieldOffset(33)]
 		public byte Sndio_33;
-		[FieldOffset(8704)]
+		[FieldOffset(34)]
 		public byte Sndio_34;
-		[FieldOffset(8960)]
+		[FieldOffset(35)]
 		public byte Sndio_35;
-		[FieldOffset(9216)]
+		[FieldOffset(36)]
 		public byte Sndio_36;
-		[FieldOffset(9472)]
+		[FieldOffset(37)]
 		public byte Sndio_37;
-		[FieldOffset(9728)]
+		[FieldOffset(38)]
 		public byte Sndio_38;
-		[FieldOffset(9984)]
+		[FieldOffset(39)]
 		public byte Sndio_39;
-		[FieldOffset(10240)]
+		[FieldOffset(40)]
 		public byte Sndio_40;
-		[FieldOffset(10496)]
+		[FieldOffset(41)]
 		public byte Sndio_41;
-		[FieldOffset(10752)]
+		[FieldOffset(42)]
 		public byte Sndio_42;
-		[FieldOffset(11008)]
+		[FieldOffset(43)]
 		public byte Sndio_43;
-		[FieldOffset(11264)]
+		[FieldOffset(44)]
 		public byte Sndio_44;
-		[FieldOffset(11520)]
+		[FieldOffset(45)]
 		public byte Sndio_45;
-		[FieldOffset(11776)]
+		[FieldOffset(46)]
 		public byte Sndio_46;
-		[FieldOffset(12032)]
+		[FieldOffset(47)]
 		public byte Sndio_47;
-		[FieldOffset(12288)]
+		[FieldOffset(48)]
 		public byte Sndio_48;
-		[FieldOffset(12544)]
+		[FieldOffset(49)]
 		public byte Sndio_49;
-		[FieldOffset(12800)]
+		[FieldOffset(50)]
 		public byte Sndio_50;
-		[FieldOffset(13056)]
+		[FieldOffset(51)]
 		public byte Sndio_51;
-		[FieldOffset(13312)]
+		[FieldOffset(52)]
 		public byte Sndio_52;
-		[FieldOffset(13568)]
+		[FieldOffset(53)]
 		public byte Sndio_53;
-		[FieldOffset(13824)]
+		[FieldOffset(54)]
 		public byte Sndio_54;
-		[FieldOffset(14080)]
+		[FieldOffset(55)]
 		public byte Sndio_55;
-		[FieldOffset(14336)]
+		[FieldOffset(56)]
 		public byte Sndio_56;
-		[FieldOffset(14592)]
+		[FieldOffset(57)]
 		public byte Sndio_57;
-		[FieldOffset(14848)]
+		[FieldOffset(58)]
 		public byte Sndio_58;
-		[FieldOffset(15104)]
+		[FieldOffset(59)]
 		public byte Sndio_59;
-		[FieldOffset(15360)]
+		[FieldOffset(60)]
 		public byte Sndio_60;
-		[FieldOffset(15616)]
+		[FieldOffset(61)]
 		public byte Sndio_61;
-		[FieldOffset(15872)]
+		[FieldOffset(62)]
 		public byte Sndio_62;
-		[FieldOffset(16128)]
+		[FieldOffset(63)]
 		public byte Sndio_63;
-		[FieldOffset(16384)]
+		[FieldOffset(64)]
 		public byte Sndio_64;
-		[FieldOffset(16640)]
+		[FieldOffset(65)]
 		public byte Sndio_65;
-		[FieldOffset(16896)]
+		[FieldOffset(66)]
 		public byte Sndio_66;
-		[FieldOffset(17152)]
+		[FieldOffset(67)]
 		public byte Sndio_67;
-		[FieldOffset(17408)]
+		[FieldOffset(68)]
 		public byte Sndio_68;
-		[FieldOffset(17664)]
+		[FieldOffset(69)]
 		public byte Sndio_69;
-		[FieldOffset(17920)]
+		[FieldOffset(70)]
 		public byte Sndio_70;
-		[FieldOffset(18176)]
+		[FieldOffset(71)]
 		public byte Sndio_71;
-		[FieldOffset(18432)]
+		[FieldOffset(72)]
 		public byte Sndio_72;
-		[FieldOffset(18688)]
+		[FieldOffset(73)]
 		public byte Sndio_73;
-		[FieldOffset(18944)]
+		[FieldOffset(74)]
 		public byte Sndio_74;
-		[FieldOffset(19200)]
+		[FieldOffset(75)]
 		public byte Sndio_75;
-		[FieldOffset(19456)]
+		[FieldOffset(76)]
 		public byte Sndio_76;
-		[FieldOffset(19712)]
+		[FieldOffset(77)]
 		public byte Sndio_77;
-		[FieldOffset(19968)]
+		[FieldOffset(78)]
 		public byte Sndio_78;
-		[FieldOffset(20224)]
+		[FieldOffset(79)]
 		public byte Sndio_79;
-		[FieldOffset(20480)]
+		[FieldOffset(80)]
 		public byte Sndio_80;
-		[FieldOffset(20736)]
+		[FieldOffset(81)]
 		public byte Sndio_81;
-		[FieldOffset(20992)]
+		[FieldOffset(82)]
 		public byte Sndio_82;
-		[FieldOffset(21248)]
+		[FieldOffset(83)]
 		public byte Sndio_83;
-		[FieldOffset(21504)]
+		[FieldOffset(84)]
 		public byte Sndio_84;
-		[FieldOffset(21760)]
+		[FieldOffset(85)]
 		public byte Sndio_85;
-		[FieldOffset(22016)]
+		[FieldOffset(86)]
 		public byte Sndio_86;
-		[FieldOffset(22272)]
+		[FieldOffset(87)]
 		public byte Sndio_87;
-		[FieldOffset(22528)]
+		[FieldOffset(88)]
 		public byte Sndio_88;
-		[FieldOffset(22784)]
+		[FieldOffset(89)]
 		public byte Sndio_89;
-		[FieldOffset(23040)]
+		[FieldOffset(90)]
 		public byte Sndio_90;
-		[FieldOffset(23296)]
+		[FieldOffset(91)]
 		public byte Sndio_91;
-		[FieldOffset(23552)]
+		[FieldOffset(92)]
 		public byte Sndio_92;
-		[FieldOffset(23808)]
+		[FieldOffset(93)]
 		public byte Sndio_93;
-		[FieldOffset(24064)]
+		[FieldOffset(94)]
 		public byte Sndio_94;
-		[FieldOffset(24320)]
+		[FieldOffset(95)]
 		public byte Sndio_95;
-		[FieldOffset(24576)]
+		[FieldOffset(96)]
 		public byte Sndio_96;
-		[FieldOffset(24832)]
+		[FieldOffset(97)]
 		public byte Sndio_97;
-		[FieldOffset(25088)]
+		[FieldOffset(98)]
 		public byte Sndio_98;
-		[FieldOffset(25344)]
+		[FieldOffset(99)]
 		public byte Sndio_99;
-		[FieldOffset(25600)]
+		[FieldOffset(100)]
 		public byte Sndio_100;
-		[FieldOffset(25856)]
+		[FieldOffset(101)]
 		public byte Sndio_101;
-		[FieldOffset(26112)]
+		[FieldOffset(102)]
 		public byte Sndio_102;
-		[FieldOffset(26368)]
+		[FieldOffset(103)]
 		public byte Sndio_103;
-		[FieldOffset(26624)]
+		[FieldOffset(104)]
 		public byte Sndio_104;
-		[FieldOffset(26880)]
+		[FieldOffset(105)]
 		public byte Sndio_105;
-		[FieldOffset(27136)]
+		[FieldOffset(106)]
 		public byte Sndio_106;
-		[FieldOffset(27392)]
+		[FieldOffset(107)]
 		public byte Sndio_107;
-		[FieldOffset(27648)]
+		[FieldOffset(108)]
 		public byte Sndio_108;
-		[FieldOffset(27904)]
+		[FieldOffset(109)]
 		public byte Sndio_109;
-		[FieldOffset(28160)]
+		[FieldOffset(110)]
 		public byte Sndio_110;
-		[FieldOffset(28416)]
+		[FieldOffset(111)]
 		public byte Sndio_111;
-		[FieldOffset(28672)]
+		[FieldOffset(112)]
 		public byte Sndio_112;
-		[FieldOffset(28928)]
+		[FieldOffset(113)]
 		public byte Sndio_113;
-		[FieldOffset(29184)]
+		[FieldOffset(114)]
 		public byte Sndio_114;
-		[FieldOffset(29440)]
+		[FieldOffset(115)]
 		public byte Sndio_115;
-		[FieldOffset(29696)]
+		[FieldOffset(116)]
 		public byte Sndio_116;
-		[FieldOffset(29952)]
+		[FieldOffset(117)]
 		public byte Sndio_117;
-		[FieldOffset(30208)]
+		[FieldOffset(118)]
 		public byte Sndio_118;
-		[FieldOffset(30464)]
+		[FieldOffset(119)]
 		public byte Sndio_119;
-		[FieldOffset(30720)]
+		[FieldOffset(120)]
 		public byte Sndio_120;
-		[FieldOffset(30976)]
+		[FieldOffset(121)]
 		public byte Sndio_121;
-		[FieldOffset(31232)]
+		[FieldOffset(122)]
 		public byte Sndio_122;
-		[FieldOffset(31488)]
+		[FieldOffset(123)]
 		public byte Sndio_123;
-		[FieldOffset(31744)]
+		[FieldOffset(124)]
 		public byte Sndio_124;
-		[FieldOffset(32000)]
+		[FieldOffset(125)]
 		public byte Sndio_125;
-		[FieldOffset(32256)]
+		[FieldOffset(126)]
 		public byte Sndio_126;
-		[FieldOffset(32512)]
+		[FieldOffset(127)]
 		public byte Sndio_127;
-		[FieldOffset(32768)]
+		[FieldOffset(128)]
 		public byte Sndio_128;
-		[FieldOffset(33024)]
+		[FieldOffset(129)]
 		public byte Sndio_129;
-		[FieldOffset(33280)]
+		[FieldOffset(130)]
 		public byte Sndio_130;
-		[FieldOffset(33536)]
+		[FieldOffset(131)]
 		public byte Sndio_131;
-		[FieldOffset(33792)]
+		[FieldOffset(132)]
 		public byte Sndio_132;
-		[FieldOffset(34048)]
+		[FieldOffset(133)]
 		public byte Sndio_133;
-		[FieldOffset(34304)]
+		[FieldOffset(134)]
 		public byte Sndio_134;
-		[FieldOffset(34560)]
+		[FieldOffset(135)]
 		public byte Sndio_135;
-		[FieldOffset(34816)]
+		[FieldOffset(136)]
 		public byte Sndio_136;
-		[FieldOffset(35072)]
+		[FieldOffset(137)]
 		public byte Sndio_137;
-		[FieldOffset(35328)]
+		[FieldOffset(138)]
 		public byte Sndio_138;
-		[FieldOffset(35584)]
+		[FieldOffset(139)]
 		public byte Sndio_139;
-		[FieldOffset(35840)]
+		[FieldOffset(140)]
 		public byte Sndio_140;
-		[FieldOffset(36096)]
+		[FieldOffset(141)]
 		public byte Sndio_141;
-		[FieldOffset(36352)]
+		[FieldOffset(142)]
 		public byte Sndio_142;
-		[FieldOffset(36608)]
+		[FieldOffset(143)]
 		public byte Sndio_143;
-		[FieldOffset(36864)]
+		[FieldOffset(144)]
 		public byte Sndio_144;
-		[FieldOffset(37120)]
+		[FieldOffset(145)]
 		public byte Sndio_145;
-		[FieldOffset(37376)]
+		[FieldOffset(146)]
 		public byte Sndio_146;
-		[FieldOffset(37632)]
+		[FieldOffset(147)]
 		public byte Sndio_147;
-		[FieldOffset(37888)]
+		[FieldOffset(148)]
 		public byte Sndio_148;
-		[FieldOffset(38144)]
+		[FieldOffset(149)]
 		public byte Sndio_149;
-		[FieldOffset(38400)]
+		[FieldOffset(150)]
 		public byte Sndio_150;
-		[FieldOffset(38656)]
+		[FieldOffset(151)]
 		public byte Sndio_151;
-		[FieldOffset(38912)]
+		[FieldOffset(152)]
 		public byte Sndio_152;
-		[FieldOffset(39168)]
+		[FieldOffset(153)]
 		public byte Sndio_153;
-		[FieldOffset(39424)]
+		[FieldOffset(154)]
 		public byte Sndio_154;
-		[FieldOffset(39680)]
+		[FieldOffset(155)]
 		public byte Sndio_155;
-		[FieldOffset(39936)]
+		[FieldOffset(156)]
 		public byte Sndio_156;
-		[FieldOffset(40192)]
+		[FieldOffset(157)]
 		public byte Sndio_157;
-		[FieldOffset(40448)]
+		[FieldOffset(158)]
 		public byte Sndio_158;
-		[FieldOffset(40704)]
+		[FieldOffset(159)]
 		public byte Sndio_159;
-		[FieldOffset(40960)]
+		[FieldOffset(160)]
 		public byte Sndio_160;
-		[FieldOffset(41216)]
+		[FieldOffset(161)]
 		public byte Sndio_161;
-		[FieldOffset(41472)]
+		[FieldOffset(162)]
 		public byte Sndio_162;
-		[FieldOffset(41728)]
+		[FieldOffset(163)]
 		public byte Sndio_163;
-		[FieldOffset(41984)]
+		[FieldOffset(164)]
 		public byte Sndio_164;
-		[FieldOffset(42240)]
+		[FieldOffset(165)]
 		public byte Sndio_165;
-		[FieldOffset(42496)]
+		[FieldOffset(166)]
 		public byte Sndio_166;
-		[FieldOffset(42752)]
+		[FieldOffset(167)]
 		public byte Sndio_167;
-		[FieldOffset(43008)]
+		[FieldOffset(168)]
 		public byte Sndio_168;
-		[FieldOffset(43264)]
+		[FieldOffset(169)]
 		public byte Sndio_169;
-		[FieldOffset(43520)]
+		[FieldOffset(170)]
 		public byte Sndio_170;
-		[FieldOffset(43776)]
+		[FieldOffset(171)]
 		public byte Sndio_171;
-		[FieldOffset(44032)]
+		[FieldOffset(172)]
 		public byte Sndio_172;
-		[FieldOffset(44288)]
+		[FieldOffset(173)]
 		public byte Sndio_173;
-		[FieldOffset(44544)]
+		[FieldOffset(174)]
 		public byte Sndio_174;
-		[FieldOffset(44800)]
+		[FieldOffset(175)]
 		public byte Sndio_175;
-		[FieldOffset(45056)]
+		[FieldOffset(176)]
 		public byte Sndio_176;
-		[FieldOffset(45312)]
+		[FieldOffset(177)]
 		public byte Sndio_177;
-		[FieldOffset(45568)]
+		[FieldOffset(178)]
 		public byte Sndio_178;
-		[FieldOffset(45824)]
+		[FieldOffset(179)]
 		public byte Sndio_179;
-		[FieldOffset(46080)]
+		[FieldOffset(180)]
 		public byte Sndio_180;
-		[FieldOffset(46336)]
+		[FieldOffset(181)]
 		public byte Sndio_181;
-		[FieldOffset(46592)]
+		[FieldOffset(182)]
 		public byte Sndio_182;
-		[FieldOffset(46848)]
+		[FieldOffset(183)]
 		public byte Sndio_183;
-		[FieldOffset(47104)]
+		[FieldOffset(184)]
 		public byte Sndio_184;
-		[FieldOffset(47360)]
+		[FieldOffset(185)]
 		public byte Sndio_185;
-		[FieldOffset(47616)]
+		[FieldOffset(186)]
 		public byte Sndio_186;
-		[FieldOffset(47872)]
+		[FieldOffset(187)]
 		public byte Sndio_187;
-		[FieldOffset(48128)]
+		[FieldOffset(188)]
 		public byte Sndio_188;
-		[FieldOffset(48384)]
+		[FieldOffset(189)]
 		public byte Sndio_189;
-		[FieldOffset(48640)]
+		[FieldOffset(190)]
 		public byte Sndio_190;
-		[FieldOffset(48896)]
+		[FieldOffset(191)]
 		public byte Sndio_191;
-		[FieldOffset(49152)]
+		[FieldOffset(192)]
 		public byte Sndio_192;
-		[FieldOffset(49408)]
+		[FieldOffset(193)]
 		public byte Sndio_193;
-		[FieldOffset(49664)]
+		[FieldOffset(194)]
 		public byte Sndio_194;
-		[FieldOffset(49920)]
+		[FieldOffset(195)]
 		public byte Sndio_195;
-		[FieldOffset(50176)]
+		[FieldOffset(196)]
 		public byte Sndio_196;
-		[FieldOffset(50432)]
+		[FieldOffset(197)]
 		public byte Sndio_197;
-		[FieldOffset(50688)]
+		[FieldOffset(198)]
 		public byte Sndio_198;
-		[FieldOffset(50944)]
+		[FieldOffset(199)]
 		public byte Sndio_199;
-		[FieldOffset(51200)]
+		[FieldOffset(200)]
 		public byte Sndio_200;
-		[FieldOffset(51456)]
+		[FieldOffset(201)]
 		public byte Sndio_201;
-		[FieldOffset(51712)]
+		[FieldOffset(202)]
 		public byte Sndio_202;
-		[FieldOffset(51968)]
+		[FieldOffset(203)]
 		public byte Sndio_203;
-		[FieldOffset(52224)]
+		[FieldOffset(204)]
 		public byte Sndio_204;
-		[FieldOffset(52480)]
+		[FieldOffset(205)]
 		public byte Sndio_205;
-		[FieldOffset(52736)]
+		[FieldOffset(206)]
 		public byte Sndio_206;
-		[FieldOffset(52992)]
+		[FieldOffset(207)]
 		public byte Sndio_207;
-		[FieldOffset(53248)]
+		[FieldOffset(208)]
 		public byte Sndio_208;
-		[FieldOffset(53504)]
+		[FieldOffset(209)]
 		public byte Sndio_209;
-		[FieldOffset(53760)]
+		[FieldOffset(210)]
 		public byte Sndio_210;
-		[FieldOffset(54016)]
+		[FieldOffset(211)]
 		public byte Sndio_211;
-		[FieldOffset(54272)]
+		[FieldOffset(212)]
 		public byte Sndio_212;
-		[FieldOffset(54528)]
+		[FieldOffset(213)]
 		public byte Sndio_213;
-		[FieldOffset(54784)]
+		[FieldOffset(214)]
 		public byte Sndio_214;
-		[FieldOffset(55040)]
+		[FieldOffset(215)]
 		public byte Sndio_215;
-		[FieldOffset(55296)]
+		[FieldOffset(216)]
 		public byte Sndio_216;
-		[FieldOffset(55552)]
+		[FieldOffset(217)]
 		public byte Sndio_217;
-		[FieldOffset(55808)]
+		[FieldOffset(218)]
 		public byte Sndio_218;
-		[FieldOffset(56064)]
+		[FieldOffset(219)]
 		public byte Sndio_219;
-		[FieldOffset(56320)]
+		[FieldOffset(220)]
 		public byte Sndio_220;
-		[FieldOffset(56576)]
+		[FieldOffset(221)]
 		public byte Sndio_221;
-		[FieldOffset(56832)]
+		[FieldOffset(222)]
 		public byte Sndio_222;
-		[FieldOffset(57088)]
+		[FieldOffset(223)]
 		public byte Sndio_223;
-		[FieldOffset(57344)]
+		[FieldOffset(224)]
 		public byte Sndio_224;
-		[FieldOffset(57600)]
+		[FieldOffset(225)]
 		public byte Sndio_225;
-		[FieldOffset(57856)]
+		[FieldOffset(226)]
 		public byte Sndio_226;
-		[FieldOffset(58112)]
+		[FieldOffset(227)]
 		public byte Sndio_227;
-		[FieldOffset(58368)]
+		[FieldOffset(228)]
 		public byte Sndio_228;
-		[FieldOffset(58624)]
+		[FieldOffset(229)]
 		public byte Sndio_229;
-		[FieldOffset(58880)]
+		[FieldOffset(230)]
 		public byte Sndio_230;
-		[FieldOffset(59136)]
+		[FieldOffset(231)]
 		public byte Sndio_231;
-		[FieldOffset(59392)]
+		[FieldOffset(232)]
 		public byte Sndio_232;
-		[FieldOffset(59648)]
+		[FieldOffset(233)]
 		public byte Sndio_233;
-		[FieldOffset(59904)]
+		[FieldOffset(234)]
 		public byte Sndio_234;
-		[FieldOffset(60160)]
+		[FieldOffset(235)]
 		public byte Sndio_235;
-		[FieldOffset(60416)]
+		[FieldOffset(236)]
 		public byte Sndio_236;
-		[FieldOffset(60672)]
+		[FieldOffset(237)]
 		public byte Sndio_237;
-		[FieldOffset(60928)]
+		[FieldOffset(238)]
 		public byte Sndio_238;
-		[FieldOffset(61184)]
+		[FieldOffset(239)]
 		public byte Sndio_239;
-		[FieldOffset(61440)]
+		[FieldOffset(240)]
 		public byte Sndio_240;
-		[FieldOffset(61696)]
+		[FieldOffset(241)]
 		public byte Sndio_241;
-		[FieldOffset(61952)]
+		[FieldOffset(242)]
 		public byte Sndio_242;
-		[FieldOffset(62208)]
+		[FieldOffset(243)]
 		public byte Sndio_243;
-		[FieldOffset(62464)]
+		[FieldOffset(244)]
 		public byte Sndio_244;
-		[FieldOffset(62720)]
+		[FieldOffset(245)]
 		public byte Sndio_245;
-		[FieldOffset(62976)]
+		[FieldOffset(246)]
 		public byte Sndio_246;
-		[FieldOffset(63232)]
+		[FieldOffset(247)]
 		public byte Sndio_247;
-		[FieldOffset(63488)]
+		[FieldOffset(248)]
 		public byte Sndio_248;
-		[FieldOffset(63744)]
+		[FieldOffset(249)]
 		public byte Sndio_249;
-		[FieldOffset(64000)]
+		[FieldOffset(250)]
 		public byte Sndio_250;
-		[FieldOffset(64256)]
+		[FieldOffset(251)]
 		public byte Sndio_251;
-		[FieldOffset(64512)]
+		[FieldOffset(252)]
 		public byte Sndio_252;
-		[FieldOffset(64768)]
+		[FieldOffset(253)]
 		public byte Sndio_253;
-		[FieldOffset(65024)]
+		[FieldOffset(254)]
 		public byte Sndio_254;
-		[FieldOffset(65280)]
+		[FieldOffset(255)]
 		public byte Sndio_255;
 
 		/// <summary>
@@ -3320,515 +3320,515 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Audio4_0;
-		[FieldOffset(256)]
+		[FieldOffset(1)]
 		public byte Audio4_1;
-		[FieldOffset(512)]
+		[FieldOffset(2)]
 		public byte Audio4_2;
-		[FieldOffset(768)]
+		[FieldOffset(3)]
 		public byte Audio4_3;
-		[FieldOffset(1024)]
+		[FieldOffset(4)]
 		public byte Audio4_4;
-		[FieldOffset(1280)]
+		[FieldOffset(5)]
 		public byte Audio4_5;
-		[FieldOffset(1536)]
+		[FieldOffset(6)]
 		public byte Audio4_6;
-		[FieldOffset(1792)]
+		[FieldOffset(7)]
 		public byte Audio4_7;
-		[FieldOffset(2048)]
+		[FieldOffset(8)]
 		public byte Audio4_8;
-		[FieldOffset(2304)]
+		[FieldOffset(9)]
 		public byte Audio4_9;
-		[FieldOffset(2560)]
+		[FieldOffset(10)]
 		public byte Audio4_10;
-		[FieldOffset(2816)]
+		[FieldOffset(11)]
 		public byte Audio4_11;
-		[FieldOffset(3072)]
+		[FieldOffset(12)]
 		public byte Audio4_12;
-		[FieldOffset(3328)]
+		[FieldOffset(13)]
 		public byte Audio4_13;
-		[FieldOffset(3584)]
+		[FieldOffset(14)]
 		public byte Audio4_14;
-		[FieldOffset(3840)]
+		[FieldOffset(15)]
 		public byte Audio4_15;
-		[FieldOffset(4096)]
+		[FieldOffset(16)]
 		public byte Audio4_16;
-		[FieldOffset(4352)]
+		[FieldOffset(17)]
 		public byte Audio4_17;
-		[FieldOffset(4608)]
+		[FieldOffset(18)]
 		public byte Audio4_18;
-		[FieldOffset(4864)]
+		[FieldOffset(19)]
 		public byte Audio4_19;
-		[FieldOffset(5120)]
+		[FieldOffset(20)]
 		public byte Audio4_20;
-		[FieldOffset(5376)]
+		[FieldOffset(21)]
 		public byte Audio4_21;
-		[FieldOffset(5632)]
+		[FieldOffset(22)]
 		public byte Audio4_22;
-		[FieldOffset(5888)]
+		[FieldOffset(23)]
 		public byte Audio4_23;
-		[FieldOffset(6144)]
+		[FieldOffset(24)]
 		public byte Audio4_24;
-		[FieldOffset(6400)]
+		[FieldOffset(25)]
 		public byte Audio4_25;
-		[FieldOffset(6656)]
+		[FieldOffset(26)]
 		public byte Audio4_26;
-		[FieldOffset(6912)]
+		[FieldOffset(27)]
 		public byte Audio4_27;
-		[FieldOffset(7168)]
+		[FieldOffset(28)]
 		public byte Audio4_28;
-		[FieldOffset(7424)]
+		[FieldOffset(29)]
 		public byte Audio4_29;
-		[FieldOffset(7680)]
+		[FieldOffset(30)]
 		public byte Audio4_30;
-		[FieldOffset(7936)]
+		[FieldOffset(31)]
 		public byte Audio4_31;
-		[FieldOffset(8192)]
+		[FieldOffset(32)]
 		public byte Audio4_32;
-		[FieldOffset(8448)]
+		[FieldOffset(33)]
 		public byte Audio4_33;
-		[FieldOffset(8704)]
+		[FieldOffset(34)]
 		public byte Audio4_34;
-		[FieldOffset(8960)]
+		[FieldOffset(35)]
 		public byte Audio4_35;
-		[FieldOffset(9216)]
+		[FieldOffset(36)]
 		public byte Audio4_36;
-		[FieldOffset(9472)]
+		[FieldOffset(37)]
 		public byte Audio4_37;
-		[FieldOffset(9728)]
+		[FieldOffset(38)]
 		public byte Audio4_38;
-		[FieldOffset(9984)]
+		[FieldOffset(39)]
 		public byte Audio4_39;
-		[FieldOffset(10240)]
+		[FieldOffset(40)]
 		public byte Audio4_40;
-		[FieldOffset(10496)]
+		[FieldOffset(41)]
 		public byte Audio4_41;
-		[FieldOffset(10752)]
+		[FieldOffset(42)]
 		public byte Audio4_42;
-		[FieldOffset(11008)]
+		[FieldOffset(43)]
 		public byte Audio4_43;
-		[FieldOffset(11264)]
+		[FieldOffset(44)]
 		public byte Audio4_44;
-		[FieldOffset(11520)]
+		[FieldOffset(45)]
 		public byte Audio4_45;
-		[FieldOffset(11776)]
+		[FieldOffset(46)]
 		public byte Audio4_46;
-		[FieldOffset(12032)]
+		[FieldOffset(47)]
 		public byte Audio4_47;
-		[FieldOffset(12288)]
+		[FieldOffset(48)]
 		public byte Audio4_48;
-		[FieldOffset(12544)]
+		[FieldOffset(49)]
 		public byte Audio4_49;
-		[FieldOffset(12800)]
+		[FieldOffset(50)]
 		public byte Audio4_50;
-		[FieldOffset(13056)]
+		[FieldOffset(51)]
 		public byte Audio4_51;
-		[FieldOffset(13312)]
+		[FieldOffset(52)]
 		public byte Audio4_52;
-		[FieldOffset(13568)]
+		[FieldOffset(53)]
 		public byte Audio4_53;
-		[FieldOffset(13824)]
+		[FieldOffset(54)]
 		public byte Audio4_54;
-		[FieldOffset(14080)]
+		[FieldOffset(55)]
 		public byte Audio4_55;
-		[FieldOffset(14336)]
+		[FieldOffset(56)]
 		public byte Audio4_56;
-		[FieldOffset(14592)]
+		[FieldOffset(57)]
 		public byte Audio4_57;
-		[FieldOffset(14848)]
+		[FieldOffset(58)]
 		public byte Audio4_58;
-		[FieldOffset(15104)]
+		[FieldOffset(59)]
 		public byte Audio4_59;
-		[FieldOffset(15360)]
+		[FieldOffset(60)]
 		public byte Audio4_60;
-		[FieldOffset(15616)]
+		[FieldOffset(61)]
 		public byte Audio4_61;
-		[FieldOffset(15872)]
+		[FieldOffset(62)]
 		public byte Audio4_62;
-		[FieldOffset(16128)]
+		[FieldOffset(63)]
 		public byte Audio4_63;
-		[FieldOffset(16384)]
+		[FieldOffset(64)]
 		public byte Audio4_64;
-		[FieldOffset(16640)]
+		[FieldOffset(65)]
 		public byte Audio4_65;
-		[FieldOffset(16896)]
+		[FieldOffset(66)]
 		public byte Audio4_66;
-		[FieldOffset(17152)]
+		[FieldOffset(67)]
 		public byte Audio4_67;
-		[FieldOffset(17408)]
+		[FieldOffset(68)]
 		public byte Audio4_68;
-		[FieldOffset(17664)]
+		[FieldOffset(69)]
 		public byte Audio4_69;
-		[FieldOffset(17920)]
+		[FieldOffset(70)]
 		public byte Audio4_70;
-		[FieldOffset(18176)]
+		[FieldOffset(71)]
 		public byte Audio4_71;
-		[FieldOffset(18432)]
+		[FieldOffset(72)]
 		public byte Audio4_72;
-		[FieldOffset(18688)]
+		[FieldOffset(73)]
 		public byte Audio4_73;
-		[FieldOffset(18944)]
+		[FieldOffset(74)]
 		public byte Audio4_74;
-		[FieldOffset(19200)]
+		[FieldOffset(75)]
 		public byte Audio4_75;
-		[FieldOffset(19456)]
+		[FieldOffset(76)]
 		public byte Audio4_76;
-		[FieldOffset(19712)]
+		[FieldOffset(77)]
 		public byte Audio4_77;
-		[FieldOffset(19968)]
+		[FieldOffset(78)]
 		public byte Audio4_78;
-		[FieldOffset(20224)]
+		[FieldOffset(79)]
 		public byte Audio4_79;
-		[FieldOffset(20480)]
+		[FieldOffset(80)]
 		public byte Audio4_80;
-		[FieldOffset(20736)]
+		[FieldOffset(81)]
 		public byte Audio4_81;
-		[FieldOffset(20992)]
+		[FieldOffset(82)]
 		public byte Audio4_82;
-		[FieldOffset(21248)]
+		[FieldOffset(83)]
 		public byte Audio4_83;
-		[FieldOffset(21504)]
+		[FieldOffset(84)]
 		public byte Audio4_84;
-		[FieldOffset(21760)]
+		[FieldOffset(85)]
 		public byte Audio4_85;
-		[FieldOffset(22016)]
+		[FieldOffset(86)]
 		public byte Audio4_86;
-		[FieldOffset(22272)]
+		[FieldOffset(87)]
 		public byte Audio4_87;
-		[FieldOffset(22528)]
+		[FieldOffset(88)]
 		public byte Audio4_88;
-		[FieldOffset(22784)]
+		[FieldOffset(89)]
 		public byte Audio4_89;
-		[FieldOffset(23040)]
+		[FieldOffset(90)]
 		public byte Audio4_90;
-		[FieldOffset(23296)]
+		[FieldOffset(91)]
 		public byte Audio4_91;
-		[FieldOffset(23552)]
+		[FieldOffset(92)]
 		public byte Audio4_92;
-		[FieldOffset(23808)]
+		[FieldOffset(93)]
 		public byte Audio4_93;
-		[FieldOffset(24064)]
+		[FieldOffset(94)]
 		public byte Audio4_94;
-		[FieldOffset(24320)]
+		[FieldOffset(95)]
 		public byte Audio4_95;
-		[FieldOffset(24576)]
+		[FieldOffset(96)]
 		public byte Audio4_96;
-		[FieldOffset(24832)]
+		[FieldOffset(97)]
 		public byte Audio4_97;
-		[FieldOffset(25088)]
+		[FieldOffset(98)]
 		public byte Audio4_98;
-		[FieldOffset(25344)]
+		[FieldOffset(99)]
 		public byte Audio4_99;
-		[FieldOffset(25600)]
+		[FieldOffset(100)]
 		public byte Audio4_100;
-		[FieldOffset(25856)]
+		[FieldOffset(101)]
 		public byte Audio4_101;
-		[FieldOffset(26112)]
+		[FieldOffset(102)]
 		public byte Audio4_102;
-		[FieldOffset(26368)]
+		[FieldOffset(103)]
 		public byte Audio4_103;
-		[FieldOffset(26624)]
+		[FieldOffset(104)]
 		public byte Audio4_104;
-		[FieldOffset(26880)]
+		[FieldOffset(105)]
 		public byte Audio4_105;
-		[FieldOffset(27136)]
+		[FieldOffset(106)]
 		public byte Audio4_106;
-		[FieldOffset(27392)]
+		[FieldOffset(107)]
 		public byte Audio4_107;
-		[FieldOffset(27648)]
+		[FieldOffset(108)]
 		public byte Audio4_108;
-		[FieldOffset(27904)]
+		[FieldOffset(109)]
 		public byte Audio4_109;
-		[FieldOffset(28160)]
+		[FieldOffset(110)]
 		public byte Audio4_110;
-		[FieldOffset(28416)]
+		[FieldOffset(111)]
 		public byte Audio4_111;
-		[FieldOffset(28672)]
+		[FieldOffset(112)]
 		public byte Audio4_112;
-		[FieldOffset(28928)]
+		[FieldOffset(113)]
 		public byte Audio4_113;
-		[FieldOffset(29184)]
+		[FieldOffset(114)]
 		public byte Audio4_114;
-		[FieldOffset(29440)]
+		[FieldOffset(115)]
 		public byte Audio4_115;
-		[FieldOffset(29696)]
+		[FieldOffset(116)]
 		public byte Audio4_116;
-		[FieldOffset(29952)]
+		[FieldOffset(117)]
 		public byte Audio4_117;
-		[FieldOffset(30208)]
+		[FieldOffset(118)]
 		public byte Audio4_118;
-		[FieldOffset(30464)]
+		[FieldOffset(119)]
 		public byte Audio4_119;
-		[FieldOffset(30720)]
+		[FieldOffset(120)]
 		public byte Audio4_120;
-		[FieldOffset(30976)]
+		[FieldOffset(121)]
 		public byte Audio4_121;
-		[FieldOffset(31232)]
+		[FieldOffset(122)]
 		public byte Audio4_122;
-		[FieldOffset(31488)]
+		[FieldOffset(123)]
 		public byte Audio4_123;
-		[FieldOffset(31744)]
+		[FieldOffset(124)]
 		public byte Audio4_124;
-		[FieldOffset(32000)]
+		[FieldOffset(125)]
 		public byte Audio4_125;
-		[FieldOffset(32256)]
+		[FieldOffset(126)]
 		public byte Audio4_126;
-		[FieldOffset(32512)]
+		[FieldOffset(127)]
 		public byte Audio4_127;
-		[FieldOffset(32768)]
+		[FieldOffset(128)]
 		public byte Audio4_128;
-		[FieldOffset(33024)]
+		[FieldOffset(129)]
 		public byte Audio4_129;
-		[FieldOffset(33280)]
+		[FieldOffset(130)]
 		public byte Audio4_130;
-		[FieldOffset(33536)]
+		[FieldOffset(131)]
 		public byte Audio4_131;
-		[FieldOffset(33792)]
+		[FieldOffset(132)]
 		public byte Audio4_132;
-		[FieldOffset(34048)]
+		[FieldOffset(133)]
 		public byte Audio4_133;
-		[FieldOffset(34304)]
+		[FieldOffset(134)]
 		public byte Audio4_134;
-		[FieldOffset(34560)]
+		[FieldOffset(135)]
 		public byte Audio4_135;
-		[FieldOffset(34816)]
+		[FieldOffset(136)]
 		public byte Audio4_136;
-		[FieldOffset(35072)]
+		[FieldOffset(137)]
 		public byte Audio4_137;
-		[FieldOffset(35328)]
+		[FieldOffset(138)]
 		public byte Audio4_138;
-		[FieldOffset(35584)]
+		[FieldOffset(139)]
 		public byte Audio4_139;
-		[FieldOffset(35840)]
+		[FieldOffset(140)]
 		public byte Audio4_140;
-		[FieldOffset(36096)]
+		[FieldOffset(141)]
 		public byte Audio4_141;
-		[FieldOffset(36352)]
+		[FieldOffset(142)]
 		public byte Audio4_142;
-		[FieldOffset(36608)]
+		[FieldOffset(143)]
 		public byte Audio4_143;
-		[FieldOffset(36864)]
+		[FieldOffset(144)]
 		public byte Audio4_144;
-		[FieldOffset(37120)]
+		[FieldOffset(145)]
 		public byte Audio4_145;
-		[FieldOffset(37376)]
+		[FieldOffset(146)]
 		public byte Audio4_146;
-		[FieldOffset(37632)]
+		[FieldOffset(147)]
 		public byte Audio4_147;
-		[FieldOffset(37888)]
+		[FieldOffset(148)]
 		public byte Audio4_148;
-		[FieldOffset(38144)]
+		[FieldOffset(149)]
 		public byte Audio4_149;
-		[FieldOffset(38400)]
+		[FieldOffset(150)]
 		public byte Audio4_150;
-		[FieldOffset(38656)]
+		[FieldOffset(151)]
 		public byte Audio4_151;
-		[FieldOffset(38912)]
+		[FieldOffset(152)]
 		public byte Audio4_152;
-		[FieldOffset(39168)]
+		[FieldOffset(153)]
 		public byte Audio4_153;
-		[FieldOffset(39424)]
+		[FieldOffset(154)]
 		public byte Audio4_154;
-		[FieldOffset(39680)]
+		[FieldOffset(155)]
 		public byte Audio4_155;
-		[FieldOffset(39936)]
+		[FieldOffset(156)]
 		public byte Audio4_156;
-		[FieldOffset(40192)]
+		[FieldOffset(157)]
 		public byte Audio4_157;
-		[FieldOffset(40448)]
+		[FieldOffset(158)]
 		public byte Audio4_158;
-		[FieldOffset(40704)]
+		[FieldOffset(159)]
 		public byte Audio4_159;
-		[FieldOffset(40960)]
+		[FieldOffset(160)]
 		public byte Audio4_160;
-		[FieldOffset(41216)]
+		[FieldOffset(161)]
 		public byte Audio4_161;
-		[FieldOffset(41472)]
+		[FieldOffset(162)]
 		public byte Audio4_162;
-		[FieldOffset(41728)]
+		[FieldOffset(163)]
 		public byte Audio4_163;
-		[FieldOffset(41984)]
+		[FieldOffset(164)]
 		public byte Audio4_164;
-		[FieldOffset(42240)]
+		[FieldOffset(165)]
 		public byte Audio4_165;
-		[FieldOffset(42496)]
+		[FieldOffset(166)]
 		public byte Audio4_166;
-		[FieldOffset(42752)]
+		[FieldOffset(167)]
 		public byte Audio4_167;
-		[FieldOffset(43008)]
+		[FieldOffset(168)]
 		public byte Audio4_168;
-		[FieldOffset(43264)]
+		[FieldOffset(169)]
 		public byte Audio4_169;
-		[FieldOffset(43520)]
+		[FieldOffset(170)]
 		public byte Audio4_170;
-		[FieldOffset(43776)]
+		[FieldOffset(171)]
 		public byte Audio4_171;
-		[FieldOffset(44032)]
+		[FieldOffset(172)]
 		public byte Audio4_172;
-		[FieldOffset(44288)]
+		[FieldOffset(173)]
 		public byte Audio4_173;
-		[FieldOffset(44544)]
+		[FieldOffset(174)]
 		public byte Audio4_174;
-		[FieldOffset(44800)]
+		[FieldOffset(175)]
 		public byte Audio4_175;
-		[FieldOffset(45056)]
+		[FieldOffset(176)]
 		public byte Audio4_176;
-		[FieldOffset(45312)]
+		[FieldOffset(177)]
 		public byte Audio4_177;
-		[FieldOffset(45568)]
+		[FieldOffset(178)]
 		public byte Audio4_178;
-		[FieldOffset(45824)]
+		[FieldOffset(179)]
 		public byte Audio4_179;
-		[FieldOffset(46080)]
+		[FieldOffset(180)]
 		public byte Audio4_180;
-		[FieldOffset(46336)]
+		[FieldOffset(181)]
 		public byte Audio4_181;
-		[FieldOffset(46592)]
+		[FieldOffset(182)]
 		public byte Audio4_182;
-		[FieldOffset(46848)]
+		[FieldOffset(183)]
 		public byte Audio4_183;
-		[FieldOffset(47104)]
+		[FieldOffset(184)]
 		public byte Audio4_184;
-		[FieldOffset(47360)]
+		[FieldOffset(185)]
 		public byte Audio4_185;
-		[FieldOffset(47616)]
+		[FieldOffset(186)]
 		public byte Audio4_186;
-		[FieldOffset(47872)]
+		[FieldOffset(187)]
 		public byte Audio4_187;
-		[FieldOffset(48128)]
+		[FieldOffset(188)]
 		public byte Audio4_188;
-		[FieldOffset(48384)]
+		[FieldOffset(189)]
 		public byte Audio4_189;
-		[FieldOffset(48640)]
+		[FieldOffset(190)]
 		public byte Audio4_190;
-		[FieldOffset(48896)]
+		[FieldOffset(191)]
 		public byte Audio4_191;
-		[FieldOffset(49152)]
+		[FieldOffset(192)]
 		public byte Audio4_192;
-		[FieldOffset(49408)]
+		[FieldOffset(193)]
 		public byte Audio4_193;
-		[FieldOffset(49664)]
+		[FieldOffset(194)]
 		public byte Audio4_194;
-		[FieldOffset(49920)]
+		[FieldOffset(195)]
 		public byte Audio4_195;
-		[FieldOffset(50176)]
+		[FieldOffset(196)]
 		public byte Audio4_196;
-		[FieldOffset(50432)]
+		[FieldOffset(197)]
 		public byte Audio4_197;
-		[FieldOffset(50688)]
+		[FieldOffset(198)]
 		public byte Audio4_198;
-		[FieldOffset(50944)]
+		[FieldOffset(199)]
 		public byte Audio4_199;
-		[FieldOffset(51200)]
+		[FieldOffset(200)]
 		public byte Audio4_200;
-		[FieldOffset(51456)]
+		[FieldOffset(201)]
 		public byte Audio4_201;
-		[FieldOffset(51712)]
+		[FieldOffset(202)]
 		public byte Audio4_202;
-		[FieldOffset(51968)]
+		[FieldOffset(203)]
 		public byte Audio4_203;
-		[FieldOffset(52224)]
+		[FieldOffset(204)]
 		public byte Audio4_204;
-		[FieldOffset(52480)]
+		[FieldOffset(205)]
 		public byte Audio4_205;
-		[FieldOffset(52736)]
+		[FieldOffset(206)]
 		public byte Audio4_206;
-		[FieldOffset(52992)]
+		[FieldOffset(207)]
 		public byte Audio4_207;
-		[FieldOffset(53248)]
+		[FieldOffset(208)]
 		public byte Audio4_208;
-		[FieldOffset(53504)]
+		[FieldOffset(209)]
 		public byte Audio4_209;
-		[FieldOffset(53760)]
+		[FieldOffset(210)]
 		public byte Audio4_210;
-		[FieldOffset(54016)]
+		[FieldOffset(211)]
 		public byte Audio4_211;
-		[FieldOffset(54272)]
+		[FieldOffset(212)]
 		public byte Audio4_212;
-		[FieldOffset(54528)]
+		[FieldOffset(213)]
 		public byte Audio4_213;
-		[FieldOffset(54784)]
+		[FieldOffset(214)]
 		public byte Audio4_214;
-		[FieldOffset(55040)]
+		[FieldOffset(215)]
 		public byte Audio4_215;
-		[FieldOffset(55296)]
+		[FieldOffset(216)]
 		public byte Audio4_216;
-		[FieldOffset(55552)]
+		[FieldOffset(217)]
 		public byte Audio4_217;
-		[FieldOffset(55808)]
+		[FieldOffset(218)]
 		public byte Audio4_218;
-		[FieldOffset(56064)]
+		[FieldOffset(219)]
 		public byte Audio4_219;
-		[FieldOffset(56320)]
+		[FieldOffset(220)]
 		public byte Audio4_220;
-		[FieldOffset(56576)]
+		[FieldOffset(221)]
 		public byte Audio4_221;
-		[FieldOffset(56832)]
+		[FieldOffset(222)]
 		public byte Audio4_222;
-		[FieldOffset(57088)]
+		[FieldOffset(223)]
 		public byte Audio4_223;
-		[FieldOffset(57344)]
+		[FieldOffset(224)]
 		public byte Audio4_224;
-		[FieldOffset(57600)]
+		[FieldOffset(225)]
 		public byte Audio4_225;
-		[FieldOffset(57856)]
+		[FieldOffset(226)]
 		public byte Audio4_226;
-		[FieldOffset(58112)]
+		[FieldOffset(227)]
 		public byte Audio4_227;
-		[FieldOffset(58368)]
+		[FieldOffset(228)]
 		public byte Audio4_228;
-		[FieldOffset(58624)]
+		[FieldOffset(229)]
 		public byte Audio4_229;
-		[FieldOffset(58880)]
+		[FieldOffset(230)]
 		public byte Audio4_230;
-		[FieldOffset(59136)]
+		[FieldOffset(231)]
 		public byte Audio4_231;
-		[FieldOffset(59392)]
+		[FieldOffset(232)]
 		public byte Audio4_232;
-		[FieldOffset(59648)]
+		[FieldOffset(233)]
 		public byte Audio4_233;
-		[FieldOffset(59904)]
+		[FieldOffset(234)]
 		public byte Audio4_234;
-		[FieldOffset(60160)]
+		[FieldOffset(235)]
 		public byte Audio4_235;
-		[FieldOffset(60416)]
+		[FieldOffset(236)]
 		public byte Audio4_236;
-		[FieldOffset(60672)]
+		[FieldOffset(237)]
 		public byte Audio4_237;
-		[FieldOffset(60928)]
+		[FieldOffset(238)]
 		public byte Audio4_238;
-		[FieldOffset(61184)]
+		[FieldOffset(239)]
 		public byte Audio4_239;
-		[FieldOffset(61440)]
+		[FieldOffset(240)]
 		public byte Audio4_240;
-		[FieldOffset(61696)]
+		[FieldOffset(241)]
 		public byte Audio4_241;
-		[FieldOffset(61952)]
+		[FieldOffset(242)]
 		public byte Audio4_242;
-		[FieldOffset(62208)]
+		[FieldOffset(243)]
 		public byte Audio4_243;
-		[FieldOffset(62464)]
+		[FieldOffset(244)]
 		public byte Audio4_244;
-		[FieldOffset(62720)]
+		[FieldOffset(245)]
 		public byte Audio4_245;
-		[FieldOffset(62976)]
+		[FieldOffset(246)]
 		public byte Audio4_246;
-		[FieldOffset(63232)]
+		[FieldOffset(247)]
 		public byte Audio4_247;
-		[FieldOffset(63488)]
+		[FieldOffset(248)]
 		public byte Audio4_248;
-		[FieldOffset(63744)]
+		[FieldOffset(249)]
 		public byte Audio4_249;
-		[FieldOffset(64000)]
+		[FieldOffset(250)]
 		public byte Audio4_250;
-		[FieldOffset(64256)]
+		[FieldOffset(251)]
 		public byte Audio4_251;
-		[FieldOffset(64512)]
+		[FieldOffset(252)]
 		public byte Audio4_252;
-		[FieldOffset(64768)]
+		[FieldOffset(253)]
 		public byte Audio4_253;
-		[FieldOffset(65024)]
+		[FieldOffset(254)]
 		public byte Audio4_254;
-		[FieldOffset(65280)]
+		[FieldOffset(255)]
 		public byte Audio4_255;
 
 		/// <summary>
@@ -3836,131 +3836,131 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Oss_0;
-		[FieldOffset(64)]
+		[FieldOffset(1)]
 		public byte Oss_1;
-		[FieldOffset(128)]
+		[FieldOffset(2)]
 		public byte Oss_2;
-		[FieldOffset(192)]
+		[FieldOffset(3)]
 		public byte Oss_3;
-		[FieldOffset(256)]
+		[FieldOffset(4)]
 		public byte Oss_4;
-		[FieldOffset(320)]
+		[FieldOffset(5)]
 		public byte Oss_5;
-		[FieldOffset(384)]
+		[FieldOffset(6)]
 		public byte Oss_6;
-		[FieldOffset(448)]
+		[FieldOffset(7)]
 		public byte Oss_7;
-		[FieldOffset(512)]
+		[FieldOffset(8)]
 		public byte Oss_8;
-		[FieldOffset(576)]
+		[FieldOffset(9)]
 		public byte Oss_9;
-		[FieldOffset(640)]
+		[FieldOffset(10)]
 		public byte Oss_10;
-		[FieldOffset(704)]
+		[FieldOffset(11)]
 		public byte Oss_11;
-		[FieldOffset(768)]
+		[FieldOffset(12)]
 		public byte Oss_12;
-		[FieldOffset(832)]
+		[FieldOffset(13)]
 		public byte Oss_13;
-		[FieldOffset(896)]
+		[FieldOffset(14)]
 		public byte Oss_14;
-		[FieldOffset(960)]
+		[FieldOffset(15)]
 		public byte Oss_15;
-		[FieldOffset(1024)]
+		[FieldOffset(16)]
 		public byte Oss_16;
-		[FieldOffset(1088)]
+		[FieldOffset(17)]
 		public byte Oss_17;
-		[FieldOffset(1152)]
+		[FieldOffset(18)]
 		public byte Oss_18;
-		[FieldOffset(1216)]
+		[FieldOffset(19)]
 		public byte Oss_19;
-		[FieldOffset(1280)]
+		[FieldOffset(20)]
 		public byte Oss_20;
-		[FieldOffset(1344)]
+		[FieldOffset(21)]
 		public byte Oss_21;
-		[FieldOffset(1408)]
+		[FieldOffset(22)]
 		public byte Oss_22;
-		[FieldOffset(1472)]
+		[FieldOffset(23)]
 		public byte Oss_23;
-		[FieldOffset(1536)]
+		[FieldOffset(24)]
 		public byte Oss_24;
-		[FieldOffset(1600)]
+		[FieldOffset(25)]
 		public byte Oss_25;
-		[FieldOffset(1664)]
+		[FieldOffset(26)]
 		public byte Oss_26;
-		[FieldOffset(1728)]
+		[FieldOffset(27)]
 		public byte Oss_27;
-		[FieldOffset(1792)]
+		[FieldOffset(28)]
 		public byte Oss_28;
-		[FieldOffset(1856)]
+		[FieldOffset(29)]
 		public byte Oss_29;
-		[FieldOffset(1920)]
+		[FieldOffset(30)]
 		public byte Oss_30;
-		[FieldOffset(1984)]
+		[FieldOffset(31)]
 		public byte Oss_31;
-		[FieldOffset(2048)]
+		[FieldOffset(32)]
 		public byte Oss_32;
-		[FieldOffset(2112)]
+		[FieldOffset(33)]
 		public byte Oss_33;
-		[FieldOffset(2176)]
+		[FieldOffset(34)]
 		public byte Oss_34;
-		[FieldOffset(2240)]
+		[FieldOffset(35)]
 		public byte Oss_35;
-		[FieldOffset(2304)]
+		[FieldOffset(36)]
 		public byte Oss_36;
-		[FieldOffset(2368)]
+		[FieldOffset(37)]
 		public byte Oss_37;
-		[FieldOffset(2432)]
+		[FieldOffset(38)]
 		public byte Oss_38;
-		[FieldOffset(2496)]
+		[FieldOffset(39)]
 		public byte Oss_39;
-		[FieldOffset(2560)]
+		[FieldOffset(40)]
 		public byte Oss_40;
-		[FieldOffset(2624)]
+		[FieldOffset(41)]
 		public byte Oss_41;
-		[FieldOffset(2688)]
+		[FieldOffset(42)]
 		public byte Oss_42;
-		[FieldOffset(2752)]
+		[FieldOffset(43)]
 		public byte Oss_43;
-		[FieldOffset(2816)]
+		[FieldOffset(44)]
 		public byte Oss_44;
-		[FieldOffset(2880)]
+		[FieldOffset(45)]
 		public byte Oss_45;
-		[FieldOffset(2944)]
+		[FieldOffset(46)]
 		public byte Oss_46;
-		[FieldOffset(3008)]
+		[FieldOffset(47)]
 		public byte Oss_47;
-		[FieldOffset(3072)]
+		[FieldOffset(48)]
 		public byte Oss_48;
-		[FieldOffset(3136)]
+		[FieldOffset(49)]
 		public byte Oss_49;
-		[FieldOffset(3200)]
+		[FieldOffset(50)]
 		public byte Oss_50;
-		[FieldOffset(3264)]
+		[FieldOffset(51)]
 		public byte Oss_51;
-		[FieldOffset(3328)]
+		[FieldOffset(52)]
 		public byte Oss_52;
-		[FieldOffset(3392)]
+		[FieldOffset(53)]
 		public byte Oss_53;
-		[FieldOffset(3456)]
+		[FieldOffset(54)]
 		public byte Oss_54;
-		[FieldOffset(3520)]
+		[FieldOffset(55)]
 		public byte Oss_55;
-		[FieldOffset(3584)]
+		[FieldOffset(56)]
 		public byte Oss_56;
-		[FieldOffset(3648)]
+		[FieldOffset(57)]
 		public byte Oss_57;
-		[FieldOffset(3712)]
+		[FieldOffset(58)]
 		public byte Oss_58;
-		[FieldOffset(3776)]
+		[FieldOffset(59)]
 		public byte Oss_59;
-		[FieldOffset(3840)]
+		[FieldOffset(60)]
 		public byte Oss_60;
-		[FieldOffset(3904)]
+		[FieldOffset(61)]
 		public byte Oss_61;
-		[FieldOffset(3968)]
+		[FieldOffset(62)]
 		public byte Oss_62;
-		[FieldOffset(4032)]
+		[FieldOffset(63)]
 		public byte Oss_63;
 
 		/// <summary>
@@ -3980,74 +3980,74 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		[FieldOffset(0)]
 		public byte Webaudio_0;
-		[FieldOffset(32)]
+		[FieldOffset(1)]
 		public byte Webaudio_1;
-		[FieldOffset(64)]
+		[FieldOffset(2)]
 		public byte Webaudio_2;
-		[FieldOffset(96)]
+		[FieldOffset(3)]
 		public byte Webaudio_3;
-		[FieldOffset(128)]
+		[FieldOffset(4)]
 		public byte Webaudio_4;
-		[FieldOffset(160)]
+		[FieldOffset(5)]
 		public byte Webaudio_5;
-		[FieldOffset(192)]
+		[FieldOffset(6)]
 		public byte Webaudio_6;
-		[FieldOffset(224)]
+		[FieldOffset(7)]
 		public byte Webaudio_7;
-		[FieldOffset(256)]
+		[FieldOffset(8)]
 		public byte Webaudio_8;
-		[FieldOffset(288)]
+		[FieldOffset(9)]
 		public byte Webaudio_9;
-		[FieldOffset(320)]
+		[FieldOffset(10)]
 		public byte Webaudio_10;
-		[FieldOffset(352)]
+		[FieldOffset(11)]
 		public byte Webaudio_11;
-		[FieldOffset(384)]
+		[FieldOffset(12)]
 		public byte Webaudio_12;
-		[FieldOffset(416)]
+		[FieldOffset(13)]
 		public byte Webaudio_13;
-		[FieldOffset(448)]
+		[FieldOffset(14)]
 		public byte Webaudio_14;
-		[FieldOffset(480)]
+		[FieldOffset(15)]
 		public byte Webaudio_15;
-		[FieldOffset(512)]
+		[FieldOffset(16)]
 		public byte Webaudio_16;
-		[FieldOffset(544)]
+		[FieldOffset(17)]
 		public byte Webaudio_17;
-		[FieldOffset(576)]
+		[FieldOffset(18)]
 		public byte Webaudio_18;
-		[FieldOffset(608)]
+		[FieldOffset(19)]
 		public byte Webaudio_19;
-		[FieldOffset(640)]
+		[FieldOffset(20)]
 		public byte Webaudio_20;
-		[FieldOffset(672)]
+		[FieldOffset(21)]
 		public byte Webaudio_21;
-		[FieldOffset(704)]
+		[FieldOffset(22)]
 		public byte Webaudio_22;
-		[FieldOffset(736)]
+		[FieldOffset(23)]
 		public byte Webaudio_23;
-		[FieldOffset(768)]
+		[FieldOffset(24)]
 		public byte Webaudio_24;
-		[FieldOffset(800)]
+		[FieldOffset(25)]
 		public byte Webaudio_25;
-		[FieldOffset(832)]
+		[FieldOffset(26)]
 		public byte Webaudio_26;
-		[FieldOffset(864)]
+		[FieldOffset(27)]
 		public byte Webaudio_27;
-		[FieldOffset(896)]
+		[FieldOffset(28)]
 		public byte Webaudio_28;
-		[FieldOffset(928)]
+		[FieldOffset(29)]
 		public byte Webaudio_29;
-		[FieldOffset(960)]
+		[FieldOffset(30)]
 		public byte Webaudio_30;
-		[FieldOffset(992)]
+		[FieldOffset(31)]
 		public byte Webaudio_31;
 
 		/// <summary>
 		/// The custom backend could be anything. Give them a few options. <br/>
 		/// </summary>
 		[FieldOffset(0)]
-		public CustomUnion Union;
+		public CustomAnonymous Union;
 
 		/// <summary>
 		/// The null backend uses an integer for device IDs. <br/>
@@ -4056,7 +4056,7 @@ namespace Hexa.NET.MiniAudio
 		public int Nullbackend;
 
 
-		public unsafe MaDeviceId(char* wasapi = default, byte* dsound = default, uint winmm = default, byte* alsa = default, byte* pulse = default, int jack = default, byte* coreaudio = default, byte* sndio = default, byte* audio4 = default, byte* oss = default, int aaudio = default, uint opensl = default, byte* webaudio = default, CustomUnion union = default, int nullbackend = default)
+		public unsafe MaDeviceId(char* wasapi = default, byte* dsound = default, uint winmm = default, byte* alsa = default, byte* pulse = default, int jack = default, byte* coreaudio = default, byte* sndio = default, byte* audio4 = default, byte* oss = default, int aaudio = default, uint opensl = default, byte* webaudio = default, CustomAnonymous union = default, int nullbackend = default)
 		{
 			if (wasapi != default(char*))
 			{
@@ -5549,7 +5549,7 @@ namespace Hexa.NET.MiniAudio
 			Nullbackend = nullbackend;
 		}
 
-		public unsafe MaDeviceId(Span<char> wasapi = default, Span<byte> dsound = default, uint winmm = default, Span<byte> alsa = default, Span<byte> pulse = default, int jack = default, Span<byte> coreaudio = default, Span<byte> sndio = default, Span<byte> audio4 = default, Span<byte> oss = default, int aaudio = default, uint opensl = default, Span<byte> webaudio = default, CustomUnion union = default, int nullbackend = default)
+		public unsafe MaDeviceId(Span<char> wasapi = default, Span<byte> dsound = default, uint winmm = default, Span<byte> alsa = default, Span<byte> pulse = default, int jack = default, Span<byte> coreaudio = default, Span<byte> sndio = default, Span<byte> audio4 = default, Span<byte> oss = default, int aaudio = default, uint opensl = default, Span<byte> webaudio = default, CustomAnonymous union = default, int nullbackend = default)
 		{
 			if (wasapi != default(Span<char>))
 			{
@@ -7201,7 +7201,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// The custom backend could be anything. Give them a few options. <br/>
 		/// </summary>
-		public ref MaDeviceId.CustomUnion Union => ref Unsafe.AsRef<MaDeviceId.CustomUnion>(&Handle->Union);
+		public ref MaDeviceId.CustomAnonymous Union => ref Unsafe.AsRef<MaDeviceId.CustomAnonymous>(&Handle->Union);
 		/// <summary>
 		/// The null backend uses an integer for device IDs. <br/>
 		/// </summary>

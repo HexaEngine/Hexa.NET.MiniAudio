@@ -19,11 +19,11 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaResamplerConfig
 	{
 		[StructLayout(LayoutKind.Sequential)]
-		public partial struct LinearUnion
+		public partial struct LinearAnonymous
 		{
 			public uint LpfOrder;
 
-			public unsafe LinearUnion(uint lpfOrder = default)
+			public unsafe LinearAnonymous(uint lpfOrder = default)
 			{
 				LpfOrder = lpfOrder;
 			}
@@ -46,9 +46,9 @@ namespace Hexa.NET.MiniAudio
 
 		public unsafe MaResamplingBackendVtable* PBackendVTable;
 		public unsafe void* PBackendUserData;
-		public LinearUnion Linear;
+		public LinearAnonymous Linear;
 
-		public unsafe MaResamplerConfig(MaFormat format = default, uint channels = default, uint sampleRateIn = default, uint sampleRateOut = default, MaResampleAlgorithm algorithm = default, MaResamplingBackendVtable* pBackendVTable = default, void* pBackendUserData = default, LinearUnion linear = default)
+		public unsafe MaResamplerConfig(MaFormat format = default, uint channels = default, uint sampleRateIn = default, uint sampleRateOut = default, MaResampleAlgorithm algorithm = default, MaResamplingBackendVtablePtr pBackendVTable = default, void* pBackendUserData = default, LinearAnonymous linear = default)
 		{
 			Format = format;
 			Channels = channels;
@@ -114,7 +114,7 @@ namespace Hexa.NET.MiniAudio
 		public ref MaResampleAlgorithm Algorithm => ref Unsafe.AsRef<MaResampleAlgorithm>(&Handle->Algorithm);
 		public ref MaResamplingBackendVtablePtr PBackendVTable => ref Unsafe.AsRef<MaResamplingBackendVtablePtr>(&Handle->PBackendVTable);
 		public void* PBackendUserData { get => Handle->PBackendUserData; set => Handle->PBackendUserData = value; }
-		public ref MaResamplerConfig.LinearUnion Linear => ref Unsafe.AsRef<MaResamplerConfig.LinearUnion>(&Handle->Linear);
+		public ref MaResamplerConfig.LinearAnonymous Linear => ref Unsafe.AsRef<MaResamplerConfig.LinearAnonymous>(&Handle->Linear);
 	}
 
 }

@@ -19,10 +19,10 @@ namespace Hexa.NET.MiniAudio
 	public partial struct MaJob
 	{
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct TocUnion
+		public partial struct TocAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct BreakupUnion
+			public partial struct BreakupAnonymous
 			{
 				/// <summary>
 				/// Job type. <br/>
@@ -36,7 +36,7 @@ namespace Hexa.NET.MiniAudio
 
 				public uint Refcount;
 
-				public unsafe BreakupUnion(ushort code = default, ushort slot = default, uint refcount = default)
+				public unsafe BreakupAnonymous(ushort code = default, ushort slot = default, uint refcount = default)
 				{
 					Code = code;
 					Slot = slot;
@@ -47,11 +47,11 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public BreakupUnion Breakup;
+			public BreakupAnonymous Breakup;
 			[FieldOffset(0)]
 			public ulong Allocation;
 
-			public unsafe TocUnion(BreakupUnion breakup = default, ulong allocation = default)
+			public unsafe TocAnonymous(BreakupAnonymous breakup = default, ulong allocation = default)
 			{
 				Breakup = breakup;
 				Allocation = allocation;
@@ -61,16 +61,16 @@ namespace Hexa.NET.MiniAudio
 		}
 
 		[StructLayout(LayoutKind.Explicit)]
-		public partial struct DataUnion
+		public partial struct DataAnonymous
 		{
 			[StructLayout(LayoutKind.Sequential)]
-			public partial struct CustomUnion
+			public partial struct CustomAnonymous
 			{
 				public unsafe void* Proc;
 				public ulong Data0;
 				public ulong Data1;
 
-				public unsafe CustomUnion(delegate*<MaJob*, MaResult> proc = default, ulong data0 = default, ulong data1 = default)
+				public unsafe CustomAnonymous(delegate*<MaJob*, MaResult> proc = default, ulong data0 = default, ulong data1 = default)
 				{
 					Proc = (delegate*<MaJob*, MaResult>)proc;
 					Data0 = data0;
@@ -81,10 +81,10 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Explicit)]
-			public partial struct ResourceManagerUnion
+			public partial struct ResourceManagerAnonymous
 			{
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct LoadDataBufferNodeUnion
+				public partial struct LoadDataBufferNodeAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager*<br/>
@@ -124,7 +124,7 @@ namespace Hexa.NET.MiniAudio
 					public unsafe MaFence* PDoneFence;
 
 
-					public unsafe LoadDataBufferNodeUnion(void* pResourceManager = default, void* pDataBufferNode = default, byte* pFilePath = default, char* pFilePathW = default, uint flags = default, void* pInitNotification = default, void* pDoneNotification = default, MaFencePtr pInitFence = default, MaFencePtr pDoneFence = default)
+					public unsafe LoadDataBufferNodeAnonymous(void* pResourceManager = default, void* pDataBufferNode = default, byte* pFilePath = default, char* pFilePathW = default, uint flags = default, void* pInitNotification = default, void* pDoneNotification = default, MaFencePtr pInitFence = default, MaFencePtr pDoneFence = default)
 					{
 						PResourceManager = pResourceManager;
 						PDataBufferNode = pDataBufferNode;
@@ -141,7 +141,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct FreeDataBufferNodeUnion
+				public partial struct FreeDataBufferNodeAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager*<br/>
@@ -156,7 +156,7 @@ namespace Hexa.NET.MiniAudio
 					public unsafe void* PDoneNotification;
 					public unsafe MaFence* PDoneFence;
 
-					public unsafe FreeDataBufferNodeUnion(void* pResourceManager = default, void* pDataBufferNode = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
+					public unsafe FreeDataBufferNodeAnonymous(void* pResourceManager = default, void* pDataBufferNode = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
 					{
 						PResourceManager = pResourceManager;
 						PDataBufferNode = pDataBufferNode;
@@ -168,7 +168,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct PageDataBufferNodeUnion
+				public partial struct PageDataBufferNodeAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager*<br/>
@@ -196,7 +196,7 @@ namespace Hexa.NET.MiniAudio
 					public unsafe MaFence* PDoneFence;
 
 
-					public unsafe PageDataBufferNodeUnion(void* pResourceManager = default, void* pDataBufferNode = default, void* pDecoder = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
+					public unsafe PageDataBufferNodeAnonymous(void* pResourceManager = default, void* pDataBufferNode = default, void* pDecoder = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
 					{
 						PResourceManager = pResourceManager;
 						PDataBufferNode = pDataBufferNode;
@@ -209,7 +209,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct LoadDataBufferUnion
+				public partial struct LoadDataBufferAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager_data_buffer*<br/>
@@ -242,7 +242,7 @@ namespace Hexa.NET.MiniAudio
 					public ulong LoopPointEndInPCMFrames;
 					public uint IsLooping;
 
-					public unsafe LoadDataBufferUnion(void* pDataBuffer = default, void* pInitNotification = default, void* pDoneNotification = default, MaFencePtr pInitFence = default, MaFencePtr pDoneFence = default, ulong rangeBegInPCMFrames = default, ulong rangeEndInPCMFrames = default, ulong loopPointBegInPCMFrames = default, ulong loopPointEndInPCMFrames = default, uint isLooping = default)
+					public unsafe LoadDataBufferAnonymous(void* pDataBuffer = default, void* pInitNotification = default, void* pDoneNotification = default, MaFencePtr pInitFence = default, MaFencePtr pDoneFence = default, ulong rangeBegInPCMFrames = default, ulong rangeEndInPCMFrames = default, ulong loopPointBegInPCMFrames = default, ulong loopPointEndInPCMFrames = default, uint isLooping = default)
 					{
 						PDataBuffer = pDataBuffer;
 						PInitNotification = pInitNotification;
@@ -260,7 +260,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct FreeDataBufferUnion
+				public partial struct FreeDataBufferAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager_data_buffer*<br/>
@@ -270,7 +270,7 @@ namespace Hexa.NET.MiniAudio
 					public unsafe void* PDoneNotification;
 					public unsafe MaFence* PDoneFence;
 
-					public unsafe FreeDataBufferUnion(void* pDataBuffer = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
+					public unsafe FreeDataBufferAnonymous(void* pDataBuffer = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
 					{
 						PDataBuffer = pDataBuffer;
 						PDoneNotification = pDoneNotification;
@@ -281,7 +281,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct LoadDataStreamUnion
+				public partial struct LoadDataStreamAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager_data_stream*<br/>
@@ -306,7 +306,7 @@ namespace Hexa.NET.MiniAudio
 
 					public unsafe MaFence* PInitFence;
 
-					public unsafe LoadDataStreamUnion(void* pDataStream = default, byte* pFilePath = default, char* pFilePathW = default, ulong initialSeekPoint = default, void* pInitNotification = default, MaFencePtr pInitFence = default)
+					public unsafe LoadDataStreamAnonymous(void* pDataStream = default, byte* pFilePath = default, char* pFilePathW = default, ulong initialSeekPoint = default, void* pInitNotification = default, MaFencePtr pInitFence = default)
 					{
 						PDataStream = pDataStream;
 						PFilePath = pFilePath;
@@ -320,7 +320,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct FreeDataStreamUnion
+				public partial struct FreeDataStreamAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager_data_stream*<br/>
@@ -330,7 +330,7 @@ namespace Hexa.NET.MiniAudio
 					public unsafe void* PDoneNotification;
 					public unsafe MaFence* PDoneFence;
 
-					public unsafe FreeDataStreamUnion(void* pDataStream = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
+					public unsafe FreeDataStreamAnonymous(void* pDataStream = default, void* pDoneNotification = default, MaFencePtr pDoneFence = default)
 					{
 						PDataStream = pDataStream;
 						PDoneNotification = pDoneNotification;
@@ -341,7 +341,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct PageDataStreamUnion
+				public partial struct PageDataStreamAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager_data_stream*<br/>
@@ -354,7 +354,7 @@ namespace Hexa.NET.MiniAudio
 					public uint PageIndex;
 
 
-					public unsafe PageDataStreamUnion(void* pDataStream = default, uint pageIndex = default)
+					public unsafe PageDataStreamAnonymous(void* pDataStream = default, uint pageIndex = default)
 					{
 						PDataStream = pDataStream;
 						PageIndex = pageIndex;
@@ -364,7 +364,7 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[StructLayout(LayoutKind.Sequential)]
-				public partial struct SeekDataStreamUnion
+				public partial struct SeekDataStreamAnonymous
 				{
 					/// <summary>
 					/// ma_resource_manager_data_stream*<br/>
@@ -373,7 +373,7 @@ namespace Hexa.NET.MiniAudio
 
 					public ulong FrameIndex;
 
-					public unsafe SeekDataStreamUnion(void* pDataStream = default, ulong frameIndex = default)
+					public unsafe SeekDataStreamAnonymous(void* pDataStream = default, ulong frameIndex = default)
 					{
 						PDataStream = pDataStream;
 						FrameIndex = frameIndex;
@@ -383,25 +383,25 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[FieldOffset(0)]
-				public LoadDataBufferNodeUnion LoadDataBufferNode;
+				public LoadDataBufferNodeAnonymous LoadDataBufferNode;
 				[FieldOffset(0)]
-				public FreeDataBufferNodeUnion FreeDataBufferNode;
+				public FreeDataBufferNodeAnonymous FreeDataBufferNode;
 				[FieldOffset(0)]
-				public PageDataBufferNodeUnion PageDataBufferNode;
+				public PageDataBufferNodeAnonymous PageDataBufferNode;
 				[FieldOffset(0)]
-				public LoadDataBufferUnion LoadDataBuffer;
+				public LoadDataBufferAnonymous LoadDataBuffer;
 				[FieldOffset(0)]
-				public FreeDataBufferUnion FreeDataBuffer;
+				public FreeDataBufferAnonymous FreeDataBuffer;
 				[FieldOffset(0)]
-				public LoadDataStreamUnion LoadDataStream;
+				public LoadDataStreamAnonymous LoadDataStream;
 				[FieldOffset(0)]
-				public FreeDataStreamUnion FreeDataStream;
+				public FreeDataStreamAnonymous FreeDataStream;
 				[FieldOffset(0)]
-				public PageDataStreamUnion PageDataStream;
+				public PageDataStreamAnonymous PageDataStream;
 				[FieldOffset(0)]
-				public SeekDataStreamUnion SeekDataStream;
+				public SeekDataStreamAnonymous SeekDataStream;
 
-				public unsafe ResourceManagerUnion(LoadDataBufferNodeUnion loadDataBufferNode = default, FreeDataBufferNodeUnion freeDataBufferNode = default, PageDataBufferNodeUnion pageDataBufferNode = default, LoadDataBufferUnion loadDataBuffer = default, FreeDataBufferUnion freeDataBuffer = default, LoadDataStreamUnion loadDataStream = default, FreeDataStreamUnion freeDataStream = default, PageDataStreamUnion pageDataStream = default, SeekDataStreamUnion seekDataStream = default)
+				public unsafe ResourceManagerAnonymous(LoadDataBufferNodeAnonymous loadDataBufferNode = default, FreeDataBufferNodeAnonymous freeDataBufferNode = default, PageDataBufferNodeAnonymous pageDataBufferNode = default, LoadDataBufferAnonymous loadDataBuffer = default, FreeDataBufferAnonymous freeDataBuffer = default, LoadDataStreamAnonymous loadDataStream = default, FreeDataStreamAnonymous freeDataStream = default, PageDataStreamAnonymous pageDataStream = default, SeekDataStreamAnonymous seekDataStream = default)
 				{
 					LoadDataBufferNode = loadDataBufferNode;
 					FreeDataBufferNode = freeDataBufferNode;
@@ -418,13 +418,13 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[StructLayout(LayoutKind.Explicit)]
-			public partial struct DeviceUnion
+			public partial struct DeviceAnonymous
 			{
 				[StructLayout(LayoutKind.Explicit)]
-				public partial struct AaudioUnion
+				public partial struct AaudioAnonymous
 				{
 					[StructLayout(LayoutKind.Sequential)]
-					public partial struct RerouteUnion
+					public partial struct RerouteAnonymous
 					{
 						/// <summary>
 						/// ma_device*<br/>
@@ -437,7 +437,7 @@ namespace Hexa.NET.MiniAudio
 						public uint DeviceType;
 
 
-						public unsafe RerouteUnion(void* pDevice = default, uint deviceType = default)
+						public unsafe RerouteAnonymous(void* pDevice = default, uint deviceType = default)
 						{
 							PDevice = pDevice;
 							DeviceType = deviceType;
@@ -447,9 +447,9 @@ namespace Hexa.NET.MiniAudio
 					}
 
 					[FieldOffset(0)]
-					public RerouteUnion Reroute;
+					public RerouteAnonymous Reroute;
 
-					public unsafe AaudioUnion(RerouteUnion reroute = default)
+					public unsafe AaudioAnonymous(RerouteAnonymous reroute = default)
 					{
 						Reroute = reroute;
 					}
@@ -458,9 +458,9 @@ namespace Hexa.NET.MiniAudio
 				}
 
 				[FieldOffset(0)]
-				public AaudioUnion Union;
+				public AaudioAnonymous Union;
 
-				public unsafe DeviceUnion(AaudioUnion union = default)
+				public unsafe DeviceAnonymous(AaudioAnonymous union = default)
 				{
 					Union = union;
 				}
@@ -469,13 +469,13 @@ namespace Hexa.NET.MiniAudio
 			}
 
 			[FieldOffset(0)]
-			public CustomUnion Custom;
+			public CustomAnonymous Custom;
 			[FieldOffset(0)]
-			public ResourceManagerUnion Union1;
+			public ResourceManagerAnonymous Union1;
 			[FieldOffset(0)]
-			public DeviceUnion Union2;
+			public DeviceAnonymous Union2;
 
-			public unsafe DataUnion(CustomUnion custom = default, ResourceManagerUnion union1 = default, DeviceUnion union2 = default)
+			public unsafe DataAnonymous(CustomAnonymous custom = default, ResourceManagerAnonymous union1 = default, DeviceAnonymous union2 = default)
 			{
 				Custom = custom;
 				Union1 = union1;
@@ -488,7 +488,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// 8 bytes. We encode the job code into the slot allocation data to save space. <br/>
 		/// </summary>
-		public TocUnion Union0;
+		public TocAnonymous Union0;
 
 		/// <summary>
 		/// refcount + slot for the next item. Does not include the job code. <br/>
@@ -500,9 +500,9 @@ namespace Hexa.NET.MiniAudio
 		/// </summary>
 		public uint Order;
 
-		public DataUnion Union1;
+		public DataAnonymous Union1;
 
-		public unsafe MaJob(TocUnion union0 = default, ulong next = default, uint order = default, DataUnion union1 = default)
+		public unsafe MaJob(TocAnonymous union0 = default, ulong next = default, uint order = default, DataAnonymous union1 = default)
 		{
 			Union0 = union0;
 			Next = next;
@@ -554,7 +554,7 @@ namespace Hexa.NET.MiniAudio
 		/// <summary>
 		/// 8 bytes. We encode the job code into the slot allocation data to save space. <br/>
 		/// </summary>
-		public ref MaJob.TocUnion Union0 => ref Unsafe.AsRef<MaJob.TocUnion>(&Handle->Union0);
+		public ref MaJob.TocAnonymous Union0 => ref Unsafe.AsRef<MaJob.TocAnonymous>(&Handle->Union0);
 		/// <summary>
 		/// refcount + slot for the next item. Does not include the job code. <br/>
 		/// </summary>
@@ -563,7 +563,7 @@ namespace Hexa.NET.MiniAudio
 		/// Execution order. Used to create a data dependency and ensure a job is executed in order. Usage is contextual depending on the job type. <br/>
 		/// </summary>
 		public ref uint Order => ref Unsafe.AsRef<uint>(&Handle->Order);
-		public ref MaJob.DataUnion Union1 => ref Unsafe.AsRef<MaJob.DataUnion>(&Handle->Union1);
+		public ref MaJob.DataAnonymous Union1 => ref Unsafe.AsRef<MaJob.DataAnonymous>(&Handle->Union1);
 	}
 
 }
